@@ -30,11 +30,9 @@ lang: "en-US",
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Introductory Statistics">
-<meta property="og:title" content="Introductory Statistics">
-<meta property="book:title" content="Introductory Statistics">
-<meta name="twitter:description" content="Math 107">
-<meta property="og:description" content="Math 107">
+<meta name="twitter:title" content="Elementary Statistics">
+<meta property="og:title" content="Elementary Statistics">
+<meta property="book:title" content="Elementary Statistics">
 <meta name="twitter:card" content="summary">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
@@ -72,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
-<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Introductory Statistics</span> <span class="subtitle">Math 107</span></a></div>
-<p class="byline">You</p>
+<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Elementary Statistics</span></a></div>
+<p class="byline">Michael Fraboni</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
 <div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -128,74 +126,68 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Displaying Quantitative Data</span></a></div>
+<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Summarizing Data Graphically and Numerically</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-data-display">
 <li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-data-display-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Histograms</span></a></div>
+<div class="toc-title-box"><a href="sec-variable-types.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Categorical and Quantitative Variables</span></a></div>
+<ul id="ptx-toc-group-sec-variable-types" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-individuals-variables" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Individuals and variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-two-types" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Two types of variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-numeric-categorical" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Numbers that are not measurements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-why-type-matters" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Why the type decides the analysis</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dotplots.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Dotplots</span></a></div>
+<ul id="ptx-toc-group-sec-dotplots" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-case-value" class="internal"><span class="codenumber">1.2.1</span> <span class="title">A graph that does not help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-dotplot" class="internal"><span class="codenumber">1.2.2</span> <span class="title">The dotplot</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-reading-dotplot" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Describing what you see</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-shape-center-spread.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Shape, Center, Spread, and Outliers</span></a></div>
+<ul id="ptx-toc-group-sec-shape-center-spread" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-shape" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Shape</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-center-spread" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Center and spread</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-comparing-cereals" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Putting it together: comparing two groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-outliers" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Outliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Histograms</span></a></div>
 <ul id="ptx-toc-group-sec-histograms" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.1.1</span> <span class="title">From dots to bars</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The endpoint convention</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.1.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Two axes, one picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.1.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.4.1</span> <span class="title">From dots to bars</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The endpoint convention</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.4.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Two axes, one picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How Bins Shape the Picture</span></a></div>
+<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.5</span> <span class="title">How Bins Shape the Picture</span></a></div>
 <ul class="structural toc-item-list active" id="ptx-toc-group-sec-histogram-bins">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The same data, three ways</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Choosing a bin width</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The same data, three ways</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Choosing a bin width</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Describing a Distribution</span></a></div>
+<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Describing a Distribution</span></a></div>
 <ul id="ptx-toc-group-sec-describing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.3.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-shape-vocabulary" class="internal"><span class="codenumber">1.3.3</span> <span class="title">A vocabulary of shapes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.6.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Comparing Two Distributions</span></a></div>
+<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Comparing Two Distributions</span></a></div>
 <ul id="ptx-toc-group-sec-comparing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Writing the comparison</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-normal.html" class="internal"><span class="codenumber">2</span> <span class="title">The Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-ch-normal" class="structural toc-item-list">
-<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-normal-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-intro-normal.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction to the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-intro-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-parameters" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Two parameters determine everything</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-shape" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Shape, symmetry, and the effect of the parameters</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-limits" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Where the normal model does not apply</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-standard-normal.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Standard Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-standard-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-zscore" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Standardizing: the <span class="process-math">\(z\)</span>-score</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-comparing" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Comparing values across distributions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-empirical-rule" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Empirical Rule</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-using-normal.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Using the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-using-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-area-left-right" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Probability is area</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-two-questions" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Two kinds of question, two tools</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-percentiles" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Percentiles and interpretation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-middle-area" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Finding a middle interval</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Writing the comparison</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -205,7 +197,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-histogram-bins">
 <h1 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How Bins Shape the Picture</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How Bins Shape the Picture</span>
 </h1>
 <article class="objectives goal-like" id="sec-histogram-bins-2"><h2 class="heading"><span class="type">Objectives</span></h2>
 <ul class="disc" id="sec-histogram-bins-2-1">
@@ -230,7 +222,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-histogram-bins-2-1-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" aria-hidden="true" data-description="Objectives 1.2"><a tabindex="-1" href="#sec-histogram-bins-2" title="Copy heading and permalink for Objectives 1.2" aria-label="Copy heading and permalink for Objectives 1.2">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Objectives 1.5"><a tabindex="-1" href="#sec-histogram-bins-2" title="Copy heading and permalink for Objectives 1.5" aria-label="Copy heading and permalink for Objectives 1.5">🔗</a></div>
 </article>
 <section class="introduction" id="sec-histogram-bins-3">
 <div class="para" id="sec-histogram-bins-3-1">We now have two graphs that summarize the distribution of a quantitative variable: the dotplot and the histogram. From a dotplot we described the pattern in the data with statements about <em class="emphasis">shape</em>, <em class="emphasis">center</em>, and <em class="emphasis">spread</em>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histogram-bins-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -239,7 +231,7 @@ eBookConfig.enable_chatcodes =  false;
 </div></section>
 <section class="subsection" id="subsec-three-histograms">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The same data, three ways</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The same data, three ways</span>
 </h2>
 <div class="para" id="subsec-three-histograms-2">Twenty-one students took an exam. Here are their scores:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-three-histograms-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -252,24 +244,24 @@ eBookConfig.enable_chatcodes =  false;
         starting at 40. There are three bars: 6 students from 40 to 60, 9
         students from 60 to 80, and 6 students from 80 to 100. The picture is
         perfectly symmetric with a peak in the middle."></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width <span class="process-math">\(20\text{,}\)</span> first bin starting at <span class="process-math">\(40\text{.}\)</span> The distribution looks symmetric with a single central peak.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.2.1"><a tabindex="-1" href="#fig-bins-wide" title="Copy heading and permalink for Figure 1.2.1" aria-label="Copy heading and permalink for Figure 1.2.1">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width <span class="process-math">\(20\text{,}\)</span> first bin starting at <span class="process-math">\(40\text{.}\)</span> The distribution looks symmetric with a single central peak.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.5.1"><a tabindex="-1" href="#fig-bins-wide" title="Copy heading and permalink for Figure 1.5.1" aria-label="Copy heading and permalink for Figure 1.5.1">🔗</a></div></figcaption>
 </figure>
 <figure class="figure figure-like" id="fig-bins-medium"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><div class="asymptote-box" style="padding-top: 71.8542419885347%"><iframe src="generated/asymptote/image-bins-medium.html" class="asymptote" title="A histogram of the same 21 exam scores using bins of
         width 10 starting at 40. The six bars have heights 2, 4, 4, 5, 4, and
         2. The tallest bar covers scores from 70 to 80."></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width <span class="process-math">\(10\text{,}\)</span> first bin still starting at <span class="process-math">\(40\text{.}\)</span> Now it appears that most students scored between <span class="process-math">\(70\)</span> and <span class="process-math">\(80\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.2.2"><a tabindex="-1" href="#fig-bins-medium" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width <span class="process-math">\(10\text{,}\)</span> first bin still starting at <span class="process-math">\(40\text{.}\)</span> Now it appears that most students scored between <span class="process-math">\(70\)</span> and <span class="process-math">\(80\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.5.2"><a tabindex="-1" href="#fig-bins-medium" title="Copy heading and permalink for Figure 1.5.2" aria-label="Copy heading and permalink for Figure 1.5.2">🔗</a></div></figcaption>
 </figure>
 <figure class="figure figure-like" id="fig-bins-shifted"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><div class="asymptote-box" style="padding-top: 67.2821908198088%"><iframe src="generated/asymptote/image-bins-shifted.html" class="asymptote" title="A histogram of the same 21 exam scores using bins of
         width 10 starting at 45 instead of 40. The six bars have heights 3, 4,
         6, 4, 3, and 1. The tallest bar now covers scores from 65 to 75, and a
         short bar at the far right gives the distribution a slight rightward
         tail."></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width still <span class="process-math">\(10\text{,}\)</span> but the first bin now starts at <span class="process-math">\(45\text{.}\)</span> The distribution now looks slightly skewed to the right, and typical scores appear to fall between <span class="process-math">\(65\)</span> and <span class="process-math">\(75\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.2.3"><a tabindex="-1" href="#fig-bins-shifted" title="Copy heading and permalink for Figure 1.2.3" aria-label="Copy heading and permalink for Figure 1.2.3">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Bin width still <span class="process-math">\(10\text{,}\)</span> but the first bin now starts at <span class="process-math">\(45\text{.}\)</span> The distribution now looks slightly skewed to the right, and typical scores appear to fall between <span class="process-math">\(65\)</span> and <span class="process-math">\(75\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 1.5.3"><a tabindex="-1" href="#fig-bins-shifted" title="Copy heading and permalink for Figure 1.5.3" aria-label="Copy heading and permalink for Figure 1.5.3">🔗</a></div></figcaption>
 </figure>
-<div class="para" id="subsec-three-histograms-8">These are not small differences. <a href="sec-histogram-bins.html#fig-bins-wide" class="xref" data-knowl="./knowl/xref/fig-bins-wide.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.1">Figure 1.2.1</a> is perfectly symmetric. <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.3">Figure 1.2.3</a> leans right. Reading <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.2">Figure 1.2.2</a>, you would say most students scored in the <span class="process-math">\(70\)</span>s. Reading <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.3">Figure 1.2.3</a>, you would say typical students scored between <span class="process-math">\(65\)</span> and <span class="process-math">\(75\text{.}\)</span> Same twenty-one students.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-three-histograms-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-three-histograms-8">These are not small differences. <a href="sec-histogram-bins.html#fig-bins-wide" class="xref" data-knowl="./knowl/xref/fig-bins-wide.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.1">Figure 1.5.1</a> is perfectly symmetric. <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.3">Figure 1.5.3</a> leans right. Reading <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a>, you would say most students scored in the <span class="process-math">\(70\)</span>s. Reading <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.3">Figure 1.5.3</a>, you would say typical students scored between <span class="process-math">\(65\)</span> and <span class="process-math">\(75\text{.}\)</span> Same twenty-one students.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-three-histograms-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-same-data"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" data-multipleanswers="false" id="rs-check-same-data">
 <div class="para" id="check-same-data-1-1">All three histograms above display exactly the same twenty-one exam scores.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-same-data-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -283,29 +275,29 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-same-data-2-1">True, and this is the point of the section. Nothing about the data changed. Only the bin width and the starting point of the first bin changed, and that was enough to alter the apparent shape of the distribution.</div>
 </li>
 </ul></div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.2.4"><a tabindex="-1" href="#check-same-data" title="Copy heading and permalink for Checkpoint 1.2.4" aria-label="Copy heading and permalink for Checkpoint 1.2.4">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.2.1: The same data, three ways"><a tabindex="-1" href="#subsec-three-histograms" title="Copy heading and permalink for Subsection 1.2.1: The same data, three ways" aria-label="Copy heading and permalink for Subsection 1.2.1: The same data, three ways">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.5.4"><a tabindex="-1" href="#check-same-data" title="Copy heading and permalink for Checkpoint 1.5.4" aria-label="Copy heading and permalink for Checkpoint 1.5.4">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.1: The same data, three ways"><a tabindex="-1" href="#subsec-three-histograms" title="Copy heading and permalink for Subsection 1.5.1: The same data, three ways" aria-label="Copy heading and permalink for Subsection 1.5.1: The same data, three ways">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-why-bins-matter">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why the grouping changes the picture</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why the grouping changes the picture</span>
 </h2>
 <div class="para" id="subsec-why-bins-matter-2">Five students scored in the <span class="process-math">\(70\)</span>s: <span class="process-math">\(70\text{,}\)</span> <span class="process-math">\(71\text{,}\)</span> <span class="process-math">\(72\text{,}\)</span> <span class="process-math">\(77\text{,}\)</span> and <span class="process-math">\(78\text{.}\)</span> Follow just those five through the three graphs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-why-bins-matter-3">In <a href="sec-histogram-bins.html#fig-bins-wide" class="xref" data-knowl="./knowl/xref/fig-bins-wide.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.1">Figure 1.2.1</a>, all five land in the middle bin together with the four students who scored <span class="process-math">\(63\text{,}\)</span> <span class="process-math">\(66\text{,}\)</span> <span class="process-math">\(68\text{,}\)</span> and <span class="process-math">\(69\text{.}\)</span> They disappear into a group of nine.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-why-bins-matter-3">In <a href="sec-histogram-bins.html#fig-bins-wide" class="xref" data-knowl="./knowl/xref/fig-bins-wide.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.1">Figure 1.5.1</a>, all five land in the middle bin together with the four students who scored <span class="process-math">\(63\text{,}\)</span> <span class="process-math">\(66\text{,}\)</span> <span class="process-math">\(68\text{,}\)</span> and <span class="process-math">\(69\text{.}\)</span> They disappear into a group of nine.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-why-bins-matter-4">In <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.2">Figure 1.2.2</a>, those five form a bin entirely of their own, because no other student scored between <span class="process-math">\(70\)</span> and <span class="process-math">\(80\text{.}\)</span> That is the highlighted bar, and it is what makes the <span class="process-math">\(70\)</span>s look like the typical performance.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-why-bins-matter-4">In <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a>, those five form a bin entirely of their own, because no other student scored between <span class="process-math">\(70\)</span> and <span class="process-math">\(80\text{.}\)</span> That is the highlighted bar, and it is what makes the <span class="process-math">\(70\)</span>s look like the typical performance.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-why-bins-matter-5">In <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.3">Figure 1.2.3</a>, the five get split: <span class="process-math">\(70\text{,}\)</span> <span class="process-math">\(71\text{,}\)</span> and <span class="process-math">\(72\)</span> fall in the bin from <span class="process-math">\(65\)</span> to <span class="process-math">\(75\text{,}\)</span> while <span class="process-math">\(77\)</span> and <span class="process-math">\(78\)</span> fall in the bin from <span class="process-math">\(75\)</span> to <span class="process-math">\(85\text{.}\)</span> The group of five never appears as a group at all.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-why-bins-matter-5">In <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.3">Figure 1.5.3</a>, the five get split: <span class="process-math">\(70\text{,}\)</span> <span class="process-math">\(71\text{,}\)</span> and <span class="process-math">\(72\)</span> fall in the bin from <span class="process-math">\(65\)</span> to <span class="process-math">\(75\text{,}\)</span> while <span class="process-math">\(77\)</span> and <span class="process-math">\(78\)</span> fall in the bin from <span class="process-math">\(75\)</span> to <span class="process-math">\(85\text{.}\)</span> The group of five never appears as a group at all.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="subsec-why-bins-matter-6">When we change the bins, the data gets grouped differently, and the different grouping changes the appearance of the histogram. Nothing deceptive is happening. Every one of these graphs is an accurate count.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-why-bins-matter-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-five-students"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-five-students-1-1">Why do the five students who scored in the <span class="process-math">\(70\)</span>s form their own bar in <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.2">Figure 1.2.2</a> but not in <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.3">Figure 1.2.3</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-five-students-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-five-students-1-1">Why do the five students who scored in the <span class="process-math">\(70\)</span>s form their own bar in <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a> but not in <a href="sec-histogram-bins.html#fig-bins-shifted" class="xref" data-knowl="./knowl/xref/fig-bins-shifted.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.3">Figure 1.5.3</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-five-students-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-five-students" data-multipleanswers="false" data-random="">
@@ -336,12 +328,12 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.2.5"><a tabindex="-1" href="#check-five-students" title="Copy heading and permalink for Checkpoint 1.2.5" aria-label="Copy heading and permalink for Checkpoint 1.2.5">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.2.2: Why the grouping changes the picture"><a tabindex="-1" href="#subsec-why-bins-matter" title="Copy heading and permalink for Subsection 1.2.2: Why the grouping changes the picture" aria-label="Copy heading and permalink for Subsection 1.2.2: Why the grouping changes the picture">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.5.5"><a tabindex="-1" href="#check-five-students" title="Copy heading and permalink for Checkpoint 1.5.5" aria-label="Copy heading and permalink for Checkpoint 1.5.5">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.2: Why the grouping changes the picture"><a tabindex="-1" href="#subsec-why-bins-matter" title="Copy heading and permalink for Subsection 1.5.2: Why the grouping changes the picture" aria-label="Copy heading and permalink for Subsection 1.5.2: Why the grouping changes the picture">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-choosing-bins">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Choosing a bin width</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Choosing a bin width</span>
 </h2>
 <div class="para" id="subsec-choosing-bins-2">If three defensible choices give three different pictures, which one should we use? There is no formula, but there are two failure modes to avoid.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-choosing-bins-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -356,12 +348,12 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Assemblage: Two ways to go wrong"><a tabindex="-1" href="#asm-bin-advice" title="Copy heading and permalink for Assemblage: Two ways to go wrong" aria-label="Copy heading and permalink for Assemblage: Two ways to go wrong">🔗</a></div>
 </article>
-<div class="para" id="subsec-choosing-bins-4">That last point is what settles the exam-score example. Of the three graphs, <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.2">Figure 1.2.2</a> is the most useful summary—not because <span class="process-math">\(10\)</span>-point bins are mathematically optimal, but because <span class="process-math">\(10\)</span>-point intervals starting at round numbers correspond to letter grades. The bins carry meaning the reader already understands.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-choosing-bins-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-choosing-bins-4">That last point is what settles the exam-score example. Of the three graphs, <a href="sec-histogram-bins.html#fig-bins-medium" class="xref" data-knowl="./knowl/xref/fig-bins-medium.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a> is the most useful summary—not because <span class="process-math">\(10\)</span>-point bins are mathematically optimal, but because <span class="process-math">\(10\)</span>-point intervals starting at round numbers correspond to letter grades. The bins carry meaning the reader already understands.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-choosing-bins-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="subsec-choosing-bins-5">A good practice is to look at more than one binning before describing a distribution, and to be suspicious of any feature that appears under one choice and vanishes under another.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-choosing-bins-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-skyscraper"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -396,10 +388,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.2.6"><a tabindex="-1" href="#check-skyscraper" title="Copy heading and permalink for Checkpoint 1.2.6" aria-label="Copy heading and permalink for Checkpoint 1.2.6">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.5.6"><a tabindex="-1" href="#check-skyscraper" title="Copy heading and permalink for Checkpoint 1.5.6" aria-label="Copy heading and permalink for Checkpoint 1.5.6">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-pancake"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -433,10 +425,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.2.7"><a tabindex="-1" href="#check-pancake" title="Copy heading and permalink for Checkpoint 1.2.7" aria-label="Copy heading and permalink for Checkpoint 1.2.7">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.5.7"><a tabindex="-1" href="#check-pancake" title="Copy heading and permalink for Checkpoint 1.5.7" aria-label="Copy heading and permalink for Checkpoint 1.5.7">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-defend-bins"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para" id="check-defend-bins-1-1">Suppose you are graphing the annual household incomes of families in a county, where values range from near <span class="process-math">\(\$0\)</span> to about <span class="process-math">\(\$400{,}000\text{.}\)</span> Propose a bin width, and give one sentence defending it. What makes your choice meaningful to a reader?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-defend-bins-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="solutions">
@@ -448,11 +440,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="check-defend-bins-2-3">The strongest answers do what the exam-score example did: tie the bin boundaries to something the audience already recognizes, such as federal poverty thresholds or tax brackets.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-defend-bins-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1.2.8.1"><a tabindex="-1" href="#check-defend-bins-2" title="Copy heading and permalink for Solution 1.2.8.1" aria-label="Copy heading and permalink for Solution 1.2.8.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 1.5.8.1"><a tabindex="-1" href="#check-defend-bins-2" title="Copy heading and permalink for Solution 1.5.8.1" aria-label="Copy heading and permalink for Solution 1.5.8.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.2.8"><a tabindex="-1" href="#check-defend-bins" title="Copy heading and permalink for Checkpoint 1.2.8" aria-label="Copy heading and permalink for Checkpoint 1.2.8">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.2.3: Choosing a bin width"><a tabindex="-1" href="#subsec-choosing-bins" title="Copy heading and permalink for Subsection 1.2.3: Choosing a bin width" aria-label="Copy heading and permalink for Subsection 1.2.3: Choosing a bin width">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.5.8"><a tabindex="-1" href="#check-defend-bins" title="Copy heading and permalink for Checkpoint 1.5.8" aria-label="Copy heading and permalink for Checkpoint 1.5.8">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.5.3: Choosing a bin width"><a tabindex="-1" href="#subsec-choosing-bins" title="Copy heading and permalink for Subsection 1.5.3: Choosing a bin width" aria-label="Copy heading and permalink for Subsection 1.5.3: Choosing a bin width">🔗</a></div>
 </section>
 <section class="conclusion" id="sec-histogram-bins-7">
 <div class="para" id="sec-histogram-bins-7-1">Descriptions of shape, center, and spread read from a histogram are affected by how the bins are defined. Changing the bin width, or keeping the width and shifting the starting point, regroups the data and can change the apparent shape of the distribution.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histogram-bins-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -462,7 +454,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec-histogram-bins-7-3">A dotplot does not have this problem, because it shows every individual value. That is the trade: the histogram handles large data sets, and pays for it with a dependence on the binning choice.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histogram-bins-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-histogram-bins-7-4">Adapted from <span class="booktitle">Concepts in Statistics</span> (SUNY / Lumen Learning), CC BY 4.0.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histogram-bins-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><div class="autopermalink" aria-hidden="true" data-description="Section 1.2: How Bins Shape the Picture"><a tabindex="-1" href="#sec-histogram-bins" title="Copy heading and permalink for Section 1.2: How Bins Shape the Picture" aria-label="Copy heading and permalink for Section 1.2: How Bins Shape the Picture">🔗</a></div>
+</div></section><div class="autopermalink" aria-hidden="true" data-description="Section 1.5: How Bins Shape the Picture"><a tabindex="-1" href="#sec-histogram-bins" title="Copy heading and permalink for Section 1.5: How Bins Shape the Picture" aria-label="Copy heading and permalink for Section 1.5: How Bins Shape the Picture">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">

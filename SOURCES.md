@@ -103,4 +103,45 @@ a probability, not a percentile. Correct: `invNorm(0.16, 5.85, 0.24)`
 |---|---|---|
 | Hip girth, 507 adults | Heinz, Peterson, Johnson & Kerk (2003) | `openintro::bdims$hip.gi` |
 | Birth weight, 189 mothers | Hosmer & Lemeshow, Baystate Medical Center, 1986 | `MASS::birthwt` |
-| Best Actress ages 1970–2001 | AMPAS | hardcoded in `tools/figures.R` |
+| Best Actress ages 1970–2001 | AMPAS | hardcoded in `tools/figures.R` |### Why It Matters: Summarizing Data Graphically and Numerically
+`/chapter/introduction-2` → folded into `ch-data-display`
+chapter introduction. Too short to be a section; no reading
+checks, no recorded credit.
+
+### Categorical vs. Quantitative Data
+`/chapter/what-is-data` → `sec-variable-types`
+
+Broken "Learn By Doing" widgets (US Census sample; Consumer
+Reports cereals) replaced with native reading checks.
+
+*Added, not in source:* the numeric-but-categorical problem
+(patient ID, zip code, coded survey responses) and the
+order/difference test. The source does not raise this, and it is
+the most common student error on this topic.
+
+### Dotplots (1 of 2)
+`/chapter/dotplots-1-of-2` → `sec-dotplots`
+
+**Protein values reconstructed.** Source shows both graphs but
+publishes no data. Built 21 children's cereals reproducing every
+stated fact: range 1–6 g, exactly 10 cereals at 2 g, most at 1
+or 2 g, one at 6 g. Cereal names are real; individual protein
+values are not verified against Consumer Reports.
+
+### Dotplots (2 of 2)
+`/chapter/dotplots-2-of-2` → `sec-shape-center-spread`
+
+**Sugar, calorie, phone-digit, and wrist data reconstructed.**
+Each reconstruction reproduces all stated values: adult sugar
+0–14 with mode 3 and typical range 0–6; children's sugar 1–15
+with mode 12 and typical range 9–13; both overall ranges exactly
+14; phone digits n = 47, roughly uniform; wrist data with two
+high outliers and a non-outlier minimum.
+
+*Added, not in source:* explicit statement that being the max or
+min does not make a value an outlier. The source implies this
+with color coding but never says it.
+
+**Overlap:** `sec-describing-distributions` §shape-vocabulary
+duplicates the shape definitions introduced here. Scheduled for
+removal.

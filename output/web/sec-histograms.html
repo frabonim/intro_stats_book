@@ -30,11 +30,9 @@ lang: "en-US",
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Introductory Statistics">
-<meta property="og:title" content="Introductory Statistics">
-<meta property="book:title" content="Introductory Statistics">
-<meta name="twitter:description" content="Math 107">
-<meta property="og:description" content="Math 107">
+<meta name="twitter:title" content="Elementary Statistics">
+<meta property="og:title" content="Elementary Statistics">
+<meta property="book:title" content="Elementary Statistics">
 <meta name="twitter:card" content="summary">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
@@ -72,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
-<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Introductory Statistics</span> <span class="subtitle">Math 107</span></a></div>
-<p class="byline">You</p>
+<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Elementary Statistics</span></a></div>
+<p class="byline">Michael Fraboni</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
 <div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -113,7 +111,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch-data-display-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-data-display.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-histogram-bins.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="sec-shape-center-spread.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-data-display.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-histogram-bins.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -128,74 +126,68 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Displaying Quantitative Data</span></a></div>
+<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Summarizing Data Graphically and Numerically</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-data-display">
 <li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-data-display-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-variable-types.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Categorical and Quantitative Variables</span></a></div>
+<ul id="ptx-toc-group-sec-variable-types" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-individuals-variables" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Individuals and variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-two-types" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Two types of variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-numeric-categorical" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Numbers that are not measurements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-why-type-matters" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Why the type decides the analysis</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dotplots.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Dotplots</span></a></div>
+<ul id="ptx-toc-group-sec-dotplots" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-case-value" class="internal"><span class="codenumber">1.2.1</span> <span class="title">A graph that does not help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-dotplot" class="internal"><span class="codenumber">1.2.2</span> <span class="title">The dotplot</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-reading-dotplot" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Describing what you see</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-shape-center-spread.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Shape, Center, Spread, and Outliers</span></a></div>
+<ul id="ptx-toc-group-sec-shape-center-spread" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-shape" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Shape</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-center-spread" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Center and spread</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-comparing-cereals" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Putting it together: comparing two groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-outliers" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Outliers</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Histograms</span></a></div>
+<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Histograms</span></a></div>
 <ul class="structural toc-item-list active" id="ptx-toc-group-sec-histograms">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.1.1</span> <span class="title">From dots to bars</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The endpoint convention</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.1.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Two axes, one picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.1.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.4.1</span> <span class="title">From dots to bars</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The endpoint convention</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.4.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Two axes, one picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How Bins Shape the Picture</span></a></div>
+<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.5</span> <span class="title">How Bins Shape the Picture</span></a></div>
 <ul id="ptx-toc-group-sec-histogram-bins" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The same data, three ways</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Choosing a bin width</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The same data, three ways</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Choosing a bin width</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Describing a Distribution</span></a></div>
+<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Describing a Distribution</span></a></div>
 <ul id="ptx-toc-group-sec-describing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.3.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-shape-vocabulary" class="internal"><span class="codenumber">1.3.3</span> <span class="title">A vocabulary of shapes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.6.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Comparing Two Distributions</span></a></div>
+<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Comparing Two Distributions</span></a></div>
 <ul id="ptx-toc-group-sec-comparing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Writing the comparison</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-normal.html" class="internal"><span class="codenumber">2</span> <span class="title">The Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-ch-normal" class="structural toc-item-list">
-<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-normal-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-intro-normal.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction to the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-intro-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-parameters" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Two parameters determine everything</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-shape" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Shape, symmetry, and the effect of the parameters</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-limits" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Where the normal model does not apply</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-standard-normal.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Standard Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-standard-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-zscore" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Standardizing: the <span class="process-math">\(z\)</span>-score</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-comparing" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Comparing values across distributions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-empirical-rule" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Empirical Rule</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-using-normal.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Using the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-using-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-area-left-right" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Probability is area</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-two-questions" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Two kinds of question, two tools</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-percentiles" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Percentiles and interpretation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-middle-area" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Finding a middle interval</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Writing the comparison</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -205,7 +197,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-histograms">
 <h1 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Histograms</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Histograms</span>
 </h1>
 <article class="objectives goal-like" id="sec-histograms-2"><h2 class="heading"><span class="type">Objectives</span></h2>
 <ul class="disc" id="sec-histograms-2-1">
@@ -235,7 +227,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-histograms-2-1-5" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" aria-hidden="true" data-description="Objectives 1.1"><a tabindex="-1" href="#sec-histograms-2" title="Copy heading and permalink for Objectives 1.1" aria-label="Copy heading and permalink for Objectives 1.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Objectives 1.4"><a tabindex="-1" href="#sec-histograms-2" title="Copy heading and permalink for Objectives 1.4" aria-label="Copy heading and permalink for Objectives 1.4">🔗</a></div>
 </article>
 <section class="introduction" id="sec-histograms-3">
 <div class="para" id="sec-histograms-3-1">Our goal in data analysis is to describe patterns in data and build a useful summary of a group. A graph that summarizes the distribution of a variable lets us see two things at once: the possible values the variable takes, and how many individuals fall at each value or interval of values.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histograms-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -244,7 +236,7 @@ eBookConfig.enable_chatcodes =  false;
 </div></section>
 <section class="subsection" id="subsec-building-histogram">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">From dots to bars</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">From dots to bars</span>
 </h2>
 <div class="para" id="subsec-building-histogram-2">Consider hip girth—the measurement around the hips—for <span class="process-math">\(507\)</span> adults who exercise regularly. The measurements range from <span class="process-math">\(79\)</span> cm to <span class="process-math">\(128\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-building-histogram-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -262,16 +254,16 @@ eBookConfig.enable_chatcodes =  false;
         centimeters, then fall off to the right, reaching 1 in the final bin.
         The distribution is roughly bell-shaped with a slightly longer tail on
         the right."></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hip girth measurements for <span class="process-math">\(507\)</span> adults who exercise regularly, with a bin width of <span class="process-math">\(5\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.1.1"><a tabindex="-1" href="#fig-hip-histogram" title="Copy heading and permalink for Figure 1.1.1" aria-label="Copy heading and permalink for Figure 1.1.1">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hip girth measurements for <span class="process-math">\(507\)</span> adults who exercise regularly, with a bin width of <span class="process-math">\(5\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.4.1"><a tabindex="-1" href="#fig-hip-histogram" title="Copy heading and permalink for Figure 1.4.1" aria-label="Copy heading and permalink for Figure 1.4.1">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="subsec-building-histogram-7">The height of each bar is the <dfn class="terminology">count</dfn> (also called the <dfn class="terminology">frequency</dfn>) of individuals in that bin. Reading the graph: <span class="process-math">\(48\)</span> adults have hip measurements between <span class="process-math">\(85\)</span> and <span class="process-math">\(90\)</span> cm, and <span class="process-math">\(97\)</span> adults fall between <span class="process-math">\(100\)</span> and <span class="process-math">\(105\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-building-histogram-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-bar-height"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-bar-height-1-1">In <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.1.1">Figure 1.1.1</a>, what does the height of a bar tell you?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-bar-height-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-bar-height-1-1">In <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.1">Figure 1.4.1</a>, what does the height of a bar tell you?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-bar-height-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-bar-height" data-multipleanswers="false" data-random="">
@@ -301,10 +293,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.2"><a tabindex="-1" href="#check-bar-height" title="Copy heading and permalink for Checkpoint 1.1.2" aria-label="Copy heading and permalink for Checkpoint 1.1.2">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.2"><a tabindex="-1" href="#check-bar-height" title="Copy heading and permalink for Checkpoint 1.4.2" aria-label="Copy heading and permalink for Checkpoint 1.4.2">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-histogram-vs-dotplot"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" data-multipleanswers="false" id="rs-check-histogram-vs-dotplot">
 <div class="para" id="check-histogram-vs-dotplot-1-1">A histogram is generally a better choice than a dotplot when the data set is large.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-histogram-vs-dotplot-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -318,12 +310,12 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-histogram-vs-dotplot-2-1">True. A dotplot draws one mark per individual, so with hundreds or thousands of values the stacks become impossible to read. A histogram groups individuals into bins, so the number of bars stays manageable no matter how many individuals there are.</div>
 </li>
 </ul></div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.3"><a tabindex="-1" href="#check-histogram-vs-dotplot" title="Copy heading and permalink for Checkpoint 1.1.3" aria-label="Copy heading and permalink for Checkpoint 1.1.3">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.1: From dots to bars"><a tabindex="-1" href="#subsec-building-histogram" title="Copy heading and permalink for Subsection 1.1.1: From dots to bars" aria-label="Copy heading and permalink for Subsection 1.1.1: From dots to bars">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.3"><a tabindex="-1" href="#check-histogram-vs-dotplot" title="Copy heading and permalink for Checkpoint 1.4.3" aria-label="Copy heading and permalink for Checkpoint 1.4.3">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.1: From dots to bars"><a tabindex="-1" href="#subsec-building-histogram" title="Copy heading and permalink for Subsection 1.4.1: From dots to bars" aria-label="Copy heading and permalink for Subsection 1.4.1: From dots to bars">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-endpoints">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The endpoint convention</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The endpoint convention</span>
 </h2>
 <div class="para" id="subsec-endpoints-2">A question comes up immediately. If one adult measures exactly <span class="process-math">\(90\)</span> cm, does that person belong to the bin from <span class="process-math">\(85\)</span> to <span class="process-math">\(90\text{,}\)</span> or the bin from <span class="process-math">\(90\)</span> to <span class="process-math">\(95\text{?}\)</span> Both bins name <span class="process-math">\(90\)</span> as an endpoint, and counting the person twice—or not at all—would be wrong.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-endpoints-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -341,7 +333,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="subsec-endpoints-5">The convention is arbitrary—the opposite choice would work equally well—but applying it consistently guarantees that every individual is counted exactly once.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-endpoints-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-endpoint-bin"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -378,16 +370,16 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.4"><a tabindex="-1" href="#check-endpoint-bin" title="Copy heading and permalink for Checkpoint 1.1.4" aria-label="Copy heading and permalink for Checkpoint 1.1.4">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.2: The endpoint convention"><a tabindex="-1" href="#subsec-endpoints" title="Copy heading and permalink for Subsection 1.1.2: The endpoint convention" aria-label="Copy heading and permalink for Subsection 1.1.2: The endpoint convention">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.4"><a tabindex="-1" href="#check-endpoint-bin" title="Copy heading and permalink for Checkpoint 1.4.4" aria-label="Copy heading and permalink for Checkpoint 1.4.4">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.2: The endpoint convention"><a tabindex="-1" href="#subsec-endpoints" title="Copy heading and permalink for Subsection 1.4.2: The endpoint convention" aria-label="Copy heading and permalink for Subsection 1.4.2: The endpoint convention">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-relative-frequency">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">From counts to relative frequencies</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">From counts to relative frequencies</span>
 </h2>
 <div class="para" id="subsec-relative-frequency-2">A count answers “how many,” but often the more useful question is “what fraction.” Knowing that <span class="process-math">\(48\)</span> adults fall in a bin means little until you know whether the sample had <span class="process-math">\(60\)</span> people or <span class="process-math">\(6000\text{.}\)</span> Dividing the count by the total gives a <dfn class="terminology">relative frequency</dfn>, usually reported as a percentage.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-relative-frequency-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table-hip-frequencies"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency distribution of hip girth for <span class="process-math">\(507\)</span> adults<div class="autopermalink" aria-hidden="true" data-description="Table 1.1.5: Frequency distribution of hip girth for 507 adults"><a tabindex="-1" href="#table-hip-frequencies" title="Copy heading and permalink for Table 1.1.5: Frequency distribution of hip girth for 507 adults" aria-label="Copy heading and permalink for Table 1.1.5: Frequency distribution of hip girth for 507 adults">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-hip-frequencies"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency distribution of hip girth for <span class="process-math">\(507\)</span> adults<div class="autopermalink" aria-hidden="true" data-description="Table 1.4.5: Frequency distribution of hip girth for 507 adults"><a tabindex="-1" href="#table-hip-frequencies" title="Copy heading and permalink for Table 1.4.5: Frequency distribution of hip girth for 507 adults" aria-label="Copy heading and permalink for Table 1.4.5: Frequency distribution of hip girth for 507 adults">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b2 r0 l0 t2 lines">Bin (cm)</th>
 <th scope="col" class="c m b2 r0 l0 t2 lines">Count</th>
@@ -478,7 +470,7 @@ eBookConfig.enable_chatcodes =  false;
 </table></div>
 </figure>
 <details id="ex-relative-frequency-one-bin" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Percentage in a single bin.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Percentage in a single bin.</span>
 </h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="ex-relative-frequency-one-bin-2-1">Approximately what percentage of the sample has hip measurements between <span class="process-math">\(85\)</span> and <span class="process-math">\(90\)</span> cm?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-relative-frequency-one-bin-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -495,13 +487,13 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="ex-relative-frequency-one-bin-3-3">About <span class="process-math">\(9.5\%\)</span> of the adults in this sample have hip girths of at least <span class="process-math">\(85\)</span> cm but less than <span class="process-math">\(90\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-relative-frequency-one-bin-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1.1.6.1"><a tabindex="-1" href="#ex-relative-frequency-one-bin-3" title="Copy heading and permalink for Solution 1.1.6.1" aria-label="Copy heading and permalink for Solution 1.1.6.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 1.4.6.1"><a tabindex="-1" href="#ex-relative-frequency-one-bin-3" title="Copy heading and permalink for Solution 1.4.6.1" aria-label="Copy heading and permalink for Solution 1.4.6.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 1.1.6: Percentage in a single bin"><a tabindex="-1" href="#ex-relative-frequency-one-bin" title="Copy heading and permalink for Example 1.1.6: Percentage in a single bin" aria-label="Copy heading and permalink for Example 1.1.6: Percentage in a single bin">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.6: Percentage in a single bin"><a tabindex="-1" href="#ex-relative-frequency-one-bin" title="Copy heading and permalink for Example 1.4.6: Percentage in a single bin" aria-label="Copy heading and permalink for Example 1.4.6: Percentage in a single bin">🔗</a></div>
 </article></details>
 <details id="ex-sweatpants" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Percentage across several bins.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Percentage across several bins.</span>
 </h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="ex-sweatpants-2-1">A pants manufacturer plans to produce three sizes of sweatpants. Size Large will fit hip girths of <span class="process-math">\(100\)</span> cm or more. What percentage of the sample will wear size Large?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-sweatpants-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -523,10 +515,10 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="ex-sweatpants-3-4">About <span class="process-math">\(31.2\%\)</span> of the adults in this sample will wear size Large sweatpants.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-sweatpants-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1.1.7.1"><a tabindex="-1" href="#ex-sweatpants-3" title="Copy heading and permalink for Solution 1.1.7.1" aria-label="Copy heading and permalink for Solution 1.1.7.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 1.4.7.1"><a tabindex="-1" href="#ex-sweatpants-3" title="Copy heading and permalink for Solution 1.4.7.1" aria-label="Copy heading and permalink for Solution 1.4.7.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 1.1.7: Percentage across several bins"><a tabindex="-1" href="#ex-sweatpants" title="Copy heading and permalink for Example 1.1.7: Percentage across several bins" aria-label="Copy heading and permalink for Example 1.1.7: Percentage across several bins">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 1.4.7: Percentage across several bins"><a tabindex="-1" href="#ex-sweatpants" title="Copy heading and permalink for Example 1.4.7: Percentage across several bins" aria-label="Copy heading and permalink for Example 1.4.7: Percentage across several bins">🔗</a></div>
 </article></details>
 <article class="assemblage assemblage-like" id="asm-percentages"><h3 class="heading"><span class="title">Spotlight on percentages.</span></h3>
 <div class="para" id="asm-percentages-2">
@@ -543,14 +535,14 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Assemblage: Spotlight on percentages"><a tabindex="-1" href="#asm-percentages" title="Copy heading and permalink for Assemblage: Spotlight on percentages" aria-label="Copy heading and permalink for Assemblage: Spotlight on percentages">🔗</a></div>
 </article>
-<div class="para" id="subsec-relative-frequency-7">Applying that pattern to <a href="sec-histograms.html#ex-sweatpants" class="xref" data-knowl="./knowl/xref/ex-sweatpants.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.1.7: Percentage across several bins">Example 1.1.7</a>: the ratio is <span class="process-math">\(158\)</span> out of <span class="process-math">\(507\)</span> adults; the calculation gives <span class="process-math">\(31.2\%\text{;}\)</span> and the interpretation is “for every <span class="process-math">\(100\)</span> adults in this sample, about <span class="process-math">\(31\)</span> will wear size Large.”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-relative-frequency-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-relative-frequency-7">Applying that pattern to <a href="sec-histograms.html#ex-sweatpants" class="xref" data-knowl="./knowl/xref/ex-sweatpants.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.7: Percentage across several bins">Example 1.4.7</a>: the ratio is <span class="process-math">\(158\)</span> out of <span class="process-math">\(507\)</span> adults; the calculation gives <span class="process-math">\(31.2\%\text{;}\)</span> and the interpretation is “for every <span class="process-math">\(100\)</span> adults in this sample, about <span class="process-math">\(31\)</span> will wear size Large.”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-relative-frequency-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-compute-relfreq"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-compute-relfreq-1-1">Using <a href="sec-histograms.html#table-hip-frequencies" class="xref" data-knowl="./knowl/xref/table-hip-frequencies.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.1.5: Frequency distribution of hip girth for 507 adults">Table 1.1.5</a>, approximately what percentage of the sample has a hip girth of at least <span class="process-math">\(90\)</span> cm but less than <span class="process-math">\(95\)</span> cm?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-compute-relfreq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-compute-relfreq-1-1">Using <a href="sec-histograms.html#table-hip-frequencies" class="xref" data-knowl="./knowl/xref/table-hip-frequencies.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.4.5: Frequency distribution of hip girth for 507 adults">Table 1.4.5</a>, approximately what percentage of the sample has a hip girth of at least <span class="process-math">\(90\)</span> cm but less than <span class="process-math">\(95\)</span> cm?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-compute-relfreq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-compute-relfreq" data-multipleanswers="false" data-random="">
@@ -586,10 +578,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.8"><a tabindex="-1" href="#check-compute-relfreq" title="Copy heading and permalink for Checkpoint 1.1.8" aria-label="Copy heading and permalink for Checkpoint 1.1.8">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.8"><a tabindex="-1" href="#check-compute-relfreq" title="Copy heading and permalink for Checkpoint 1.4.8" aria-label="Copy heading and permalink for Checkpoint 1.4.8">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-cumulative"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -628,10 +620,10 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.9"><a tabindex="-1" href="#check-cumulative" title="Copy heading and permalink for Checkpoint 1.1.9" aria-label="Copy heading and permalink for Checkpoint 1.1.9">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.9"><a tabindex="-1" href="#check-cumulative" title="Copy heading and permalink for Checkpoint 1.4.9" aria-label="Copy heading and permalink for Checkpoint 1.4.9">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-interpret-percent"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para" id="check-interpret-percent-1-1">You compute that <span class="process-math">\(19.1\%\)</span> of this sample has a hip girth of at least <span class="process-math">\(100\)</span> cm but less than <span class="process-math">\(105\)</span> cm. Write one complete sentence interpreting that number for someone who has not seen the data. Name the group, name the characteristic, and make the sentence stand on its own.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interpret-percent-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="solutions">
@@ -641,15 +633,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="check-interpret-percent-2-2">A complete interpretation names the group (adults in this sample who exercise regularly), the characteristic (hip girth in that interval), and the size of the share. Writing only “<span class="process-math">\(19.1\%\)</span> of the data” restates the arithmetic without saying what it describes. Note also that this statement is about <em class="emphasis">this sample</em>, not about all adults everywhere.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interpret-percent-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1.1.10.1"><a tabindex="-1" href="#check-interpret-percent-2" title="Copy heading and permalink for Solution 1.1.10.1" aria-label="Copy heading and permalink for Solution 1.1.10.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 1.4.10.1"><a tabindex="-1" href="#check-interpret-percent-2" title="Copy heading and permalink for Solution 1.4.10.1" aria-label="Copy heading and permalink for Solution 1.4.10.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.10"><a tabindex="-1" href="#check-interpret-percent" title="Copy heading and permalink for Checkpoint 1.1.10" aria-label="Copy heading and permalink for Checkpoint 1.1.10">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.3: From counts to relative frequencies"><a tabindex="-1" href="#subsec-relative-frequency" title="Copy heading and permalink for Subsection 1.1.3: From counts to relative frequencies" aria-label="Copy heading and permalink for Subsection 1.1.3: From counts to relative frequencies">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.10"><a tabindex="-1" href="#check-interpret-percent" title="Copy heading and permalink for Checkpoint 1.4.10" aria-label="Copy heading and permalink for Checkpoint 1.4.10">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.3: From counts to relative frequencies"><a tabindex="-1" href="#subsec-relative-frequency" title="Copy heading and permalink for Subsection 1.4.3: From counts to relative frequencies" aria-label="Copy heading and permalink for Subsection 1.4.3: From counts to relative frequencies">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-relative-axis">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Two axes, one picture</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Two axes, one picture</span>
 </h2>
 <div class="para" id="subsec-relative-axis-2">Because every relative frequency comes from dividing by the same total, rescaling the vertical axis from counts to percentages does not change the shape of the histogram at all. Only the numbers on the axis change.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-relative-axis-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -657,12 +649,12 @@ eBookConfig.enable_chatcodes =  false;
         507 adults. The bars have exactly the same shape as the frequency
         histogram, but the vertical axis now runs from 0 to 35 percent instead
         of 0 to 180 individuals, with the tallest bar at about 32 percent."></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The same data as <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.1.1">Figure 1.1.1</a>, with the vertical axis showing relative frequency instead of count. The shape is identical.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.1.11"><a tabindex="-1" href="#fig-hip-relative" title="Copy heading and permalink for Figure 1.1.11" aria-label="Copy heading and permalink for Figure 1.1.11">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The same data as <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.1">Figure 1.4.1</a>, with the vertical axis showing relative frequency instead of count. The shape is identical.<div class="autopermalink" aria-hidden="true" data-description="Figure 1.4.11"><a tabindex="-1" href="#fig-hip-relative" title="Copy heading and permalink for Figure 1.4.11" aria-label="Copy heading and permalink for Figure 1.4.11">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="subsec-relative-axis-4">This matters most when comparing two groups of different sizes. Suppose you wanted to compare hip girth for these <span class="process-math">\(507\)</span> exercisers against a sample of <span class="process-math">\(80\)</span> non-exercisers. Counts would be useless—every bar in the smaller group would be shorter simply because the group is smaller. Relative frequencies put both groups on the same scale, so differences in the bars mean differences in the distributions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-relative-axis-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-why-relative"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -680,7 +672,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-why-relative-2-2-1-1">Relative frequency changes the shape of the histogram to make differences easier to see.</div>
 </li>
 <li data-component="feedback" id="rs-check-why-relative_opt_b">
-<div class="para" id="check-why-relative-2-2-2-1">The shape does not change at all—compare <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.1.1">Figure 1.1.1</a> with <a href="sec-histograms.html#fig-hip-relative" class="xref" data-knowl="./knowl/xref/fig-hip-relative.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.1.11">Figure 1.1.11</a>. Only the axis labels differ.</div>
+<div class="para" id="check-why-relative-2-2-2-1">The shape does not change at all—compare <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.1">Figure 1.4.1</a> with <a href="sec-histograms.html#fig-hip-relative" class="xref" data-knowl="./knowl/xref/fig-hip-relative.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.11">Figure 1.4.11</a>. Only the axis labels differ.</div>
 </li>
 <li data-component="answer" id="rs-check-why-relative_opt_c">
 <div class="para" id="check-why-relative-2-3-1-1">Counts cannot be computed when the sample sizes differ.</div>
@@ -696,12 +688,12 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.12"><a tabindex="-1" href="#check-why-relative" title="Copy heading and permalink for Checkpoint 1.1.12" aria-label="Copy heading and permalink for Checkpoint 1.1.12">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.4: Two axes, one picture"><a tabindex="-1" href="#subsec-relative-axis" title="Copy heading and permalink for Subsection 1.1.4: Two axes, one picture" aria-label="Copy heading and permalink for Subsection 1.1.4: Two axes, one picture">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.12"><a tabindex="-1" href="#check-why-relative" title="Copy heading and permalink for Checkpoint 1.4.12" aria-label="Copy heading and permalink for Checkpoint 1.4.12">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.4: Two axes, one picture"><a tabindex="-1" href="#subsec-relative-axis" title="Copy heading and permalink for Subsection 1.4.4: Two axes, one picture" aria-label="Copy heading and permalink for Subsection 1.4.4: Two axes, one picture">🔗</a></div>
 </section>
 <section class="subsection" id="subsec-when-histogram">
 <h2 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When is a histogram the right graph?</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When is a histogram the right graph?</span>
 </h2>
 <div class="para" id="subsec-when-histogram-2">A histogram describes the distribution of a <dfn class="terminology">quantitative</dfn> variable—one whose values are numbers that can be ordered and measured. Hip girth, exam score, household income, and reaction time all qualify.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-when-histogram-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -710,7 +702,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="subsec-when-histogram-4">The visual difference reflects this. Histogram bars touch, because the bins are adjacent intervals on a continuous number line. Bar graph bars are drawn with gaps, because the categories are separate and their order on the page carries no meaning.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-when-histogram-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-variable-type"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -744,12 +736,12 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.13"><a tabindex="-1" href="#check-variable-type" title="Copy heading and permalink for Checkpoint 1.1.13" aria-label="Copy heading and permalink for Checkpoint 1.1.13">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.13"><a tabindex="-1" href="#check-variable-type" title="Copy heading and permalink for Checkpoint 1.4.13" aria-label="Copy heading and permalink for Checkpoint 1.4.13">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="check-describe-distribution"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
-<div class="para" id="check-describe-distribution-1-1">Look at <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.1.1">Figure 1.1.1</a> once more. In two or three sentences, describe what it tells you about hip girth among these <span class="process-math">\(507\)</span> adults. Where are most of the measurements concentrated, and is the picture symmetric or lopsided?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-describe-distribution-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-describe-distribution-1-1">Look at <a href="sec-histograms.html#fig-hip-histogram" class="xref" data-knowl="./knowl/xref/fig-hip-histogram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.1">Figure 1.4.1</a> once more. In two or three sentences, describe what it tells you about hip girth among these <span class="process-math">\(507\)</span> adults. Where are most of the measurements concentrated, and is the picture symmetric or lopsided?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-describe-distribution-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="solutions">
 <details id="check-describe-distribution-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
@@ -757,11 +749,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="check-describe-distribution-2-2">The three things worth naming in any description of a distribution are where the values fall overall, where they cluster, and whether the two sides balance.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-describe-distribution-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1.1.14.1"><a tabindex="-1" href="#check-describe-distribution-2" title="Copy heading and permalink for Solution 1.1.14.1" aria-label="Copy heading and permalink for Solution 1.1.14.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 1.4.14.1"><a tabindex="-1" href="#check-describe-distribution-2" title="Copy heading and permalink for Solution 1.4.14.1" aria-label="Copy heading and permalink for Solution 1.4.14.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.1.14"><a tabindex="-1" href="#check-describe-distribution" title="Copy heading and permalink for Checkpoint 1.1.14" aria-label="Copy heading and permalink for Checkpoint 1.1.14">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.5: When is a histogram the right graph?"><a tabindex="-1" href="#subsec-when-histogram" title="Copy heading and permalink for Subsection 1.1.5: When is a histogram the right graph?" aria-label="Copy heading and permalink for Subsection 1.1.5: When is a histogram the right graph?">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 1.4.14"><a tabindex="-1" href="#check-describe-distribution" title="Copy heading and permalink for Checkpoint 1.4.14" aria-label="Copy heading and permalink for Checkpoint 1.4.14">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 1.4.5: When is a histogram the right graph?"><a tabindex="-1" href="#subsec-when-histogram" title="Copy heading and permalink for Subsection 1.4.5: When is a histogram the right graph?" aria-label="Copy heading and permalink for Subsection 1.4.5: When is a histogram the right graph?">🔗</a></div>
 </section>
 <section class="conclusion" id="sec-histograms-9">
 <div class="para" id="sec-histograms-9-1">A histogram displays the distribution of a quantitative variable by dividing its values into equal-sized bins and drawing a bar whose height is the count, or frequency, of individuals in each bin. Bins include their left endpoint and exclude their right endpoint, so every individual is counted exactly once.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histograms-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -771,11 +763,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec-histograms-9-3">Bin width is a choice made by whoever draws the graph. Wider bins smooth the distribution and hide detail; narrower bins reveal detail but can make random variation look meaningful.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histograms-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-histograms-9-4">Adapted from <span class="booktitle">Concepts in Statistics</span> (SUNY / Lumen Learning), CC BY 4.0. Hip girth measurements from the body dimensions data of Heinz, Peterson, Johnson, and Kerk (2003).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-histograms-9-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><div class="autopermalink" aria-hidden="true" data-description="Section 1.1: Histograms"><a tabindex="-1" href="#sec-histograms" title="Copy heading and permalink for Section 1.1: Histograms" aria-label="Copy heading and permalink for Section 1.1: Histograms">🔗</a></div>
+</div></section><div class="autopermalink" aria-hidden="true" data-description="Section 1.4: Histograms"><a tabindex="-1" href="#sec-histograms" title="Copy heading and permalink for Section 1.4: Histograms" aria-label="Copy heading and permalink for Section 1.4: Histograms">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="ch-data-display-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-histogram-bins.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-shape-center-spread.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-histogram-bins.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

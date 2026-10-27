@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-variable-types">
+  <title>Categorical and Quantitative Variables</title>
+
+  <objectives>
+    <ul>
+      <li><p>Identify the individuals and the variables in a
+      data set.</p></li>
+      <li><p>Distinguish between categorical and quantitative
+      variables in context.</p></li>
+      <li><p>Recognize categorical variables that are recorded
+      using numbers.</p></li>
+      <li><p>Explain why the type of a variable determines how
+      it can be analyzed.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>Everything in this chapter depends on a distinction that
+    sounds trivial and is not: some variables are measurements,
+    and some are labels. Which kind you have determines which
+    graphs are legitimate, which summaries mean anything, and
+    which calculations are nonsense.</p>
+  </introduction>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-individuals-variables">
+    <title>Individuals and variables</title>
+
+    <p>Data consists of <term>individuals</term> and
+    <term>variables</term> that give us information about those
+    individuals.</p>
+
+    <p>An individual can be a person, but it need not be. It can
+    be an object, a place, a transaction, or an
+    event<mdash/>whatever the rows of your data table represent.
+    A variable is an attribute recorded about each individual: a
+    measurement or a label.</p>
+
+    <example xml:id="ex-medical-records">
+      <title>Medical records</title>
+      <statement>
+        <p>In a study of factors connected to low birth weight,
+        researchers recorded information about mothers who gave
+        birth at a hospital in Massachusetts. Identify the
+        individuals and the variables.</p>
+      </statement>
+      <solution>
+        <p>The <em>individuals</em> are the
+        patients<mdash/>the mothers.</p>
+        <p>There are six <em>variables</em>:</p>
+        <ul>
+          <li><p>Mother's age at delivery, in years</p></li>
+          <li><p>Mother's weight prior to pregnancy, in
+          pounds</p></li>
+          <li><p>Whether the mother smoked during pregnancy
+          (yes, no)</p></li>
+          <li><p>Number of doctor visits during the first
+          trimester</p></li>
+          <li><p>Mother's race (Caucasian, African American,
+          Asian, and so on)</p></li>
+          <li><p>Baby's birth weight, in grams</p></li>
+        </ul>
+        <p>Notice that the baby's birth weight is recorded as a
+        variable about the <em>mother</em>, because the mother
+        is the individual. Deciding what the individuals are is
+        the first thing to settle about any data set, and it is
+        not always obvious.</p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-individuals">
+      <statement>
+        <p>A used-car dealership records the make, model, year,
+        mileage, and sale price of every car it sold last year.
+        What are the individuals in this data set?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>The cars that were sold</p></statement>
+          <feedback>
+            <p>Correct. Each car gets one row, with five pieces
+            of information recorded about it.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The five pieces of information
+          recorded</p></statement>
+          <feedback>
+            <p>Those are the variables, not the
+            individuals.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The customers who bought the
+          cars</p></statement>
+          <feedback>
+            <p>Nothing was recorded about the customers. Every
+            variable listed describes a car.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The dealership</p></statement>
+          <feedback>
+            <p>There is only one dealership, so it cannot be
+            what the rows represent. The data set has one row
+            per car sold.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-two-types">
+    <title>Two types of variable</title>
+
+    <definition xml:id="def-categorical">
+      <title>Categorical variable</title>
+      <statement>
+        <p>A <term>categorical variable</term> takes category or
+        label values and places each individual into one of
+        several groups. Each observation falls in exactly one
+        category, and the categories are mutually exclusive.</p>
+      </statement>
+    </definition>
+
+    <definition xml:id="def-quantitative">
+      <title>Quantitative variable</title>
+      <statement>
+        <p>A <term>quantitative variable</term> takes numerical
+        values that represent some kind of measurement or count.
+        Arithmetic on those values<mdash/>averaging them,
+        subtracting one from another<mdash/>produces something
+        meaningful.</p>
+      </statement>
+    </definition>
+
+    <p>Return to <xref ref="ex-medical-records"/>. Whether the
+    mother smoked is categorical: every mother is either a
+    smoker or a nonsmoker, and those two groups do not overlap.
+    Race is categorical for the same reason. Age is
+    quantitative: a mother can be <m>18</m> years old or
+    <m>40</m> years old, and the difference between those
+    numbers means something real. Weight and birth weight are
+    quantitative as well.</p>
+
+    <p>Number of doctor visits is also quantitative. It takes
+    only whole-number values, which makes it a <em>count</em>
+    rather than a measurement, but counts are numbers you can
+    meaningfully average: a group averaging <m>3.4</m> visits
+    really did make more visits than a group averaging
+    <m>1.2</m>.</p>
+
+    <exercise xml:id="check-classify-basic">
+      <statement>
+        <p>Which of these variables from
+        <xref ref="ex-medical-records"/> is
+        <em>categorical</em>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>Whether the mother smoked during
+          pregnancy</p></statement>
+          <feedback>
+            <p>Correct. It sorts each mother into one of two
+            mutually exclusive groups, and the values are labels
+            rather than measurements.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Number of doctor visits in the first
+          trimester</p></statement>
+          <feedback>
+            <p>This is a count, and counts are quantitative. An
+            average number of visits is a meaningful
+            quantity.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Baby's birth weight in
+          grams</p></statement>
+          <feedback>
+            <p>A measurement in grams is quantitative.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Mother's weight prior to
+          pregnancy</p></statement>
+          <feedback>
+            <p>Also a measurement, and therefore
+            quantitative.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-count-quantitative">
+      <statement correct="yes">
+        <p>A variable that takes only whole-number values, such
+        as the number of doctor visits, can still be
+        quantitative.</p>
+      </statement>
+      <feedback>
+        <p>True. What makes a variable quantitative is that its
+        values are numbers on which arithmetic is meaningful,
+        not that those numbers can take any value in between.
+        Counts qualify.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-numeric-categorical">
+    <title>Numbers that are not measurements</title>
+
+    <p>Here is where the distinction earns its keep. Some
+    categorical variables are recorded using numbers, and
+    nothing about the appearance of the data warns you.</p>
+
+    <p>A patient ID number is written with digits, but averaging
+    patient IDs produces nothing. A zip code is a number that
+    does not measure anything; the fact that <m>18018</m> is
+    larger than <m>18015</m> tells you nothing about either
+    place. A survey that codes responses as
+    <m>1 = \text{Democrat}</m>, <m>2 = \text{Republican}</m>,
+    <m>3 = \text{Independent}</m> has a categorical variable
+    wearing a numeric disguise. The mean of those codes would be
+    a number, and it would mean nothing at all.</p>
+
+    <assemblage xml:id="asm-numeric-test">
+      <title>A test for numeric variables</title>
+      <p>When a variable is recorded as numbers, ask two
+      questions.</p>
+      <p><em>Does the order mean anything?</em> Is a larger
+      value genuinely more of something?</p>
+      <p><em>Does the difference mean anything?</em> Is the gap
+      between <m>3</m> and <m>5</m> the same kind of thing as
+      the gap between <m>7</m> and <m>9</m>?</p>
+      <p>If either answer is no, the variable is categorical no
+      matter how it is written down.</p>
+    </assemblage>
+
+    <exercise xml:id="check-patient-id">
+      <statement>
+        <p>A data set of hospital patients includes a column
+        labeled <q>Patient ID,</q> containing values like
+        <m>10427</m> and <m>10428</m>. What type of variable is
+        this?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Categorical, because the numbers are labels
+            rather than measurements</p>
+          </statement>
+          <feedback>
+            <p>Correct. Patient <m>10428</m> is not <q>more</q>
+            than patient <m>10427</m> in any sense, and the
+            difference between the IDs measures nothing.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Quantitative, because the values are numbers</p>
+          </statement>
+          <feedback>
+            <p>Being written as a number is not enough. Apply
+            the test in
+            <xref ref="asm-numeric-test" text="title"/>:
+            neither the order nor the differences carry
+            meaning.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Quantitative, because you could compute an
+            average of them</p>
+          </statement>
+          <feedback>
+            <p>You could compute it, but the result would be
+            meaningless. Being computable is not the same as
+            being meaningful.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Neither<mdash/>identifiers are not
+            variables</p>
+          </statement>
+          <feedback>
+            <p>It is a variable: it is a piece of information
+            recorded about each individual. It is simply a
+            categorical one.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-cereal-shelf">
+      <statement>
+        <p>Consumer Reports analyzed <m>77</m> breakfast
+        cereals, recording for each one its calories per
+        serving, grams of sugar, and the shelf it sat on in the
+        store, coded <m>1</m>, <m>2</m>, or <m>3</m> from the
+        floor up. Which of these three variables is
+        categorical?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>Shelf</p></statement>
+          <feedback>
+            <p>Correct. The codes name three locations. Shelf
+            <m>3</m> is not <q>three times</q> shelf <m>1</m>,
+            and an average shelf of <m>2.1</m> describes no
+            actual place.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Calories per serving</p></statement>
+          <feedback>
+            <p>A measurement in calories. Quantitative.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Grams of sugar</p></statement>
+          <feedback>
+            <p>A measurement in grams. Quantitative.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>All three are quantitative</p></statement>
+          <feedback>
+            <p>Two of them are. The shelf number labels a
+            location rather than measuring a quantity.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-why-type-matters">
+    <title>Why the type decides the analysis</title>
+
+    <p>How we analyze data depends on the type of data we
+    have.</p>
+
+    <p>Because quantitative data is numerical, there are clear
+    numerical ways to describe an average, a spread, and a
+    shape. The graphs in the rest of this
+    chapter<mdash/>dotplots and histograms<mdash/>all place
+    values on a numeric axis, which only works if the values are
+    genuinely numeric.</p>
+
+    <p>For categorical data, none of that applies. There is no
+    average eye color and no spread of political party. Instead
+    we work with <em>counts</em> and <em>proportions</em>: how
+    many individuals fall in each category, and what share of
+    the whole that represents. The corresponding graph is a bar
+    graph, whose bars are drawn with gaps because the categories
+    have no numeric order.</p>
+
+    <p>This chapter concentrates on quantitative variables.
+    Categorical variables get full treatment later, in the
+    chapter on relationships in categorical data.</p>
+
+    <exercise xml:id="check-own-variables">
+      <statement>
+        <p>Name one categorical variable and one quantitative
+        variable that a college could record about each of its
+        students. For each one, say in a few words why it is the
+        type you claim.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>For example: <q>Residency status (on-campus,
+        off-campus, commuter) is categorical, because it sorts
+        each student into one of three groups and the values are
+        labels. Credits completed is quantitative, because it is
+        a count, and the difference between <m>30</m> and
+        <m>60</m> credits means something real.</q></p>
+        <p>The explanation is what matters here. A strong answer
+        says <em>why</em><mdash/>labels versus measurements, or
+        whether differences between values carry meaning. Watch
+        out for a variable like <q>class year</q> coded
+        <m>1</m> through <m>4</m>: the order does mean
+        something, but it is still usually treated as
+        categorical, and a borderline case explained well is a
+        better answer than an easy case explained poorly.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <conclusion>
+    <title>Summary</title>
+    <p>Data consists of individuals and the variables recorded
+    about them. A categorical variable sorts individuals into
+    mutually exclusive groups using labels. A quantitative
+    variable takes numerical values representing a measurement
+    or a count, on which arithmetic is meaningful.</p>
+    <p>Some categorical variables are recorded as
+    numbers<mdash/>patient IDs, zip codes, coded survey
+    responses. Test them by asking whether their order and their
+    differences mean anything. If not, they are categorical.</p>
+    <p>The type determines the analysis: quantitative variables
+    get numeric summaries and dotplots or histograms;
+    categorical variables get counts, proportions, and bar
+    graphs.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Medical records example
+    based on data from Hosmer and Lemeshow, Baystate Medical
+    Center, Springfield, Massachusetts, <m>1986</m>.</p>
+  </conclusion>
+</section>

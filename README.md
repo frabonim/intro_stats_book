@@ -28,5 +28,5 @@ Read CONVENTIONS.md first. It is normative.
 Source provenance and every correction made to the originals are logged in SOURCES.md.
 
 License
-Content: CC BY-SA 4.0. See LICENSE.
+Content: CC BY 4.0. See LICENSE.
 

@@ -30,11 +30,9 @@ lang: "en-US",
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta name="twitter:title" content="Introductory Statistics">
-<meta property="og:title" content="Introductory Statistics">
-<meta property="book:title" content="Introductory Statistics">
-<meta name="twitter:description" content="Math 107">
-<meta property="og:description" content="Math 107">
+<meta name="twitter:title" content="Elementary Statistics">
+<meta property="og:title" content="Elementary Statistics">
+<meta property="book:title" content="Elementary Statistics">
 <meta name="twitter:card" content="summary">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
@@ -72,8 +70,8 @@ eBookConfig.enable_chatcodes =  false;
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
-<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Introductory Statistics</span> <span class="subtitle">Math 107</span></a></div>
-<p class="byline">You</p>
+<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Elementary Statistics</span></a></div>
+<p class="byline">Michael Fraboni</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
 <div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -128,74 +126,68 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Displaying Quantitative Data</span></a></div>
+<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Summarizing Data Graphically and Numerically</span></a></div>
 <ul id="ptx-toc-group-ch-data-display" class="structural toc-item-list">
 <li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-data-display-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Histograms</span></a></div>
+<div class="toc-title-box"><a href="sec-variable-types.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Categorical and Quantitative Variables</span></a></div>
+<ul id="ptx-toc-group-sec-variable-types" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-individuals-variables" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Individuals and variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-two-types" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Two types of variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-numeric-categorical" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Numbers that are not measurements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-variable-types.html#subsec-why-type-matters" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Why the type decides the analysis</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-dotplots.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Dotplots</span></a></div>
+<ul id="ptx-toc-group-sec-dotplots" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-case-value" class="internal"><span class="codenumber">1.2.1</span> <span class="title">A graph that does not help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-dotplot" class="internal"><span class="codenumber">1.2.2</span> <span class="title">The dotplot</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dotplots.html#subsec-reading-dotplot" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Describing what you see</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-shape-center-spread.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Shape, Center, Spread, and Outliers</span></a></div>
+<ul id="ptx-toc-group-sec-shape-center-spread" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-shape" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Shape</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-center-spread" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Center and spread</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-comparing-cereals" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Putting it together: comparing two groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-shape-center-spread.html#subsec-outliers" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Outliers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Histograms</span></a></div>
 <ul id="ptx-toc-group-sec-histograms" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.1.1</span> <span class="title">From dots to bars</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The endpoint convention</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.1.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Two axes, one picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.1.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.4.1</span> <span class="title">From dots to bars</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The endpoint convention</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.4.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Two axes, one picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How Bins Shape the Picture</span></a></div>
+<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.5</span> <span class="title">How Bins Shape the Picture</span></a></div>
 <ul id="ptx-toc-group-sec-histogram-bins" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The same data, three ways</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Choosing a bin width</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The same data, three ways</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Choosing a bin width</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Describing a Distribution</span></a></div>
+<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Describing a Distribution</span></a></div>
 <ul id="ptx-toc-group-sec-describing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.3.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-shape-vocabulary" class="internal"><span class="codenumber">1.3.3</span> <span class="title">A vocabulary of shapes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.6.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Comparing Two Distributions</span></a></div>
+<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Comparing Two Distributions</span></a></div>
 <ul id="ptx-toc-group-sec-comparing-distributions" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Writing the comparison</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-normal.html" class="internal"><span class="codenumber">2</span> <span class="title">The Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-ch-normal" class="structural toc-item-list">
-<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-normal-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-intro-normal.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction to the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-intro-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-parameters" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Two parameters determine everything</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-shape" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Shape, symmetry, and the effect of the parameters</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-limits" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Where the normal model does not apply</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-standard-normal.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Standard Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-standard-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-zscore" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Standardizing: the <span class="process-math">\(z\)</span>-score</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-comparing" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Comparing values across distributions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-empirical-rule" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Empirical Rule</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-using-normal.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Using the Normal Distribution</span></a></div>
-<ul id="ptx-toc-group-sec-using-normal" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-area-left-right" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Probability is area</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-two-questions" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Two kinds of question, two tools</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-percentiles" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Percentiles and interpretation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-middle-area" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Finding a middle interval</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Writing the comparison</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +203,7 @@ eBookConfig.enable_chatcodes =  false;
 <b class="title">Website</b> <a class="external" href="https://pretextbook.org" target="_blank">My Website</a>
 </div>
 <div class="para copyright">©2020–2024 You</div>
-<div class="para license">This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <a class="external" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CreativeCommons.org</a>
+<div class="para license">This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <a class="external" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CreativeCommons.org</a>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Colophon"><a tabindex="-1" href="#front-colophon" title="Copy heading and permalink for Colophon" aria-label="Copy heading and permalink for Colophon">🔗</a></div>
 </section>
