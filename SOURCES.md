@@ -142,6 +142,3 @@ high outliers and a non-outlier minimum.
 min does not make a value an outlier. The source implies this
 with color coding but never says it.
 
-**Overlap:** `sec-describing-distributions` §shape-vocabulary
-duplicates the shape definitions introduced here. Scheduled for
-removal.
