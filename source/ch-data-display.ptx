@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="ch-data-display" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Displaying Quantitative Data</title>
+
+  <introduction>
+    <p>Before we can model data, we have to look at it. This chapter develops
+    the graphical tools for describing how the values of a single quantitative
+    variable are distributed.</p>
+  </introduction>
+
+  <xi:include href="./sec-histograms.ptx"/>
+  <xi:include href="./sec-histogram-bins.ptx"/>
+  <xi:include href="./sec-describing-distributions.ptx"/>
+  <xi:include href="./sec-comparing-distributions.ptx"/>
+
+</chapter>

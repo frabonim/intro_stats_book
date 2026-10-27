@@ -1,0 +1,47 @@
+INFO    : Building target web
+INFO    : XSL conversion of /Users/memjf02/books/my_intro_stats/source/main.ptx by /Users/memjf02/.ptx/2.49.1/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : messages from the log for XSL processing (prefaced with a *):
+WARNING : * PTX:WARNING: the external directory is specified both within "docinfo" ("directories/@external") and in the publication file ("source/directories/@external").  The "docinfo" value is used; please remove the publication file entry.
+INFO    : successful application of /Users/memjf02/.ptx/2.49.1/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : discovering source file's directory name: /Users/memjf02/books/my_intro_stats/source
+INFO    : verifying and expanding input directory: /Users/memjf02/books/my_intro_stats/source/../assets
+INFO    : input directory expanded to absolute path: /Users/memjf02/books/my_intro_stats/assets
+WARNING : the external directory is specified both within "docinfo" ("directories/@external") and in the publisher file ("source/directories/@external").  The "docinfo" value is used; please remove the publisher file entry.
+INFO    : Generating any needed assets.
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /Users/memjf02/books/my_intro_stats/output/web.
+INFO    : XSL conversion of /Users/memjf02/books/my_intro_stats/source/main.ptx by /Users/memjf02/.ptx/2.49.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /Users/memjf02/.ptx/2.49.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.3.6
+INFO    : Downloading Runestone Services, version 8.3.6
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-default-modern
+INFO    : converting /Users/memjf02/books/my_intro_stats/source/main.ptx to HTML in /var/folders/_f/8dytwg911ms3c6btjcjp2zb19s1qvb/T/ptx-tfjnmaqc
+INFO    : XSL conversion of /Users/memjf02/books/my_intro_stats/source/main.ptx by /Users/memjf02/.ptx/2.49.1/core/xsl/pretext-html.xsl
+INFO    : * PTX:INFO:   checking all deprecated elements.
+WARNING : * PTX:DEPRECATE: (2026-05-11) the "me" and "men" elements have been deprecated.  The replacement is an "md" with no "mrow" children, and numbering is controlled by the "@number" attribute, or a global setting in "docinfo". (8 times)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/me
+INFO    : *              located within: "def-zscore" (xml:id), "z-score" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/me
+INFO    : *              located within: "ex-zscore-basic" (xml:id), "Computing two z-scores" (title)
+INFO    : *              located within: "ex-weight-loss" (xml:id), "Weight change" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/me
+INFO    : *              located within: "subsec-comparing" (xml:id), "Comparing values across distributions" (title)
+INFO    : *              located within: "ex-chile-2009" (xml:id), "Heights in Chile, 20092010" (title)
+INFO    : *              located within: "ex-chile-compare" (xml:id), "Comparing two generations" (title)
+INFO    : * --------------
+WARNING : * PTX:DEPRECATE: (2026-07-08) a "title" on an "introduction" or "conclusion" of a traditional division has been deprecated, and it will be ignored. (1 time)
+INFO    : *              located at: pretext/book/chapter/section/conclusion/title
+INFO    : *              located within: "Summary" (title)
+INFO    : successful application of /Users/memjf02/.ptx/2.49.1/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /var/folders/_f/8dytwg911ms3c6btjcjp2zb19s1qvb/T/ptx-tfjnmaqc
+INFO    : Removing temporary directory /var/folders/_f/8dytwg911ms3c6btjcjp2zb19s1qvb/T/ptx-8e3bpf7b
+INFO    : 
+Finished build for target web. Run `pretext view web` to see the results.
+
+INFO    : 
+Success!  Built requested target(s) without errors.
+
+INFO    : 

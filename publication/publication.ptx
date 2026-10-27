@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<publication>
+
+  <source>
+    <directories external="assets/external" generated="assets/generated"/>
+  </source>
+
+  <common>
+    <tocdepth level="2"/>
+  </common>
+
+  <html>
+    <knowl exercise-inline="no"/>
+  </html>
+
+</publication>

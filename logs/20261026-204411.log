@@ -1,0 +1,13 @@
+INFO    : Building target web
+INFO    : XSL conversion of /Users/memjf02/books/my_intro_stats/source/main.ptx by /Users/memjf02/.ptx/2.49.1/core/xsl/utilities/pretext-enhanced-source.xsl
+ERROR   : Error loading /Users/memjf02/books/my_intro_stats/source/sec-comparing-distributions.ptx: Error reading file '/Users/memjf02/books/my_intro_stats/source/sec-comparing-distributions.ptx': failed to load "/Users/memjf02/books/my_intro_stats/source/sec-comparing-distributions.ptx": No such file or directory
+ERROR   : Error assembling source file: Error reading file '/Users/memjf02/books/my_intro_stats/source/sec-comparing-distributions.ptx': failed to load "/Users/memjf02/books/my_intro_stats/source/sec-comparing-distributions.ptx": No such file or directory
+FATAL   : XML syntax for source file is invalid
+INFO    : ------------------------
+exit    : Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

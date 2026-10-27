@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-using-normal">
+  <title>Using the Normal Distribution</title>
+
+  <objectives>
+    <ul>
+      <li><p>Interpret a normal probability as an area under the curve.</p></li>
+      <li><p>Use the complement rule to convert between left and right areas.</p></li>
+      <li><p>Choose between a probability calculation and a percentile
+      calculation based on what the question gives you.</p></li>
+      <li><p>Find percentiles, quartiles, and middle intervals of a normal
+      distribution.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>The previous section converted values into <m>z</m>-scores. This
+    section puts that machinery to work answering the questions people
+    actually ask: how likely is a value this large, and what value separates
+    the top ten percent from everyone else?</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-area-left-right">
+    <title>Probability is area</title>
+
+    <p>For a continuous distribution, the probability that <m>X</m> falls
+    below some value <m>x</m> is the <em>area</em> under the curve to the left
+    of <m>x</m>. We write this <m>P(X \lt x)</m>. Normal tables, computers,
+    and calculators all do the same job: they report that area.</p>
+
+    <p>Since the total area under the curve is <m>1</m>, the area to the right
+    follows immediately.</p>
+
+    <assemblage xml:id="asm-complement">
+      <title>Left areas, right areas</title>
+      <p><m>P(X \lt x)</m> is the area to the left of a vertical line through
+      <m>x</m>.</p>
+      <p><m>P(X \gt x) = 1 - P(X \lt x)</m> is the area to the right.</p>
+      <p>For a continuous distribution, <m>P(X \lt x)</m> and
+      <m>P(X \le x)</m> are the same number, and likewise for
+      <m>P(X \gt x)</m> and <m>P(X \ge x)</m>. A single point has zero area,
+      so including or excluding the endpoint changes nothing.</p>
+    </assemblage>
+
+    <p>That last point surprises people. In a continuous distribution,
+    <m>P(X = x) = 0</m> for every single value of <m>x</m><mdash/>not because
+    the value is impossible, but because a single point has no width and
+    therefore no area.</p>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-complement">
+      <statement>
+        <p>For a normal distribution, you compute <m>P(X \lt 65) = 0.6554</m>.
+        What is <m>P(X \gt 65)</m>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>0.3446</m></p></statement>
+          <feedback>
+            <p>Correct: <m>1 - 0.6554 = 0.3446</m>. The two areas must add to
+            <m>1</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.6554</m></p></statement>
+          <feedback>
+            <p>That is the area to the <em>left</em>. Unless <m>65</m> is the
+            mean, the two sides are not equal.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>-0.6554</m></p></statement>
+          <feedback>
+            <p>A probability can never be negative. Subtract from <m>1</m>
+            rather than negating.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It cannot be found without knowing <m>\mu</m> and
+            <m>\sigma</m>.</p>
+          </statement>
+          <feedback>
+            <p>The complement rule needs nothing beyond the left area. Review
+            <xref ref="asm-complement" text="title"/>.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-endpoint">
+      <statement correct="yes">
+        <p>For a normal distribution, <m>P(X \lt 70)</m> and
+        <m>P(X \le 70)</m> are the same number.</p>
+      </statement>
+      <feedback>
+        <p>True. The normal distribution is continuous, so the single point
+        <m>x = 70</m> contributes zero area. Including or excluding the
+        endpoint has no effect. This is <em>not</em> true for discrete
+        distributions.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-two-questions">
+    <title>Two kinds of question, two tools</title>
+
+    <p>Nearly every normal distribution problem is one of two types, and
+    telling them apart is most of the work.</p>
+
+    <table xml:id="table-two-tools">
+      <title>Which calculation do you need?</title>
+      <tabular halign="left" top="medium">
+        <row bottom="medium" header="yes">
+          <cell>You are given</cell>
+          <cell>You want</cell>
+          <cell>Calculator</cell>
+        </row>
+        <row>
+          <cell>a value <m>x</m></cell>
+          <cell>a probability (an area)</cell>
+          <cell><c>normalcdf</c></cell>
+        </row>
+        <row bottom="medium">
+          <cell>a probability (an area)</cell>
+          <cell>a value <m>x</m></cell>
+          <cell><c>invNorm</c></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>On a TI-83+ or TI-84, both commands live under <c>2nd DISTR</c>. The
+    syntax is</p>
+
+    <p><c>normalcdf(lower value, upper value, mean, standard deviation)</c></p>
+
+    <p><c>invNorm(area to the left, mean, standard deviation)</c></p>
+
+    <p>For a one-sided area with <c>normalcdf</c>, you still need two
+    endpoints, so use a number far out in the tail: <c>1E99</c> for the right
+    end, <c>-1E99</c> for the left. Enter <c>1E99</c> by pressing
+    <c>1</c>, then the <c>EE</c> key, then <c>99</c>.</p>
+
+    <example xml:id="ex-final-exam">
+      <title>Final exam scores</title>
+      <statement>
+        <p>Final exam scores in a statistics class were normally distributed
+        with a mean of <m>63</m> and a standard deviation of <m>5</m>, so
+        <m>X \sim N(63, 5)</m>.</p>
+        <p>(a) Find the probability that a randomly selected student scored
+        more than <m>65</m>.</p>
+        <p>(b) Find the probability that a randomly selected student scored
+        less than <m>85</m>.</p>
+        <p>(c) Find the 90th percentile<mdash/>the score <m>k</m> with
+        <m>90\%</m> of scores below it.</p>
+        <p>(d) Find the 70th percentile.</p>
+      </statement>
+      <solution>
+        <p>(a) Sketch the curve and shade to the right of <m>65</m>. Using
+        <c>normalcdf(65, 1E99, 63, 5) = 0.3446</c>.</p>
+        <p>You can also standardize first:
+        <m>z = \dfrac{65 - 63}{5} = 0.4</m>. The area to the left of
+        <m>z = 0.4</m> is <m>0.6554</m>, so the area to the right is
+        <m>1 - 0.6554 = 0.3446</m>.</p>
+        <p>About <m>34.5\%</m> of students scored above <m>65</m>.</p>
+
+        <p>(b) <c>normalcdf(-1E99, 85, 63, 5) \approx 1</c>. A score of
+        <m>85</m> is more than four standard deviations above the mean, so
+        essentially every student scored below it.</p>
+
+        <p>(c) Here you are given an area and want a value, so use
+        <c>invNorm(0.90, 63, 5) = 69.4</c>.</p>
+        <p>The 90th percentile is <m>69.4</m>: ninety percent of scores fall
+        at or below <m>69.4</m>, and ten percent at or above. A value like
+        this is often called a <term>critical value</term>.</p>
+
+        <p>(d) <c>invNorm(0.70, 63, 5) = 65.6</c>. Seventy percent of scores
+        fall at or below <m>65.6</m>.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-which-tool">
+      <statement>
+        <p>Heights are normally distributed with <m>\mu = 64</m> inches and
+        <m>\sigma = 3</m> inches. You want to find the height that separates
+        the shortest <m>25\%</m> from everyone else. Which calculation does
+        the job?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><c>invNorm(0.25, 64, 3)</c></p></statement>
+          <feedback>
+            <p>Correct. You were handed an area and asked for a value, so you
+            need the inverse.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><c>normalcdf(-1E99, 0.25, 64, 3)</c></p></statement>
+          <feedback>
+            <p>This treats <m>0.25</m> as a height rather than as an area.
+            Check <xref ref="table-two-tools"/>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><c>normalcdf(25, 1E99, 64, 3)</c></p></statement>
+          <feedback>
+            <p>This finds the probability of a height above <m>25</m> inches,
+            which is not what was asked.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><c>invNorm(0.75, 64, 3)</c></p></statement>
+          <feedback>
+            <p>Close, but <c>invNorm</c> always takes the area to the
+            <em>left</em>. The shortest <m>25\%</m> is a left area of
+            <m>0.25</m>.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <example xml:id="ex-computer-time">
+      <title>Computer use at home</title>
+      <statement>
+        <p>Suppose the average time a household personal computer is used for
+        entertainment is two hours per day, with times normally distributed
+        and a standard deviation of half an hour, so
+        <m>X \sim N(2, 0.5)</m>.</p>
+        <p>(a) Find the probability that such a computer is used for
+        entertainment between <m>1.8</m> and <m>2.75</m> hours per day.</p>
+        <p>(b) Find the maximum number of hours per day used by the bottom
+        quartile of households.</p>
+      </statement>
+      <solution>
+        <p>(a) You want the area <em>between</em> two values, so both
+        endpoints go straight into the command:
+        <c>normalcdf(1.8, 2.75, 2, 0.5) = 0.5886</c>.</p>
+
+        <p>(b) The bottom quartile is the lowest <m>25\%</m>, so find
+        <m>k</m> with <m>P(X \lt k) = 0.25</m>:
+        <c>invNorm(0.25, 2, 0.5) = 1.66</c>.</p>
+        <p>The bottom quartile of households uses the computer at most
+        <m>1.66</m> hours per day for entertainment.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 4 -->
+    <exercise xml:id="check-golf">
+      <statement>
+        <p>Golf scores for a school team are normally distributed with mean
+        <m>68</m> and standard deviation <m>3</m>. What is the probability
+        that a randomly selected golfer scored less than <m>65</m>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>About <m>0.1587</m></p></statement>
+          <feedback>
+            <p>Correct. <m>65</m> is exactly one standard deviation below the
+            mean, and about <m>16\%</m> of a normal distribution lies below
+            that point. (<c>normalcdf(-1E99, 65, 68, 3)</c>.)</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>0.8413</m></p></statement>
+          <feedback>
+            <p>That is the area to the <em>right</em> of <m>65</m>. The
+            question asks for scores <em>less than</em> <m>65</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>0.3174</m></p></statement>
+          <feedback>
+            <p>That is the total area in <em>both</em> tails beyond one
+            standard deviation. You want only the left one.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>0.68</m></p></statement>
+          <feedback>
+            <p>The Empirical Rule's <m>68\%</m> is the area <em>between</em>
+            <m>-1</m> and <m>1</m> standard deviations, not a tail area.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-percentiles">
+    <title>Percentiles and interpretation</title>
+
+    <p>A percentile is only useful if you can say what it means in words. The
+    sentence pattern is always the same: <em>p percent of the population is at
+    or below this value, and the remaining percent is at or above it.</em></p>
+
+    <example xml:id="ex-smartphone">
+      <title>Ages of smartphone users</title>
+      <statement>
+        <p>In the United States, the ages of smartphone users aged 13 to 55+
+        approximately follow a normal distribution with mean <m>36.9</m> years
+        and standard deviation <m>13.9</m> years.</p>
+        <p>(a) Find the probability that a randomly selected user is between
+        <m>23</m> and <m>64.7</m> years old.</p>
+        <p>(b) Find the probability that a user is at most <m>50.8</m> years
+        old.</p>
+        <p>(c) Find the 80th percentile and interpret it in a complete
+        sentence.</p>
+      </statement>
+      <solution>
+        <p>(a) <c>normalcdf(23, 64.7, 36.9, 13.9) = 0.8186</c></p>
+        <p>(b) <c>normalcdf(-1E99, 50.8, 36.9, 13.9) = 0.8413</c></p>
+        <p>(c) <c>invNorm(0.80, 36.9, 13.9) = 48.6</c></p>
+        <p>The 80th percentile is <m>48.6</m> years. Eighty percent of
+        smartphone users aged 13 to 55+ are <m>48.6</m> years old or younger,
+        and twenty percent are <m>48.6</m> or older.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 5: short answer, recorded -->
+    <exercise xml:id="check-interpret-percentile">
+      <statement>
+        <p>For the smartphone users in <xref ref="ex-smartphone"/>, the 30th
+        percentile is <m>29.6</m> years. Write one complete sentence
+        interpreting this number for someone who has never taken a statistics
+        course.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Thirty percent of smartphone users aged 13 to 55+ are <m>29.6</m>
+        years old or younger, and the other seventy percent are <m>29.6</m>
+        years old or older.</p>
+        <p>A good interpretation names the percentage, the value, the
+        population, and the direction. Saying only <q>the 30th percentile is
+        <m>29.6</m></q> restates the arithmetic without explaining it.</p>
+      </solution>
+    </exercise>
+
+    <example xml:id="ex-iqr">
+      <title>Quartiles and the interquartile range</title>
+      <statement>
+        <p>Using the same smartphone distribution,
+        <m>X \sim N(36.9, 13.9)</m>:</p>
+        <p>(a) Calculate the interquartile range.</p>
+        <p>(b) Forty percent of users are at least what age?</p>
+      </statement>
+      <solution>
+        <p>(a) The quartiles are the 25th and 75th percentiles:</p>
+        <p><c>invNorm(0.75, 36.9, 13.9) = 46.2754</c>, so
+        <m>Q_3 = 46.2754</m>.</p>
+        <p><c>invNorm(0.25, 36.9, 13.9) = 27.5246</c>, so
+        <m>Q_1 = 27.5246</m>.</p>
+        <me>IQR = Q_3 - Q_1 = 46.2754 - 27.5246 = 18.7508</me>
+
+        <p>(b) <q>At least</q> means <q>greater than or equal to,</q> so
+        <m>0.40</m> is the area to the <em>right</em>. Since <c>invNorm</c>
+        wants a left area, convert first: <m>1 - 0.40 = 0.60</m>.</p>
+        <p><c>invNorm(0.60, 36.9, 13.9) = 40.4215</c></p>
+        <p>Forty percent of users are at least <m>40.42</m> years old.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 6 -->
+    <exercise xml:id="check-at-least">
+      <statement>
+        <p>Exam scores are normal with <m>\mu = 81</m> and <m>\sigma = 15</m>.
+        You want the score that the top <m>20\%</m> of students exceeded. What
+        area should you give <c>invNorm</c>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>0.80</m></p></statement>
+          <feedback>
+            <p>Correct. The top <m>20\%</m> is a right area, and
+            <c>invNorm</c> requires the area to the left:
+            <m>1 - 0.20 = 0.80</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.20</m></p></statement>
+          <feedback>
+            <p>That would give the score separating the <em>bottom</em>
+            <m>20\%</m>. Convert the right area to a left area first.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.50</m></p></statement>
+          <feedback>
+            <p>That returns the mean, which splits the distribution in half.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>20</m></p></statement>
+          <feedback>
+            <p><c>invNorm</c> takes a probability between <m>0</m> and
+            <m>1</m>, not a percentage.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-middle-area">
+    <title>Finding a middle interval</title>
+
+    <p>A question like <q>the middle <m>20\%</m> of values fall between what
+    two numbers?</q> requires one extra step. The middle area is centered on
+    the mean, so whatever is left over splits evenly between the two
+    tails.</p>
+
+    <assemblage xml:id="asm-middle-strategy">
+      <title>Strategy for a middle interval</title>
+      <p>To find the middle <m>p</m> of a distribution, first compute the
+      leftover area <m>1 - p</m>, then split it in half. Each tail gets
+      <m>\dfrac{1 - p}{2}</m>.</p>
+      <p>The lower endpoint is at left area <m>\dfrac{1 - p}{2}</m>. The upper
+      endpoint is at left area <m>\dfrac{1 - p}{2} + p</m>.</p>
+    </assemblage>
+
+    <example xml:id="ex-oranges">
+      <title>Mandarin oranges</title>
+      <statement>
+        <p>A citrus farmer finds that the diameters of mandarin oranges from
+        his farm follow a normal distribution with mean <m>5.85</m> cm and
+        standard deviation <m>0.24</m> cm.</p>
+        <p>(a) Find the probability that a randomly selected orange has
+        diameter larger than <m>6.0</m> cm.</p>
+        <p>(b) The middle <m>20\%</m> of oranges have diameters between what
+        two values?</p>
+        <p>(c) Find the 90th percentile and interpret it.</p>
+      </statement>
+      <solution>
+        <p>(a) <c>normalcdf(6, 1E99, 5.85, 0.24) = 0.2660</c>. About
+        <m>26.6\%</m> of the oranges are larger than <m>6.0</m> cm.</p>
+
+        <p>(b) The leftover area is <m>1 - 0.20 = 0.80</m>, so each tail has
+        area <m>0.40</m>. The lower endpoint is the 40th percentile and the
+        upper endpoint is the 60th percentile.</p>
+        <p><c>invNorm(0.40, 5.85, 0.24) = 5.79</c> cm</p>
+        <p><c>invNorm(0.60, 5.85, 0.24) = 5.91</c> cm</p>
+        <p>The middle <m>20\%</m> of oranges are between <m>5.79</m> cm and
+        <m>5.91</m> cm in diameter.</p>
+
+        <p>(c) <c>invNorm(0.90, 5.85, 0.24) = 6.16</c> cm. Ninety percent of
+        the mandarin oranges from this farm have a diameter of <m>6.16</m> cm
+        or less.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 7 -->
+    <exercise xml:id="check-middle-area">
+      <statement>
+        <p>You want the middle <m>50\%</m> of a normal distribution. What are
+        the two left areas you feed to <c>invNorm</c>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>0.25</m> and <m>0.75</m></p></statement>
+          <feedback>
+            <p>Correct. The leftover area is <m>0.50</m>, split into two tails
+            of <m>0.25</m> each. These two values are exactly <m>Q_1</m> and
+            <m>Q_3</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.50</m> and <m>1.00</m></p></statement>
+          <feedback>
+            <p>That describes the entire upper half, not a middle interval.
+            Review <xref ref="asm-middle-strategy" text="title"/>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.00</m> and <m>0.50</m></p></statement>
+          <feedback>
+            <p>That is the lower half of the distribution, and <m>0.00</m> has
+            no finite value attached to it.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0.50</m> and <m>0.50</m></p></statement>
+          <feedback>
+            <p>Both of these return the mean, giving an interval of zero
+            width.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>Probability for a normal distribution is area under the curve.
+    <m>P(X \lt x)</m> is the area to the left, and
+    <m>P(X \gt x) = 1 - P(X \lt x)</m> is the area to the right. For a
+    continuous distribution, endpoints do not matter:
+    <m>P(X \lt x) = P(X \le x)</m>.</p>
+    <p>Given a value and asked for a probability, use <c>normalcdf</c>. Given
+    a probability and asked for a value, use <c>invNorm</c>, which always
+    takes the area to the <em>left</em>. For a middle interval of area
+    <m>p</m>, each tail holds <m>\dfrac{1-p}{2}</m>.</p>
+    <p>Adapted from <pubtitle>Introductory Statistics</pubtitle>
+    (OpenStax<nbsp/>/ Lumen Learning), CC BY 4.0. Smartphone user data from
+    <q>Smart Phone Users, By The Numbers,</q> Visual.ly, 2013.</p>
+  </conclusion>
+</section>

@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-histogram-bins">
+  <title>How Bins Shape the Picture</title>
+
+  <objectives>
+    <ul>
+      <li><p>Explain how bin width and starting point change the appearance of a histogram.</p></li>
+      <li><p>Recognize that shape, center, and spread read from a histogram are
+      partly artifacts of binning.</p></li>
+      <li><p>Identify histograms whose bins are too wide or too narrow to be useful.</p></li>
+      <li><p>Choose a bin width appropriate to the context of the data.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>We now have two graphs that summarize the distribution of a
+    quantitative variable: the dotplot and the histogram. From a dotplot we
+    described the pattern in the data with statements about
+    <em>shape</em>, <em>center</em>, and <em>spread</em>.</p>
+
+    <p>We have to be more careful making the same statements from a histogram.
+    A dotplot shows every individual value, so its appearance is fixed by the
+    data. A histogram shows <em>grouped</em> values, and the grouping is a
+    choice. Our perception of shape, center, and spread can change depending
+    on how the bins are defined.</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-three-histograms">
+    <title>The same data, three ways</title>
+
+    <p>Twenty-one students took an exam. Here are their scores:</p>
+
+    <p><m>46</m>, <m>48</m>, <m>52</m>, <m>55</m>, <m>57</m>, <m>58</m>,
+    <m>63</m>, <m>66</m>, <m>68</m>, <m>69</m>, <m>70</m>, <m>71</m>,
+    <m>72</m>, <m>77</m>, <m>78</m>, <m>82</m>, <m>84</m>, <m>85</m>,
+    <m>88</m>, <m>93</m>, <m>96</m></p>
+
+    <p>Below are three histograms built from exactly these twenty-one numbers.
+    Nothing about the data changed between them.</p>
+
+    <figure xml:id="fig-bins-wide">
+      <caption>Bin width <m>20</m>, first bin starting at <m>40</m>. The
+      distribution looks symmetric with a single central peak.</caption>
+      <image width="70%" xml:id="image-bins-wide">
+        <description>A histogram of 21 exam scores using bins of width 20
+        starting at 40. There are three bars: 6 students from 40 to 60, 9
+        students from 60 to 80, and 6 students from 80 to 100. The picture is
+        perfectly symmetric with a peak in the middle.</description>
+        <asymptote>
+unitsize(0.092cm, 0.40cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {40,60,80};
+real
+[] C = { 6, 9, 6};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  filldraw((L
+[i],0)--(L
+[i]+20,0)--(L
+[i]+20,C
+[i])--(L
+[i],C
+[i])--cycle,
+           paleblue, black+0.4bp);
+}
+
+draw((40,0)--(103,0), black+0.6bp);
+for (real t = 40; t &lt;= 100; t += 20) {
+  draw((t,0)--(t,-0.25), black+0.4bp);
+  label(format("%g", t), (t,-0.35), S);
+}
+
+draw((40,0)--(40,10), black+0.6bp);
+for (real s = 0; s &lt;= 10; s += 2) {
+  draw((40,s)--(38.8,s), black+0.4bp);
+  label(format("%g", s), (38.2,s), W);
+}
+
+label("Exam score", (71,-1.5));
+label(rotate(90)*"Count", (31,5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-bins-medium">
+      <caption>Bin width <m>10</m>, first bin still starting at <m>40</m>.
+      Now it appears that most students scored between <m>70</m> and
+      <m>80</m>.</caption>
+      <image width="70%" xml:id="image-bins-medium">
+        <description>A histogram of the same 21 exam scores using bins of
+        width 10 starting at 40. The six bars have heights 2, 4, 4, 5, 4, and
+        2. The tallest bar covers scores from 70 to 80.</description>
+        <asymptote>
+unitsize(0.092cm, 0.40cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {40,50,60,70,80,90};
+real
+[] C = { 2, 4, 4, 5, 4, 2};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  filldraw((L
+[i],0)--(L
+[i]+10,0)--(L
+[i]+10,C
+[i])--(L
+[i],C
+[i])--cycle,
+           palegreen, black+0.4bp);
+}
+
+filldraw((70,0)--(80,0)--(80,5)--(70,5)--cycle, orange+white, black+0.6bp);
+
+draw((40,0)--(103,0), black+0.6bp);
+for (real t = 40; t &lt;= 100; t += 10) {
+  draw((t,0)--(t,-0.25), black+0.4bp);
+  label(format("%g", t), (t,-0.35), S);
+}
+
+draw((40,0)--(40,10), black+0.6bp);
+for (real s = 0; s &lt;= 10; s += 2) {
+  draw((40,s)--(38.8,s), black+0.4bp);
+  label(format("%g", s), (38.2,s), W);
+}
+
+label("Exam score", (71,-1.5));
+label(rotate(90)*"Count", (31,5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-bins-shifted">
+      <caption>Bin width still <m>10</m>, but the first bin now starts at
+      <m>45</m>. The distribution now looks slightly skewed to the right, and
+      typical scores appear to fall between <m>65</m> and <m>75</m>.</caption>
+      <image width="70%" xml:id="image-bins-shifted">
+        <description>A histogram of the same 21 exam scores using bins of
+        width 10 starting at 45 instead of 40. The six bars have heights 3, 4,
+        6, 4, 3, and 1. The tallest bar now covers scores from 65 to 75, and a
+        short bar at the far right gives the distribution a slight rightward
+        tail.</description>
+        <asymptote>
+unitsize(0.092cm, 0.40cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {45,55,65,75,85,95};
+real
+[] C = { 3, 4, 6, 4, 3, 1};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  filldraw((L
+[i],0)--(L
+[i]+10,0)--(L
+[i]+10,C
+[i])--(L
+[i],C
+[i])--cycle,
+           palered, black+0.4bp);
+}
+
+draw((40,0)--(108,0), black+0.6bp);
+for (real t = 45; t &lt;= 105; t += 10) {
+  draw((t,0)--(t,-0.25), black+0.4bp);
+  label(format("%g", t), (t,-0.35), S);
+}
+
+draw((40,0)--(40,10), black+0.6bp);
+for (real s = 0; s &lt;= 10; s += 2) {
+  draw((40,s)--(38.8,s), black+0.4bp);
+  label(format("%g", s), (38.2,s), W);
+}
+
+label("Exam score", (74,-1.5));
+label(rotate(90)*"Count", (31,5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>These are not small differences.
+    <xref ref="fig-bins-wide"/> is perfectly symmetric.
+    <xref ref="fig-bins-shifted"/> leans right. Reading
+    <xref ref="fig-bins-medium"/>, you would say most students scored in the
+    <m>70</m>s. Reading <xref ref="fig-bins-shifted"/>, you would say typical
+    students scored between <m>65</m> and <m>75</m>. Same twenty-one
+    students.</p>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-same-data">
+      <statement correct="yes">
+        <p>All three histograms above display exactly the same twenty-one exam
+        scores.</p>
+      </statement>
+      <feedback>
+        <p>True, and this is the point of the section. Nothing about the data
+        changed. Only the bin width and the starting point of the first bin
+        changed, and that was enough to alter the apparent shape of the
+        distribution.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-why-bins-matter">
+    <title>Why the grouping changes the picture</title>
+
+    <p>Five students scored in the <m>70</m>s: <m>70</m>, <m>71</m>,
+    <m>72</m>, <m>77</m>, and <m>78</m>. Follow just those five through the
+    three graphs.</p>
+
+    <p>In <xref ref="fig-bins-wide"/>, all five land in the middle bin
+    together with the four students who scored <m>63</m>, <m>66</m>,
+    <m>68</m>, and <m>69</m>. They disappear into a group of nine.</p>
+
+    <p>In <xref ref="fig-bins-medium"/>, those five form a bin entirely of
+    their own, because no other student scored between <m>70</m> and
+    <m>80</m>. That is the highlighted bar, and it is what makes the
+    <m>70</m>s look like the typical performance.</p>
+
+    <p>In <xref ref="fig-bins-shifted"/>, the five get split: <m>70</m>,
+    <m>71</m>, and <m>72</m> fall in the bin from <m>65</m> to <m>75</m>,
+    while <m>77</m> and <m>78</m> fall in the bin from <m>75</m> to
+    <m>85</m>. The group of five never appears as a group at all.</p>
+
+    <p>When we change the bins, the data gets grouped differently, and the
+    different grouping changes the appearance of the histogram. Nothing
+    deceptive is happening. Every one of these graphs is an accurate count.</p>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-five-students">
+      <statement>
+        <p>Why do the five students who scored in the <m>70</m>s form their
+        own bar in <xref ref="fig-bins-medium"/> but not in
+        <xref ref="fig-bins-shifted"/>?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The shifted bins cut through the middle of the group, splitting
+            it across two bars.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The boundary at <m>75</m> falls between <m>72</m> and
+            <m>77</m>, dividing a group that the other binning kept
+            together.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The shifted histogram uses a wider bin, so more students are
+            absorbed into each bar.</p>
+          </statement>
+          <feedback>
+            <p>Both histograms use a bin width of <m>10</m>. Only the starting
+            point changed.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Some of those students are excluded from the shifted
+            histogram.</p>
+          </statement>
+          <feedback>
+            <p>Every student appears in every histogram. All three have bars
+            summing to <m>21</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The shifted histogram sorts the scores differently before
+            binning.</p>
+          </statement>
+          <feedback>
+            <p>Binning does not depend on the order of the data. Each value is
+            simply placed into whichever interval contains it.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-choosing-bins">
+    <title>Choosing a bin width</title>
+
+    <p>If three defensible choices give three different pictures, which one
+    should we use? There is no formula, but there are two failure modes to
+    avoid.</p>
+
+    <assemblage xml:id="asm-bin-advice">
+      <title>Two ways to go wrong</title>
+      <p><em>Bins too wide.</em> Grouping the data into only a few bins
+      produces a <q>skyscraper</q><mdash/>a couple of towering bars that say
+      almost nothing about variability within the group.</p>
+      <p><em>Bins too narrow.</em> Grouping the data into very many bins
+      produces a <q>pancake</q><mdash/>a long row of bars one or two units
+      tall, where random gaps look like real features and no pattern is
+      visible.</p>
+      <p>Between those extremes, prefer a bin width that means something in
+      context.</p>
+    </assemblage>
+
+    <p>That last point is what settles the exam-score example. Of the three
+    graphs, <xref ref="fig-bins-medium"/> is the most useful summary<mdash/>not
+    because <m>10</m>-point bins are mathematically optimal, but because
+    <m>10</m>-point intervals starting at round numbers correspond to letter
+    grades. The bins carry meaning the reader already understands.</p>
+
+    <p>A good practice is to look at more than one binning before describing a
+    distribution, and to be suspicious of any feature that appears under one
+    choice and vanishes under another.</p>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-skyscraper">
+      <statement>
+        <p>A student builds a histogram of <m>400</m> commute times using just
+        two bins. What is the problem?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Two bins hide almost all the variability<mdash/>the graph is a
+            <q>skyscraper</q> that says little more than a single count
+            would.</p>
+          </statement>
+          <feedback>
+            <p>Correct. With bins that wide, individuals with very different
+            commute times get lumped together, and the shape of the
+            distribution is invisible.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Histograms are required to have at least five bins.</p>
+          </statement>
+          <feedback>
+            <p>There is no such rule. The guidance in
+            <xref ref="asm-bin-advice" text="title"/> is about usefulness, not
+            a minimum count.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The bar heights will not add up to <m>400</m>.</p>
+          </statement>
+          <feedback>
+            <p>They will. Every individual lands in exactly one bin no matter
+            how wide the bins are.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Two bins will make the distribution look skewed when it is
+            symmetric.</p>
+          </statement>
+          <feedback>
+            <p>The real problem is more basic: with two bars there is
+            essentially no shape to read at all, skewed or otherwise.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 4 -->
+    <exercise xml:id="check-pancake">
+      <statement>
+        <p>A researcher graphs the ages of <m>60</m> survey respondents using
+        a bin width of one year, producing about <m>50</m> bars that are
+        mostly <m>0</m>, <m>1</m>, or <m>2</m> units tall. What should she
+        do?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Widen the bins, so the overall pattern becomes visible.</p>
+          </statement>
+          <feedback>
+            <p>Correct. This is the <q>pancake</q> problem. With <m>60</m>
+            values spread over <m>50</m> bins, the bar heights are mostly
+            noise.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Narrow the bins further, to show even more detail.</p>
+          </statement>
+          <feedback>
+            <p>That makes it worse. The graph already shows more detail than
+            <m>60</m> observations can support.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Remove the bins with a count of zero.</p>
+          </statement>
+          <feedback>
+            <p>Deleting empty bins would break the numeric scale on the
+            horizontal axis and misrepresent where the gaps in the data
+            are.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Collect more data, since histograms require large samples.</p>
+          </statement>
+          <feedback>
+            <p>More data would help, but it is not necessary. A sensible bin
+            width will give a readable histogram of these <m>60</m>
+            values.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 5: short answer, recorded -->
+    <exercise xml:id="check-defend-bins">
+      <statement>
+        <p>Suppose you are graphing the annual household incomes of families
+        in a county, where values range from near <m>\$0</m> to about
+        <m>\$400{,}000</m>. Propose a bin width, and give one sentence
+        defending it. What makes your choice meaningful to a reader?</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Many answers are defensible. A bin width of
+        <m>\$25{,}000</m> gives about sixteen bars across the range<mdash/>enough
+        to show shape without becoming a pancake<mdash/>and the boundaries fall
+        at round figures that readers can hold in their heads.</p>
+        <p>A bin width of <m>\$10{,}000</m> would give forty bars, which is
+        probably too many unless the county is large. A bin width of
+        <m>\$100{,}000</m> would give four, which is a skyscraper.</p>
+        <p>The strongest answers do what the exam-score example did: tie the
+        bin boundaries to something the audience already recognizes, such as
+        federal poverty thresholds or tax brackets.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>Descriptions of shape, center, and spread read from a histogram are
+    affected by how the bins are defined. Changing the bin width, or keeping
+    the width and shifting the starting point, regroups the data and can
+    change the apparent shape of the distribution.</p>
+    <p>Avoid bins so wide that the graph becomes a <q>skyscraper</q> hiding all
+    variability, and bins so narrow that it becomes a <q>pancake</q> showing
+    only noise. When a bin width has meaning in context, prefer it.</p>
+    <p>A dotplot does not have this problem, because it shows every individual
+    value. That is the trade: the histogram handles large data sets, and pays
+    for it with a dependence on the binning choice.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0.</p>
+  </conclusion>
+</section>

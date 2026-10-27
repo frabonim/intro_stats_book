@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="ch-normal" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Normal Distribution</title>
+
+  <introduction>
+    <p>The normal distribution is the most widely used continuous
+    distribution in statistics. This chapter develops the tools for working
+    with it, beginning with the idea of a standardized value.</p>
+  </introduction>
+
+  <xi:include href="./sec-intro-normal.ptx"/>
+  <xi:include href="./sec-standard-normal.ptx"/>
+  <xi:include href="./sec-using-normal.ptx"/>
+
+</chapter>

@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-histograms">
+  <title>Histograms</title>
+
+  <objectives>
+    <ul>
+      <li><p>Describe the distribution of a quantitative variable using a histogram.</p></li>
+      <li><p>Read counts and intervals from a histogram.</p></li>
+      <li><p>Convert a count into a relative frequency and interpret it in context.</p></li>
+      <li><p>Apply the endpoint convention for assigning values to bins.</p></li>
+      <li><p>Explain how bin width affects the appearance of a distribution.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>Our goal in data analysis is to describe patterns in data and build a
+    useful summary of a group. A graph that summarizes the distribution of a
+    variable lets us see two things at once: the possible values the variable
+    takes, and how many individuals fall at each value or interval of
+    values.</p>
+
+    <p>A dotplot does this well for small data sets. A
+    <term>histogram</term> is an alternative that works far better for large
+    ones. A histogram divides the variable values into equal-sized intervals
+    and shows how many individuals fall in each one.</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-building-histogram">
+    <title>From dots to bars</title>
+
+    <p>Consider hip girth<mdash/>the measurement around the hips<mdash/>for
+    <m>507</m> adults who exercise regularly. The measurements range from
+    <m>79</m> cm to <m>128</m> cm.</p>
+
+    <p>A dotplot of <m>507</m> values is readable but crowded: each individual
+    gets its own dot, and stacks near the center become tall and hard to
+    count. The histogram fixes this in two steps.</p>
+
+    <p><em>Step one: choose bins.</em> Divide the range into equal-sized
+    intervals called <term>bins</term>. Here we use a bin width of
+    <m>5</m> cm, starting at <m>75</m>.</p>
+
+    <p><em>Step two: count and draw.</em> Count how many individuals fall in
+    each bin, then draw a bar whose height is that count.</p>
+
+    <figure xml:id="fig-hip-histogram">
+      <caption>Hip girth measurements for <m>507</m> adults who exercise
+      regularly, with a bin width of <m>5</m> cm.</caption>
+      <image width="85%" xml:id="image-hip-histogram">
+        <description>A histogram of hip girth for 507 adults. The horizontal
+        axis runs from 75 to 130 centimeters in bins of width 5. Bar heights
+        rise from 2 at the left to a peak of 164 in the bin from 95 to 100
+        centimeters, then fall off to the right, reaching 1 in the final bin.
+        The distribution is roughly bell-shaped with a slightly longer tail on
+        the right.</description>
+        <asymptote>
+unitsize(0.155cm, 0.034cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {75,80,85,90,95,100,105,110,115,120,125};
+real
+[] C = { 2, 20, 48,115,164, 97, 42, 15,  2,  1,  1};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  if (C
+[i] &gt; 0) {
+    filldraw((L
+[i],0)--(L
+[i]+5,0)--(L
+[i]+5,C
+[i])--(L
+[i],C
+[i])--cycle,
+             paleblue, black+0.4bp);
+  }
+}
+
+draw((75,0)--(132,0), black+0.6bp);
+for (real t = 75; t &lt;= 130; t += 5) {
+  draw((t,0)--(t,-4), black+0.4bp);
+  label(format("%g", t), (t,-5), S);
+}
+
+draw((75,0)--(75,180), black+0.6bp);
+for (real s = 0; s &lt;= 180; s += 20) {
+  draw((75,s)--(74,s), black+0.4bp);
+  label(format("%g", s), (73.5,s), W);
+}
+
+label("Hip girth (cm)", (103.5,-16));
+label(rotate(90)*"Frequency (count)", (65.5,90));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>The height of each bar is the <term>count</term> (also called the
+    <term>frequency</term>) of individuals in that bin. Reading the graph:
+    <m>48</m> adults have hip measurements between <m>85</m> and
+    <m>90</m> cm, and <m>97</m> adults fall between <m>100</m> and
+    <m>105</m> cm.</p>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-bar-height">
+      <statement>
+        <p>In <xref ref="fig-hip-histogram"/>, what does the height of a bar
+        tell you?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>How many individuals have values falling inside that bin.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The height is the count, or frequency, for that
+            interval.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The value of the variable for individuals in that bin.</p>
+          </statement>
+          <feedback>
+            <p>The variable value is read off the <em>horizontal</em> axis.
+            The height counts individuals.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The width of the interval that bin covers.</p>
+          </statement>
+          <feedback>
+            <p>Every bin here has the same width, <m>5</m> cm. The bars differ
+            in height, not width.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The average hip girth of individuals in that bin.</p>
+          </statement>
+          <feedback>
+            <p>A histogram shows counts, not averages. Nothing in the graph
+            reports a mean.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-histogram-vs-dotplot">
+      <statement correct="yes">
+        <p>A histogram is generally a better choice than a dotplot when the
+        data set is large.</p>
+      </statement>
+      <feedback>
+        <p>True. A dotplot draws one mark per individual, so with hundreds or
+        thousands of values the stacks become impossible to read. A histogram
+        groups individuals into bins, so the number of bars stays manageable
+        no matter how many individuals there are.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-endpoints">
+    <title>The endpoint convention</title>
+
+    <p>A question comes up immediately. If one adult measures exactly
+    <m>90</m> cm, does that person belong to the bin from <m>85</m> to
+    <m>90</m>, or the bin from <m>90</m> to <m>95</m>? Both bins name
+    <m>90</m> as an endpoint, and counting the person twice<mdash/>or not at
+    all<mdash/>would be wrong.</p>
+
+    <p>Statisticians settle this with a convention, applied consistently to
+    every bin.</p>
+
+    <assemblage xml:id="asm-endpoint-rule">
+      <title>Which bin gets the endpoint?</title>
+      <p>A bin <em>includes</em> its left-hand endpoint and
+      <em>excludes</em> its right-hand endpoint.</p>
+      <p>So the bin labeled <m>85</m> to <m>90</m> contains every individual
+      with a value of <m>85</m> or more, up to but not including <m>90</m>.
+      An adult measuring exactly <m>90</m> cm belongs to the
+      <em>next</em> bin.</p>
+      <p>Every histogram in this course follows this rule.</p>
+    </assemblage>
+
+    <p>The convention is arbitrary<mdash/>the opposite choice would work
+    equally well<mdash/>but applying it consistently guarantees that every
+    individual is counted exactly once.</p>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-endpoint-bin">
+      <statement>
+        <p>An adult in this study has a hip girth of exactly
+        <m>100.0</m> cm. Which bin counts this person?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>The bin from <m>100</m> to <m>105</m></p></statement>
+          <feedback>
+            <p>Correct. A bin includes its left endpoint, so <m>100.0</m>
+            belongs to the bin that <em>starts</em> at <m>100</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The bin from <m>95</m> to <m>100</m></p></statement>
+          <feedback>
+            <p>That bin excludes its right endpoint, so it stops just short of
+            <m>100</m>. Review
+            <xref ref="asm-endpoint-rule" text="title"/>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Both bins, since <m>100</m> is a shared boundary</p></statement>
+          <feedback>
+            <p>Counting one person twice would make the bar heights sum to
+            more than <m>507</m>. The convention exists precisely to prevent
+            this.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Neither bin<mdash/>boundary values are excluded</p></statement>
+          <feedback>
+            <p>Then this adult would vanish from the graph. Every individual
+            lands in exactly one bin.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-relative-frequency">
+    <title>From counts to relative frequencies</title>
+
+    <p>A count answers <q>how many,</q> but often the more useful question is
+    <q>what fraction.</q> Knowing that <m>48</m> adults fall in a bin means
+    little until you know whether the sample had <m>60</m> people or
+    <m>6000</m>. Dividing the count by the total gives a
+    <term>relative frequency</term>, usually reported as a percentage.</p>
+
+    <table xml:id="table-hip-frequencies">
+      <title>Frequency distribution of hip girth for <m>507</m> adults</title>
+      <tabular halign="center" top="medium">
+        <row bottom="medium" header="yes">
+          <cell>Bin (cm)</cell>
+          <cell>Count</cell>
+          <cell>Relative frequency</cell>
+        </row>
+        <row><cell><m>75</m> to <m>80</m></cell><cell><m>2</m></cell><cell><m>0.4\%</m></cell></row>
+        <row><cell><m>80</m> to <m>85</m></cell><cell><m>20</m></cell><cell><m>3.9\%</m></cell></row>
+        <row><cell><m>85</m> to <m>90</m></cell><cell><m>48</m></cell><cell><m>9.5\%</m></cell></row>
+        <row><cell><m>90</m> to <m>95</m></cell><cell><m>115</m></cell><cell><m>22.7\%</m></cell></row>
+        <row><cell><m>95</m> to <m>100</m></cell><cell><m>164</m></cell><cell><m>32.3\%</m></cell></row>
+        <row><cell><m>100</m> to <m>105</m></cell><cell><m>97</m></cell><cell><m>19.1\%</m></cell></row>
+        <row><cell><m>105</m> to <m>110</m></cell><cell><m>42</m></cell><cell><m>8.3\%</m></cell></row>
+        <row><cell><m>110</m> to <m>115</m></cell><cell><m>15</m></cell><cell><m>3.0\%</m></cell></row>
+        <row><cell><m>115</m> to <m>120</m></cell><cell><m>2</m></cell><cell><m>0.4\%</m></cell></row>
+        <row><cell><m>120</m> to <m>125</m></cell><cell><m>1</m></cell><cell><m>0.2\%</m></cell></row>
+        <row><cell><m>125</m> to <m>130</m></cell><cell><m>1</m></cell><cell><m>0.2\%</m></cell></row>
+        <row bottom="medium">
+          <cell><m>\text{Total}</m></cell>
+          <cell><m>507</m></cell>
+          <cell><m>100\%</m></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <example xml:id="ex-relative-frequency-one-bin">
+      <title>Percentage in a single bin</title>
+      <statement>
+        <p>Approximately what percentage of the sample has hip measurements
+        between <m>85</m> and <m>90</m> cm?</p>
+      </statement>
+      <solution>
+        <p>Of the <m>507</m> adults, <m>48</m> fall in this bin.</p>
+        <me>\frac{48}{507} \approx 0.095 = 9.5\%</me>
+        <p>About <m>9.5\%</m> of the adults in this sample have hip girths of
+        at least <m>85</m> cm but less than <m>90</m> cm.</p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-sweatpants">
+      <title>Percentage across several bins</title>
+      <statement>
+        <p>A pants manufacturer plans to produce three sizes of sweatpants.
+        Size Large will fit hip girths of <m>100</m> cm or more. What
+        percentage of the sample will wear size Large?</p>
+      </statement>
+      <solution>
+        <p>No single bin answers this, so add the counts for every bin at
+        <m>100</m> cm and above:</p>
+        <me>97 + 42 + 15 + 2 + 1 + 1 = 158</me>
+        <me>\frac{158}{507} \approx 0.312 = 31.2\%</me>
+        <p>About <m>31.2\%</m> of the adults in this sample will wear size
+        Large sweatpants.</p>
+      </solution>
+    </example>
+
+    <assemblage xml:id="asm-percentages">
+      <title>Spotlight on percentages</title>
+      <p><em>Percent</em> means <q>per hundred.</q> A percentage describes a
+      number as a fraction out of <m>100</m>.</p>
+      <p><em>Step 1<mdash/>Identify the ratio.</em> Fill in the blanks:
+      (a part) out of (the group). The part is the subset with the special
+      characteristic you care about.</p>
+      <p><em>Step 2<mdash/>Calculate.</em> Divide the part by the group size,
+      then multiply by <m>100</m>.</p>
+      <p><em>Step 3<mdash/>Interpret in context.</em> For every <m>100</m>
+      individuals in the group, this many will have the characteristic. Name
+      the group and name the characteristic<mdash/>a percentage with no
+      context is not an answer.</p>
+    </assemblage>
+
+    <p>Applying that pattern to <xref ref="ex-sweatpants"/>: the ratio is
+    <m>158</m> out of <m>507</m> adults; the calculation gives
+    <m>31.2\%</m>; and the interpretation is <q>for every <m>100</m> adults in
+    this sample, about <m>31</m> will wear size Large.</q></p>
+
+    <!-- READING CHECK 4 -->
+    <exercise xml:id="check-compute-relfreq">
+      <statement>
+        <p>Using <xref ref="table-hip-frequencies"/>, approximately what
+        percentage of the sample has a hip girth of at least <m>90</m> cm but
+        less than <m>95</m> cm?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>About <m>22.7\%</m></p></statement>
+          <feedback>
+            <p>Correct: <m>115 \div 507 \approx 0.227</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>115\%</m></p></statement>
+          <feedback>
+            <p><m>115</m> is the count, not a percentage. A percentage can
+            never exceed <m>100\%</m> when the part is a subset of the
+            group.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>4.4\%</m></p></statement>
+          <feedback>
+            <p>This divides in the wrong direction
+            (<m>507 \div 115 \approx 4.4</m>, which is not a percentage at
+            all). Divide the part by the group.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>32.3\%</m></p></statement>
+          <feedback>
+            <p>That is the bin from <m>95</m> to <m>100</m> cm. Check the row
+            labels.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 5 -->
+    <exercise xml:id="check-cumulative">
+      <statement>
+        <p>Approximately what percentage of the sample has a hip girth of less
+        than <m>95</m> cm?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>About <m>36.5\%</m></p></statement>
+          <feedback>
+            <p>Correct. Add the first four bins:
+            <m>2 + 20 + 48 + 115 = 185</m>, and
+            <m>185 \div 507 \approx 0.365</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>22.7\%</m></p></statement>
+          <feedback>
+            <p>That is only the bin from <m>90</m> to <m>95</m>. <q>Less than
+            <m>95</m></q> includes every bin below it as well.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>68.8\%</m></p></statement>
+          <feedback>
+            <p>That is the percentage below <m>100</m> cm. You included one
+            bin too many.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>63.5\%</m></p></statement>
+          <feedback>
+            <p>This is the complement of the right answer<mdash/>the
+            percentage <em>at or above</em> <m>95</m> cm.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 6: short answer, recorded -->
+    <exercise xml:id="check-interpret-percent">
+      <statement>
+        <p>You compute that <m>19.1\%</m> of this sample has a hip girth of at
+        least <m>100</m> cm but less than <m>105</m> cm. Write one complete
+        sentence interpreting that number for someone who has not seen the
+        data. Name the group, name the characteristic, and make the sentence
+        stand on its own.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Something like: <q>About <m>19</m> out of every <m>100</m> adults
+        in this sample of regular exercisers have a hip girth of at least
+        <m>100</m> cm but less than <m>105</m> cm.</q></p>
+        <p>A complete interpretation names the group (adults in this sample
+        who exercise regularly), the characteristic (hip girth in that
+        interval), and the size of the share. Writing only <q><m>19.1\%</m> of
+        the data</q> restates the arithmetic without saying what it describes.
+        Note also that this statement is about <em>this sample</em>, not about
+        all adults everywhere.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-relative-axis">
+    <title>Two axes, one picture</title>
+
+    <p>Because every relative frequency comes from dividing by the same total,
+    rescaling the vertical axis from counts to percentages does not change the
+    shape of the histogram at all. Only the numbers on the axis change.</p>
+
+    <figure xml:id="fig-hip-relative">
+      <caption>The same data as <xref ref="fig-hip-histogram"/>, with the
+      vertical axis showing relative frequency instead of count. The shape is
+      identical.</caption>
+      <image width="85%" xml:id="image-hip-relative">
+        <description>A relative frequency histogram of hip girth for the same
+        507 adults. The bars have exactly the same shape as the frequency
+        histogram, but the vertical axis now runs from 0 to 35 percent instead
+        of 0 to 180 individuals, with the tallest bar at about 32 percent.</description>
+        <asymptote>
+unitsize(0.155cm, 0.175cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {75,80,85,90,95,100,105,110,115,120,125};
+real
+[] P = {0.4,3.9,9.5,22.7,32.3,19.1,8.3,3.0,0.4,0.2,0.2};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  filldraw((L
+[i],0)--(L
+[i]+5,0)--(L
+[i]+5,P
+[i])--(L
+[i],P
+[i])--cycle,
+           palegreen, black+0.4bp);
+}
+
+draw((75,0)--(132,0), black+0.6bp);
+for (real t = 75; t &lt;= 130; t += 5) {
+  draw((t,0)--(t,-0.8), black+0.4bp);
+  label(format("%g", t), (t,-1.0), S);
+}
+
+draw((75,0)--(75,35), black+0.6bp);
+for (real s = 0; s &lt;= 35; s += 5) {
+  draw((75,s)--(74,s), black+0.4bp);
+  label(format("%g", s) + "\%", (73.5,s), W);
+}
+
+label("Hip girth (cm)", (103.5,-3.1));
+label(rotate(90)*"Relative frequency", (64.5,17.5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>This matters most when comparing two groups of different sizes.
+    Suppose you wanted to compare hip girth for these <m>507</m> exercisers
+    against a sample of <m>80</m> non-exercisers. Counts would be
+    useless<mdash/>every bar in the smaller group would be shorter simply
+    because the group is smaller. Relative frequencies put both groups on the
+    same scale, so differences in the bars mean differences in the
+    distributions.</p>
+
+    <!-- READING CHECK 7 -->
+    <exercise xml:id="check-why-relative">
+      <statement>
+        <p>Why would you use relative frequency rather than count when
+        comparing the hip girth distributions of two samples of different
+        sizes?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Counts are affected by sample size, so the larger group would
+            have taller bars regardless of its shape.</p>
+          </statement>
+          <feedback>
+            <p>Correct. Dividing by the group total removes the effect of
+            sample size, leaving only the shape of the distribution to
+            compare.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Relative frequency changes the shape of the histogram to make
+            differences easier to see.</p>
+          </statement>
+          <feedback>
+            <p>The shape does not change at all<mdash/>compare
+            <xref ref="fig-hip-histogram"/> with
+            <xref ref="fig-hip-relative"/>. Only the axis labels differ.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Counts cannot be computed when the sample sizes differ.</p>
+          </statement>
+          <feedback>
+            <p>Counts are always computable. The problem is that they are not
+            comparable across groups of different sizes.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Relative frequency is more precise than a count.</p>
+          </statement>
+          <feedback>
+            <p>A relative frequency is derived from the count, so it carries
+            no extra precision<mdash/>rounding usually loses a little.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-when-histogram">
+    <title>When is a histogram the right graph?</title>
+
+    <p>A histogram describes the distribution of a
+    <term>quantitative</term> variable<mdash/>one whose values are numbers
+    that can be ordered and measured. Hip girth, exam score, household income,
+    and reaction time all qualify.</p>
+
+    <p>A <term>categorical</term> variable, whose values are labels rather
+    than measurements, calls for a bar graph instead. Eye color, academic
+    major, and brand of phone have no natural numeric ordering, so there is
+    nothing to divide into bins.</p>
+
+    <p>The visual difference reflects this. Histogram bars touch, because the
+    bins are adjacent intervals on a continuous number line. Bar graph bars
+    are drawn with gaps, because the categories are separate and their order
+    on the page carries no meaning.</p>
+
+    <!-- READING CHECK 9 -->
+    <exercise xml:id="check-variable-type">
+      <statement>
+        <p>A researcher records the academic major of each student in a study.
+        Which graph should she use to display this variable?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>A bar graph, because major is a categorical variable.</p>
+          </statement>
+          <feedback>
+            <p>Correct. Majors are labels, not measurements, so there are no
+            intervals to bin.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A histogram, because she can count students in each major.</p>
+          </statement>
+          <feedback>
+            <p>Being countable is not the same as being quantitative. A
+            histogram needs values that can be divided into numeric
+            intervals, and <q>biology</q> cannot be placed on a number
+            line.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A histogram, after assigning each major a number.</p>
+          </statement>
+          <feedback>
+            <p>Assigning arbitrary numbers to labels does not make the
+            variable quantitative. The bins and the shape would be artifacts
+            of whatever numbering was chosen.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Either one, since both display counts.</p>
+          </statement>
+          <feedback>
+            <p>Both display counts, but a histogram also claims its horizontal
+            axis is a meaningful numeric scale. For majors, that claim would
+            be false.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 10: short answer, recorded -->
+    <exercise xml:id="check-describe-distribution">
+      <statement>
+        <p>Look at <xref ref="fig-hip-histogram"/> once more. In two or three
+        sentences, describe what it tells you about hip girth among these
+        <m>507</m> adults. Where are most of the measurements concentrated,
+        and is the picture symmetric or lopsided?</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>A good description might read: <q>Hip measurements for these
+        <m>507</m> adults run from about <m>79</m> to <m>128</m> cm, with most
+        values concentrated between <m>90</m> and <m>105</m> cm. The tallest
+        bar covers <m>95</m> to <m>100</m> cm. The distribution is roughly
+        bell-shaped but not quite symmetric: it has a longer tail stretching
+        to the right, with a handful of adults measuring well above
+        <m>115</m> cm and no matching group at the low end.</q></p>
+        <p>The three things worth naming in any description of a distribution
+        are where the values fall overall, where they cluster, and whether the
+        two sides balance.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>A histogram displays the distribution of a quantitative variable by
+    dividing its values into equal-sized bins and drawing a bar whose height
+    is the count, or frequency, of individuals in each bin. Bins include their
+    left endpoint and exclude their right endpoint, so every individual is
+    counted exactly once.</p>
+    <p>Dividing a count by the group total gives a relative frequency, usually
+    written as a percentage. Relative frequencies allow comparison between
+    groups of different sizes, and rescaling the vertical axis to show them
+    does not change the shape of the graph.</p>
+    <p>Bin width is a choice made by whoever draws the graph. Wider bins
+    smooth the distribution and hide detail; narrower bins reveal detail but
+    can make random variation look meaningful.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Hip girth measurements from the body
+    dimensions data of Heinz, Peterson, Johnson, and Kerk (2003).</p>
+  </conclusion>
+</section>

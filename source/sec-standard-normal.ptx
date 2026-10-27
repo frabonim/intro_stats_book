@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-standard-normal" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Standard Normal Distribution</title>
+
+  <objectives>
+    <ul>
+      <li><p>Compute a <m>z</m>-score from a value, a mean, and a standard deviation.</p></li>
+      <li><p>Interpret a <m>z</m>-score as a number of standard deviations above or below the mean.</p></li>
+      <li><p>Recover an original value from a <m>z</m>-score.</p></li>
+      <li><p>Apply the Empirical Rule to a normal distribution.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>Two exam scores, <m>72</m> and <m>58</m>, tell you almost nothing on
+    their own. If the first exam had a mean of <m>85</m> and the second a mean
+    of <m>45</m>, the lower raw score is the better performance. Comparing
+    values across different distributions requires putting them on a common
+    scale, and this section builds that scale.</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-zscore">
+    <title>Standardizing: the <m>z</m>-score</title>
+
+    <p>The <term>standard normal distribution</term> is a normal distribution
+    of standardized values called <term><m>z</m>-scores</term>. A
+    <m>z</m>-score is measured in units of the standard deviation. If a
+    distribution has mean <m>5</m> and standard deviation <m>2</m>, then the
+    value <m>11</m> sits three standard deviations above the mean, since
+    <m>11 = 5 + 3(2)</m>.</p>
+
+    <definition xml:id="def-zscore">
+      <title><m>z</m>-score</title>
+      <statement>
+        <p>If <m>X</m> is normally distributed with
+        <m>X \sim N(\mu, \sigma)</m>, the <term><m>z</m>-score</term> of a
+        value <m>x</m> is</p>
+        <me>z = \frac{x - \mu}{\sigma}</me>
+        <p>The <m>z</m>-score reports how many standard deviations <m>x</m>
+        lies above or below <m>\mu</m>. Values above the mean have
+        <em>positive</em> <m>z</m>-scores; values below have <em>negative</em>
+        <m>z</m>-scores. If <m>x = \mu</m>, then <m>z = 0</m>.</p>
+      </statement>
+    </definition>
+
+    <p>The transformation in <xref ref="def-zscore"/> produces a new
+    distribution <m>Z \sim N(0, 1)</m><mdash/>mean <m>0</m>, standard
+    deviation <m>1</m><mdash/>no matter what <m>\mu</m> and <m>\sigma</m>
+    you started with.</p>
+
+    <example xml:id="ex-zscore-basic">
+      <title>Computing two <m>z</m>-scores</title>
+      <statement>
+        <p>Suppose <m>X \sim N(5, 6)</m>, so <m>\mu = 5</m> and
+        <m>\sigma = 6</m>. Find and interpret the <m>z</m>-scores for
+        <m>x = 17</m> and <m>x = 1</m>.</p>
+      </statement>
+      <solution>
+        <p>For <m>x = 17</m>:</p>
+        <me>z = \frac{17 - 5}{6} = 2</me>
+        <p>So <m>17</m> is two standard deviations to the right of the mean.
+        Check by reversing: <m>5 + (2)(6) = 17</m>.</p>
+        <p>For <m>x = 1</m>:</p>
+        <me>z = \frac{1 - 5}{6} \approx -0.67</me>
+        <p>So <m>1</m> is about <m>0.67</m> standard deviations to the left of
+        the mean. Check: <m>5 + (-0.67)(6) \approx 1</m>.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-zscore-sign">
+      <statement>
+        <p>A student computes a <m>z</m>-score of <m>z = -1.8</m> for her value.
+        What does this tell her?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Her value is <m>1.8</m> standard deviations <em>below</em>
+            the mean.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The negative sign places the value below the mean, and
+            the size <m>1.8</m> counts standard deviations.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Her value is <m>1.8</m> standard deviations <em>above</em>
+            the mean.</p>
+          </statement>
+          <feedback>
+            <p>Check the sign. A negative <m>z</m>-score means the value is
+            below the mean.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Her value is <m>1.8</m> units below the mean.</p>
+          </statement>
+          <feedback>
+            <p>Close, but a <m>z</m>-score counts <em>standard deviations</em>,
+            not the original units. If <m>\sigma = 10</m>, then
+            <m>z = -1.8</m> means <m>18</m> units below the mean.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Her value is <m>1.8</m> times smaller than the mean.</p>
+          </statement>
+          <feedback>
+            <p>A <m>z</m>-score is not a ratio. It measures distance from the
+            mean in units of <m>\sigma</m>.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <example xml:id="ex-weight-loss">
+      <title>Weight change</title>
+      <statement>
+        <p>Some doctors believe a person can lose five pounds on average in a
+        month by reducing fat intake and exercising. Let <m>X</m> be the weight
+        lost in pounds in one month, with <m>X \sim N(5, 2)</m>. Interpret the
+        <m>z</m>-scores for a person who lost <m>10</m> pounds and a person who
+        <em>gained</em> three pounds.</p>
+      </statement>
+      <solution>
+        <p>For a loss of <m>10</m> pounds, <m>x = 10</m>:</p>
+        <me>z = \frac{10 - 5}{2} = 2.5</me>
+        <p>This person is <m>2.5</m> standard deviations to the right of the
+        mean.</p>
+        <p>A gain of three pounds is a loss of <m>-3</m> pounds, so
+        <m>x = -3</m>:</p>
+        <me>z = \frac{-3 - 5}{2} = -4</me>
+        <p>This person is four standard deviations to the left of the mean<mdash/>a
+        genuinely unusual outcome.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-zscore-negative-x">
+      <statement correct="yes">
+        <p>In <xref ref="ex-weight-loss"/>, a negative value of <m>x</m> is
+        meaningful: it represents weight <em>gained</em> rather than lost.</p>
+      </statement>
+      <feedback>
+        <p>Right. The variable records weight <em>lost</em>, so a negative
+        amount lost is a gain. Always ask what the variable measures before
+        deciding whether a value is possible.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-comparing">
+    <title>Comparing values across distributions</title>
+
+    <p>Suppose <m>X \sim N(5, 6)</m> and <m>Y \sim N(2, 1)</m>. We found that
+    <m>x = 17</m> gives <m>z = 2</m>. For <m>y = 4</m>,</p>
+    <me>z = \frac{4 - 2}{1} = 2</me>
+    <p>Both values sit exactly two standard deviations to the right of their
+    own means, even though <m>17</m> and <m>4</m> are nowhere near each other
+    numerically. <em>This is what <m>z</m>-scores are for.</em> If <m>X</m>
+    records weight gain for one group and <m>Y</m> records weight gain for a
+    second group, then <m>x = 17</m> and <m>y = 4</m> represent the same
+    standardized gain relative to their own groups.</p>
+
+    <example xml:id="ex-chile-2009">
+      <title>Heights in Chile, 2009<ndash/>2010</title>
+      <statement>
+        <p>The mean height of 15- to 18-year-old males from Chile in
+        2009<ndash/>2010 was <m>170</m> cm with standard deviation
+        <m>6.28</m> cm, so <m>X \sim N(170, 6.28)</m>.</p>
+        <p>(a) Interpret the <m>z</m>-score for a male who is <m>168</m> cm tall.</p>
+        <p>(b) A male has <m>z = 1.27</m>. How tall is he?</p>
+      </statement>
+      <solution>
+        <p>(a) <m>z = \dfrac{168 - 170}{6.28} \approx -0.32</m>, so <m>168</m> cm
+        is about <m>0.32</m> standard deviations below the mean.</p>
+        <p>(b) Solving <m>z = \dfrac{x - \mu}{\sigma}</m> for <m>x</m> gives</p>
+        <me>x = \mu + z\sigma</me>
+        <p>so <m>x = 170 + (1.27)(6.28) = 177.98</m> cm.</p>
+      </solution>
+    </example>
+
+    <assemblage xml:id="asm-two-forms">
+      <title>Two forms of one relationship</title>
+      <p>From a value to a <m>z</m>-score:
+      <m>z = \dfrac{x - \mu}{\sigma}</m>.</p>
+      <p>From a <m>z</m>-score back to a value:
+      <m>x = \mu + z\sigma</m>.</p>
+      <p>These are the same equation. Which one you use depends on which
+      quantity you are missing.</p>
+    </assemblage>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-which-formula">
+      <statement>
+        <p>A distribution has <m>\mu = 64</m> and <m>\sigma = 2.5</m>. You are
+        told a value has <m>z</m>-score <m>z = -0.8</m> and asked for the
+        value itself. Which computation gives the answer?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>64 + (-0.8)(2.5)</m></p></statement>
+          <feedback>
+            <p>Correct<mdash/>this is <m>x = \mu + z\sigma</m>, giving
+            <m>x = 62</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{-0.8 - 64}{2.5}</m></p></statement>
+          <feedback>
+            <p>That is the standardizing formula, but you already have the
+            <m>z</m>-score. You need to go the other direction.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>64 - \dfrac{0.8}{2.5}</m></p></statement>
+          <feedback>
+            <p>The <m>z</m>-score is multiplied by <m>\sigma</m>, not divided
+            by it.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>(-0.8)(64) + 2.5</m></p></statement>
+          <feedback>
+            <p>Review the box <xref ref="asm-two-forms" text="title"/>. The mean is
+added, and the <m>z</m>-score multiplies the standard deviation.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <example xml:id="ex-chile-compare">
+      <title>Comparing two generations</title>
+      <statement>
+        <p>From 1984 to 1985, the mean height of 15- to 18-year-old Chilean
+        males was <m>172.36</m> cm with standard deviation <m>6.34</m> cm, so
+        <m>Y \sim N(172.36, 6.34)</m>. Recall <m>X \sim N(170, 6.28)</m> for
+        2009<ndash/>2010.</p>
+        <p>Compare a 2009 male of height <m>160.58</m> cm with a 1984 male of
+        height <m>162.85</m> cm.</p>
+      </statement>
+      <solution>
+        <me>z_x = \frac{160.58 - 170}{6.28} = -1.5
+          \qquad
+          z_y = \frac{162.85 - 172.36}{6.34} = -1.5</me>
+        <p>Both fall exactly <m>1.5</m> standard deviations below their own
+        means. Relative to their own generations, these two heights are equally
+        short<mdash/>even though the raw measurements differ by more than two
+        centimeters.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 4: short answer, recorded -->
+    <exercise xml:id="check-explain-comparison">
+      <statement>
+        <p>In <xref ref="ex-chile-compare"/>, the 1984 male is
+        <em>taller</em> in centimeters than the 2009 male, yet both have the
+        same <m>z</m>-score. In one or two sentences, explain to a classmate
+        how both of those statements can be true at the same time.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>The two men are being measured against different reference groups.
+        The 1984 population was taller on average
+        (<m>\mu = 172.36</m> versus <m>\mu = 170</m>), so a taller raw height
+        is needed to occupy the same relative position. A <m>z</m>-score
+        describes position <em>within</em> a distribution, not absolute size,
+        so identical <m>z</m>-scores mean identical standing in their
+        respective populations.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-empirical-rule">
+    <title>The Empirical Rule</title>
+
+    <p>Because every normal distribution becomes the same standard normal
+    distribution after standardizing, one set of percentages applies to all
+    of them.</p>
+
+    <theorem xml:id="thm-empirical-rule">
+      <title>The Empirical Rule</title>
+      <statement>
+        <p>If <m>X \sim N(\mu, \sigma)</m>, then approximately:</p>
+        <ul>
+          <li><p><m>68\%</m> of values lie between <m>\mu - \sigma</m> and
+          <m>\mu + \sigma</m>, that is, between <m>z = -1</m> and
+          <m>z = 1</m>.</p></li>
+          <li><p><m>95\%</m> of values lie between <m>\mu - 2\sigma</m> and
+          <m>\mu + 2\sigma</m>.</p></li>
+          <li><p><m>99.7\%</m> of values lie between <m>\mu - 3\sigma</m> and
+          <m>\mu + 3\sigma</m>.</p></li>
+        </ul>
+        <p>Almost every value lies within three standard deviations of the
+        mean.</p>
+      </statement>
+    </theorem>
+
+    <example xml:id="ex-empirical-basic">
+      <title>Applying the rule</title>
+      <statement>
+        <p>Suppose <m>X</m> is normal with mean <m>50</m> and standard
+        deviation <m>6</m>. Find the three Empirical Rule intervals.</p>
+      </statement>
+      <solution>
+        <p>About <m>68\%</m> lie between <m>50 - 6 = 44</m> and
+        <m>50 + 6 = 56</m>.</p>
+        <p>About <m>95\%</m> lie between <m>50 - 12 = 38</m> and
+        <m>50 + 12 = 62</m>.</p>
+        <p>About <m>99.7\%</m> lie between <m>50 - 18 = 32</m> and
+        <m>50 + 18 = 68</m>.</p>
+        <p>Every one of these is just <m>\mu \pm k\sigma</m>. The Empirical
+        Rule needs no table and no technology<mdash/>only arithmetic.</p>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 5 -->
+    <exercise xml:id="check-empirical-interval">
+      <statement>
+        <p>Scores on an entrance exam are approximately normal with
+        <m>\mu = 52</m> points and <m>\sigma = 11</m> points. About
+        <m>95\%</m> of scores lie between which two values?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>30</m> and <m>74</m></p></statement>
+          <feedback>
+            <p>Correct. <m>95\%</m> corresponds to two standard deviations:
+            <m>52 \pm 2(11)</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>41</m> and <m>63</m></p></statement>
+          <feedback>
+            <p>That is <m>\mu \pm 1\sigma</m>, which captures about
+            <m>68\%</m> of scores, not <m>95\%</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>19</m> and <m>85</m></p></statement>
+          <feedback>
+            <p>That is <m>\mu \pm 3\sigma</m>, which captures about
+            <m>99.7\%</m> of scores.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>50</m> and <m>54</m></p></statement>
+          <feedback>
+            <p>This interval is far too narrow. Each step out from the mean is
+            a full standard deviation of <m>11</m> points.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <example xml:id="ex-chile-empirical">
+      <title>The Empirical Rule for Chilean heights</title>
+      <statement>
+        <p>For 15- to 18-year-old Chilean males in 1984<ndash/>1985,
+        <m>Y \sim N(172.36, 6.34)</m>. Apply the Empirical Rule.</p>
+      </statement>
+      <solution>
+        <table xml:id="table-chile-empirical">
+          <title>Empirical Rule intervals for <m>Y \sim N(172.36, 6.34)</m></title>
+          <tabular halign="center" top="medium">
+            <row bottom="medium" header="yes">
+              <cell>Percent</cell>
+              <cell>Interval</cell>
+              <cell>Heights (cm)</cell>
+              <cell><m>z</m>-scores</cell>
+            </row>
+            <row>
+              <cell>about <m>68\%</m></cell>
+              <cell><m>\mu \pm 1\sigma</m></cell>
+              <cell><m>166.02</m> to <m>178.70</m></cell>
+              <cell><m>-1</m> and <m>1</m></cell>
+            </row>
+            <row>
+              <cell>about <m>95\%</m></cell>
+              <cell><m>\mu \pm 2\sigma</m></cell>
+              <cell><m>159.68</m> to <m>185.04</m></cell>
+              <cell><m>-2</m> and <m>2</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell>about <m>99.7\%</m></cell>
+              <cell><m>\mu \pm 3\sigma</m></cell>
+              <cell><m>153.34</m> to <m>191.38</m></cell>
+              <cell><m>-3</m> and <m>3</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 6 -->
+    <exercise xml:id="check-unusual">
+      <statement>
+        <p>A 15-year-old Chilean male in 1984 measured <m>193</m> cm.
+        Using <xref ref="table-chile-empirical"/>, what can you say?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>He is outside the <m>99.7\%</m> interval, so his height is
+            unusual for this population.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The <m>99.7\%</m> interval ends at <m>191.38</m> cm,
+            so fewer than <m>0.3\%</m> of this population is this tall or
+            taller.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>He is within the <m>95\%</m> interval, so his height is
+            typical.</p>
+          </statement>
+          <feedback>
+            <p>The <m>95\%</m> interval ends at <m>185.04</m> cm, and
+            <m>193 \gt 185.04</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>His height is impossible under a normal distribution.</p>
+          </statement>
+          <feedback>
+            <p>A normal distribution assigns nonzero probability to every
+            value. Unusual is not the same as impossible.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Nothing, because the Empirical Rule only applies to the
+            standard normal distribution.</p>
+          </statement>
+          <feedback>
+            <p>The Empirical Rule applies to <em>every</em> normal
+            distribution<mdash/>that is the point of standardizing.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>A <m>z</m>-score is a standardized value. Standardizing any normal
+    distribution produces <m>Z \sim N(0, 1)</m>, with mean <m>0</m> and
+    standard deviation <m>1</m>. A <m>z</m>-score reports how many standard
+    deviations a value lies above or below its mean, which makes values from
+    different distributions directly comparable.</p>
+    <p>Standardize a value: <m>z = \dfrac{x - \mu}{\sigma}</m>.</p>
+    <p>Recover a value: <m>x = \mu + z\sigma</m>.</p>
+    <p>Empirical Rule: about <m>68\%</m>, <m>95\%</m>, and <m>99.7\%</m> of
+    values lie within one, two, and three standard deviations of the mean.</p>
+    <p>Adapted from <pubtitle>Introductory Statistics</pubtitle>
+    (OpenStax<nbsp/>/ Lumen Learning), CC BY 4.0. Chilean height data from the
+    London School of Hygiene and Tropical Medicine (2009).</p>
+  </conclusion>
+</section>

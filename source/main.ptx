@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="./docinfo.ptx"/>
+
+  <book xml:id="my-intro-stats">
+    <title>Introductory Statistics</title>
+    <subtitle>Math 107</subtitle>
+
+    <xi:include href="./frontmatter.ptx"/>
+
+    <xi:include href="./ch-data-display.ptx"/>
+    <xi:include href="./ch-normal.ptx"/>
+
+    <xi:include href="./backmatter.ptx"/>
+  </book>
+
+</pretext>

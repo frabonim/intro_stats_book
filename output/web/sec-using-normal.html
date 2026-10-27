@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using the Normal Distribution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+lang: "en-US",
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Introductory Statistics">
+<meta property="og:title" content="Introductory Statistics">
+<meta property="book:title" content="Introductory Statistics">
+<meta name="twitter:description" content="Math 107">
+<meta property="og:description" content="Math 107">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="my-intro-stats.html"><span class="title">Introductory Statistics</span> <span class="subtitle">Math 107</span></a></div>
+<p class="byline">You</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="sec-standard-normal.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-normal.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-data-display.html" class="internal"><span class="codenumber">1</span> <span class="title">Displaying Quantitative Data</span></a></div>
+<ul id="ptx-toc-group-ch-data-display" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-data-display-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-histograms.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Histograms</span></a></div>
+<ul id="ptx-toc-group-sec-histograms" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-building-histogram" class="internal"><span class="codenumber">1.1.1</span> <span class="title">From dots to bars</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-endpoints" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The endpoint convention</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-frequency" class="internal"><span class="codenumber">1.1.3</span> <span class="title">From counts to relative frequencies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-relative-axis" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Two axes, one picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histograms.html#subsec-when-histogram" class="internal"><span class="codenumber">1.1.5</span> <span class="title">When is a histogram the right graph?</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-histogram-bins.html" class="internal"><span class="codenumber">1.2</span> <span class="title">How Bins Shape the Picture</span></a></div>
+<ul id="ptx-toc-group-sec-histogram-bins" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-three-histograms" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The same data, three ways</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-why-bins-matter" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Why the grouping changes the picture</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-histogram-bins.html#subsec-choosing-bins" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Choosing a bin width</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-describing-distributions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Describing a Distribution</span></a></div>
+<ul id="ptx-toc-group-sec-describing-distributions" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-oscar-data" class="internal"><span class="codenumber">1.3.1</span> <span class="title">A worked example: ages of Oscar winners</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-writing-summary" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Turning observations into a paragraph</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-describing-distributions.html#subsec-shape-vocabulary" class="internal"><span class="codenumber">1.3.3</span> <span class="title">A vocabulary of shapes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-comparing-distributions.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Comparing Two Distributions</span></a></div>
+<ul id="ptx-toc-group-sec-comparing-distributions" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-setup" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Smoking and birth weight</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-birthweight-observations" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Shape, center, and spread for each group</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-benchmarks" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Comparing with a benchmark</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-comparative-paragraph" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Writing the comparison</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-comparing-distributions.html#subsec-dotplot-vs-histogram" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Dotplots and histograms compared</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-normal.html" class="internal"><span class="codenumber">2</span> <span class="title">The Normal Distribution</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-normal">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch-normal-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-normal.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction to the Normal Distribution</span></a></div>
+<ul id="ptx-toc-group-sec-intro-normal" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-parameters" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Two parameters determine everything</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-shape" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Shape, symmetry, and the effect of the parameters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-intro-normal.html#subsec-normal-limits" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Where the normal model does not apply</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-standard-normal.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Standard Normal Distribution</span></a></div>
+<ul id="ptx-toc-group-sec-standard-normal" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-zscore" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Standardizing: the <span class="process-math">\(z\)</span>-score</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-comparing" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Comparing values across distributions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-standard-normal.html#subsec-empirical-rule" class="internal"><span class="codenumber">2.2.3</span> <span class="title">The Empirical Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-using-normal.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Using the Normal Distribution</span></a></div>
+<ul class="structural toc-item-list active" id="ptx-toc-group-sec-using-normal">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-area-left-right" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Probability is area</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-two-questions" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Two kinds of question, two tools</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-percentiles" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Percentiles and interpretation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-using-normal.html#subsec-middle-area" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Finding a middle interval</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-using-normal">
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the Normal Distribution</span>
+</h1>
+<article class="objectives goal-like" id="sec-using-normal-2"><h2 class="heading"><span class="type">Objectives</span></h2>
+<ul class="disc" id="sec-using-normal-2-1">
+<li id="sec-using-normal-2-1-1">
+<div class="para" id="sec-using-normal-2-1-1-1">Interpret a normal probability as an area under the curve.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-using-normal-2-1-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec-using-normal-2-1-2">
+<div class="para" id="sec-using-normal-2-1-2-1">Use the complement rule to convert between left and right areas.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-using-normal-2-1-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec-using-normal-2-1-3">
+<div class="para" id="sec-using-normal-2-1-3-1">Choose between a probability calculation and a percentile calculation based on what the question gives you.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-using-normal-2-1-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec-using-normal-2-1-4">
+<div class="para" id="sec-using-normal-2-1-4-1">Find percentiles, quartiles, and middle intervals of a normal distribution.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Objective"><a tabindex="-1" href="#sec-using-normal-2-1-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Objectives 2.3"><a tabindex="-1" href="#sec-using-normal-2" title="Copy heading and permalink for Objectives 2.3" aria-label="Copy heading and permalink for Objectives 2.3">🔗</a></div>
+</article>
+<section class="introduction" id="sec-using-normal-3">
+<div class="para" id="sec-using-normal-3-1">The previous section converted values into <span class="process-math">\(z\)</span>-scores. This section puts that machinery to work answering the questions people actually ask: how likely is a value this large, and what value separates the top ten percent from everyone else?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<section class="subsection" id="subsec-area-left-right">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Probability is area</span>
+</h2>
+<div class="para" id="subsec-area-left-right-2">For a continuous distribution, the probability that <span class="process-math">\(X\)</span> falls below some value <span class="process-math">\(x\)</span> is the <em class="emphasis">area</em> under the curve to the left of <span class="process-math">\(x\text{.}\)</span> We write this <span class="process-math">\(P(X \lt x)\text{.}\)</span> Normal tables, computers, and calculators all do the same job: they report that area.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-area-left-right-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-area-left-right-3">Since the total area under the curve is <span class="process-math">\(1\text{,}\)</span> the area to the right follows immediately.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-area-left-right-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="asm-complement"><h3 class="heading"><span class="title">Left areas, right areas.</span></h3>
+<div class="para" id="asm-complement-2">
+<span class="process-math">\(P(X \lt x)\)</span> is the area to the left of a vertical line through <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#asm-complement-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="asm-complement-3">
+<span class="process-math">\(P(X \gt x) = 1 - P(X \lt x)\)</span> is the area to the right.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#asm-complement-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="asm-complement-4">For a continuous distribution, <span class="process-math">\(P(X \lt x)\)</span> and <span class="process-math">\(P(X \le x)\)</span> are the same number, and likewise for <span class="process-math">\(P(X \gt x)\)</span> and <span class="process-math">\(P(X \ge x)\text{.}\)</span> A single point has zero area, so including or excluding the endpoint changes nothing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#asm-complement-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Assemblage: Left areas, right areas"><a tabindex="-1" href="#asm-complement" title="Copy heading and permalink for Assemblage: Left areas, right areas" aria-label="Copy heading and permalink for Assemblage: Left areas, right areas">🔗</a></div>
+</article>
+<div class="para" id="subsec-area-left-right-5">That last point surprises people. In a continuous distribution, <span class="process-math">\(P(X = x) = 0\)</span> for every single value of <span class="process-math">\(x\)</span>—not because the value is impossible, but because a single point has no width and therefore no area.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-area-left-right-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-complement"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-complement-1-1">For a normal distribution, you compute <span class="process-math">\(P(X \lt 65) = 0.6554\text{.}\)</span> What is <span class="process-math">\(P(X \gt 65)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-complement-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-complement" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-complement_opt_a" data-correct="">
+<div class="para" id="check-complement-2-1-1-1"><span class="process-math">\(0.3446\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-complement_opt_a">
+<div class="para" id="check-complement-2-1-2-1">Correct: <span class="process-math">\(1 - 0.6554 = 0.3446\text{.}\)</span> The two areas must add to <span class="process-math">\(1\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-complement_opt_b">
+<div class="para" id="check-complement-2-2-1-1"><span class="process-math">\(0.6554\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-complement_opt_b">
+<div class="para" id="check-complement-2-2-2-1">That is the area to the <em class="emphasis">left</em>. Unless <span class="process-math">\(65\)</span> is the mean, the two sides are not equal.</div>
+</li>
+<li data-component="answer" id="rs-check-complement_opt_c">
+<div class="para" id="check-complement-2-3-1-1"><span class="process-math">\(-0.6554\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-complement_opt_c">
+<div class="para" id="check-complement-2-3-2-1">A probability can never be negative. Subtract from <span class="process-math">\(1\)</span> rather than negating.</div>
+</li>
+<li data-component="answer" id="rs-check-complement_opt_d">
+<div class="para" id="check-complement-2-4-1-1">It cannot be found without knowing <span class="process-math">\(\mu\)</span> and <span class="process-math">\(\sigma\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-complement_opt_d">
+<div class="para" id="check-complement-2-4-2-1">The complement rule needs nothing beyond the left area. Review <a href="sec-using-normal.html#asm-complement" class="xref" data-knowl="./knowl/xref/asm-complement.html" data-reveal-label="Reveal" data-close-label="Close" title="Assemblage: Left areas, right areas">Left areas, right areas</a>.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.1"><a tabindex="-1" href="#check-complement" title="Copy heading and permalink for Checkpoint 2.3.1" aria-label="Copy heading and permalink for Checkpoint 2.3.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-endpoint"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" data-multipleanswers="false" id="rs-check-endpoint">
+<div class="para" id="check-endpoint-1-1">For a normal distribution, <span class="process-math">\(P(X \lt 70)\)</span> and <span class="process-math">\(P(X \le 70)\)</span> are the same number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-endpoint-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<li data-component="answer" id="rs-check-endpoint_opt_t" data-correct=""><p>True.</p></li>
+<li data-component="feedback" id="rs-check-endpoint_opt_t">
+<div class="para" id="check-endpoint-2-1">True. The normal distribution is continuous, so the single point <span class="process-math">\(x = 70\)</span> contributes zero area. Including or excluding the endpoint has no effect. This is <em class="emphasis">not</em> true for discrete distributions.</div>
+</li>
+<li data-component="answer" id="rs-check-endpoint_opt_f"><p>False.</p></li>
+<li data-component="feedback" id="rs-check-endpoint_opt_f">
+<div class="para" id="check-endpoint-2-1">True. The normal distribution is continuous, so the single point <span class="process-math">\(x = 70\)</span> contributes zero area. Including or excluding the endpoint has no effect. This is <em class="emphasis">not</em> true for discrete distributions.</div>
+</li>
+</ul></div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.2"><a tabindex="-1" href="#check-endpoint" title="Copy heading and permalink for Checkpoint 2.3.2" aria-label="Copy heading and permalink for Checkpoint 2.3.2">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 2.3.1: Probability is area"><a tabindex="-1" href="#subsec-area-left-right" title="Copy heading and permalink for Subsection 2.3.1: Probability is area" aria-label="Copy heading and permalink for Subsection 2.3.1: Probability is area">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-two-questions">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Two kinds of question, two tools</span>
+</h2>
+<div class="para" id="subsec-two-questions-2">Nearly every normal distribution problem is one of two types, and telling them apart is most of the work.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-two-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-two-tools"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Which calculation do you need?<div class="autopermalink" aria-hidden="true" data-description="Table 2.3.3: Which calculation do you need?"><a tabindex="-1" href="#table-two-tools" title="Copy heading and permalink for Table 2.3.3: Which calculation do you need?" aria-label="Copy heading and permalink for Table 2.3.3: Which calculation do you need?">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t2 lines">You are given</th>
+<th scope="col" class="l m b2 r0 l0 t2 lines">You want</th>
+<th scope="col" class="l m b2 r0 l0 t2 lines">Calculator</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">a value <span class="process-math">\(x\)</span>
+</td>
+<td class="l m b0 r0 l0 t0 lines">a probability (an area)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">normalcdf</code></td>
+</tr>
+<tr>
+<td class="l m b2 r0 l0 t0 lines">a probability (an area)</td>
+<td class="l m b2 r0 l0 t0 lines">a value <span class="process-math">\(x\)</span>
+</td>
+<td class="l m b2 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">invNorm</code></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="subsec-two-questions-4">On a TI-83+ or TI-84, both commands live under <code class="code-inline tex2jax_ignore">2nd DISTR</code>. The syntax is<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-two-questions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-two-questions-5">
+<code class="code-inline tex2jax_ignore">normalcdf(lower value, upper value, mean, standard deviation)</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-two-questions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-two-questions-6">
+<code class="code-inline tex2jax_ignore">invNorm(area to the left, mean, standard deviation)</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-two-questions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-two-questions-7">For a one-sided area with <code class="code-inline tex2jax_ignore">normalcdf</code>, you still need two endpoints, so use a number far out in the tail: <code class="code-inline tex2jax_ignore">1E99</code> for the right end, <code class="code-inline tex2jax_ignore">-1E99</code> for the left. Enter <code class="code-inline tex2jax_ignore">1E99</code> by pressing <code class="code-inline tex2jax_ignore">1</code>, then the <code class="code-inline tex2jax_ignore">EE</code> key, then <code class="code-inline tex2jax_ignore">99</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-two-questions-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-final-exam" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Final exam scores.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-final-exam-2-1">Final exam scores in a statistics class were normally distributed with a mean of <span class="process-math">\(63\)</span> and a standard deviation of <span class="process-math">\(5\text{,}\)</span> so <span class="process-math">\(X \sim N(63, 5)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-final-exam-2-2">(a) Find the probability that a randomly selected student scored more than <span class="process-math">\(65\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-final-exam-2-3">(b) Find the probability that a randomly selected student scored less than <span class="process-math">\(85\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-final-exam-2-4">(c) Find the 90th percentile—the score <span class="process-math">\(k\)</span> with <span class="process-math">\(90\%\)</span> of scores below it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-final-exam-2-5">(d) Find the 70th percentile.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-final-exam-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-final-exam-3-1">(a) Sketch the curve and shade to the right of <span class="process-math">\(65\text{.}\)</span> Using <code class="code-inline tex2jax_ignore">normalcdf(65, 1E99, 63, 5) = 0.3446</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-2">You can also standardize first: <span class="process-math">\(z = \dfrac{65 - 63}{5} = 0.4\text{.}\)</span> The area to the left of <span class="process-math">\(z = 0.4\)</span> is <span class="process-math">\(0.6554\text{,}\)</span> so the area to the right is <span class="process-math">\(1 - 0.6554 = 0.3446\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-3">About <span class="process-math">\(34.5\%\)</span> of students scored above <span class="process-math">\(65\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-4">(b) <code class="code-inline tex2jax_ignore">normalcdf(-1E99, 85, 63, 5) \approx 1</code>. A score of <span class="process-math">\(85\)</span> is more than four standard deviations above the mean, so essentially every student scored below it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-5">(c) Here you are given an area and want a value, so use <code class="code-inline tex2jax_ignore">invNorm(0.90, 63, 5) = 69.4</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-6">The 90th percentile is <span class="process-math">\(69.4\text{:}\)</span> ninety percent of scores fall at or below <span class="process-math">\(69.4\text{,}\)</span> and ten percent at or above. A value like this is often called a <dfn class="terminology">critical value</dfn>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-final-exam-3-7">(d) <code class="code-inline tex2jax_ignore">invNorm(0.70, 63, 5) = 65.6</code>. Seventy percent of scores fall at or below <span class="process-math">\(65.6\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-final-exam-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.4.1"><a tabindex="-1" href="#ex-final-exam-3" title="Copy heading and permalink for Solution 2.3.4.1" aria-label="Copy heading and permalink for Solution 2.3.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 2.3.4: Final exam scores"><a tabindex="-1" href="#ex-final-exam" title="Copy heading and permalink for Example 2.3.4: Final exam scores" aria-label="Copy heading and permalink for Example 2.3.4: Final exam scores">🔗</a></div>
+</article></details>
+<article class="exercise exercise-like" id="check-which-tool"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-which-tool-1-1">Heights are normally distributed with <span class="process-math">\(\mu = 64\)</span> inches and <span class="process-math">\(\sigma = 3\)</span> inches. You want to find the height that separates the shortest <span class="process-math">\(25\%\)</span> from everyone else. Which calculation does the job?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-which-tool-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-which-tool" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-which-tool_opt_a" data-correct="">
+<div class="para" id="check-which-tool-2-1-1-1"><code class="code-inline tex2jax_ignore">invNorm(0.25, 64, 3)</code></div>
+</li>
+<li data-component="feedback" id="rs-check-which-tool_opt_a">
+<div class="para" id="check-which-tool-2-1-2-1">Correct. You were handed an area and asked for a value, so you need the inverse.</div>
+</li>
+<li data-component="answer" id="rs-check-which-tool_opt_b">
+<div class="para" id="check-which-tool-2-2-1-1"><code class="code-inline tex2jax_ignore">normalcdf(-1E99, 0.25, 64, 3)</code></div>
+</li>
+<li data-component="feedback" id="rs-check-which-tool_opt_b">
+<div class="para" id="check-which-tool-2-2-2-1">This treats <span class="process-math">\(0.25\)</span> as a height rather than as an area. Check <a href="sec-using-normal.html#table-two-tools" class="xref" data-knowl="./knowl/xref/table-two-tools.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 2.3.3: Which calculation do you need?">Table 2.3.3</a>.</div>
+</li>
+<li data-component="answer" id="rs-check-which-tool_opt_c">
+<div class="para" id="check-which-tool-2-3-1-1"><code class="code-inline tex2jax_ignore">normalcdf(25, 1E99, 64, 3)</code></div>
+</li>
+<li data-component="feedback" id="rs-check-which-tool_opt_c">
+<div class="para" id="check-which-tool-2-3-2-1">This finds the probability of a height above <span class="process-math">\(25\)</span> inches, which is not what was asked.</div>
+</li>
+<li data-component="answer" id="rs-check-which-tool_opt_d">
+<div class="para" id="check-which-tool-2-4-1-1"><code class="code-inline tex2jax_ignore">invNorm(0.75, 64, 3)</code></div>
+</li>
+<li data-component="feedback" id="rs-check-which-tool_opt_d">
+<div class="para" id="check-which-tool-2-4-2-1">Close, but <code class="code-inline tex2jax_ignore">invNorm</code> always takes the area to the <em class="emphasis">left</em>. The shortest <span class="process-math">\(25\%\)</span> is a left area of <span class="process-math">\(0.25\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.5"><a tabindex="-1" href="#check-which-tool" title="Copy heading and permalink for Checkpoint 2.3.5" aria-label="Copy heading and permalink for Checkpoint 2.3.5">🔗</a></div>
+</article>
+<details id="ex-computer-time" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computer use at home.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-computer-time-2-1">Suppose the average time a household personal computer is used for entertainment is two hours per day, with times normally distributed and a standard deviation of half an hour, so <span class="process-math">\(X \sim N(2, 0.5)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-computer-time-2-2">(a) Find the probability that such a computer is used for entertainment between <span class="process-math">\(1.8\)</span> and <span class="process-math">\(2.75\)</span> hours per day.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-computer-time-2-3">(b) Find the maximum number of hours per day used by the bottom quartile of households.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-computer-time-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-computer-time-3-1">(a) You want the area <em class="emphasis">between</em> two values, so both endpoints go straight into the command: <code class="code-inline tex2jax_ignore">normalcdf(1.8, 2.75, 2, 0.5) = 0.5886</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-computer-time-3-2">(b) The bottom quartile is the lowest <span class="process-math">\(25\%\text{,}\)</span> so find <span class="process-math">\(k\)</span> with <span class="process-math">\(P(X \lt k) = 0.25\text{:}\)</span> <code class="code-inline tex2jax_ignore">invNorm(0.25, 2, 0.5) = 1.66</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-computer-time-3-3">The bottom quartile of households uses the computer at most <span class="process-math">\(1.66\)</span> hours per day for entertainment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-computer-time-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.6.1"><a tabindex="-1" href="#ex-computer-time-3" title="Copy heading and permalink for Solution 2.3.6.1" aria-label="Copy heading and permalink for Solution 2.3.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 2.3.6: Computer use at home"><a tabindex="-1" href="#ex-computer-time" title="Copy heading and permalink for Example 2.3.6: Computer use at home" aria-label="Copy heading and permalink for Example 2.3.6: Computer use at home">🔗</a></div>
+</article></details>
+<article class="exercise exercise-like" id="check-golf"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-golf-1-1">Golf scores for a school team are normally distributed with mean <span class="process-math">\(68\)</span> and standard deviation <span class="process-math">\(3\text{.}\)</span> What is the probability that a randomly selected golfer scored less than <span class="process-math">\(65\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-golf-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-golf" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-golf_opt_a" data-correct="">
+<div class="para" id="check-golf-2-1-1-1">About <span class="process-math">\(0.1587\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-golf_opt_a">
+<div class="para" id="check-golf-2-1-2-1">Correct. <span class="process-math">\(65\)</span> is exactly one standard deviation below the mean, and about <span class="process-math">\(16\%\)</span> of a normal distribution lies below that point. (<code class="code-inline tex2jax_ignore">normalcdf(-1E99, 65, 68, 3)</code>.)</div>
+</li>
+<li data-component="answer" id="rs-check-golf_opt_b">
+<div class="para" id="check-golf-2-2-1-1">About <span class="process-math">\(0.8413\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-golf_opt_b">
+<div class="para" id="check-golf-2-2-2-1">That is the area to the <em class="emphasis">right</em> of <span class="process-math">\(65\text{.}\)</span> The question asks for scores <em class="emphasis">less than</em> <span class="process-math">\(65\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-golf_opt_c">
+<div class="para" id="check-golf-2-3-1-1">About <span class="process-math">\(0.3174\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-golf_opt_c">
+<div class="para" id="check-golf-2-3-2-1">That is the total area in <em class="emphasis">both</em> tails beyond one standard deviation. You want only the left one.</div>
+</li>
+<li data-component="answer" id="rs-check-golf_opt_d">
+<div class="para" id="check-golf-2-4-1-1">About <span class="process-math">\(0.68\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-golf_opt_d">
+<div class="para" id="check-golf-2-4-2-1">The Empirical Rule’s <span class="process-math">\(68\%\)</span> is the area <em class="emphasis">between</em> <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> standard deviations, not a tail area.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.7"><a tabindex="-1" href="#check-golf" title="Copy heading and permalink for Checkpoint 2.3.7" aria-label="Copy heading and permalink for Checkpoint 2.3.7">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 2.3.2: Two kinds of question, two tools"><a tabindex="-1" href="#subsec-two-questions" title="Copy heading and permalink for Subsection 2.3.2: Two kinds of question, two tools" aria-label="Copy heading and permalink for Subsection 2.3.2: Two kinds of question, two tools">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-percentiles">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Percentiles and interpretation</span>
+</h2>
+<div class="para" id="subsec-percentiles-2">A percentile is only useful if you can say what it means in words. The sentence pattern is always the same: <em class="emphasis">p percent of the population is at or below this value, and the remaining percent is at or above it.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-percentiles-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-smartphone" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ages of smartphone users.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-smartphone-2-1">In the United States, the ages of smartphone users aged 13 to 55+ approximately follow a normal distribution with mean <span class="process-math">\(36.9\)</span> years and standard deviation <span class="process-math">\(13.9\)</span> years.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-smartphone-2-2">(a) Find the probability that a randomly selected user is between <span class="process-math">\(23\)</span> and <span class="process-math">\(64.7\)</span> years old.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-smartphone-2-3">(b) Find the probability that a user is at most <span class="process-math">\(50.8\)</span> years old.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-smartphone-2-4">(c) Find the 80th percentile and interpret it in a complete sentence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-smartphone-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-smartphone-3-1">(a) <code class="code-inline tex2jax_ignore">normalcdf(23, 64.7, 36.9, 13.9) = 0.8186</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-smartphone-3-2">(b) <code class="code-inline tex2jax_ignore">normalcdf(-1E99, 50.8, 36.9, 13.9) = 0.8413</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-smartphone-3-3">(c) <code class="code-inline tex2jax_ignore">invNorm(0.80, 36.9, 13.9) = 48.6</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-smartphone-3-4">The 80th percentile is <span class="process-math">\(48.6\)</span> years. Eighty percent of smartphone users aged 13 to 55+ are <span class="process-math">\(48.6\)</span> years old or younger, and twenty percent are <span class="process-math">\(48.6\)</span> or older.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-smartphone-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.8.1"><a tabindex="-1" href="#ex-smartphone-3" title="Copy heading and permalink for Solution 2.3.8.1" aria-label="Copy heading and permalink for Solution 2.3.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 2.3.8: Ages of smartphone users"><a tabindex="-1" href="#ex-smartphone" title="Copy heading and permalink for Example 2.3.8: Ages of smartphone users" aria-label="Copy heading and permalink for Example 2.3.8: Ages of smartphone users">🔗</a></div>
+</article></details>
+<article class="exercise exercise-like" id="check-interpret-percentile"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="check-interpret-percentile-1-1">For the smartphone users in <a href="sec-using-normal.html#ex-smartphone" class="xref" data-knowl="./knowl/xref/ex-smartphone.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.3.8: Ages of smartphone users">Example 2.3.8</a>, the 30th percentile is <span class="process-math">\(29.6\)</span> years. Write one complete sentence interpreting this number for someone who has never taken a statistics course.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interpret-percentile-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="solutions">
+<details id="check-interpret-percentile-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="check-interpret-percentile-2-1">Thirty percent of smartphone users aged 13 to 55+ are <span class="process-math">\(29.6\)</span> years old or younger, and the other seventy percent are <span class="process-math">\(29.6\)</span> years old or older.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interpret-percentile-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="check-interpret-percentile-2-2">A good interpretation names the percentage, the value, the population, and the direction. Saying only “the 30th percentile is <span class="process-math">\(29.6\)</span>” restates the arithmetic without explaining it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interpret-percentile-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.9.1"><a tabindex="-1" href="#check-interpret-percentile-2" title="Copy heading and permalink for Solution 2.3.9.1" aria-label="Copy heading and permalink for Solution 2.3.9.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.9"><a tabindex="-1" href="#check-interpret-percentile" title="Copy heading and permalink for Checkpoint 2.3.9" aria-label="Copy heading and permalink for Checkpoint 2.3.9">🔗</a></div>
+</article>
+<details id="ex-iqr" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quartiles and the interquartile range.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-iqr-2-1">Using the same smartphone distribution, <span class="process-math">\(X \sim N(36.9, 13.9)\text{:}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-iqr-2-2">(a) Calculate the interquartile range.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-iqr-2-3">(b) Forty percent of users are at least what age?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-iqr-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-iqr-3-1">(a) The quartiles are the 25th and 75th percentiles:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-iqr-3-2">
+<code class="code-inline tex2jax_ignore">invNorm(0.75, 36.9, 13.9) = 46.2754</code>, so <span class="process-math">\(Q_3 = 46.2754\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-iqr-3-3">
+<code class="code-inline tex2jax_ignore">invNorm(0.25, 36.9, 13.9) = 27.5246</code>, so <span class="process-math">\(Q_1 = 27.5246\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ex-iqr-3-4">
+\begin{equation*}
+IQR = Q_3 - Q_1 = 46.2754 - 27.5246 = 18.7508
+\end{equation*}
+</div>
+<div class="para" id="ex-iqr-3-5">(b) “At least” means “greater than or equal to,” so <span class="process-math">\(0.40\)</span> is the area to the <em class="emphasis">right</em>. Since <code class="code-inline tex2jax_ignore">invNorm</code> wants a left area, convert first: <span class="process-math">\(1 - 0.40 = 0.60\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-iqr-3-6">
+<code class="code-inline tex2jax_ignore">invNorm(0.60, 36.9, 13.9) = 40.4215</code><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-iqr-3-7">Forty percent of users are at least <span class="process-math">\(40.42\)</span> years old.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-iqr-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.10.1"><a tabindex="-1" href="#ex-iqr-3" title="Copy heading and permalink for Solution 2.3.10.1" aria-label="Copy heading and permalink for Solution 2.3.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 2.3.10: Quartiles and the interquartile range"><a tabindex="-1" href="#ex-iqr" title="Copy heading and permalink for Example 2.3.10: Quartiles and the interquartile range" aria-label="Copy heading and permalink for Example 2.3.10: Quartiles and the interquartile range">🔗</a></div>
+</article></details>
+<article class="exercise exercise-like" id="check-at-least"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-at-least-1-1">Exam scores are normal with <span class="process-math">\(\mu = 81\)</span> and <span class="process-math">\(\sigma = 15\text{.}\)</span> You want the score that the top <span class="process-math">\(20\%\)</span> of students exceeded. What area should you give <code class="code-inline tex2jax_ignore">invNorm</code>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-at-least-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-at-least" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-at-least_opt_a" data-correct="">
+<div class="para" id="check-at-least-2-1-1-1"><span class="process-math">\(0.80\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-at-least_opt_a">
+<div class="para" id="check-at-least-2-1-2-1">Correct. The top <span class="process-math">\(20\%\)</span> is a right area, and <code class="code-inline tex2jax_ignore">invNorm</code> requires the area to the left: <span class="process-math">\(1 - 0.20 = 0.80\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-at-least_opt_b">
+<div class="para" id="check-at-least-2-2-1-1"><span class="process-math">\(0.20\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-at-least_opt_b">
+<div class="para" id="check-at-least-2-2-2-1">That would give the score separating the <em class="emphasis">bottom</em> <span class="process-math">\(20\%\text{.}\)</span> Convert the right area to a left area first.</div>
+</li>
+<li data-component="answer" id="rs-check-at-least_opt_c">
+<div class="para" id="check-at-least-2-3-1-1"><span class="process-math">\(0.50\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-at-least_opt_c">
+<div class="para" id="check-at-least-2-3-2-1">That returns the mean, which splits the distribution in half.</div>
+</li>
+<li data-component="answer" id="rs-check-at-least_opt_d">
+<div class="para" id="check-at-least-2-4-1-1"><span class="process-math">\(20\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-at-least_opt_d">
+<div class="para" id="check-at-least-2-4-2-1">
+<code class="code-inline tex2jax_ignore">invNorm</code> takes a probability between <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> not a percentage.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.11"><a tabindex="-1" href="#check-at-least" title="Copy heading and permalink for Checkpoint 2.3.11" aria-label="Copy heading and permalink for Checkpoint 2.3.11">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 2.3.3: Percentiles and interpretation"><a tabindex="-1" href="#subsec-percentiles" title="Copy heading and permalink for Subsection 2.3.3: Percentiles and interpretation" aria-label="Copy heading and permalink for Subsection 2.3.3: Percentiles and interpretation">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-middle-area">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding a middle interval</span>
+</h2>
+<div class="para" id="subsec-middle-area-2">A question like “the middle <span class="process-math">\(20\%\)</span> of values fall between what two numbers?” requires one extra step. The middle area is centered on the mean, so whatever is left over splits evenly between the two tails.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsec-middle-area-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="asm-middle-strategy"><h3 class="heading"><span class="title">Strategy for a middle interval.</span></h3>
+<div class="para" id="asm-middle-strategy-2">To find the middle <span class="process-math">\(p\)</span> of a distribution, first compute the leftover area <span class="process-math">\(1 - p\text{,}\)</span> then split it in half. Each tail gets <span class="process-math">\(\dfrac{1 - p}{2}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#asm-middle-strategy-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="asm-middle-strategy-3">The lower endpoint is at left area <span class="process-math">\(\dfrac{1 - p}{2}\text{.}\)</span> The upper endpoint is at left area <span class="process-math">\(\dfrac{1 - p}{2} + p\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#asm-middle-strategy-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Assemblage: Strategy for a middle interval"><a tabindex="-1" href="#asm-middle-strategy" title="Copy heading and permalink for Assemblage: Strategy for a middle interval" aria-label="Copy heading and permalink for Assemblage: Strategy for a middle interval">🔗</a></div>
+</article>
+<details id="ex-oranges" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mandarin oranges.</span>
+</h3></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-oranges-2-1">A citrus farmer finds that the diameters of mandarin oranges from his farm follow a normal distribution with mean <span class="process-math">\(5.85\)</span> cm and standard deviation <span class="process-math">\(0.24\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-oranges-2-2">(a) Find the probability that a randomly selected orange has diameter larger than <span class="process-math">\(6.0\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-oranges-2-3">(b) The middle <span class="process-math">\(20\%\)</span> of oranges have diameters between what two values?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="ex-oranges-2-4">(c) Find the 90th percentile and interpret it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-oranges-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-oranges-3-1">(a) <code class="code-inline tex2jax_ignore">normalcdf(6, 1E99, 5.85, 0.24) = 0.2660</code>. About <span class="process-math">\(26.6\%\)</span> of the oranges are larger than <span class="process-math">\(6.0\)</span> cm.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-oranges-3-2">(b) The leftover area is <span class="process-math">\(1 - 0.20 = 0.80\text{,}\)</span> so each tail has area <span class="process-math">\(0.40\text{.}\)</span> The lower endpoint is the 40th percentile and the upper endpoint is the 60th percentile.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-oranges-3-3">
+<code class="code-inline tex2jax_ignore">invNorm(0.40, 5.85, 0.24) = 5.79</code> cm<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-oranges-3-4">
+<code class="code-inline tex2jax_ignore">invNorm(0.60, 5.85, 0.24) = 5.91</code> cm<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-oranges-3-5">The middle <span class="process-math">\(20\%\)</span> of oranges are between <span class="process-math">\(5.79\)</span> cm and <span class="process-math">\(5.91\)</span> cm in diameter.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-oranges-3-6">(c) <code class="code-inline tex2jax_ignore">invNorm(0.90, 5.85, 0.24) = 6.16</code> cm. Ninety percent of the mandarin oranges from this farm have a diameter of <span class="process-math">\(6.16\)</span> cm or less.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ex-oranges-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 2.3.12.1"><a tabindex="-1" href="#ex-oranges-3" title="Copy heading and permalink for Solution 2.3.12.1" aria-label="Copy heading and permalink for Solution 2.3.12.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 2.3.12: Mandarin oranges"><a tabindex="-1" href="#ex-oranges" title="Copy heading and permalink for Example 2.3.12: Mandarin oranges" aria-label="Copy heading and permalink for Example 2.3.12: Mandarin oranges">🔗</a></div>
+</article></details>
+<article class="exercise exercise-like" id="check-middle-area"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.3.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-middle-area-1-1">You want the middle <span class="process-math">\(50\%\)</span> of a normal distribution. What are the two left areas you feed to <code class="code-inline tex2jax_ignore">invNorm</code>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-middle-area-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-middle-area" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-middle-area_opt_a" data-correct="">
+<div class="para" id="check-middle-area-2-1-1-1">
+<span class="process-math">\(0.25\)</span> and <span class="process-math">\(0.75\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-middle-area_opt_a">
+<div class="para" id="check-middle-area-2-1-2-1">Correct. The leftover area is <span class="process-math">\(0.50\text{,}\)</span> split into two tails of <span class="process-math">\(0.25\)</span> each. These two values are exactly <span class="process-math">\(Q_1\)</span> and <span class="process-math">\(Q_3\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-middle-area_opt_b">
+<div class="para" id="check-middle-area-2-2-1-1">
+<span class="process-math">\(0.50\)</span> and <span class="process-math">\(1.00\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-middle-area_opt_b">
+<div class="para" id="check-middle-area-2-2-2-1">That describes the entire upper half, not a middle interval. Review <a href="sec-using-normal.html#asm-middle-strategy" class="xref" data-knowl="./knowl/xref/asm-middle-strategy.html" data-reveal-label="Reveal" data-close-label="Close" title="Assemblage: Strategy for a middle interval">Strategy for a middle interval</a>.</div>
+</li>
+<li data-component="answer" id="rs-check-middle-area_opt_c">
+<div class="para" id="check-middle-area-2-3-1-1">
+<span class="process-math">\(0.00\)</span> and <span class="process-math">\(0.50\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-middle-area_opt_c">
+<div class="para" id="check-middle-area-2-3-2-1">That is the lower half of the distribution, and <span class="process-math">\(0.00\)</span> has no finite value attached to it.</div>
+</li>
+<li data-component="answer" id="rs-check-middle-area_opt_d">
+<div class="para" id="check-middle-area-2-4-1-1">
+<span class="process-math">\(0.50\)</span> and <span class="process-math">\(0.50\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-middle-area_opt_d">
+<div class="para" id="check-middle-area-2-4-2-1">Both of these return the mean, giving an interval of zero width.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.3.13"><a tabindex="-1" href="#check-middle-area" title="Copy heading and permalink for Checkpoint 2.3.13" aria-label="Copy heading and permalink for Checkpoint 2.3.13">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Subsection 2.3.4: Finding a middle interval"><a tabindex="-1" href="#subsec-middle-area" title="Copy heading and permalink for Subsection 2.3.4: Finding a middle interval" aria-label="Copy heading and permalink for Subsection 2.3.4: Finding a middle interval">🔗</a></div>
+</section>
+<section class="conclusion" id="sec-using-normal-8">
+<div class="para" id="sec-using-normal-8-1">Probability for a normal distribution is area under the curve. <span class="process-math">\(P(X \lt x)\)</span> is the area to the left, and <span class="process-math">\(P(X \gt x) = 1 - P(X \lt x)\)</span> is the area to the right. For a continuous distribution, endpoints do not matter: <span class="process-math">\(P(X \lt x) = P(X \le x)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-using-normal-8-2">Given a value and asked for a probability, use <code class="code-inline tex2jax_ignore">normalcdf</code>. Given a probability and asked for a value, use <code class="code-inline tex2jax_ignore">invNorm</code>, which always takes the area to the <em class="emphasis">left</em>. For a middle interval of area <span class="process-math">\(p\text{,}\)</span> each tail holds <span class="process-math">\(\dfrac{1-p}{2}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-using-normal-8-3">Adapted from <span class="booktitle">Introductory Statistics</span> (OpenStax / Lumen Learning), CC BY 4.0. Smartphone user data from “Smart Phone Users, By The Numbers,” Visual.ly, 2013.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-using-normal-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><div class="autopermalink" aria-hidden="true" data-description="Section 2.3: Using the Normal Distribution"><a tabindex="-1" href="#sec-using-normal" title="Copy heading and permalink for Section 2.3: Using the Normal Distribution" aria-label="Copy heading and permalink for Section 2.3: Using the Normal Distribution">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-standard-normal.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
