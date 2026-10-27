@@ -222,4 +222,65 @@ plot_income <- function() {
 }
 render_book_figure("income", plot_income, width = 7, height = 4.2)
 
+# r-figures:sec-dotplots:start
+# ---- ch-data-display / sec-dotplots -----------------------
+# Cereal protein data from Consumer Reports, as recorded in the section source.
+cereal_names <- c(
+  "Apple Jacks", "Cap'n Crunch", "Cheerios", "Cinnamon Toast Crunch",
+  "Cocoa Puffs", "Corn Pops", "Count Chocula", "Froot Loops",
+  "Frosted Flakes", "Frosted Mini-Wheats", "Fruity Pebbles",
+  "Golden Grahams", "Honey Graham Ohs", "Honey Nut Cheerios",
+  "Honeycomb", "Kix", "Life", "Lucky Charms", "Rice Krispies",
+  "Smacks", "Trix"
+)
+cereal_protein <- c(2, 1, 6, 1, 1, 1, 1, 2, 2, 3, 2, 1, 2, 3, 2, 2, 4, 2, 2, 2, 1)
+stopifnot(
+  length(cereal_names) == 21L,
+  length(cereal_protein) == 21L,
+  identical(as.integer(table(factor(cereal_protein, levels = 1:6))),
+            c(7L, 10L, 2L, 1L, 0L, 1L))
+)
+
+plot_cereal_casevalue <- function() {
+  old <- par(no.readonly = TRUE)
+  on.exit(par(old))
+  par(
+    family = "sans", fg = book_colors$ink, col.axis = book_colors$ink,
+    col.lab = book_colors$ink, las = 1, bty = "n", xaxs = "i", yaxs = "i",
+    mar = c(3.6, 10.6, 0.8, 0.8), mgp = c(2.2, 0.6, 0), tcl = -0.25
+  )
+  positions <- barplot(
+    rev(cereal_protein),
+    names.arg = rev(cereal_names),
+    horiz = TRUE,
+    xlim = c(0, 6.6),
+    axes = FALSE,
+    col = book_colors$gray,
+    border = book_colors$ink,
+    xlab = "Protein (grams per serving)",
+    cex.names = 0.72,
+    space = 0.25
+  )
+  axis(1, at = 0:6)
+  invisible(positions)
+}
+render_book_figure(
+  "cereal-casevalue", plot_cereal_casevalue,
+  width = 7.5, height = 7.2
+)
+
+plot_cereal_dotplot <- function() {
+  stacked_dotplot(
+    cereal_protein,
+    xlim = c(0.4, 6.7),
+    xlabel = "Protein (grams per serving)",
+    tick_by = 1
+  )
+}
+render_book_figure(
+  "cereal-dotplot", plot_cereal_dotplot,
+  width = 6.5, height = 4.2
+)
+# r-figures:sec-dotplots:end
+
 message("All statistical figures generated successfully in ", OUT)

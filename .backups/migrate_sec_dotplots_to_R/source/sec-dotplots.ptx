@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dotplots">
+  <title>Dotplots</title>
+
+  <objectives>
+    <ul>
+      <li><p>Explain why a table is a poor tool for seeing
+      patterns in data.</p></li>
+      <li><p>Distinguish a case-value graph from a
+      dotplot.</p></li>
+      <li><p>Read counts and values from a dotplot.</p></li>
+      <li><p>Describe the distribution of a quantitative
+      variable using a dotplot.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>When we work with data, it usually arrives as a table. A
+    table is excellent for looking up one individual: you find
+    the row, you read the value. But in data analysis we are
+    rarely interested in an individual. We want to describe a
+    <em>group</em>, and patterns in a group are nearly
+    impossible to see in a table.</p>
+
+    <p>For that reason, the first step in data analysis is
+    almost always to graph the distribution of the variable. A
+    good graph shows two things at once: the possible values of
+    the variable, and the number of individuals at each
+    value.</p>
+  </introduction>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-case-value">
+    <title>A graph that does not help</title>
+
+    <p>Consider the protein content of breakfast cereals
+    marketed to children. The individuals are the cereals; the
+    variable is grams of protein in a serving. Here is one way
+    to graph it.</p>
+
+    <figure xml:id="fig-cereal-casevalue">
+      <caption>A <term>case-value graph</term> of protein
+      content for <m>21</m> children's cereals. Each bar is one
+      cereal.</caption>
+      <image width="75%" xml:id="image-cereal-casevalue">
+        <description>A horizontal bar chart with one bar for
+        each of 21 named children's cereals, showing grams of
+        protein per serving. Most bars extend to 1 or 2 grams.
+        Cheerios has by far the longest bar at 6 grams, and Life
+        reaches 4 grams. Because the cereals are listed
+        alphabetically rather than by protein content, finding
+        how many cereals share a given protein value requires
+        scanning every bar individually.</description>
+        <asymptote>
+unitsize(0.80cm, 0.345cm);
+defaultpen(fontsize(6.2pt));
+
+string[] NAME = {
+  "Apple Jacks","Cap'n Crunch","Cheerios",
+  "Cinnamon Toast Crunch","Cocoa Puffs","Corn Pops",
+  "Count Chocula","Froot Loops","Frosted Flakes",
+  "Frosted Mini-Wheats","Fruity Pebbles","Golden Grahams",
+  "Honey Graham Ohs","Honey Nut Cheerios","Honeycomb",
+  "Kix","Life","Lucky Charms","Rice Krispies",
+  "Smacks","Trix"};
+real[] P = {2,1,6,1,1,1,1,2,2,3,2,1,2,3,2,2,4,2,2,2,1};
+
+for (int i = 0; i &lt; NAME.length; ++i) {
+  real y = NAME.length - i;
+  filldraw((0,y-0.32)--(P[i],y-0.32)--(P[i],y+0.32)
+           --(0,y+0.32)--cycle, paleblue, black+0.3bp);
+  label(NAME[i], (-0.12,y), W);
+}
+
+draw((0,0.3)--(6.6,0.3), black+0.6bp);
+for (real t = 0; t &lt;= 6; t += 1) {
+  draw((t,0.3)--(t,0.0), black+0.4bp);
+  label(format("%g", t), (t,-0.15), S);
+}
+label("Protein (grams per serving)", (3.3,-1.35));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>This is a <term>case-value graph</term>. You can see the
+    name of each individual case and the variable value for that
+    case. Apple Jacks has <m>2</m> grams of protein in a
+    serving; Cheerios has <m>6</m>.</p>
+
+    <p>For summarizing a distribution, this graph is a poor
+    choice. Ask it a simple question: <em>how many cereals have
+    <m>2</m> grams of protein?</em> There is no way to answer
+    without moving down the whole list and counting bars of
+    matching length. In that respect a case-value graph is
+    barely better than the table it came from. We cannot see
+    patterns, and we cannot read off the number of individuals
+    at a given value.</p>
+
+    <exercise xml:id="check-casevalue-problem">
+      <statement>
+        <p>What is the main weakness of the case-value graph in
+        <xref ref="fig-cereal-casevalue"/> as a summary of the
+        distribution?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>It does not show how many cereals share a given
+            protein value.</p>
+          </statement>
+          <feedback>
+            <p>Correct. A summary of a distribution needs to
+            show the number of individuals at each value, and
+            this graph forces you to count bars one at a
+            time.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It leaves out some of the cereals.</p>
+          </statement>
+          <feedback>
+            <p>All <m>21</m> cereals appear. Showing every
+            individual is in fact what makes the graph crowded
+            rather than informative.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The protein values are inaccurate.</p>
+          </statement>
+          <feedback>
+            <p>The values are fine. The problem is the
+            organization, not the numbers.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Protein is a categorical variable, so it should
+            not be graphed this way.</p>
+          </statement>
+          <feedback>
+            <p>Grams of protein is a measurement, so it is
+            quantitative. A dotplot or histogram is
+            appropriate<mdash/>just not this graph.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-dotplot">
+    <title>The dotplot</title>
+
+    <p>Here is a second graph of exactly the same <m>21</m>
+    cereals.</p>
+
+    <figure xml:id="fig-cereal-dotplot">
+      <caption>A <term>dotplot</term> of protein content for the
+      same <m>21</m> children's cereals. Each dot is one
+      cereal.</caption>
+      <image width="65%" xml:id="image-cereal-dotplot">
+        <description>A dotplot of protein content for 21
+        children's cereals. The horizontal axis runs from 1 to 6
+        grams. Stacks of dots sit above 1 gram with 7 cereals,
+        above 2 grams with 10 cereals, above 3 grams with 2
+        cereals, above 4 grams with 1 cereal, and above 6 grams
+        with 1 cereal. Nothing appears above 5 grams. The bulk
+        of the data sits at the low end, with a single isolated
+        dot far to the right at 6 grams.</description>
+        <asymptote>
+unitsize(0.95cm, 0.30cm);
+defaultpen(fontsize(8pt));
+
+real[] V = {1,2,3,4,6};
+int[]  N = {7,10,2,1,1};
+
+for (int i = 0; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5.5bp)+blue);
+  }
+}
+
+draw((0.4,0)--(6.7,0), black+0.6bp);
+for (real t = 1; t &lt;= 6; t += 1) {
+  draw((t,0)--(t,-0.45), black+0.4bp);
+  label(format("%g", t), (t,-0.75), S);
+}
+label("Protein (grams per serving)", (3.55,-2.4));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>In a dotplot, each dot represents one
+    individual<mdash/>here, one cereal. The numbers along the
+    horizontal axis are the variable values. The height of each
+    stack is the count of individuals at that value.</p>
+
+    <p>Now the earlier question answers itself. Ten children's
+    cereals have <m>2</m> grams of protein in a serving. No
+    counting required: you read the height of the stack.</p>
+
+    <exercise xml:id="check-dot-meaning">
+      <statement>
+        <p>In <xref ref="fig-cereal-dotplot"/>, what does a
+        single dot represent?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>One cereal</p></statement>
+          <feedback>
+            <p>Correct. In a dotplot each individual contributes
+            exactly one dot, placed above its value.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>One gram of protein</p></statement>
+          <feedback>
+            <p>Grams are read from the horizontal axis. The dots
+            count individuals.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The average protein content of a group
+          of cereals</p></statement>
+          <feedback>
+            <p>No averaging happens in a dotplot. Each dot is
+            one raw observation.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>A range of protein values</p></statement>
+          <feedback>
+            <p>That describes a histogram bar, which covers an
+            interval. A dot sits at a single value.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-read-dotplot">
+      <statement>
+        <p>Using <xref ref="fig-cereal-dotplot"/>, how many of
+        these cereals have <m>3</m> or more grams of protein in
+        a serving?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>4</m></p></statement>
+          <feedback>
+            <p>Correct: two cereals at <m>3</m> grams, one at
+            <m>4</m>, and one at <m>6</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>2</m></p></statement>
+          <feedback>
+            <p>That counts only the stack at <m>3</m> grams.
+            <q><m>3</m> or more</q> includes everything to the
+            right as well.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>3</m></p></statement>
+          <feedback>
+            <p>Check again<mdash/>there are stacks at <m>3</m>,
+            <m>4</m>, and <m>6</m> grams, and the first of those
+            holds two cereals.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>17</m></p></statement>
+          <feedback>
+            <p>That is the number with <em>fewer</em> than
+            <m>3</m> grams: seven at <m>1</m> gram plus ten at
+            <m>2</m> grams.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-reading-dotplot">
+    <title>Describing what you see</title>
+
+    <p>With the dotplot in front of us, describing the
+    distribution is straightforward. Four observations cover
+    it:</p>
+
+    <ul>
+      <li><p>The amount of protein varies from <m>1</m> to
+      <m>6</m> grams per serving.</p></li>
+      <li><p>Most of the cereals have <m>1</m> or <m>2</m> grams
+      of protein. Seventeen of the twenty-one fall at those two
+      values.</p></li>
+      <li><p>Larger amounts of protein are less
+      typical.</p></li>
+      <li><p>One cereal has <m>6</m> grams of protein. That much
+      protein is unusual for this group of children's
+      cereals.</p></li>
+    </ul>
+
+    <p>Together those four statements are a good summary of the
+    data. Notice that each of them is a claim about the
+    <em>group</em>, not about any one cereal, and that none of
+    them could have been read off the case-value graph without
+    substantial work.</p>
+
+    <exercise xml:id="check-dotplot-vs-table">
+      <statement correct="no">
+        <p>A dotplot shows less information than the table of
+        values it was built from.</p>
+      </statement>
+      <feedback>
+        <p>False, at least for a small data set. Every
+        individual value is still visible in a
+        dotplot<mdash/>you could reconstruct the full list of
+        twenty-one protein values from
+        <xref ref="fig-cereal-dotplot"/>. What the dotplot drops
+        is the <em>names</em>, and in exchange it makes the
+        pattern in the group immediately visible.</p>
+      </feedback>
+    </exercise>
+
+    <exercise xml:id="check-describe-protein">
+      <statement>
+        <p>A parent looks at
+        <xref ref="fig-cereal-dotplot"/> and says,
+        <q>Children's cereals are a good source of
+        protein<mdash/>one of them has <m>6</m> grams.</q> In
+        two or three sentences, explain what is wrong with
+        reasoning from that single cereal, and say what the
+        dotplot actually shows about the group.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Something like: <q>The <m>6</m>-gram cereal is a
+        single unusual case, not a typical one. Seventeen of the
+        twenty-one cereals have only <m>1</m> or <m>2</m> grams
+        of protein per serving, so the typical children's cereal
+        is a poor source of protein. Quoting the maximum
+        describes one product, not the group.</q></p>
+        <p>The distinction between a statement about an
+        individual and a statement about a distribution is the
+        point of this whole chapter. A strong answer names the
+        actual bulk of the data rather than only asserting that
+        the claim is misleading.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <conclusion>
+    <title>Summary</title>
+    <p>A table and a case-value graph both display individuals
+    well and distributions badly. Neither lets you see how many
+    individuals share a given value without counting.</p>
+    <p>A dotplot places one dot per individual above that
+    individual's value on a numeric axis. The height of each
+    stack is the count of individuals at that value, which makes
+    the distribution visible at a glance: where values cluster,
+    how far they spread, and which values are unusual.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Cereal nutrition data
+    from Consumer Reports.</p>
+  </conclusion>
+</section>

@@ -43,7 +43,7 @@
       <caption>A <term>case-value graph</term> of protein
       content for <m>21</m> children's cereals. Each bar is one
       cereal.</caption>
-      <image width="75%" xml:id="image-cereal-casevalue">
+      <image width="75%" xml:id="image-cereal-casevalue" source="R-generated/cereal-casevalue">
         <description>A horizontal bar chart with one bar for
         each of 21 named children's cereals, showing grams of
         protein per serving. Most bars extend to 1 or 2 grams.
@@ -52,34 +52,6 @@
         alphabetically rather than by protein content, finding
         how many cereals share a given protein value requires
         scanning every bar individually.</description>
-        <asymptote>
-unitsize(0.80cm, 0.345cm);
-defaultpen(fontsize(6.2pt));
-
-string[] NAME = {
-  "Apple Jacks","Cap'n Crunch","Cheerios",
-  "Cinnamon Toast Crunch","Cocoa Puffs","Corn Pops",
-  "Count Chocula","Froot Loops","Frosted Flakes",
-  "Frosted Mini-Wheats","Fruity Pebbles","Golden Grahams",
-  "Honey Graham Ohs","Honey Nut Cheerios","Honeycomb",
-  "Kix","Life","Lucky Charms","Rice Krispies",
-  "Smacks","Trix"};
-real[] P = {2,1,6,1,1,1,1,2,2,3,2,1,2,3,2,2,4,2,2,2,1};
-
-for (int i = 0; i &lt; NAME.length; ++i) {
-  real y = NAME.length - i;
-  filldraw((0,y-0.32)--(P[i],y-0.32)--(P[i],y+0.32)
-           --(0,y+0.32)--cycle, paleblue, black+0.3bp);
-  label(NAME[i], (-0.12,y), W);
-}
-
-draw((0,0.3)--(6.6,0.3), black+0.6bp);
-for (real t = 0; t &lt;= 6; t += 1) {
-  draw((t,0.3)--(t,0.0), black+0.4bp);
-  label(format("%g", t), (t,-0.15), S);
-}
-label("Protein (grams per serving)", (3.3,-1.35));
-        </asymptote>
       </image>
     </figure>
 
@@ -161,7 +133,7 @@ label("Protein (grams per serving)", (3.3,-1.35));
       <caption>A <term>dotplot</term> of protein content for the
       same <m>21</m> children's cereals. Each dot is one
       cereal.</caption>
-      <image width="65%" xml:id="image-cereal-dotplot">
+      <image width="65%" xml:id="image-cereal-dotplot" source="R-generated/cereal-dotplot">
         <description>A dotplot of protein content for 21
         children's cereals. The horizontal axis runs from 1 to 6
         grams. Stacks of dots sit above 1 gram with 7 cereals,
@@ -170,26 +142,6 @@ label("Protein (grams per serving)", (3.3,-1.35));
         with 1 cereal. Nothing appears above 5 grams. The bulk
         of the data sits at the low end, with a single isolated
         dot far to the right at 6 grams.</description>
-        <asymptote>
-unitsize(0.95cm, 0.30cm);
-defaultpen(fontsize(8pt));
-
-real[] V = {1,2,3,4,6};
-int[]  N = {7,10,2,1,1};
-
-for (int i = 0; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5.5bp)+blue);
-  }
-}
-
-draw((0.4,0)--(6.7,0), black+0.6bp);
-for (real t = 1; t &lt;= 6; t += 1) {
-  draw((t,0)--(t,-0.45), black+0.4bp);
-  label(format("%g", t), (t,-0.75), S);
-}
-label("Protein (grams per serving)", (3.55,-2.4));
-        </asymptote>
       </image>
     </figure>
 
