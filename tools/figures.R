@@ -19,7 +19,7 @@ if (length(missing)) {
   )
 }
 
-OUT <- file.path("assets", "external")
+OUT <- file.path("assets", "R-generated")
 dir.create(OUT, showWarnings = FALSE, recursive = TRUE)
 
 book_colors <- list(
