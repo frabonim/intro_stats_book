@@ -5,13 +5,11 @@
   <xi:include href="./docinfo.ptx"/>
 
   <book xml:id="my-intro-stats">
-    <title>Introductory Statistics</title>
-    <subtitle>Math 107</subtitle>
+    <title>Elementary Statistics</title>
 
     <xi:include href="./frontmatter.ptx"/>
 
     <xi:include href="./ch-data-display.ptx"/>
-    <xi:include href="./ch-normal.ptx"/>
 
     <xi:include href="./backmatter.ptx"/>
   </book>

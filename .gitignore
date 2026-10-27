@@ -1,0 +1,51 @@
+# PreTeXt build output
+output/
+*.log
+logs/
+
+# PreTeXt CLI local state
+.ptx/
+_build/
+
+# NOTE: assets/generated/ is deliberately NOT ignored.
+# Runestone builds from this repo and may not have Asymptote
+# available. Committing generated images keeps the build portable.
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# LaTeX intermediates (from pdf target)
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+\#*\#
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch
+scratch/
+*.bak
+*.orig
