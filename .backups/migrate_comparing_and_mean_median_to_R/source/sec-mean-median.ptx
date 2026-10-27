@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-mean-median">
+  <title>Mean and Median</title>
+
+  <objectives xml:id="objectives-mean-median">
+    <ul>
+      <li>
+        <p>Calculate the mean of a quantitative data set and
+        interpret it as a fair share.</p>
+      </li>
+      <li>
+        <p>Explain why the mean is the balancing point of a
+        distribution.</p>
+      </li>
+      <li>
+        <p>Locate the median of a data set with an odd or an
+        even number of values.</p>
+      </li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>
+      So far we have described the center of a distribution by
+      pointing at it. We looked at a dotplot or a histogram,
+      found where the values piled up, and called that a typical
+      value. That is a real skill, but it is not a number, and
+      two people looking at the same picture can point at two
+      different places.
+    </p>
+    <p>
+      This section replaces the pointing with arithmetic. There
+      are two standard measures of center, the <term>mean</term>
+      and the <term>median</term>, and they answer slightly
+      different questions. For some distributions they land in
+      almost the same place. For others they are far apart, and
+      which one you report changes the story the data tells.
+      Here we learn to compute both and to say what each one
+      actually measures.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-the-mean">
+    <title>The mean</title>
+
+    <p>
+      The mean is the ordinary average. Add the data values,
+      then divide by how many there are. We write it
+      <m>\bar{x}</m> and say <q>x-bar</q>.
+    </p>
+
+    <me>\bar{x} = \frac{\sum x}{n}</me>
+
+    <p>
+      The symbol <m>\sum</m> is an instruction to add up
+      whatever follows it, so <m>\sum x</m> means the sum of all
+      the data values. The letter <m>n</m> is the number of data
+      values.
+    </p>
+
+    <example xml:id="ex-quiz-mean">
+      <title>Calculating a mean</title>
+      <statement>
+        <p>
+          Find the mean of three quiz scores: 70, 85, and 82.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There are three scores, so <m>n = 3</m>.
+        </p>
+        <me>\bar{x} = \frac{\sum x}{n}
+          = \frac{70 + 85 + 82}{3}
+          = \frac{237}{3} = 79</me>
+        <p>
+          The mean quiz score is 79.
+        </p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-mean-compute">
+      <statement>
+        <p>
+          A data set contains the values 6, 7, 11, and 16. What
+          is the mean?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>10</p></statement>
+          <feedback>
+            <p>
+              Correct. The values sum to 40 and there are four
+              of them, so <m>\bar{x} = 40/4 = 10</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>9</p></statement>
+          <feedback>
+            <p>
+              That is the median, the value halfway between 7
+              and 11. The mean uses the sizes of the values, not
+              just their order.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>13.3</p></statement>
+          <feedback>
+            <p>
+              This divides 40 by 3. Divide by <m>n</m>, the
+              number of data values, which is 4 here. A common
+              slip is to count the plus signs instead of the
+              values.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>40</p></statement>
+          <feedback>
+            <p>
+              That is <m>\sum x</m>, the total. The mean divides
+              that total by <m>n</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-fair-share">
+    <title>The mean as a fair share</title>
+
+    <p>
+      Beth's nine homework scores are 70, 80, 80, 80, 85, 86,
+      90, 90, and 95. Her scores vary, but the mean gives one
+      number for her typical performance.
+    </p>
+
+    <me>\bar{x} = \frac{70 + 80 + 80 + 80 + 85 + 86 + 90 + 90
+      + 95}{9} = \frac{756}{9} = 84</me>
+
+    <p>
+      Here is a useful way to read that 84. Suppose we took all
+      756 of Beth's points and redistributed them evenly across
+      the nine assignments. Each assignment would receive
+      exactly 84 points, because
+      <m>\frac{9(84)}{9} = \frac{756}{9} = 84</m>. The mean is
+      the score she would have earned on every assignment if she
+      had earned the same score on all of them. For this reason
+      the mean is called the <term>fair share</term> measure of
+      center.
+    </p>
+
+    <p>
+      Notice what the mean does not do. Beth never actually
+      scored an 84 on anything. The mean tells us nothing about
+      any individual assignment and nothing about how much her
+      scores bounced around.
+    </p>
+
+    <figure xml:id="fig-beth-scores">
+      <caption>Beth's nine homework scores, with the mean and
+      the median marked.</caption>
+      <image xml:id="image-beth-scores" width="85%">
+        <description>
+          A dotplot of nine homework scores running from 70 to
+          95. There is a single dot at 70, well to the left of
+          everything else, then a stack of three dots at 80, one
+          dot each at 85 and 86, a stack of two dots at 90, and
+          one dot at 95. The bulk of the scores sit between 80
+          and 90. A dashed line at 84 marks the mean and a
+          dashed line at 85 marks the median; the two fall
+          almost on top of each other, near the middle of the
+          main cluster, with the low score of 70 pulling the
+          mean slightly below the median.
+        </description>
+        <asymptote>
+size(14cm,5cm,IgnoreAspect);
+real[] s = {70,80,80,80,85,86,90,90,95};
+draw((68,0)--(97,0), black);
+for(int t = 70; t &lt;= 95; t += 5){
+  draw((t,0)--(t,-0.25));
+  label(string(t), (t,-0.3), S);
+}
+int[] cnt = new int[40];
+for (int j = 0; j &lt; cnt.length; ++j) {
+  cnt[j] = 0;
+}
+for(int i = 0; i &lt; s.length; ++i){
+  int k = round(s[i]) - 68;
+  cnt[k] += 1;
+  dot((s[i], 0.4*cnt[k]), black);
+}
+draw((84,-0.15)--(84,1.9), red+dashed);
+label("mean 84", (84,1.9), NW, red);
+draw((85,-0.15)--(85,1.5), blue+dashed);
+label("median 85", (85,1.5), NE, blue);
+label("Homework score", (82.5,-1.0));
+        </asymptote>
+      </image>
+    </figure>
+
+    <exercise xml:id="check-fair-share">
+      <statement>
+        <p>
+          A student has 10 homework scores with a mean of 84.
+          How many homework points does the student have in
+          total?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>840</p></statement>
+          <feedback>
+            <p>
+              Correct. Since <m>\bar{x} = \sum x / n</m>, the
+              total is <m>\sum x = n \bar{x} = 10(84) = 840</m>.
+              This is the fair-share idea run backward.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>84</p></statement>
+          <feedback>
+            <p>
+              That is the mean itself, the share each assignment
+              would receive. The total is that share multiplied
+              by the number of assignments.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>8.4</p></statement>
+          <feedback>
+            <p>
+              This divides by <m>n</m> a second time. The mean
+              has already been divided once; recovering the
+              total requires multiplying.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It cannot be found without the individual
+            scores.</p>
+          </statement>
+          <feedback>
+            <p>
+              The individual scores are not recoverable, but the
+              total is. The mean and <m>n</m> determine
+              <m>\sum x</m> exactly, even though many different
+              data sets produce the same total.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-balancing-point">
+    <title>The mean as a balancing point</title>
+
+    <p>
+      There is a second way to see the mean, and it explains why
+      the mean behaves the way it does later in the course.
+      Measure the distance from each data value to the mean,
+      counting distances below the mean as negative and
+      distances above as positive. These signed distances are
+      called <term>deviations</term>.
+    </p>
+
+    <table xml:id="table-deviations">
+      <title>Deviations from the mean of 84</title>
+      <tabular halign="center">
+        <row header="yes" bottom="minor">
+          <cell>Score</cell>
+          <cell>Deviation</cell>
+        </row>
+        <row><cell>70</cell><cell><m>-14</m></cell></row>
+        <row><cell>80</cell><cell><m>-4</m></cell></row>
+        <row><cell>80</cell><cell><m>-4</m></cell></row>
+        <row><cell>80</cell><cell><m>-4</m></cell></row>
+        <row><cell>85</cell><cell><m>+1</m></cell></row>
+        <row><cell>86</cell><cell><m>+2</m></cell></row>
+        <row><cell>90</cell><cell><m>+6</m></cell></row>
+        <row><cell>90</cell><cell><m>+6</m></cell></row>
+        <row bottom="minor">
+          <cell>95</cell><cell><m>+11</m></cell>
+        </row>
+        <row><cell>Total</cell><cell><m>0</m></cell></row>
+      </tabular>
+    </table>
+
+    <p>
+      The deviations below the mean total <m>-26</m> and the
+      deviations above the mean total <m>+26</m>. They cancel
+      exactly. Picture the dotplot as a plank with a weight at
+      each data value: the plank balances at 84 and nowhere
+      else. The mean is the only measure of center with this
+      property, and it is the reason a single extreme value can
+      drag the mean a long way, a point we take up in
+      <xref ref="sec-choosing-center"/>.
+    </p>
+
+    <exercise xml:id="check-balance-deviation">
+      <statement>
+        <p>
+          In a data set, the deviations of the values that fall
+          below the mean add up to <m>-38</m>. What do the
+          deviations of the values above the mean add up to?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>+38</m></p></statement>
+          <feedback>
+            <p>
+              Correct. All deviations together sum to zero, so
+              the positive deviations must exactly offset the
+              negative ones. This holds for every data set.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>-38</m></p></statement>
+          <feedback>
+            <p>
+              This repeats the sign of the deviations below the
+              mean. Values above the mean produce positive
+              deviations.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>0</m></p></statement>
+          <feedback>
+            <p>
+              Zero is the total of <em>all</em> the deviations,
+              not the total of the ones above the mean. See
+              <xref ref="table-deviations"/>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It depends on how many values are above the
+            mean.</p>
+          </statement>
+          <feedback>
+            <p>
+              The count does not matter. One value far above the
+              mean can balance many values slightly below it,
+              but the totals still cancel.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-mean-not-a-value">
+      <statement>
+        <p>
+          True or false: the mean of a data set must be equal to
+          one of the values in the data set.
+        </p>
+        <choices>
+          <choice correct="no">
+            <statement><p>True</p></statement>
+            <feedback>
+              <p>
+                False. Beth's mean is 84 and she never scored an
+                84 on any assignment. The mean is a summary of
+                the whole group, not a report of any one
+                observation, and it need not be a possible value
+                at all <mdash/> a mean household size of 2.6
+                people is perfectly ordinary.
+              </p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement><p>False</p></statement>
+            <feedback>
+              <p>
+                False, correctly identified. Beth's mean of 84
+                does not appear anywhere in her list of scores.
+                The mean describes the group, and it can land on
+                a value no individual could have.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </statement>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-the-median">
+    <title>The median</title>
+
+    <p>
+      The <term>median</term> is the middle of the data once the
+      values are written in order from smallest to largest. It
+      splits the ordered list in half: roughly as many values
+      fall below it as above it.
+    </p>
+
+    <example xml:id="ex-median-odd">
+      <title>Median with an odd number of values</title>
+      <statement>
+        <p>
+          Find the median of Beth's homework scores: 70, 80, 80,
+          80, 85, 86, 90, 90, 95.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The scores are already in order and there are nine of
+          them, so the middle one is the fifth. Counting in from
+          either end gives 85. Four scores lie below it and four
+          lie above it, so the median is 85.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      With an odd number of values there is a single value in
+      the middle. With an even number there are two, and the
+      median is the number halfway between them.
+    </p>
+
+    <example xml:id="ex-median-even">
+      <title>Median with an even number of values</title>
+      <statement>
+        <p>
+          Beth's next eight scores are 72, 80, 84, 86, 88, 90,
+          92, 95. Find the median.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There are eight values, so the two middle ones are the
+          fourth and fifth: 86 and 88. The median is their
+          average.
+        </p>
+        <me>\frac{86 + 88}{2} = 87</me>
+        <p>
+          The median is 87, which is not one of her scores. Like
+          the mean, the median need not be a value in the data
+          set.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      One caution about the phrase <q>as much data below as
+      above.</q> When values repeat, the split is not always
+      exact. In the data set 4, 7, 7, 7, 9 the median is 7, yet
+      only one value lies strictly below it. The median is best
+      understood as the value in the middle <em>position</em> of
+      the ordered list, which is exactly why it cares only about
+      order.
+    </p>
+
+    <exercise xml:id="check-median-even">
+      <statement>
+        <p>
+          Find the median of 12, 15, 18, 20, 21, 25.
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>19</p></statement>
+          <feedback>
+            <p>
+              Correct. With six values the two middle ones are
+              18 and 20, and <m>(18+20)/2 = 19</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>18</p></statement>
+          <feedback>
+            <p>
+              This is the lower of the two middle values. With
+              an even count, neither middle value is the median
+              by itself; average them.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>20</p></statement>
+          <feedback>
+            <p>
+              This is the upper of the two middle values.
+              Averaging 18 and 20 gives the median.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>18.5</p></statement>
+          <feedback>
+            <p>
+              This is the mean, <m>111/6 = 18.5</m>. The two are
+              close here, but the median is found from position
+              in the ordered list, not from a total.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-median-order">
+      <statement>
+        <p>
+          A classmate finds the median of 9, 3, 14, 5, 8 by
+          taking the third number written down and reports 14.
+          What went wrong?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The values were not put in order first; the
+            median is 8.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. Ordered, the data is 3, 5, 8, 9, 14, and
+              the third value is 8. The median is the middle of
+              the <em>ordered</em> list, never the middle of the
+              list as recorded.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Nothing; 14 is the median of these five
+            values.</p>
+          </statement>
+          <feedback>
+            <p>
+              14 is the largest value, not the middle one.
+              Sorting first gives 3, 5, 8, 9, 14, with 8 in the
+              middle.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>With five values the median must be the average
+            of two numbers.</p>
+          </statement>
+          <feedback>
+            <p>
+              Averaging two middle values is the procedure for
+              an <em>even</em> count. Five values have a single
+              middle position, the third.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The median should have been found by adding the
+            values and dividing by 5.</p>
+          </statement>
+          <feedback>
+            <p>
+              That computes the mean, which here is 7.8. The
+              median is a position in the ordered list.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-center-limits">
+      <statement>
+        <p>
+          Beth's mean homework score is 84 and her median is 85.
+          In two or three sentences, explain what these two
+          numbers do <em>not</em> tell Beth about her homework
+          performance.
+        </p>
+        <response/>
+      </statement>
+      <solution>
+        <p>
+          Neither number says anything about an individual
+          assignment: Beth never earned an 84, and knowing the
+          center does not reveal that one score was as low as 70
+          while another was 95. Neither number describes
+          variability, so two students with wildly different
+          consistency could post the same mean and median. They
+          also say nothing about shape or about trend over time,
+          so an upward climb and a downward slide can look
+          identical.
+        </p>
+        <p>
+          An adequate answer says the center does not describe
+          individual values. A strong answer names a second
+          missing feature <mdash/> spread, shape, or order in
+          time <mdash/> and explains why that matters, for
+          instance that Beth cannot tell from 84 alone whether
+          she is improving or whether one disaster is dragging
+          her down.
+        </p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-mean-median">
+    <p>
+      The mean is the average: add the values and divide by
+      <m>n</m>, so <m>\bar{x} = \sum x / n</m>. It is the fair
+      share each observation would receive if the total were
+      divided evenly, and it is the balancing point of the
+      distribution, the one location where the deviations above
+      and below cancel to zero.
+    </p>
+    <p>
+      The median is the middle of the ordered data. With an odd
+      number of values it is the single middle value; with an
+      even number it is the average of the two middle values.
+      Because it depends only on position, the median ignores
+      how far away the extreme values sit <mdash/> a fact that
+      turns out to matter a great deal.
+    </p>
+    <p>
+      Neither measure describes an individual observation, and
+      neither describes spread. Both can equal a value that no
+      one in the data set actually has.
+    </p>
+    <p>
+      Adapted from <em>Concepts in Statistics</em>
+      (SUNY / Lumen Learning), CC BY 4.0.
+    </p>
+  </conclusion>
+</section>

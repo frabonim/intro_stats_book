@@ -175,50 +175,83 @@ render_book_figure(
 )
 # r-figures:sec-histograms:end
 
-# ---- ch-data-display / sec-comparing-distributions -------
-ns <- MASS::birthwt$bwt[MASS::birthwt$smoke == 0]
-sm <- MASS::birthwt$bwt[MASS::birthwt$smoke == 1]
-stopifnot(length(ns) == 115L, length(sm) == 74L)
-message("Low birth weight: nonsmoking=", mean(ns < 2500),
-        ", smoking=", mean(sm < 2500))
-message("Macrosomia: nonsmoking=", mean(ns >= 4000),
-        ", smoking=", mean(sm >= 4000))
+# r-figures:sec-comparing-distributions:start
+# ---- ch-data-display / sec-comparing-distributions --------
+# Birth-weight data from MASS::birthwt. The section uses left-closed 500-gram
+# bins and separate figures with identical horizontal and vertical scales.
+birthweight_nonsmokers <- MASS::birthwt$bwt[MASS::birthwt$smoke == 0]
+birthweight_smokers <- MASS::birthwt$bwt[MASS::birthwt$smoke == 1]
+birthweight_breaks <- seq(500, 5000, by = 500)
 
-birth_breaks <- seq(500, 5000, by = 500)
-birth_max <- max(
-  hist(ns, breaks = birth_breaks, right = FALSE, plot = FALSE)$counts,
-  hist(sm, breaks = birth_breaks, right = FALSE, plot = FALSE)$counts
+birthweight_counts <- function(values) {
+  hist(values, breaks = birthweight_breaks, right = FALSE,
+       include.lowest = TRUE, plot = FALSE)$counts
+}
+
+nonsmoker_counts <- birthweight_counts(birthweight_nonsmokers)
+smoker_counts <- birthweight_counts(birthweight_smokers)
+
+stopifnot(
+  length(birthweight_nonsmokers) == 115L,
+  length(birthweight_smokers) == 74L,
+  identical(nonsmoker_counts, c(0L, 3L, 8L, 18L, 22L, 29L, 27L, 6L, 2L)),
+  identical(smoker_counts, c(1L, 1L, 6L, 22L, 16L, 15L, 12L, 1L, 0L)),
+  sum(nonsmoker_counts[1:4]) == 29L,
+  sum(smoker_counts[1:4]) == 30L,
+  sum(nonsmoker_counts[8:9]) == 8L,
+  sum(smoker_counts[8:9]) == 1L
 )
 
-plot_birthweight_comparison <- function() {
-  old <- par(no.readonly = TRUE); on.exit(par(old))
-  par(mfrow = c(2, 1), family = "sans", fg = book_colors$ink,
-      col.axis = book_colors$ink, col.lab = book_colors$ink,
-      las = 1, bty = "n", mgp = c(2.1, 0.6, 0), tcl = -0.25,
-      mar = c(3.2, 4.0, 1.8, 0.8))
-  hist(ns, breaks = birth_breaks, right = FALSE, col = book_colors$gray,
-       border = book_colors$ink, main = "Mother did not smoke",
-       xlab = "Birth weight (grams)", ylab = "Frequency",
-       xlim = range(birth_breaks), ylim = c(0, birth_max))
-  hist(sm, breaks = birth_breaks, right = FALSE, col = book_colors$gray,
-       border = book_colors$ink, main = "Mother smoked",
-       xlab = "Birth weight (grams)", ylab = "Frequency",
-       xlim = range(birth_breaks), ylim = c(0, birth_max))
+plot_birthweight_group <- function(counts, group_label, fill) {
+  book_par()
+  plot(NA, xlim = c(500, 5250), ylim = c(0, 32), axes = FALSE,
+       xlab = "Birth weight (grams)", ylab = "Number of babies")
+  rect(head(birthweight_breaks, -1), 0, tail(birthweight_breaks, -1), counts,
+       col = fill, border = book_colors$ink)
+  axis(1, at = birthweight_breaks)
+  axis(2, at = seq(0, 30, by = 5))
+  text(4900, 29, group_label, adj = 1, cex = 0.9)
 }
-render_book_figure("birthweight-smoking-comparison",
-                   plot_birthweight_comparison, width = 7, height = 7)
 
-# ---- ch-data-display / sec-mean-median -------------------
-beth <- c(70, 80, 80, 80, 85, 86, 90, 90, 95)
-stopifnot(mean(beth) == 84, median(beth) == 85,
-          abs(sum(beth - mean(beth))) < 1e-12)
+plot_birthweight_nonsmokers <- function() {
+  plot_birthweight_group(nonsmoker_counts, "Nonsmokers (n = 115)", "#C9DDF0")
+}
+render_book_figure(
+  "birthweight-nonsmokers", plot_birthweight_nonsmokers,
+  width = 7.5, height = 4.5
+)
+
+plot_birthweight_smokers <- function() {
+  plot_birthweight_group(smoker_counts, "Smokers (n = 74)", "#E8C9C9")
+}
+render_book_figure(
+  "birthweight-smokers", plot_birthweight_smokers,
+  width = 7.5, height = 4.5
+)
+# r-figures:sec-comparing-distributions:end
+
+# r-figures:sec-mean-median:start
+# ---- ch-data-display / sec-mean-median ---------------------
+beth_scores <- c(70, 80, 80, 80, 85, 86, 90, 90, 95)
+stopifnot(
+  length(beth_scores) == 9L,
+  mean(beth_scores) == 84,
+  median(beth_scores) == 85,
+  abs(sum(beth_scores - mean(beth_scores))) < 1e-12
+)
 
 plot_beth_scores <- function() {
-  stacked_dotplot(beth, c(68, 97), "Homework score",
-                  mean_value = mean(beth), median_value = median(beth),
-                  tick_by = 5)
+  stacked_dotplot(
+    beth_scores, c(68, 97), "Homework score",
+    mean_value = mean(beth_scores), median_value = median(beth_scores),
+    tick_by = 5
+  )
 }
-render_book_figure("beth-scores", plot_beth_scores, width = 7, height = 3.5)
+render_book_figure(
+  "beth-scores", plot_beth_scores,
+  width = 7.0, height = 3.5
+)
+# r-figures:sec-mean-median:end
 
 # ---- ch-data-display / sec-choosing-center ---------------
 # Reconstructed data; see SOURCES.md.

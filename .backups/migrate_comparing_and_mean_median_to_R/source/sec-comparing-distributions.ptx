@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-comparing-distributions">
+  <title>Comparing Two Distributions</title>
+
+  <objectives>
+    <ul>
+      <li><p>Compare two distributions using histograms drawn on identical scales.</p></li>
+      <li><p>Use a benchmark value to compare groups quantitatively.</p></li>
+      <li><p>Write a comparative paragraph that emphasizes differences between groups.</p></li>
+      <li><p>Distinguish an association observed in data from a causal claim.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>So far we have described one distribution at a time. Most interesting
+    statistical questions involve a comparison: does this group differ from
+    that one? Histograms answer such questions well, provided they are drawn
+    carefully.</p>
+
+    <p>Our descriptions still focus on the overall pattern<mdash/>shape,
+    center, and spread<mdash/>and on deviations from it. But comparison adds a
+    tool: because histograms make percentages easy to compute, we can compare
+    specific intervals of values directly.</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-birthweight-setup">
+    <title>Smoking and birth weight</title>
+
+    <p>Does smoking during pregnancy affect birth weight? To investigate,
+    doctors collected data on <m>189</m> new mothers who gave birth at a
+    hospital in Massachusetts during the <m>1980</m>s. Of these,
+    <m>115</m> did not smoke during pregnancy and <m>74</m> did.</p>
+
+    <table xml:id="table-birthweight">
+      <title>Birth weights of babies born to <m>189</m> mothers, by smoking
+      status</title>
+      <tabular halign="center" top="medium">
+        <row bottom="medium" header="yes">
+          <cell>Birth weight (grams)</cell>
+          <cell>Nonsmokers</cell>
+          <cell>Smokers</cell>
+        </row>
+        <row><cell><m>500</m> to <m>1000</m></cell><cell><m>0</m></cell><cell><m>1</m></cell></row>
+        <row><cell><m>1000</m> to <m>1500</m></cell><cell><m>3</m></cell><cell><m>1</m></cell></row>
+        <row><cell><m>1500</m> to <m>2000</m></cell><cell><m>8</m></cell><cell><m>6</m></cell></row>
+        <row><cell><m>2000</m> to <m>2500</m></cell><cell><m>18</m></cell><cell><m>22</m></cell></row>
+        <row><cell><m>2500</m> to <m>3000</m></cell><cell><m>22</m></cell><cell><m>16</m></cell></row>
+        <row><cell><m>3000</m> to <m>3500</m></cell><cell><m>29</m></cell><cell><m>15</m></cell></row>
+        <row><cell><m>3500</m> to <m>4000</m></cell><cell><m>27</m></cell><cell><m>12</m></cell></row>
+        <row><cell><m>4000</m> to <m>4500</m></cell><cell><m>6</m></cell><cell><m>1</m></cell></row>
+        <row><cell><m>4500</m> to <m>5000</m></cell><cell><m>2</m></cell><cell><m>0</m></cell></row>
+        <row bottom="medium">
+          <cell><m>\text{Total}</m></cell>
+          <cell><m>115</m></cell>
+          <cell><m>74</m></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>As always, left endpoints are included in the bin and right endpoints
+    are not, so a baby weighing exactly <m>1000</m> grams belongs to the
+    interval <m>1000</m> to <m>1500</m>.</p>
+
+    <figure xml:id="fig-nonsmokers">
+      <caption>Birth weights of babies born to the <m>115</m> mothers who did
+      not smoke during pregnancy.</caption>
+      <image width="85%" xml:id="image-nonsmokers">
+        <description>A histogram of birth weights for babies of nonsmoking
+        mothers. Bars rise gradually from zero at 500 grams to a peak of 29 in
+        the bin from 3000 to 3500 grams, with a nearly equal bar of 27 next to
+        it, then drop off quickly. The distribution leans slightly to the
+        left, with a thin tail toward the low weights.</description>
+        <asymptote>
+unitsize(0.0017cm, 0.115cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {500,1000,1500,2000,2500,3000,3500,4000,4500};
+real
+[] C = {  0,   3,   8,  18,  22,  29,  27,   6,   2};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  if (C
+[i] &gt; 0) {
+    filldraw((L
+[i],0)--(L
+[i]+500,0)--(L
+[i]+500,C
+[i])--(L
+[i],C
+[i])--cycle,
+             paleblue, black+0.4bp);
+  }
+}
+
+draw((500,0)--(5250,0), black+0.6bp);
+for (real t = 500; t &lt;= 5000; t += 500) {
+  draw((t,0)--(t,-0.8), black+0.4bp);
+  label(format("%g", t), (t,-1.1), S);
+}
+
+draw((500,0)--(500,32), black+0.6bp);
+for (real s = 0; s &lt;= 30; s += 5) {
+  draw((500,s)--(420,s), black+0.4bp);
+  label(format("%g", s), (380,s), W);
+}
+
+label("Birth weight (grams)", (2750,-4.2));
+label(rotate(90)*"Number of babies", (-420,16));
+label("Nonsmokers ($n = 115$)", (4100,29));
+        </asymptote>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-smokers">
+      <caption>Birth weights of babies born to the <m>74</m> mothers who
+      smoked during pregnancy. The horizontal scale, the bin width, and the
+      vertical scale all match <xref ref="fig-nonsmokers"/>.</caption>
+      <image width="85%" xml:id="image-smokers">
+        <description>A histogram of birth weights for babies of smoking
+        mothers, drawn on exactly the same axes as the previous figure. The
+        peak of 22 occurs in the bin from 2000 to 2500 grams, noticeably
+        further left than the nonsmokers' peak, and the bars fall away toward
+        the heavier weights with almost nothing above 4000 grams.</description>
+        <asymptote>
+unitsize(0.0017cm, 0.115cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {500,1000,1500,2000,2500,3000,3500,4000,4500};
+real
+[] C = {  1,   1,   6,  22,  16,  15,  12,   1,   0};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  if (C
+[i] &gt; 0) {
+    filldraw((L
+[i],0)--(L
+[i]+500,0)--(L
+[i]+500,C
+[i])--(L
+[i],C
+[i])--cycle,
+             palered, black+0.4bp);
+  }
+}
+
+draw((500,0)--(5250,0), black+0.6bp);
+for (real t = 500; t &lt;= 5000; t += 500) {
+  draw((t,0)--(t,-0.8), black+0.4bp);
+  label(format("%g", t), (t,-1.1), S);
+}
+
+draw((500,0)--(500,32), black+0.6bp);
+for (real s = 0; s &lt;= 30; s += 5) {
+  draw((500,s)--(420,s), black+0.4bp);
+  label(format("%g", s), (380,s), W);
+}
+
+label("Birth weight (grams)", (2750,-4.2));
+label(rotate(90)*"Number of babies", (-420,16));
+label("Smokers ($n = 74$)", (4100,29));
+        </asymptote>
+      </image>
+    </figure>
+
+    <assemblage xml:id="asm-same-scales">
+      <title>Why the scales must match</title>
+      <p>Both histograms use the same horizontal range, the same bin width,
+      and the same vertical scale. This is not decoration<mdash/>it is what
+      makes the comparison valid.</p>
+      <p>If the two graphs used different bin widths, differences in the bars
+      might be artifacts of the binning rather than differences in the babies.
+      If they used different vertical scales, a taller bar in one graph would
+      not mean more babies. Matching all three lets you compare the pictures
+      directly.</p>
+    </assemblage>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-same-scales">
+      <statement>
+        <p>Why is it important that <xref ref="fig-nonsmokers"/> and
+        <xref ref="fig-smokers"/> use identical axes?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>So that differences you see between the two pictures reflect
+            differences in the data rather than differences in how the graphs
+            were drawn.</p>
+          </statement>
+          <feedback>
+            <p>Correct. With matched scales and bin widths, a visual
+            difference is a real difference.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>So that the two groups have the same number of individuals.</p>
+          </statement>
+          <feedback>
+            <p>The groups have different sizes<mdash/><m>115</m> and
+            <m>74</m><mdash/>and matching the axes does not change that.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Because histograms of the same variable are required to use the
+            same bins.</p>
+          </statement>
+          <feedback>
+            <p>No such requirement exists in general. It is a deliberate
+            choice made here because we intend to compare.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>So the percentages in each bin will be equal.</p>
+          </statement>
+          <feedback>
+            <p>The percentages are not equal and are not expected to be.
+            Finding where they differ is the whole point.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-birthweight-observations">
+    <title>Shape, center, and spread for each group</title>
+
+    <p><em>Nonsmokers.</em> The distribution of birth weights appears skewed
+    slightly to the left. Weights for this group fall between approximately
+    <m>1000</m> and <m>5000</m> grams, an overall range of about
+    <m>4000</m> grams. Nearly half of these babies weighed between
+    <m>3000</m> and <m>4000</m> grams:</p>
+
+    <me>\frac{29 + 27}{115} = \frac{56}{115} \approx 0.487 = 48.7\%</me>
+
+    <p>with fewer babies in the lower weight ranges.</p>
+
+    <p><em>Smokers.</em> The distribution appears slightly skewed to the
+    right. Weights fall between approximately <m>500</m> and <m>4500</m>
+    grams, also an overall range of about <m>4000</m> grams. Nearly half of
+    these babies weighed between <m>2000</m> and <m>3000</m> grams:</p>
+
+    <me>\frac{22 + 16}{74} = \frac{38}{74} \approx 0.514 = 51.4\%</me>
+
+    <p>with fewer babies in the heavier weight ranges.</p>
+
+    <p>Two things are worth noticing. The overall ranges are
+    <em>identical</em> at about <m>4000</m> grams, so spread alone does not
+    distinguish the groups. What differs is <em>where</em> the bulk of each
+    distribution sits: the nonsmokers' typical range is a full
+    <m>1000</m> grams heavier.</p>
+
+    <p>A caution carried over from the previous sections: because the choice
+    of bin width affects the shape of a histogram, we cannot make precise
+    statements about center and spread here. Our sense of the <q>typical</q>
+    range is itself affected by the binning.</p>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-range-same">
+      <statement>
+        <p>Both groups have an overall range of about <m>4000</m> grams. What
+        does that tell you?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The two groups are similarly variable, so range alone does not
+            distinguish them<mdash/>the difference lies elsewhere.</p>
+          </statement>
+          <feedback>
+            <p>Correct. Equal ranges with different centers is exactly the
+            pattern here: the smokers' distribution is shifted lower, not
+            narrower.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The two distributions are essentially the same.</p>
+          </statement>
+          <feedback>
+            <p>Range is only one feature. The peaks sit a full
+            <m>1000</m> grams apart, which is a substantial difference.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Smoking has no effect on birth weight.</p>
+          </statement>
+          <feedback>
+            <p>The ranges match, but the locations of the distributions do
+            not. Look at where each peak falls.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The two groups must be the same size.</p>
+          </statement>
+          <feedback>
+            <p>Range says nothing about group size. These groups contain
+            <m>115</m> and <m>74</m> mothers.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-benchmarks">
+    <title>Comparing with a benchmark</title>
+
+    <p>Another strategy for comparing distributions is to pick a meaningful
+    cutoff value<mdash/>a <term>benchmark</term><mdash/>and compute what
+    percentage of each group falls beyond it. Benchmarks that come from
+    outside the data, such as medical definitions, are especially persuasive
+    because nobody can accuse you of choosing the cutoff to favor a
+    conclusion.</p>
+
+    <example xml:id="ex-low-birth-weight">
+      <title>Low birth weight</title>
+      <statement>
+        <p>Doctors define <term>low birth weight</term> as a weight below
+        <m>2500</m> grams. Compare the percentage of smokers and nonsmokers
+        whose babies met this definition.</p>
+      </statement>
+      <solution>
+        <p><em>Nonsmokers:</em> <m>3 + 8 + 18 = 29</m> babies weighed less
+        than <m>2500</m> grams.</p>
+        <me>\frac{29}{115} \approx 0.252 = 25.2\%</me>
+        <p><em>Smokers:</em> <m>1 + 1 + 6 + 22 = 30</m> babies weighed less
+        than <m>2500</m> grams.</p>
+        <me>\frac{30}{74} \approx 0.405 = 40.5\%</me>
+        <p>Note that the raw counts are nearly identical, <m>29</m> versus
+        <m>30</m>, while the percentages differ enormously. This is why
+        relative frequency matters when group sizes differ.</p>
+      </solution>
+    </example>
+
+    <example xml:id="ex-macrosomia">
+      <title>Macrosomia</title>
+      <statement>
+        <p>A condition called <term>macrosomia</term>, informally <q>big baby
+        syndrome,</q> is defined as a birth weight of <m>4000</m> grams or
+        more. Compare the two groups.</p>
+      </statement>
+      <solution>
+        <p><em>Nonsmokers:</em> <m>6 + 2 = 8</m> babies weighed
+        <m>4000</m> grams or more.</p>
+        <me>\frac{8}{115} \approx 0.070 = 7.0\%</me>
+        <p><em>Smokers:</em> only <m>1</m> baby weighed <m>4000</m> grams or
+        more.</p>
+        <me>\frac{1}{74} \approx 0.014 = 1.4\%</me>
+      </solution>
+    </example>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-counts-vs-percents">
+      <statement>
+        <p>In <xref ref="ex-low-birth-weight"/>, <m>29</m> nonsmokers and
+        <m>30</m> smokers had low-birth-weight babies<mdash/>nearly the same
+        count. Why is it misleading to stop there?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The groups are different sizes, so the same count represents a
+            much larger share of the smokers.</p>
+          </statement>
+          <feedback>
+            <p>Correct. Thirty out of <m>74</m> is a far bigger fraction than
+            <m>29</m> out of <m>115</m><mdash/><m>40.5\%</m> versus
+            <m>25.2\%</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The counts were measured with different bin widths.</p>
+          </statement>
+          <feedback>
+            <p>Both groups use identical bins. The issue is group size, not
+            binning.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Counts are always less accurate than percentages.</p>
+          </statement>
+          <feedback>
+            <p>Counts are exact. The problem is that they are not
+            <em>comparable</em> across groups of different sizes.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The benchmark of <m>2500</m> grams is arbitrary.</p>
+          </statement>
+          <feedback>
+            <p>It is a standard medical definition, not an arbitrary choice.
+            And the issue here would remain at any cutoff.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 4 -->
+    <exercise xml:id="check-benchmark-compute">
+      <statement>
+        <p>Using <xref ref="table-birthweight"/>, approximately what
+        percentage of babies born to nonsmokers weighed <m>3000</m> grams or
+        more?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>About <m>55.7\%</m></p></statement>
+          <feedback>
+            <p>Correct: <m>29 + 27 + 6 + 2 = 64</m>, and
+            <m>64 \div 115 \approx 0.557</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>48.7\%</m></p></statement>
+          <feedback>
+            <p>That is the percentage between <m>3000</m> and
+            <m>4000</m> grams. <q><m>3000</m> or more</q> also includes the
+            two heaviest bins.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>64\%</m></p></statement>
+          <feedback>
+            <p><m>64</m> is the count, not the percentage. Divide by the group
+            total of <m>115</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>About <m>33.9\%</m></p></statement>
+          <feedback>
+            <p>This divides by <m>189</m>, the total number of mothers in the
+            study. When describing nonsmokers, the group is the
+            <m>115</m> nonsmokers.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-comparative-paragraph">
+    <title>Writing the comparison</title>
+
+    <p>Now assemble everything into prose. The key difference from a
+    single-group description: <em>emphasize the comparison</em>. A paragraph
+    that describes group A fully, then describes group B fully, leaves the
+    reader to do the comparing. Do it for them.</p>
+
+    <blockquote>
+      <p>In this observational study, we compared mothers who smoked during
+      pregnancy to mothers who did not. The variable is the birth weight of
+      their babies.</p>
+
+      <p>Both groups showed a lot of variability in birth weight, with
+      identical overall range estimates of about <m>4000</m> grams, and there
+      was substantial overlap between the distributions. Nonsmokers had babies
+      weighing between approximately <m>1000</m> and <m>5000</m> grams;
+      smokers had babies weighing between approximately <m>500</m> and
+      <m>4500</m> grams.</p>
+
+      <p>However, we observe important differences in the typical ranges for
+      the two groups. For nonsmokers, nearly half the babies weighed between
+      <m>3000</m> and <m>4000</m> grams (<m>56</m> of <m>115</m>, or
+      <m>48.7\%</m>), with fewer babies in the lower ranges. For smokers,
+      nearly half weighed between <m>2000</m> and <m>3000</m> grams
+      (<m>38</m> of <m>74</m>, or <m>51.4\%</m>), with fewer babies in the
+      heavier ranges.</p>
+
+      <p>Using the medical definition of low birth weight, below
+      <m>2500</m> grams, smokers in this study had a much higher incidence:
+      <m>25.2\%</m> (<m>29</m> of <m>115</m>) of babies born to nonsmokers met
+      the definition, compared to <m>40.5\%</m> (<m>30</m> of <m>74</m>) of
+      babies born to smokers. In this study, smoking is associated with lower
+      birth weights, though the variability in the data suggests that other
+      variables also contribute to birth weight.</p>
+    </blockquote>
+
+    <p>Read that last sentence again. It says smoking is
+    <em>associated with</em> lower birth weights<mdash/>not that smoking
+    <em>causes</em> them. This is an observational study: nobody assigned
+    mothers to smoke or not smoke. Mothers who smoke may differ from mothers
+    who do not in many other ways that also affect birth weight. The data
+    establishes a clear association, and stops there.</p>
+
+    <!-- READING CHECK 5 -->
+    <exercise xml:id="check-association">
+      <statement>
+        <p>Based on this study, which conclusion is appropriate?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>In this group of <m>189</m> mothers, smoking during pregnancy
+            was associated with lower birth weights.</p>
+          </statement>
+          <feedback>
+            <p>Correct. It describes an association, names the group studied,
+            and claims nothing beyond what the data supports.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Smoking during pregnancy causes low birth weight.</p>
+          </statement>
+          <feedback>
+            <p>This is an observational study, not an experiment. Mothers
+            chose whether to smoke, and may differ in other ways that affect
+            birth weight.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>If a mother smokes, her baby will have low birth weight.</p>
+          </statement>
+          <feedback>
+            <p>Nearly <m>60\%</m> of the smokers' babies were <em>not</em> low
+            birth weight. The association is about rates across a group, not a
+            prediction for any individual.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Smoking has no relationship to birth weight, since both groups
+            had the same range.</p>
+          </statement>
+          <feedback>
+            <p>Equal ranges do not mean equal distributions. The low-birth-weight
+            rate differs by more than <m>15</m> percentage points.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 6: short answer, recorded -->
+    <exercise xml:id="check-write-comparison">
+      <statement>
+        <p>Using <xref ref="ex-macrosomia"/>, write two sentences comparing
+        the rate of macrosomia between the two groups. Include both
+        percentages, and be careful about what the comparison does and does
+        not establish.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Something like: <q>Babies born to nonsmoking mothers were about
+        five times as likely to meet the definition of macrosomia:
+        <m>7.0\%</m> (<m>8</m> of <m>115</m>) compared to <m>1.4\%</m>
+        (<m>1</m> of <m>74</m>) for smokers. However, this comparison rests on
+        a single macrosomic baby in the smoking group, so the difference
+        should be treated cautiously.</q></p>
+        <p>The second sentence is what separates a good answer from an
+        adequate one. A percentage built on a count of one is fragile<mdash/>if
+        that single baby had weighed slightly less, the smokers' rate would be
+        <m>0\%</m>. Reporting the underlying counts alongside the percentages
+        lets a reader see this for themselves.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-dotplot-vs-histogram">
+    <title>Dotplots and histograms compared</title>
+
+    <p>We now have two graphs for the distribution of a quantitative variable.
+    Neither is better in general; each highlights different aspects of the
+    data.</p>
+
+    <table xml:id="table-dotplot-histogram">
+      <title>Choosing between a dotplot and a histogram</title>
+      <tabular halign="left" top="medium">
+        <row bottom="medium" header="yes">
+          <cell></cell>
+          <cell>Dotplot</cell>
+          <cell>Histogram</cell>
+        </row>
+        <row>
+          <cell>Individual values</cell>
+          <cell>visible</cell>
+          <cell>not visible</cell>
+        </row>
+        <row>
+          <cell>Large data sets</cell>
+          <cell>becomes unreadable</cell>
+          <cell>handles them well</cell>
+        </row>
+        <row>
+          <cell>Shape, center, spread</cell>
+          <cell>unaffected by construction</cell>
+          <cell>affected by bin choice</cell>
+        </row>
+        <row>
+          <cell>Overall range</cell>
+          <cell>exact</cell>
+          <cell>approximate</cell>
+        </row>
+        <row bottom="medium">
+          <cell>Percentages</cell>
+          <cell>tedious to compute</cell>
+          <cell>easy to compute</cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>There are no rules dictating which to use. With a small data set where
+    individual values matter, a dotplot. With hundreds of observations, or
+    when you intend to work with percentages, a histogram.</p>
+
+    <!-- READING CHECK 7 -->
+    <exercise xml:id="check-choose-graph">
+      <statement>
+        <p>A researcher has reaction times for <m>12</m> participants and
+        wants readers to be able to see each individual value, including the
+        exact fastest and slowest times. Which graph should she use?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>A dotplot, since individual values stay visible and the exact
+            range can be read off.</p>
+          </statement>
+          <feedback>
+            <p>Correct. With only <m>12</m> values there is no crowding
+            problem, and binning would hide exactly what she wants to
+            show.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A histogram, since it is the more standard graph.</p>
+          </statement>
+          <feedback>
+            <p>A histogram would group her twelve values into a handful of
+            bars, hiding the individual times and leaving the exact range
+            unreadable.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A histogram with a very small bin width, so each value gets its
+            own bar.</p>
+          </statement>
+          <feedback>
+            <p>At that point you have built a dotplot the hard way, with a
+            graph that invites readers to misjudge the empty bins.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Either one, since both display the same information.</p>
+          </statement>
+          <feedback>
+            <p>They do not. A histogram discards individual values by design,
+            which is precisely what she needs to avoid here.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 8 -->
+    <exercise xml:id="check-exact-range">
+      <statement correct="no">
+        <p>You can read the exact overall range of a data set from its
+        histogram.</p>
+      </statement>
+      <feedback>
+        <p>False. A histogram tells you only which bin the smallest and
+        largest values fall into. In
+        <xref ref="fig-nonsmokers"/> we can say the lightest baby weighed
+        somewhere between <m>1000</m> and <m>1500</m> grams, but not exactly
+        how much. A dotplot shows the actual values, so the range can be
+        computed exactly.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>To compare the distributions of a quantitative variable for two groups,
+    draw histograms on identical horizontal scales, with identical bin widths
+    and identical vertical scales. Describe the shape, center, and spread of
+    each, note any outliers, and<mdash/>most importantly<mdash/>say explicitly
+    how the groups differ.</p>
+    <p>Use percentages rather than counts whenever the groups are different
+    sizes. A benchmark value drawn from outside the data, such as a medical
+    threshold, makes a comparison concrete and hard to dispute.</p>
+    <p>Finally, describe what the data shows and no more. An observational
+    study can establish that two things are associated. It cannot, on its own,
+    establish that one causes the other.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Birth weight data from Hosmer and
+    Lemeshow, collected at Baystate Medical Center, Springfield,
+    Massachusetts, <m>1986</m>.</p>
+  </conclusion>
+</section>
