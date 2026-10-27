@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-quartiles-iqr">
+  <title>Quartiles and the Interquartile Range</title>
+
+  <objectives xml:id="objectives-quartiles-iqr">
+    <ul>
+      <li><p>Interpret the five-number summary of a quantitative distribution.</p></li>
+      <li><p>Calculate and interpret the interquartile range.</p></li>
+      <li><p>Use the 1.5-IQR rule to identify potential outliers.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>A measure of center tells us where a distribution is located, but not how tightly its values cluster. Two classes can have the same median exam score while one class is much more consistent than the other. We therefore need a numerical description of <term>spread</term> to accompany the median.</p>
+    <p>This section divides ordered data into quarters. The resulting quartiles locate the middle half of a distribution, and their distance apart measures variability around the median.</p>
+  </introduction>
+
+  <subsection xml:id="subsec-range-and-quartiles">
+    <title>From the range to quartiles</title>
+    <p>The <term>range</term> is the distance from the minimum to the maximum.</p>
+    <md><mrow>\text{range}=\text{maximum}-\text{minimum}</mrow></md>
+    <p>The range uses only two observations. It can therefore miss an important difference between distributions: most values may cluster tightly in one distribution and spread widely in another even when their endpoints match.</p>
+
+    <figure xml:id="fig-exam-five-number-comparison">
+      <caption>Published five-number summaries for two classes with the same median and range but different middle-half spread.</caption>
+      <image xml:id="image-exam-five-number-comparison" source="R-generated/exam-five-number-comparison" width="90%">
+        <description>Two horizontal schematic boxplots share an exam-score axis from 40 to 95. Class A has minimum 40, first quartile 71, median 74.5, third quartile 78.5, and maximum 95, so its box is narrow. Class B has minimum 40, first quartile 61, median 74.5, third quartile 89, and maximum 95, so its box is much wider. The equal endpoints and medians contrast with very different interquartile ranges.</description>
+      </image>
+    </figure>
+
+    <p><term>Quartiles</term> divide ordered data into four groups. The first quartile, <m>Q_1</m>, marks the lower quarter; the second quartile, <m>Q_2</m>, is the median; and the third quartile, <m>Q_3</m>, marks the upper quarter. Together with the endpoints they form the <term>five-number summary</term>:</p>
+    <md><mrow>\text{minimum},\quad Q_1,\quad \text{median},\quad Q_3,\quad \text{maximum}.</mrow></md>
+    <p>Quartile boundaries concern positions in ordered data. Ties and conventions for calculating quartiles can prevent a literal statement that exactly 25% of observations are strictly between every pair of marks. The useful interpretation is that the marks partition the ordered positions into four quarters.</p>
+
+    <exercise xml:id="check-five-number-order">
+      <statement><p>Which list is in the required order for a five-number summary?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Minimum, <m>Q_1</m>, median, <m>Q_3</m>, maximum</p></statement><feedback><p>Correct. The five values follow the ordered distribution from left to right.</p></feedback></choice>
+        <choice><statement><p>Minimum, mean, median, range, maximum</p></statement><feedback><p>The mean and range are useful summaries, but neither is one of the five ordered landmarks.</p></feedback></choice>
+        <choice><statement><p><m>Q_1</m>, minimum, median, maximum, <m>Q_3</m></p></statement><feedback><p>The landmarks must be ordered; the minimum comes first and the maximum last.</p></feedback></choice>
+        <choice><statement><p>Minimum, <m>Q_1</m>, mean, <m>Q_3</m>, maximum</p></statement><feedback><p>The central landmark is the median, which is <m>Q_2</m>, not the mean.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-range-limits">
+      <statement><p>Two distributions both run from 40 to 95. What can we conclude?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>They have the same range, but their middle halves may have different spreads.</p></statement><feedback><p>Correct. Endpoints determine the range but say nothing about how interior values are arranged.</p></feedback></choice>
+        <choice><statement><p>They must have the same IQR.</p></statement><feedback><p>The IQR depends on <m>Q_1</m> and <m>Q_3</m>, not on the endpoints.</p></feedback></choice>
+        <choice><statement><p>They must have the same median.</p></statement><feedback><p>Equal endpoints do not determine the middle position.</p></feedback></choice>
+        <choice><statement><p>They contain the same number of observations.</p></statement><feedback><p>The minimum and maximum do not reveal sample size.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-interquartile-range">
+    <title>The interquartile range</title>
+    <p>The <term>interquartile range</term>, abbreviated <term>IQR</term>, is the distance from <m>Q_1</m> to <m>Q_3</m>.</p>
+    <md><mrow>\operatorname{IQR}=Q_3-Q_1</mrow></md>
+    <p>Because this interval contains the middle half of the ordered data, the IQR measures spread around the median. It is resistant: moving an extreme minimum or maximum usually does not change it.</p>
+
+    <example xml:id="ex-class-iqr-comparison">
+      <title>Comparing consistency with the IQR</title>
+      <statement><p>Class A has <m>Q_1=71</m> and <m>Q_3=78.5</m>. Class B has <m>Q_1=61</m> and <m>Q_3=89</m>. Compare their middle-half variability.</p></statement>
+      <solution>
+        <md><mrow>\operatorname{IQR}_A=78.5-71=7.5</mrow><mrow>\operatorname{IQR}_B=89-61=28</mrow></md>
+        <p>The middle 50% of Class A's scores spans only 7.5 points, while the middle 50% of Class B's scores spans 28 points. Class A is much more consistent around its median even though both classes have range 55 and median 74.5.</p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-compute-iqr">
+      <statement><p>A distribution has <m>Q_1=12</m> and <m>Q_3=21</m>. What is its IQR?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>9</p></statement><feedback><p>Correct: <m>21-12=9</m>.</p></feedback></choice>
+        <choice><statement><p>33</p></statement><feedback><p>This adds the quartiles. An interval's width is its upper endpoint minus its lower endpoint.</p></feedback></choice>
+        <choice><statement><p>16.5</p></statement><feedback><p>This is halfway between the quartiles, not the distance between them.</p></feedback></choice>
+        <choice><statement><p>It cannot be found without the minimum and maximum.</p></statement><feedback><p>The IQR needs only <m>Q_1</m> and <m>Q_3</m>.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-iqr-interpretation">
+      <statement><p>If the IQR of exam scores is 7.5 points, which interpretation is best?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>The middle half of the scores spans 7.5 points.</p></statement><feedback><p>Correct. The IQR is the width of the interval from <m>Q_1</m> to <m>Q_3</m>.</p></feedback></choice>
+        <choice><statement><p>Every score is within 7.5 points of the median.</p></statement><feedback><p>Values in the outer quarters can be much farther from the median.</p></feedback></choice>
+        <choice><statement><p>The maximum is 7.5 points above the minimum.</p></statement><feedback><p>That statement describes the range, not the IQR.</p></feedback></choice>
+        <choice><statement><p>Exactly 7.5 students are in the middle half.</p></statement><feedback><p>The IQR is measured in score points, not students.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-iqr-outlier-rule">
+    <title>Using IQR to flag outliers</title>
+    <p>The IQR provides a standard rule for flagging unusually distant values. The <term>lower fence</term> and <term>upper fence</term> are</p>
+    <md><mrow>Q_1-1.5(\operatorname{IQR})</mrow><mrow>Q_3+1.5(\operatorname{IQR}).</mrow></md>
+    <p>A value below the lower fence or above the upper fence is flagged as a <term>potential outlier</term>. A value equal to a fence is not outside it and is therefore not flagged by this rule. The rule identifies observations worth investigating; it does not prove that they are errors or justify deleting them.</p>
+
+    <figure xml:id="fig-iqr-fences-dotplot">
+      <caption>IQR fences and values flagged as potential outliers.</caption>
+      <image xml:id="image-iqr-fences-dotplot" source="R-generated/iqr-fences-dotplot" width="90%">
+        <description>A horizontal dotplot runs from 8 to 30. Most values lie from 13 through 19. Dashed vertical lines mark the lower fence at 10.5 and upper fence at 22.5. A triangle at 10 falls below the lower fence, and triangles at 24, 27, and 29 lie above the upper fence; these four points are potential outliers. Circles between the fences are not flagged.</description>
+      </image>
+    </figure>
+
+    <example xml:id="ex-iqr-fences">
+      <title>Calculating both fences</title>
+      <statement><p>Suppose <m>Q_1=15</m> and <m>Q_3=18</m>. Find the fences and classify 10, 22.5, and 24.</p></statement>
+      <solution>
+        <p>The IQR is <m>18-15=3</m>. The fences are</p>
+        <md><mrow>15-1.5(3)=10.5</mrow><mrow>18+1.5(3)=22.5.</mrow></md>
+        <p>The value 10 is below 10.5 and 24 is above 22.5, so both are flagged. The value 22.5 lies exactly on the upper fence, so it is not outside the fence and is not flagged.</p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-upper-fence">
+      <statement><p>If <m>Q_1=20</m> and <m>Q_3=28</m>, what is the upper fence?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>40</p></statement><feedback><p>Correct. The IQR is 8, so the upper fence is <m>28+1.5(8)=40</m>.</p></feedback></choice>
+        <choice><statement><p>32</p></statement><feedback><p>This adds half the IQR. The rule adds one and a half IQRs.</p></feedback></choice>
+        <choice><statement><p>12</p></statement><feedback><p>This is the lower fence: <m>20-12=8</m>, not the upper fence.</p></feedback></choice>
+        <choice><statement><p>48</p></statement><feedback><p>This adds <m>1.5Q_3</m>. Multiply the IQR, not the quartile.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-fence-meaning">
+      <statement><p>A value lies above the upper IQR fence. What should an analyst conclude?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>It is a potential outlier that should be investigated in context.</p></statement><feedback><p>Correct. The rule flags unusual distance; it does not diagnose an error.</p></feedback></choice>
+        <choice><statement><p>It must be deleted before any analysis.</p></statement><feedback><p>Unusual observations may be genuine and important. Delete only with a defensible reason.</p></feedback></choice>
+        <choice><statement><p>It must be a data-entry error.</p></statement><feedback><p>The numerical rule cannot determine how the value arose.</p></feedback></choice>
+        <choice><statement><p>It proves the distribution is symmetric.</p></statement><feedback><p>An outlier does not establish symmetry; if anything, it may contribute to skewness.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-quartiles-iqr">
+    <p>The five-number summary locates the minimum, <m>Q_1</m>, median, <m>Q_3</m>, and maximum. The range describes the full span, while <m>\operatorname{IQR}=Q_3-Q_1</m> describes the span of the middle half and pairs naturally with the median.</p>
+    <p>The 1.5-IQR fences flag values unusually far below or above the middle half. A flag is a prompt to investigate, not an automatic instruction to erase an observation.</p>
+    <p>Adapted from <em>Concepts in Statistics</em> (SUNY / Lumen Learning), CC BY 4.0. Exam-class graphics use the published summaries because the source does not provide the underlying scores; the fence illustration is reconstructed from the published quartiles and named values.</p>
+  </conclusion>
+</section>

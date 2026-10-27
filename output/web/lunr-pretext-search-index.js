@@ -1225,6 +1225,375 @@ var ptx_lunr_docs = [
   "body": "  A news report states that the average home price in a neighborhood is $650,000 while the median home price is $310,000. In two or three sentences, say what this gap tells you about the shape of the distribution and which figure you would quote to someone house-hunting there.     A mean more than double the median says the distribution is strongly skewed to the right: a small number of very expensive homes inflates the total while leaving the middle of the ordered list alone. Half the homes in the neighborhood sell for under $310,000, so the median is what a buyer should be told; the $650,000 average describes a house that is far from typical.  An adequate answer identifies right skew and picks the median. A strong answer explains the mechanism that the high prices enter the mean at full value but register with the median only as values above the middle and states what the median guarantees, namely that half the homes fall on each side of it.   "
 },
 {
+  "id": "sec-quartiles-iqr",
+  "level": "1",
+  "url": "sec-quartiles-iqr.html",
+  "type": "Section",
+  "number": "1.10",
+  "title": "Quartiles and the Interquartile Range",
+  "body": " Quartiles and the Interquartile Range    Interpret the five-number summary of a quantitative distribution.  Calculate and interpret the interquartile range.  Use the 1.5-IQR rule to identify potential outliers.     A measure of center tells us where a distribution is located, but not how tightly its values cluster. Two classes can have the same median exam score while one class is much more consistent than the other. We therefore need a numerical description of spread to accompany the median.  This section divides ordered data into quarters. The resulting quartiles locate the middle half of a distribution, and their distance apart measures variability around the median.    From the range to quartiles  The range is the distance from the minimum to the maximum.   The range uses only two observations. It can therefore miss an important difference between distributions: most values may cluster tightly in one distribution and spread widely in another even when their endpoints match.   Published five-number summaries for two classes with the same median and range but different middle-half spread.   Two horizontal schematic boxplots share an exam-score axis from 40 to 95. Class A has minimum 40, first quartile 71, median 74.5, third quartile 78.5, and maximum 95, so its box is narrow. Class B has minimum 40, first quartile 61, median 74.5, third quartile 89, and maximum 95, so its box is much wider. The equal endpoints and medians contrast with very different interquartile ranges.    Quartiles divide ordered data into four groups. The first quartile, , marks the lower quarter; the second quartile, , is the median; and the third quartile, , marks the upper quarter. Together with the endpoints they form the five-number summary :   Quartile boundaries concern positions in ordered data. Ties and conventions for calculating quartiles can prevent a literal statement that exactly 25% of observations are strictly between every pair of marks. The useful interpretation is that the marks partition the ordered positions into four quarters.   Which list is in the required order for a five-number summary?   Minimum, , median, , maximum Correct. The five values follow the ordered distribution from left to right.  Minimum, mean, median, range, maximum The mean and range are useful summaries, but neither is one of the five ordered landmarks.  , minimum, median, maximum, The landmarks must be ordered; the minimum comes first and the maximum last.  Minimum, , mean, , maximum The central landmark is the median, which is , not the mean.     Two distributions both run from 40 to 95. What can we conclude?   They have the same range, but their middle halves may have different spreads. Correct. Endpoints determine the range but say nothing about how interior values are arranged.  They must have the same IQR. The IQR depends on and , not on the endpoints.  They must have the same median. Equal endpoints do not determine the middle position.  They contain the same number of observations. The minimum and maximum do not reveal sample size.      The interquartile range  The interquartile range , abbreviated IQR , is the distance from to .   Because this interval contains the middle half of the ordered data, the IQR measures spread around the median. It is resistant: moving an extreme minimum or maximum usually does not change it.   Comparing consistency with the IQR  Class A has and . Class B has and . Compare their middle-half variability.    The middle 50% of Class A's scores spans only 7.5 points, while the middle 50% of Class B's scores spans 28 points. Class A is much more consistent around its median even though both classes have range 55 and median 74.5.     A distribution has and . What is its IQR?   9 Correct: .  33 This adds the quartiles. An interval's width is its upper endpoint minus its lower endpoint.  16.5 This is halfway between the quartiles, not the distance between them.  It cannot be found without the minimum and maximum. The IQR needs only and .     If the IQR of exam scores is 7.5 points, which interpretation is best?   The middle half of the scores spans 7.5 points. Correct. The IQR is the width of the interval from to .  Every score is within 7.5 points of the median. Values in the outer quarters can be much farther from the median.  The maximum is 7.5 points above the minimum. That statement describes the range, not the IQR.  Exactly 7.5 students are in the middle half. The IQR is measured in score points, not students.      Using IQR to flag outliers  The IQR provides a standard rule for flagging unusually distant values. The lower fence and upper fence are   A value below the lower fence or above the upper fence is flagged as a potential outlier . A value equal to a fence is not outside it and is therefore not flagged by this rule. The rule identifies observations worth investigating; it does not prove that they are errors or justify deleting them.   IQR fences and values flagged as potential outliers.   A horizontal dotplot runs from 8 to 30. Most values lie from 13 through 19. Dashed vertical lines mark the lower fence at 10.5 and upper fence at 22.5. A triangle at 10 falls below the lower fence, and triangles at 24, 27, and 29 lie above the upper fence; these four points are potential outliers. Circles between the fences are not flagged.     Calculating both fences  Suppose and . Find the fences and classify 10, 22.5, and 24.   The IQR is . The fences are   The value 10 is below 10.5 and 24 is above 22.5, so both are flagged. The value 22.5 lies exactly on the upper fence, so it is not outside the fence and is not flagged.     If and , what is the upper fence?   40 Correct. The IQR is 8, so the upper fence is .  32 This adds half the IQR. The rule adds one and a half IQRs.  12 This is the lower fence: , not the upper fence.  48 This adds . Multiply the IQR, not the quartile.     A value lies above the upper IQR fence. What should an analyst conclude?   It is a potential outlier that should be investigated in context. Correct. The rule flags unusual distance; it does not diagnose an error.  It must be deleted before any analysis. Unusual observations may be genuine and important. Delete only with a defensible reason.  It must be a data-entry error. The numerical rule cannot determine how the value arose.  It proves the distribution is symmetric. An outlier does not establish symmetry; if anything, it may contribute to skewness.      The five-number summary locates the minimum, , median, , and maximum. The range describes the full span, while describes the span of the middle half and pairs naturally with the median.  The 1.5-IQR fences flag values unusually far below or above the middle half. A flag is a prompt to investigate, not an automatic instruction to erase an observation.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0. Exam-class graphics use the published summaries because the source does not provide the underlying scores; the fence illustration is reconstructed from the published quartiles and named values.   "
+},
+{
+  "id": "objectives-quartiles-iqr",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#objectives-quartiles-iqr",
+  "type": "Objectives",
+  "number": "1.10",
+  "title": "",
+  "body": "  Interpret the five-number summary of a quantitative distribution.  Calculate and interpret the interquartile range.  Use the 1.5-IQR rule to identify potential outliers.   "
+},
+{
+  "id": "sec-quartiles-iqr-3-1",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#sec-quartiles-iqr-3-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "spread "
+},
+{
+  "id": "subsec-range-and-quartiles-2",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#subsec-range-and-quartiles-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "range "
+},
+{
+  "id": "fig-exam-five-number-comparison",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#fig-exam-five-number-comparison",
+  "type": "Figure",
+  "number": "1.10.1",
+  "title": "",
+  "body": " Published five-number summaries for two classes with the same median and range but different middle-half spread.   Two horizontal schematic boxplots share an exam-score axis from 40 to 95. Class A has minimum 40, first quartile 71, median 74.5, third quartile 78.5, and maximum 95, so its box is narrow. Class B has minimum 40, first quartile 61, median 74.5, third quartile 89, and maximum 95, so its box is much wider. The equal endpoints and medians contrast with very different interquartile ranges.   "
+},
+{
+  "id": "subsec-range-and-quartiles-6",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#subsec-range-and-quartiles-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Quartiles five-number summary "
+},
+{
+  "id": "check-five-number-order",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-five-number-order",
+  "type": "Checkpoint",
+  "number": "1.10.2",
+  "title": "",
+  "body": " Which list is in the required order for a five-number summary?   Minimum, , median, , maximum Correct. The five values follow the ordered distribution from left to right.  Minimum, mean, median, range, maximum The mean and range are useful summaries, but neither is one of the five ordered landmarks.  , minimum, median, maximum, The landmarks must be ordered; the minimum comes first and the maximum last.  Minimum, , mean, , maximum The central landmark is the median, which is , not the mean.   "
+},
+{
+  "id": "check-range-limits",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-range-limits",
+  "type": "Checkpoint",
+  "number": "1.10.3",
+  "title": "",
+  "body": " Two distributions both run from 40 to 95. What can we conclude?   They have the same range, but their middle halves may have different spreads. Correct. Endpoints determine the range but say nothing about how interior values are arranged.  They must have the same IQR. The IQR depends on and , not on the endpoints.  They must have the same median. Equal endpoints do not determine the middle position.  They contain the same number of observations. The minimum and maximum do not reveal sample size.   "
+},
+{
+  "id": "subsec-interquartile-range-2",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#subsec-interquartile-range-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "interquartile range IQR "
+},
+{
+  "id": "ex-class-iqr-comparison",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#ex-class-iqr-comparison",
+  "type": "Example",
+  "number": "1.10.4",
+  "title": "Comparing consistency with the IQR.",
+  "body": " Comparing consistency with the IQR  Class A has and . Class B has and . Compare their middle-half variability.    The middle 50% of Class A's scores spans only 7.5 points, while the middle 50% of Class B's scores spans 28 points. Class A is much more consistent around its median even though both classes have range 55 and median 74.5.   "
+},
+{
+  "id": "check-compute-iqr",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-compute-iqr",
+  "type": "Checkpoint",
+  "number": "1.10.5",
+  "title": "",
+  "body": " A distribution has and . What is its IQR?   9 Correct: .  33 This adds the quartiles. An interval's width is its upper endpoint minus its lower endpoint.  16.5 This is halfway between the quartiles, not the distance between them.  It cannot be found without the minimum and maximum. The IQR needs only and .   "
+},
+{
+  "id": "check-iqr-interpretation",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-iqr-interpretation",
+  "type": "Checkpoint",
+  "number": "1.10.6",
+  "title": "",
+  "body": " If the IQR of exam scores is 7.5 points, which interpretation is best?   The middle half of the scores spans 7.5 points. Correct. The IQR is the width of the interval from to .  Every score is within 7.5 points of the median. Values in the outer quarters can be much farther from the median.  The maximum is 7.5 points above the minimum. That statement describes the range, not the IQR.  Exactly 7.5 students are in the middle half. The IQR is measured in score points, not students.   "
+},
+{
+  "id": "subsec-iqr-outlier-rule-2",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#subsec-iqr-outlier-rule-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "lower fence upper fence "
+},
+{
+  "id": "subsec-iqr-outlier-rule-4",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#subsec-iqr-outlier-rule-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "potential outlier "
+},
+{
+  "id": "fig-iqr-fences-dotplot",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#fig-iqr-fences-dotplot",
+  "type": "Figure",
+  "number": "1.10.7",
+  "title": "",
+  "body": " IQR fences and values flagged as potential outliers.   A horizontal dotplot runs from 8 to 30. Most values lie from 13 through 19. Dashed vertical lines mark the lower fence at 10.5 and upper fence at 22.5. A triangle at 10 falls below the lower fence, and triangles at 24, 27, and 29 lie above the upper fence; these four points are potential outliers. Circles between the fences are not flagged.   "
+},
+{
+  "id": "ex-iqr-fences",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#ex-iqr-fences",
+  "type": "Example",
+  "number": "1.10.8",
+  "title": "Calculating both fences.",
+  "body": " Calculating both fences  Suppose and . Find the fences and classify 10, 22.5, and 24.   The IQR is . The fences are   The value 10 is below 10.5 and 24 is above 22.5, so both are flagged. The value 22.5 lies exactly on the upper fence, so it is not outside the fence and is not flagged.   "
+},
+{
+  "id": "check-upper-fence",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-upper-fence",
+  "type": "Checkpoint",
+  "number": "1.10.9",
+  "title": "",
+  "body": " If and , what is the upper fence?   40 Correct. The IQR is 8, so the upper fence is .  32 This adds half the IQR. The rule adds one and a half IQRs.  12 This is the lower fence: , not the upper fence.  48 This adds . Multiply the IQR, not the quartile.   "
+},
+{
+  "id": "check-fence-meaning",
+  "level": "2",
+  "url": "sec-quartiles-iqr.html#check-fence-meaning",
+  "type": "Checkpoint",
+  "number": "1.10.10",
+  "title": "",
+  "body": " A value lies above the upper IQR fence. What should an analyst conclude?   It is a potential outlier that should be investigated in context. Correct. The rule flags unusual distance; it does not diagnose an error.  It must be deleted before any analysis. Unusual observations may be genuine and important. Delete only with a defensible reason.  It must be a data-entry error. The numerical rule cannot determine how the value arose.  It proves the distribution is symmetric. An outlier does not establish symmetry; if anything, it may contribute to skewness.   "
+},
+{
+  "id": "sec-boxplots",
+  "level": "1",
+  "url": "sec-boxplots.html",
+  "type": "Section",
+  "number": "1.11",
+  "title": "Reading and Constructing Boxplots",
+  "body": " Reading and Constructing Boxplots    Construct a modified boxplot from quartiles, fences, and observed values.  Interpret the box, median line, whiskers, and marked outliers.  Explain what a boxplot does not reveal about a distribution.     A five-number summary compresses a distribution into five landmarks. A boxplot turns those landmarks into a compact graph, making center, middle-half spread, and possible outliers easy to compare.    Parts of a modified boxplot  To draw a modified boxplot :   Draw a box from to .  Draw a line inside the box at the median.  Extend whiskers to the smallest and largest observed values that are not flagged by the 1.5-IQR rule.  Plot each value beyond a fence separately.   The whiskers do not generally end at the fences. They end at observed non-outlying values. Software may draw isolated points with circles, asterisks, or other symbols; the meaning is the same.   Modified boxplot of Best Actress winner ages, 1970–2001.   A horizontal modified boxplot displays 32 Best Actress winner ages. The box runs from 32 to 41.5 with a median line at 35. The left whisker reaches 21 and the right whisker reaches 49, the largest non-outlier. Separate triangle markers identify high outliers at ages 61, 74, and 80. The longer upper side and high outliers indicate right skew.     Building the Best Actress boxplot  The age distribution has , median 35, and . Explain why 61, 74, and 80 are plotted separately.   The IQR is , so the upper fence is   All three ages exceed 55.75. The right whisker therefore stops at 49, the largest observed age at or below the fence, and 61, 74, and 80 are plotted individually.     What interval is represented by the box itself?   From to , containing the middle half of the ordered data Correct. Its length is the IQR.  From the minimum to the maximum That is the full range, not the box.  From the mean to the median A standard boxplot does not display the mean.  From the lower fence to the upper fence Fences determine outlier status but are not normally drawn as the box's endpoints.     Why does the right whisker for the actress ages stop at 49 rather than at the upper fence 55.75?   Whiskers end at observed non-outlying values, and 49 is the largest such age. Correct. A fence is a cutoff, not necessarily a data value.  Whiskers must always have equal lengths. Unequal whiskers often provide information about asymmetry.  49 is the third quartile. The third quartile is 41.5; 49 is the largest non-outlier.  Values above 49 were deleted. They remain visible as separate outlier markers.      Reading center and spread  A long box means a large IQR and substantial variability in the middle half. A short box means that the middle half is tightly clustered. The median line locates the center, while unequal half-boxes or whiskers may suggest asymmetry.  Do not confuse a geometric length with a count. Each quarter represents about one fourth of the ordered observations even when one part of the graph occupies much more axis distance than another.   Two boxplots use the same scale. Plot X has a much longer box than Plot Y. What follows?   Plot X has a larger IQR and more spread in its middle half. Correct. Box length directly represents .  Plot X contains more observations. A standard boxplot does not encode sample size in box length.  Plot X has a larger median. The median is a location on the axis, not the box's length.  Plot X must have more outliers. Outlier count is shown by separate points and is not determined by IQR size.     A boxplot's interval from to the median is much shorter than its interval from the median to . Which statement is best?   Both intervals represent roughly one quarter of the observations, but the upper quarter is more spread out. Correct. Counts are comparable while numerical widths differ.  The shorter interval contains fewer observations. Quartiles divide ordered positions, not axis length, into quarters.  The mean must lie in the longer interval. The mean is not shown and cannot be located from this fact alone.  The longer interval consists entirely of outliers. The box contains the middle half; points inside it are not beyond the IQR fences.      What a boxplot hides  A boxplot does not display every observation. From it alone we generally cannot determine sample size, clusters, gaps, modes, or the detailed pattern within a quarter. Distinct distributions can share the same five-number summary and therefore the same boxplot.   Different distributions can share one boxplot.   Four horizontal strips show different arrangements and numbers of points along an axis from 4 to 19. Beneath them, one schematic boxplot has minimum 4, first quartile 7, median 10, third quartile 14, and maximum 19. The point patterns differ in clustering and sample size even though the displayed five-number landmarks are the same, illustrating information lost by a boxplot.     Which feature cannot generally be determined from a standard boxplot?   The number of observations Correct. A standard box has no count scale.  The median The line inside the box marks the median.  The IQR Read and from the box and subtract.  Potential outliers in a modified boxplot Modified boxplots display flagged observations separately.     In two or three sentences, explain how two groups can have identical boxplots yet meaningfully different distributions.   Identical boxplots guarantee the same displayed quartile landmarks and whisker endpoints, but they do not guarantee the same sample size or arrangement between those landmarks. One group could contain clusters and gaps while the other is smoothly spread, and the boxplots would conceal that difference.  An adequate response names one hidden feature, such as sample size or clustering. A strong response also states what identical boxplots do guarantee and explains why another graph, such as a dotplot, may still be needed.      A modified boxplot draws the middle half as a box, marks the median, extends whiskers to the most extreme non-outlying observations, and plots values beyond the IQR fences separately. It efficiently displays center, resistant spread, and potential outliers.  Compression has a cost: boxplots can hide sample size, clusters, gaps, and modes. Use them for compact comparisons, but return to a dotplot or histogram when detailed shape matters.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0. Best Actress ages are the published 1970–2001 values already documented in this repository; the shared-boxplot illustration is pedagogical and not a claim about a real dataset.   "
+},
+{
+  "id": "objectives-boxplots",
+  "level": "2",
+  "url": "sec-boxplots.html#objectives-boxplots",
+  "type": "Objectives",
+  "number": "1.11",
+  "title": "",
+  "body": "  Construct a modified boxplot from quartiles, fences, and observed values.  Interpret the box, median line, whiskers, and marked outliers.  Explain what a boxplot does not reveal about a distribution.   "
+},
+{
+  "id": "sec-boxplots-3-1",
+  "level": "2",
+  "url": "sec-boxplots.html#sec-boxplots-3-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "boxplot "
+},
+{
+  "id": "subsec-modified-boxplot-parts-2",
+  "level": "2",
+  "url": "sec-boxplots.html#subsec-modified-boxplot-parts-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "modified boxplot "
+},
+{
+  "id": "fig-oscar-actress-boxplot",
+  "level": "2",
+  "url": "sec-boxplots.html#fig-oscar-actress-boxplot",
+  "type": "Figure",
+  "number": "1.11.1",
+  "title": "",
+  "body": " Modified boxplot of Best Actress winner ages, 1970–2001.   A horizontal modified boxplot displays 32 Best Actress winner ages. The box runs from 32 to 41.5 with a median line at 35. The left whisker reaches 21 and the right whisker reaches 49, the largest non-outlier. Separate triangle markers identify high outliers at ages 61, 74, and 80. The longer upper side and high outliers indicate right skew.   "
+},
+{
+  "id": "ex-actress-boxplot-fences",
+  "level": "2",
+  "url": "sec-boxplots.html#ex-actress-boxplot-fences",
+  "type": "Example",
+  "number": "1.11.2",
+  "title": "Building the Best Actress boxplot.",
+  "body": " Building the Best Actress boxplot  The age distribution has , median 35, and . Explain why 61, 74, and 80 are plotted separately.   The IQR is , so the upper fence is   All three ages exceed 55.75. The right whisker therefore stops at 49, the largest observed age at or below the fence, and 61, 74, and 80 are plotted individually.   "
+},
+{
+  "id": "check-boxplot-box",
+  "level": "2",
+  "url": "sec-boxplots.html#check-boxplot-box",
+  "type": "Checkpoint",
+  "number": "1.11.3",
+  "title": "",
+  "body": " What interval is represented by the box itself?   From to , containing the middle half of the ordered data Correct. Its length is the IQR.  From the minimum to the maximum That is the full range, not the box.  From the mean to the median A standard boxplot does not display the mean.  From the lower fence to the upper fence Fences determine outlier status but are not normally drawn as the box's endpoints.   "
+},
+{
+  "id": "check-boxplot-whisker",
+  "level": "2",
+  "url": "sec-boxplots.html#check-boxplot-whisker",
+  "type": "Checkpoint",
+  "number": "1.11.4",
+  "title": "",
+  "body": " Why does the right whisker for the actress ages stop at 49 rather than at the upper fence 55.75?   Whiskers end at observed non-outlying values, and 49 is the largest such age. Correct. A fence is a cutoff, not necessarily a data value.  Whiskers must always have equal lengths. Unequal whiskers often provide information about asymmetry.  49 is the third quartile. The third quartile is 41.5; 49 is the largest non-outlier.  Values above 49 were deleted. They remain visible as separate outlier markers.   "
+},
+{
+  "id": "check-long-box",
+  "level": "2",
+  "url": "sec-boxplots.html#check-long-box",
+  "type": "Checkpoint",
+  "number": "1.11.5",
+  "title": "",
+  "body": " Two boxplots use the same scale. Plot X has a much longer box than Plot Y. What follows?   Plot X has a larger IQR and more spread in its middle half. Correct. Box length directly represents .  Plot X contains more observations. A standard boxplot does not encode sample size in box length.  Plot X has a larger median. The median is a location on the axis, not the box's length.  Plot X must have more outliers. Outlier count is shown by separate points and is not determined by IQR size.   "
+},
+{
+  "id": "check-boxplot-quarter-distance",
+  "level": "2",
+  "url": "sec-boxplots.html#check-boxplot-quarter-distance",
+  "type": "Checkpoint",
+  "number": "1.11.6",
+  "title": "",
+  "body": " A boxplot's interval from to the median is much shorter than its interval from the median to . Which statement is best?   Both intervals represent roughly one quarter of the observations, but the upper quarter is more spread out. Correct. Counts are comparable while numerical widths differ.  The shorter interval contains fewer observations. Quartiles divide ordered positions, not axis length, into quarters.  The mean must lie in the longer interval. The mean is not shown and cannot be located from this fact alone.  The longer interval consists entirely of outliers. The box contains the middle half; points inside it are not beyond the IQR fences.   "
+},
+{
+  "id": "fig-same-boxplot-different-data",
+  "level": "2",
+  "url": "sec-boxplots.html#fig-same-boxplot-different-data",
+  "type": "Figure",
+  "number": "1.11.7",
+  "title": "",
+  "body": " Different distributions can share one boxplot.   Four horizontal strips show different arrangements and numbers of points along an axis from 4 to 19. Beneath them, one schematic boxplot has minimum 4, first quartile 7, median 10, third quartile 14, and maximum 19. The point patterns differ in clustering and sample size even though the displayed five-number landmarks are the same, illustrating information lost by a boxplot.   "
+},
+{
+  "id": "check-boxplot-limitations",
+  "level": "2",
+  "url": "sec-boxplots.html#check-boxplot-limitations",
+  "type": "Checkpoint",
+  "number": "1.11.8",
+  "title": "",
+  "body": " Which feature cannot generally be determined from a standard boxplot?   The number of observations Correct. A standard box has no count scale.  The median The line inside the box marks the median.  The IQR Read and from the box and subtract.  Potential outliers in a modified boxplot Modified boxplots display flagged observations separately.   "
+},
+{
+  "id": "check-identical-boxplots-response",
+  "level": "2",
+  "url": "sec-boxplots.html#check-identical-boxplots-response",
+  "type": "Checkpoint",
+  "number": "1.11.9",
+  "title": "",
+  "body": " In two or three sentences, explain how two groups can have identical boxplots yet meaningfully different distributions.   Identical boxplots guarantee the same displayed quartile landmarks and whisker endpoints, but they do not guarantee the same sample size or arrangement between those landmarks. One group could contain clusters and gaps while the other is smoothly spread, and the boxplots would conceal that difference.  An adequate response names one hidden feature, such as sample size or clustering. A strong response also states what identical boxplots do guarantee and explains why another graph, such as a dotplot, may still be needed.   "
+},
+{
+  "id": "sec-comparing-boxplots",
+  "level": "1",
+  "url": "sec-comparing-boxplots.html",
+  "type": "Section",
+  "number": "1.12",
+  "title": "Comparing Distributions with Boxplots",
+  "body": " Comparing Distributions with Boxplots    Compare distributions using center, spread, potential outliers, and evidence of skewness.  Support a comparative claim with numerical evidence from side-by-side boxplots.  State shape conclusions cautiously when only boxplots are available.     Boxplots are especially useful when placed on a common scale. Their compact form makes differences in median, IQR, whiskers, and outliers visible at once. A strong comparison does more than list features: it uses those features to support a central statement about how the groups differ.    Best Actor and Best Actress winners   Published summary comparison of Oscar winner ages by acting category.   Two horizontal modified boxplots share an age axis. Best Actress has a box from 32 to 41.5 with median 35, whiskers from 21 to 49, and high outliers at 61, 74, and 80. Best Actor has a box from 37 to 48 with median 42.5, whiskers beginning at 31 and extending to the largest non-outlier, with a high outlier at 76. The actress median and box lie to the left of the actor median and box, while both groups have long upper sides and older outliers.    The published summaries are:   Oscar winner age summaries   Category Minimum Median Maximum IQR  Best Actress 21 32 35 41.5 80 9.5  Best Actor 31 37 42.5 48 76 11    Center: Best Actress winners tend to be younger. Their median age is 35, compared with 42.5 for Best Actor winners. Even the actress third quartile, 41.5, is below the actor median.  Spread: The middle half of actress ages spans 9.5 years, slightly less than the actor IQR of 11 years. The overall actress range is larger, however: years compared with years for actors. A group can therefore have the smaller IQR but larger range.  Outliers and shape: Both plots have older winners beyond the main body. The source identifies actor age 76 and actress ages 61, 74, and 80 as high outliers. Longer upper sides and high outliers are consistent with right skew, but a boxplot does not reveal detailed shape, so suggests right skew is more defensible than proves right skew.   Which statement is directly supported by the medians?   A typical Best Actress winner in these data is younger than a typical Best Actor winner. Correct. The medians are 35 and 42.5 years.  Every Best Actress winner is younger than every Best Actor winner. The distributions overlap; medians compare centers, not every pair of individuals.  Best Actress winners have no age variability. The actress ages have IQR 9.5 and range 59.  The two categories have equal centers. The medians differ by 7.5 years.     How can actresses have a smaller IQR but a larger range?   Their middle half is slightly tighter, but their extreme ages are farther apart. Correct. IQR and range summarize different portions of a distribution.  It is impossible; the larger range must have the larger IQR. Endpoints can move without changing the middle half.  The IQR includes outliers while the range excludes them. This reverses the roles: the range uses the extremes, while the IQR uses the middle half.  The actress median must have been calculated incorrectly. The median does not determine either spread measure.      Writing a supported comparison  A useful comparison addresses four features when the graph supports them:   Center: compare medians in context and units.  Spread: compare IQRs; compare ranges when extremes matter.  Outliers: identify which group has flagged observations and where.  Shape: describe asymmetry cautiously, recognizing the boxplot's limitations.   Then connect the evidence to one thesis. For these data: Best Actress winners generally win at younger ages, and their middle-half ages are slightly more consistent, although both categories include unusually old winners.   A boxplot has a long upper whisker and several high outliers. Which wording is most appropriate?   The boxplot suggests right skew, but a dotplot or histogram would show shape more fully. Correct. The asymmetry is evidence, while the caveat respects what a boxplot hides.  The distribution is proven to be right-skewed. Different interior patterns can share a boxplot, so the conclusion is too absolute.  The distribution must be symmetric. The long upper side and high points argue against that reading.  No statement about the distribution is possible. The plot supplies useful evidence; it simply does not reveal every detail.     Which sentence best supports a comparison rather than merely listing numbers?   Best Actress winners tend to be younger: their median is 35 years, compared with 42.5 years for Best Actor winners. Correct. It states a comparative claim and immediately supports it with contextual evidence.  The medians are 35 and 42.5. The numbers are relevant, but the sentence does not say what difference they support or identify the groups and units fully.  There are two boxplots. This describes the display, not the distributions.  Actors and actresses are different. The claim is vague and unsupported.     In three or four sentences, compare the two Oscar age distributions using center, spread, and outliers. State one main conclusion and support it with values.   Best Actress winners generally win at younger ages: their median is 35 years, compared with 42.5 years for Best Actor winners. Their middle-half ages are also slightly less variable, with IQR 9.5 years rather than 11 years. Both groups include unusually old winners, but the actress distribution has three identified high outliers while the actor distribution has one; these upper extremes suggest right skew in both groups.  An adequate response compares both medians and at least one spread measure in context. A strong response organizes the evidence around a clear thesis, distinguishes IQR from range, mentions the outliers, and uses cautious language about shape.     Why should side-by-side boxplots use the same numerical axis?   So positions and lengths represent directly comparable values and spreads. Correct. A shared scale makes visual differences quantitative.  So both groups appear to have the same range. A shared scale reveals range differences rather than erasing them.  So the groups contain the same number of observations. Axis choice does not change sample size, which standard boxplots do not display.  So outliers are automatically removed. Modified boxplots retain and mark outliers.      Side-by-side boxplots support compact comparisons of medians, IQRs, whiskers, and potential outliers. Use a common scale, compare measures in context, and distinguish middle-half spread from total range.  A strong written comparison advances a central claim and uses numerical evidence. Boxplot asymmetry can suggest skewness, but detailed shape requires a graph that displays individual values or frequencies.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0. Actress values are the published 1970–2001 ages already documented in this repository. The actor plot uses the five-number summary and age-76 outlier published by the source because the underlying actor-age list is not supplied on the lesson page.   "
+},
+{
+  "id": "objectives-comparing-boxplots",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#objectives-comparing-boxplots",
+  "type": "Objectives",
+  "number": "1.12",
+  "title": "",
+  "body": "  Compare distributions using center, spread, potential outliers, and evidence of skewness.  Support a comparative claim with numerical evidence from side-by-side boxplots.  State shape conclusions cautiously when only boxplots are available.   "
+},
+{
+  "id": "fig-oscar-side-by-side-boxplots",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#fig-oscar-side-by-side-boxplots",
+  "type": "Figure",
+  "number": "1.12.1",
+  "title": "",
+  "body": " Published summary comparison of Oscar winner ages by acting category.   Two horizontal modified boxplots share an age axis. Best Actress has a box from 32 to 41.5 with median 35, whiskers from 21 to 49, and high outliers at 61, 74, and 80. Best Actor has a box from 37 to 48 with median 42.5, whiskers beginning at 31 and extending to the largest non-outlier, with a high outlier at 76. The actress median and box lie to the left of the actor median and box, while both groups have long upper sides and older outliers.   "
+},
+{
+  "id": "table-oscar-five-number-summary",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#table-oscar-five-number-summary",
+  "type": "Table",
+  "number": "1.12.2",
+  "title": "Oscar winner age summaries",
+  "body": " Oscar winner age summaries   Category Minimum Median Maximum IQR  Best Actress 21 32 35 41.5 80 9.5  Best Actor 31 37 42.5 48 76 11   "
+},
+{
+  "id": "check-oscar-center-comparison",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-oscar-center-comparison",
+  "type": "Checkpoint",
+  "number": "1.12.3",
+  "title": "",
+  "body": " Which statement is directly supported by the medians?   A typical Best Actress winner in these data is younger than a typical Best Actor winner. Correct. The medians are 35 and 42.5 years.  Every Best Actress winner is younger than every Best Actor winner. The distributions overlap; medians compare centers, not every pair of individuals.  Best Actress winners have no age variability. The actress ages have IQR 9.5 and range 59.  The two categories have equal centers. The medians differ by 7.5 years.   "
+},
+{
+  "id": "check-oscar-spread-comparison",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-oscar-spread-comparison",
+  "type": "Checkpoint",
+  "number": "1.12.4",
+  "title": "",
+  "body": " How can actresses have a smaller IQR but a larger range?   Their middle half is slightly tighter, but their extreme ages are farther apart. Correct. IQR and range summarize different portions of a distribution.  It is impossible; the larger range must have the larger IQR. Endpoints can move without changing the middle half.  The IQR includes outliers while the range excludes them. This reverses the roles: the range uses the extremes, while the IQR uses the middle half.  The actress median must have been calculated incorrectly. The median does not determine either spread measure.   "
+},
+{
+  "id": "check-boxplot-shape-caution",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-boxplot-shape-caution",
+  "type": "Checkpoint",
+  "number": "1.12.5",
+  "title": "",
+  "body": " A boxplot has a long upper whisker and several high outliers. Which wording is most appropriate?   The boxplot suggests right skew, but a dotplot or histogram would show shape more fully. Correct. The asymmetry is evidence, while the caveat respects what a boxplot hides.  The distribution is proven to be right-skewed. Different interior patterns can share a boxplot, so the conclusion is too absolute.  The distribution must be symmetric. The long upper side and high points argue against that reading.  No statement about the distribution is possible. The plot supplies useful evidence; it simply does not reveal every detail.   "
+},
+{
+  "id": "check-boxplot-comparison-evidence",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-boxplot-comparison-evidence",
+  "type": "Checkpoint",
+  "number": "1.12.6",
+  "title": "",
+  "body": " Which sentence best supports a comparison rather than merely listing numbers?   Best Actress winners tend to be younger: their median is 35 years, compared with 42.5 years for Best Actor winners. Correct. It states a comparative claim and immediately supports it with contextual evidence.  The medians are 35 and 42.5. The numbers are relevant, but the sentence does not say what difference they support or identify the groups and units fully.  There are two boxplots. This describes the display, not the distributions.  Actors and actresses are different. The claim is vague and unsupported.   "
+},
+{
+  "id": "check-write-oscar-comparison",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-write-oscar-comparison",
+  "type": "Checkpoint",
+  "number": "1.12.7",
+  "title": "",
+  "body": " In three or four sentences, compare the two Oscar age distributions using center, spread, and outliers. State one main conclusion and support it with values.   Best Actress winners generally win at younger ages: their median is 35 years, compared with 42.5 years for Best Actor winners. Their middle-half ages are also slightly less variable, with IQR 9.5 years rather than 11 years. Both groups include unusually old winners, but the actress distribution has three identified high outliers while the actor distribution has one; these upper extremes suggest right skew in both groups.  An adequate response compares both medians and at least one spread measure in context. A strong response organizes the evidence around a clear thesis, distinguishes IQR from range, mentions the outliers, and uses cautious language about shape.   "
+},
+{
+  "id": "check-common-scale-boxplots",
+  "level": "2",
+  "url": "sec-comparing-boxplots.html#check-common-scale-boxplots",
+  "type": "Checkpoint",
+  "number": "1.12.8",
+  "title": "",
+  "body": " Why should side-by-side boxplots use the same numerical axis?   So positions and lengths represent directly comparable values and spreads. Correct. A shared scale makes visual differences quantitative.  So both groups appear to have the same range. A shared scale reveals range differences rather than erasing them.  So the groups contain the same number of observations. Axis choice does not change sample size, which standard boxplots do not display.  So outliers are automatically removed. Modified boxplots retain and mark outliers.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

@@ -54,4 +54,7 @@
   <xi:include href="./sec-mean-median.ptx"/>
   <xi:include href="./sec-choosing-center.ptx"/>
 
+  <xi:include href="./sec-quartiles-iqr.ptx"/>
+  <xi:include href="./sec-boxplots.ptx"/>
+  <xi:include href="./sec-comparing-boxplots.ptx"/>
 </chapter>

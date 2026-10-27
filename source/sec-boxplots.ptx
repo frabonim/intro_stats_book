@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-boxplots">
+  <title>Reading and Constructing Boxplots</title>
+
+  <objectives xml:id="objectives-boxplots">
+    <ul>
+      <li><p>Construct a modified boxplot from quartiles, fences, and observed values.</p></li>
+      <li><p>Interpret the box, median line, whiskers, and marked outliers.</p></li>
+      <li><p>Explain what a boxplot does not reveal about a distribution.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>A five-number summary compresses a distribution into five landmarks. A <term>boxplot</term> turns those landmarks into a compact graph, making center, middle-half spread, and possible outliers easy to compare.</p>
+  </introduction>
+
+  <subsection xml:id="subsec-modified-boxplot-parts">
+    <title>Parts of a modified boxplot</title>
+    <p>To draw a <term>modified boxplot</term>:</p>
+    <ol>
+      <li><p>Draw a box from <m>Q_1</m> to <m>Q_3</m>.</p></li>
+      <li><p>Draw a line inside the box at the median.</p></li>
+      <li><p>Extend whiskers to the smallest and largest observed values that are not flagged by the 1.5-IQR rule.</p></li>
+      <li><p>Plot each value beyond a fence separately.</p></li>
+    </ol>
+    <p>The whiskers do not generally end at the fences. They end at observed non-outlying values. Software may draw isolated points with circles, asterisks, or other symbols; the meaning is the same.</p>
+
+    <figure xml:id="fig-oscar-actress-boxplot">
+      <caption>Modified boxplot of Best Actress winner ages, 1970–2001.</caption>
+      <image xml:id="image-oscar-actress-boxplot" source="R-generated/oscar-actress-boxplot" width="88%">
+        <description>A horizontal modified boxplot displays 32 Best Actress winner ages. The box runs from 32 to 41.5 with a median line at 35. The left whisker reaches 21 and the right whisker reaches 49, the largest non-outlier. Separate triangle markers identify high outliers at ages 61, 74, and 80. The longer upper side and high outliers indicate right skew.</description>
+      </image>
+    </figure>
+
+    <example xml:id="ex-actress-boxplot-fences">
+      <title>Building the Best Actress boxplot</title>
+      <statement><p>The age distribution has <m>Q_1=32</m>, median 35, and <m>Q_3=41.5</m>. Explain why 61, 74, and 80 are plotted separately.</p></statement>
+      <solution>
+        <p>The IQR is <m>41.5-32=9.5</m>, so the upper fence is</p>
+        <md><mrow>41.5+1.5(9.5)=55.75.</mrow></md>
+        <p>All three ages exceed 55.75. The right whisker therefore stops at 49, the largest observed age at or below the fence, and 61, 74, and 80 are plotted individually.</p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-boxplot-box">
+      <statement><p>What interval is represented by the box itself?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>From <m>Q_1</m> to <m>Q_3</m>, containing the middle half of the ordered data</p></statement><feedback><p>Correct. Its length is the IQR.</p></feedback></choice>
+        <choice><statement><p>From the minimum to the maximum</p></statement><feedback><p>That is the full range, not the box.</p></feedback></choice>
+        <choice><statement><p>From the mean to the median</p></statement><feedback><p>A standard boxplot does not display the mean.</p></feedback></choice>
+        <choice><statement><p>From the lower fence to the upper fence</p></statement><feedback><p>Fences determine outlier status but are not normally drawn as the box's endpoints.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-boxplot-whisker">
+      <statement><p>Why does the right whisker for the actress ages stop at 49 rather than at the upper fence 55.75?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Whiskers end at observed non-outlying values, and 49 is the largest such age.</p></statement><feedback><p>Correct. A fence is a cutoff, not necessarily a data value.</p></feedback></choice>
+        <choice><statement><p>Whiskers must always have equal lengths.</p></statement><feedback><p>Unequal whiskers often provide information about asymmetry.</p></feedback></choice>
+        <choice><statement><p>49 is the third quartile.</p></statement><feedback><p>The third quartile is 41.5; 49 is the largest non-outlier.</p></feedback></choice>
+        <choice><statement><p>Values above 49 were deleted.</p></statement><feedback><p>They remain visible as separate outlier markers.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-boxplot-spread">
+    <title>Reading center and spread</title>
+    <p>A long box means a large IQR and substantial variability in the middle half. A short box means that the middle half is tightly clustered. The median line locates the center, while unequal half-boxes or whiskers may suggest asymmetry.</p>
+    <p>Do not confuse a geometric length with a count. Each quarter represents about one fourth of the ordered observations even when one part of the graph occupies much more axis distance than another.</p>
+
+    <exercise xml:id="check-long-box">
+      <statement><p>Two boxplots use the same scale. Plot X has a much longer box than Plot Y. What follows?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Plot X has a larger IQR and more spread in its middle half.</p></statement><feedback><p>Correct. Box length directly represents <m>Q_3-Q_1</m>.</p></feedback></choice>
+        <choice><statement><p>Plot X contains more observations.</p></statement><feedback><p>A standard boxplot does not encode sample size in box length.</p></feedback></choice>
+        <choice><statement><p>Plot X has a larger median.</p></statement><feedback><p>The median is a location on the axis, not the box's length.</p></feedback></choice>
+        <choice><statement><p>Plot X must have more outliers.</p></statement><feedback><p>Outlier count is shown by separate points and is not determined by IQR size.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-boxplot-quarter-distance">
+      <statement><p>A boxplot's interval from <m>Q_1</m> to the median is much shorter than its interval from the median to <m>Q_3</m>. Which statement is best?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Both intervals represent roughly one quarter of the observations, but the upper quarter is more spread out.</p></statement><feedback><p>Correct. Counts are comparable while numerical widths differ.</p></feedback></choice>
+        <choice><statement><p>The shorter interval contains fewer observations.</p></statement><feedback><p>Quartiles divide ordered positions, not axis length, into quarters.</p></feedback></choice>
+        <choice><statement><p>The mean must lie in the longer interval.</p></statement><feedback><p>The mean is not shown and cannot be located from this fact alone.</p></feedback></choice>
+        <choice><statement><p>The longer interval consists entirely of outliers.</p></statement><feedback><p>The box contains the middle half; points inside it are not beyond the IQR fences.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-boxplot-limitations">
+    <title>What a boxplot hides</title>
+    <p>A boxplot does not display every observation. From it alone we generally cannot determine sample size, clusters, gaps, modes, or the detailed pattern within a quarter. Distinct distributions can share the same five-number summary and therefore the same boxplot.</p>
+
+    <figure xml:id="fig-same-boxplot-different-data">
+      <caption>Different distributions can share one boxplot.</caption>
+      <image xml:id="image-same-boxplot-different-data" source="R-generated/same-boxplot-different-data" width="90%">
+        <description>Four horizontal strips show different arrangements and numbers of points along an axis from 4 to 19. Beneath them, one schematic boxplot has minimum 4, first quartile 7, median 10, third quartile 14, and maximum 19. The point patterns differ in clustering and sample size even though the displayed five-number landmarks are the same, illustrating information lost by a boxplot.</description>
+      </image>
+    </figure>
+
+    <exercise xml:id="check-boxplot-limitations">
+      <statement><p>Which feature cannot generally be determined from a standard boxplot?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>The number of observations</p></statement><feedback><p>Correct. A standard box has no count scale.</p></feedback></choice>
+        <choice><statement><p>The median</p></statement><feedback><p>The line inside the box marks the median.</p></feedback></choice>
+        <choice><statement><p>The IQR</p></statement><feedback><p>Read <m>Q_1</m> and <m>Q_3</m> from the box and subtract.</p></feedback></choice>
+        <choice><statement><p>Potential outliers in a modified boxplot</p></statement><feedback><p>Modified boxplots display flagged observations separately.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-identical-boxplots-response">
+      <statement><p>In two or three sentences, explain how two groups can have identical boxplots yet meaningfully different distributions.</p><response/></statement>
+      <solution>
+        <p>Identical boxplots guarantee the same displayed quartile landmarks and whisker endpoints, but they do not guarantee the same sample size or arrangement between those landmarks. One group could contain clusters and gaps while the other is smoothly spread, and the boxplots would conceal that difference.</p>
+        <p>An adequate response names one hidden feature, such as sample size or clustering. A strong response also states what identical boxplots do guarantee and explains why another graph, such as a dotplot, may still be needed.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-boxplots">
+    <p>A modified boxplot draws the middle half as a box, marks the median, extends whiskers to the most extreme non-outlying observations, and plots values beyond the IQR fences separately. It efficiently displays center, resistant spread, and potential outliers.</p>
+    <p>Compression has a cost: boxplots can hide sample size, clusters, gaps, and modes. Use them for compact comparisons, but return to a dotplot or histogram when detailed shape matters.</p>
+    <p>Adapted from <em>Concepts in Statistics</em> (SUNY / Lumen Learning), CC BY 4.0. Best Actress ages are the published 1970–2001 values already documented in this repository; the shared-boxplot illustration is pedagogical and not a claim about a real dataset.</p>
+  </conclusion>
+</section>

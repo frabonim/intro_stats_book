@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xml:id="ch-data-display"
+         xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Summarizing Data Graphically and Numerically</title>
+
+  <introduction>
+    <p>Every statistical investigation begins with a research
+    question and then moves through the same three stages, in
+    the same order.</p>
+
+    <ol>
+      <li><p><em>Produce data.</em> Decide what to measure, then
+      collect the measurements. Who will be studied, how will
+      they be chosen, and what will be recorded about each
+      one?</p></li>
+      <li><p><em>Explore the data.</em> Analyze and summarize
+      what you collected. This stage is also called
+      <term>exploratory data analysis</term>, and it is the
+      subject of this chapter.</p></li>
+      <li><p><em>Draw a conclusion.</em> Use the data, together
+      with probability and statistical inference, to say
+      something about the larger population the data came
+      from.</p></li>
+    </ol>
+
+    <p>The previous chapter dealt with the first stage: methods
+    for collecting reliable data. This chapter deals with the
+    second. We will not reach the third<mdash/>inference<mdash/>until
+    much later.</p>
+
+    <p>The order is not negotiable, and it is not merely
+    procedural. A conclusion drawn from data that was collected
+    badly is worthless no matter how sophisticated the analysis.
+    And an analysis that skips straight to a conclusion without
+    first looking at the data is how people end up reporting
+    averages of distributions that have two separate peaks, or
+    fitting straight lines to curves.</p>
+
+    <p>So before we can model data, we have to look at it. This
+    chapter develops the tools for describing how the values of
+    a single quantitative variable are distributed: what values
+    occur, how often each one occurs, and which ones are
+    unusual.</p>
+  </introduction>
+
+  <xi:include href="./sec-variable-types.ptx"/>
+  <xi:include href="./sec-dotplots.ptx"/>
+  <xi:include href="./sec-shape-center-spread.ptx"/>
+  <xi:include href="./sec-histograms.ptx"/>
+  <xi:include href="./sec-histogram-bins.ptx"/>
+  <xi:include href="./sec-describing-distributions.ptx"/>
+  <xi:include href="./sec-comparing-distributions.ptx"/>
+  <xi:include href="./sec-mean-median.ptx"/>
+  <xi:include href="./sec-choosing-center.ptx"/>
+
+</chapter>

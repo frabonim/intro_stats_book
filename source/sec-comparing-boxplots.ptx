@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-comparing-boxplots">
+  <title>Comparing Distributions with Boxplots</title>
+
+  <objectives xml:id="objectives-comparing-boxplots">
+    <ul>
+      <li><p>Compare distributions using center, spread, potential outliers, and evidence of skewness.</p></li>
+      <li><p>Support a comparative claim with numerical evidence from side-by-side boxplots.</p></li>
+      <li><p>State shape conclusions cautiously when only boxplots are available.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>Boxplots are especially useful when placed on a common scale. Their compact form makes differences in median, IQR, whiskers, and outliers visible at once. A strong comparison does more than list features: it uses those features to support a central statement about how the groups differ.</p>
+  </introduction>
+
+  <subsection xml:id="subsec-oscar-boxplot-comparison">
+    <title>Best Actor and Best Actress winners</title>
+    <figure xml:id="fig-oscar-side-by-side-boxplots">
+      <caption>Published summary comparison of Oscar winner ages by acting category.</caption>
+      <image xml:id="image-oscar-side-by-side-boxplots" source="R-generated/oscar-side-by-side-boxplots" width="90%">
+        <description>Two horizontal modified boxplots share an age axis. Best Actress has a box from 32 to 41.5 with median 35, whiskers from 21 to 49, and high outliers at 61, 74, and 80. Best Actor has a box from 37 to 48 with median 42.5, whiskers beginning at 31 and extending to the largest non-outlier, with a high outlier at 76. The actress median and box lie to the left of the actor median and box, while both groups have long upper sides and older outliers.</description>
+      </image>
+    </figure>
+
+    <p>The published summaries are:</p>
+    <table xml:id="table-oscar-five-number-summary">
+      <title>Oscar winner age summaries</title>
+      <tabular halign="center">
+        <row header="yes" bottom="minor"><cell>Category</cell><cell>Minimum</cell><cell><m>Q_1</m></cell><cell>Median</cell><cell><m>Q_3</m></cell><cell>Maximum</cell><cell>IQR</cell></row>
+        <row><cell>Best Actress</cell><cell>21</cell><cell>32</cell><cell>35</cell><cell>41.5</cell><cell>80</cell><cell>9.5</cell></row>
+        <row><cell>Best Actor</cell><cell>31</cell><cell>37</cell><cell>42.5</cell><cell>48</cell><cell>76</cell><cell>11</cell></row>
+      </tabular>
+    </table>
+
+    <p><em>Center:</em> Best Actress winners tend to be younger. Their median age is 35, compared with 42.5 for Best Actor winners. Even the actress third quartile, 41.5, is below the actor median.</p>
+    <p><em>Spread:</em> The middle half of actress ages spans 9.5 years, slightly less than the actor IQR of 11 years. The overall actress range is larger, however: <m>80-21=59</m> years compared with <m>76-31=45</m> years for actors. A group can therefore have the smaller IQR but larger range.</p>
+    <p><em>Outliers and shape:</em> Both plots have older winners beyond the main body. The source identifies actor age 76 and actress ages 61, 74, and 80 as high outliers. Longer upper sides and high outliers are consistent with right skew, but a boxplot does not reveal detailed shape, so <q>suggests right skew</q> is more defensible than <q>proves right skew.</q></p>
+
+    <exercise xml:id="check-oscar-center-comparison">
+      <statement><p>Which statement is directly supported by the medians?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>A typical Best Actress winner in these data is younger than a typical Best Actor winner.</p></statement><feedback><p>Correct. The medians are 35 and 42.5 years.</p></feedback></choice>
+        <choice><statement><p>Every Best Actress winner is younger than every Best Actor winner.</p></statement><feedback><p>The distributions overlap; medians compare centers, not every pair of individuals.</p></feedback></choice>
+        <choice><statement><p>Best Actress winners have no age variability.</p></statement><feedback><p>The actress ages have IQR 9.5 and range 59.</p></feedback></choice>
+        <choice><statement><p>The two categories have equal centers.</p></statement><feedback><p>The medians differ by 7.5 years.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-oscar-spread-comparison">
+      <statement><p>How can actresses have a smaller IQR but a larger range?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Their middle half is slightly tighter, but their extreme ages are farther apart.</p></statement><feedback><p>Correct. IQR and range summarize different portions of a distribution.</p></feedback></choice>
+        <choice><statement><p>It is impossible; the larger range must have the larger IQR.</p></statement><feedback><p>Endpoints can move without changing the middle half.</p></feedback></choice>
+        <choice><statement><p>The IQR includes outliers while the range excludes them.</p></statement><feedback><p>This reverses the roles: the range uses the extremes, while the IQR uses the middle half.</p></feedback></choice>
+        <choice><statement><p>The actress median must have been calculated incorrectly.</p></statement><feedback><p>The median does not determine either spread measure.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-writing-boxplot-comparison">
+    <title>Writing a supported comparison</title>
+    <p>A useful comparison addresses four features when the graph supports them:</p>
+    <ul>
+      <li><p><em>Center:</em> compare medians in context and units.</p></li>
+      <li><p><em>Spread:</em> compare IQRs; compare ranges when extremes matter.</p></li>
+      <li><p><em>Outliers:</em> identify which group has flagged observations and where.</p></li>
+      <li><p><em>Shape:</em> describe asymmetry cautiously, recognizing the boxplot's limitations.</p></li>
+    </ul>
+    <p>Then connect the evidence to one thesis. For these data: Best Actress winners generally win at younger ages, and their middle-half ages are slightly more consistent, although both categories include unusually old winners.</p>
+
+    <exercise xml:id="check-boxplot-shape-caution">
+      <statement><p>A boxplot has a long upper whisker and several high outliers. Which wording is most appropriate?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>The boxplot suggests right skew, but a dotplot or histogram would show shape more fully.</p></statement><feedback><p>Correct. The asymmetry is evidence, while the caveat respects what a boxplot hides.</p></feedback></choice>
+        <choice><statement><p>The distribution is proven to be right-skewed.</p></statement><feedback><p>Different interior patterns can share a boxplot, so the conclusion is too absolute.</p></feedback></choice>
+        <choice><statement><p>The distribution must be symmetric.</p></statement><feedback><p>The long upper side and high points argue against that reading.</p></feedback></choice>
+        <choice><statement><p>No statement about the distribution is possible.</p></statement><feedback><p>The plot supplies useful evidence; it simply does not reveal every detail.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-boxplot-comparison-evidence">
+      <statement><p>Which sentence best supports a comparison rather than merely listing numbers?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>Best Actress winners tend to be younger: their median is 35 years, compared with 42.5 years for Best Actor winners.</p></statement><feedback><p>Correct. It states a comparative claim and immediately supports it with contextual evidence.</p></feedback></choice>
+        <choice><statement><p>The medians are 35 and 42.5.</p></statement><feedback><p>The numbers are relevant, but the sentence does not say what difference they support or identify the groups and units fully.</p></feedback></choice>
+        <choice><statement><p>There are two boxplots.</p></statement><feedback><p>This describes the display, not the distributions.</p></feedback></choice>
+        <choice><statement><p>Actors and actresses are different.</p></statement><feedback><p>The claim is vague and unsupported.</p></feedback></choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-write-oscar-comparison">
+      <statement><p>In three or four sentences, compare the two Oscar age distributions using center, spread, and outliers. State one main conclusion and support it with values.</p><response/></statement>
+      <solution>
+        <p>Best Actress winners generally win at younger ages: their median is 35 years, compared with 42.5 years for Best Actor winners. Their middle-half ages are also slightly less variable, with IQR 9.5 years rather than 11 years. Both groups include unusually old winners, but the actress distribution has three identified high outliers while the actor distribution has one; these upper extremes suggest right skew in both groups.</p>
+        <p>An adequate response compares both medians and at least one spread measure in context. A strong response organizes the evidence around a clear thesis, distinguishes IQR from range, mentions the outliers, and uses cautious language about shape.</p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="check-common-scale-boxplots">
+      <statement><p>Why should side-by-side boxplots use the same numerical axis?</p></statement>
+      <choices randomize="yes">
+        <choice correct="yes"><statement><p>So positions and lengths represent directly comparable values and spreads.</p></statement><feedback><p>Correct. A shared scale makes visual differences quantitative.</p></feedback></choice>
+        <choice><statement><p>So both groups appear to have the same range.</p></statement><feedback><p>A shared scale reveals range differences rather than erasing them.</p></feedback></choice>
+        <choice><statement><p>So the groups contain the same number of observations.</p></statement><feedback><p>Axis choice does not change sample size, which standard boxplots do not display.</p></feedback></choice>
+        <choice><statement><p>So outliers are automatically removed.</p></statement><feedback><p>Modified boxplots retain and mark outliers.</p></feedback></choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-comparing-boxplots">
+    <p>Side-by-side boxplots support compact comparisons of medians, IQRs, whiskers, and potential outliers. Use a common scale, compare measures in context, and distinguish middle-half spread from total range.</p>
+    <p>A strong written comparison advances a central claim and uses numerical evidence. Boxplot asymmetry can suggest skewness, but detailed shape requires a graph that displays individual values or frequencies.</p>
+    <p>Adapted from <em>Concepts in Statistics</em> (SUNY / Lumen Learning), CC BY 4.0. Actress values are the published 1970–2001 ages already documented in this repository. The actor plot uses the five-number summary and age-76 outlier published by the source because the underlying actor-age list is not supplied on the lesson page.</p>
+  </conclusion>
+</section>

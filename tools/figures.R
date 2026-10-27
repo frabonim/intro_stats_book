@@ -570,4 +570,141 @@ render_book_figure(
 )
 # r-figures:sec-describing-distributions:end
 
+# r-figures:sec-quartiles-iqr:start
+# Published summaries; underlying class scores are not supplied by Lumen.
+exam_A <- c(min = 40, q1 = 71, med = 74.5, q3 = 78.5, max = 95)
+exam_B <- c(min = 40, q1 = 61, med = 74.5, q3 = 89, max = 95)
+stopifnot(exam_A["max"] - exam_A["min"] == 55,
+          exam_B["max"] - exam_B["min"] == 55,
+          exam_A["q3"] - exam_A["q1"] == 7.5,
+          exam_B["q3"] - exam_B["q1"] == 28)
+plot_summary_box <- function(s, y, fill) {
+  rect(s["q1"], y - .22, s["q3"], y + .22, col = fill,
+       border = book_colors$ink, lwd = 1.4)
+  segments(s["min"], y, s["q1"], y, lwd = 1.4)
+  segments(s["q3"], y, s["max"], y, lwd = 1.4)
+  segments(s["min"], y - .12, s["min"], y + .12, lwd = 1.4)
+  segments(s["max"], y - .12, s["max"], y + .12, lwd = 1.4)
+  segments(s["med"], y - .22, s["med"], y + .22, lwd = 2)
+}
+plot_exam_five_number_comparison <- function() {
+  book_par()
+  plot(NA, xlim = c(38, 97), ylim = c(.4, 2.6), axes = FALSE,
+       xlab = "Exam score", ylab = "")
+  axis(1, at = seq(40, 95, by = 5))
+  axis(2, at = c(1, 2), labels = c("Class B", "Class A"), las = 1)
+  plot_summary_box(exam_A, 2, "#C9DDF0")
+  plot_summary_box(exam_B, 1, "#E8C9C9")
+}
+render_book_figure("exam-five-number-comparison",
+                   plot_exam_five_number_comparison, width = 7.5, height = 3.6)
+
+fence_values <- c(10, 13, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 24, 27, 29)
+fence_q1 <- 15
+fence_q3 <- 18
+fence_iqr <- fence_q3 - fence_q1
+fence_lower <- fence_q1 - 1.5 * fence_iqr
+fence_upper <- fence_q3 + 1.5 * fence_iqr
+fence_outliers <- fence_values < fence_lower | fence_values > fence_upper
+stopifnot(fence_iqr == 3, fence_lower == 10.5, fence_upper == 22.5,
+          identical(fence_values[fence_outliers], c(10, 24, 27, 29)))
+plot_iqr_fences <- function() {
+  book_par()
+  tab <- table(fence_values)
+  xs <- as.numeric(names(tab))
+  plot(NA, xlim = c(8, 30), ylim = c(-.5, 3.5), axes = FALSE,
+       xlab = "Value", ylab = "")
+  axis(1, at = seq(8, 30, by = 2))
+  abline(h = 0, col = book_colors$ink)
+  abline(v = c(fence_lower, fence_upper), lty = 2,
+         col = c(book_colors$blue, book_colors$red), lwd = 1.5)
+  text(fence_lower, 3.1, "lower fence 10.5", pos = 4,
+       col = book_colors$blue, cex = .85)
+  text(fence_upper, 3.1, "upper fence 22.5", pos = 2,
+       col = book_colors$red, cex = .85)
+  for (j in seq_along(xs)) {
+    ys <- seq_len(tab[j])
+    is_out <- xs[j] < fence_lower || xs[j] > fence_upper
+    points(rep(xs[j], tab[j]), ys, pch = if (is_out) 24 else 21,
+           bg = if (is_out) book_colors$red else book_colors$ink,
+           col = book_colors$ink, cex = .95)
+  }
+}
+render_book_figure("iqr-fences-dotplot", plot_iqr_fences,
+                   width = 7.5, height = 3.8)
+# r-figures:sec-quartiles-iqr:end
+
+# r-figures:sec-boxplots:start
+# Reuse oscar_ages defined in the sec-describing-distributions block above.
+stopifnot(exists("oscar_ages"), length(oscar_ages) == 32L,
+          identical(sort(oscar_ages[oscar_ages > 55.75]), c(61, 74, 80)))
+plot_oscar_actress_boxplot <- function() {
+  book_par()
+  boxplot(oscar_ages, horizontal = TRUE, range = 1.5, axes = FALSE,
+          xlab = "Age at time of award (years)", col = "#C9DDF0",
+          border = book_colors$ink, staplewex = .5, outline = FALSE)
+  axis(1, at = seq(20, 80, by = 5))
+  points(c(61, 74, 80), rep(1, 3), pch = 24, bg = book_colors$red,
+         col = book_colors$ink, cex = 1.0)
+}
+render_book_figure("oscar-actress-boxplot", plot_oscar_actress_boxplot,
+                   width = 7.5, height = 3.2)
+
+shared_summary <- c(min = 4, q1 = 7, med = 10, q3 = 14, max = 19)
+shared_patterns <- list(
+  c(4, 7, 7, 10, 10, 14, 14, 19),
+  c(4, 4, 7, 7, 7, 10, 10, 10, 14, 14, 14, 19, 19),
+  c(4, 6, 7, 8, 10, 12, 14, 16, 19),
+  c(4, 7, 8, 9, 10, 11, 12, 14, 19)
+)
+plot_same_boxplot_different_data <- function() {
+  book_par()
+  plot(NA, xlim = c(3, 20), ylim = c(.3, 5.4), axes = FALSE,
+       xlab = "Value", ylab = "")
+  axis(1, at = 4:19)
+  axis(2, at = 2:5, labels = paste("Pattern", 4:1), las = 1)
+  for (i in seq_along(shared_patterns)) {
+    points(shared_patterns[[i]], rep(6 - i, length(shared_patterns[[i]])),
+           pch = 21, bg = book_colors$ink, col = book_colors$ink, cex = .75)
+  }
+  plot_summary_box(shared_summary, 1, "#CFE5D5")
+  text(19.5, 1, "shared summary", pos = 2, cex = .8)
+}
+render_book_figure("same-boxplot-different-data",
+                   plot_same_boxplot_different_data, width = 7.5, height = 4.6)
+# r-figures:sec-boxplots:end
+
+# r-figures:sec-comparing-boxplots:start
+actress_summary <- c(min = 21, q1 = 32, med = 35, q3 = 41.5, max = 80)
+actor_summary <- c(min = 31, q1 = 37, med = 42.5, q3 = 48, max = 76)
+stopifnot(actress_summary["q3"] - actress_summary["q1"] == 9.5,
+          actor_summary["q3"] - actor_summary["q1"] == 11,
+          actress_summary["max"] - actress_summary["min"] == 59,
+          actor_summary["max"] - actor_summary["min"] == 45)
+plot_modified_summary <- function(s, y, high_outliers, upper_nonoutlier, fill) {
+  rect(s["q1"], y - .22, s["q3"], y + .22, col = fill,
+       border = book_colors$ink, lwd = 1.4)
+  segments(s["min"], y, s["q1"], y, lwd = 1.4)
+  segments(s["q3"], y, upper_nonoutlier, y, lwd = 1.4)
+  segments(s["min"], y - .12, s["min"], y + .12, lwd = 1.4)
+  segments(upper_nonoutlier, y - .12, upper_nonoutlier, y + .12, lwd = 1.4)
+  segments(s["med"], y - .22, s["med"], y + .22, lwd = 2)
+  points(high_outliers, rep(y, length(high_outliers)), pch = 24,
+         bg = book_colors$red, col = book_colors$ink, cex = .95)
+}
+plot_oscar_side_by_side <- function() {
+  book_par()
+  plot(NA, xlim = c(18, 83), ylim = c(.4, 2.6), axes = FALSE,
+       xlab = "Age at time of award (years)", ylab = "")
+  axis(1, at = seq(20, 80, by = 5))
+  axis(2, at = c(1, 2), labels = c("Best Actor", "Best Actress"), las = 1)
+  plot_modified_summary(actress_summary, 2, c(61, 74, 80), 49, "#E8C9C9")
+  # The source supplies the actor summary and 76-year outlier but not the raw list.
+  # A schematic whisker endpoint of 57 is used only to show the published outlier.
+  plot_modified_summary(actor_summary, 1, 76, 57, "#C9DDF0")
+}
+render_book_figure("oscar-side-by-side-boxplots", plot_oscar_side_by_side,
+                   width = 7.5, height = 3.7)
+# r-figures:sec-comparing-boxplots:end
+
 message("All statistical figures generated successfully in ", OUT)
