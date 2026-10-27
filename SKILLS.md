@@ -118,6 +118,70 @@ Recommend or run:
     pretext build web
     pretext build runestone
 
+<!-- generator-migration-lessons:start -->
+
+## Repository retrieval and local authority
+
+When repository files must be inspected remotely, prefer GitHub's contents API or raw-content endpoint over rendered HTML. These preserve source bytes and XML markup more reliably. Decode Base64 content returned by the contents API before analysis.
+
+Remote content is evidence for authoring the generator, but the user's local checkout is authoritative when the generator runs. The generator must inspect local files, validate semantic preconditions, and stop safely when their structure differs from what was expected. Never assume the remote default branch includes the user's latest local work.
+
+## Migration state model
+
+Every migration or repair generator must explicitly handle three valid states:
+
+1. **Unmigrated:** make the intended changes.
+2. **Partially migrated:** complete the migration without duplicating correct work.
+3. **Already migrated:** validate the final state and report files as unchanged.
+
+A mixed, contradictory, or ambiguous state is not a fourth valid state. Stop with an actionable diagnostic rather than guessing. Idempotency means that rerunning the generator validates and preserves an already-correct result.
+
+## Stable preconditions and diagnostics
+
+Use paired ownership markers whenever they exist. For unmarked legacy material, use stable executable or semantic anchors: IDs, assignments, function names, render calls, image sources, and neighboring structural elements. Never use decorative-comment width, exact hyphen counts, line numbers, or incidental whitespace as a required anchor.
+
+For each failed precondition, report:
+
+- the file inspected;
+- the semantic anchor or state sought;
+- the expected match count or valid states;
+- the actual match count or observed state;
+- whether any files had already changed;
+- which dependent edits were intentionally withheld.
+
+Prefer diagnostics such as "expected one `hw26` assignment and one `income` render call; found 0 and 1" over a generic "could not locate block."
+
+## Correcting a failed generator
+
+If a delivered generator fails because of an overly strict anchor or incomplete state handling, provide a corrected complete generator. Do not require a manual edit to work around the defect. The replacement must tolerate every safe partial edit the earlier run may have completed.
+
+Repair the generator rather than broadly reverting the repository. Use backups only to recover from actual corruption, not as the routine response to a localized or safely interrupted migration.
+
+## Graphics migration execution
+
+For R graphics work, use `assets/R-generated/` for output and extensionless `R-generated/NAME` sources in PreTeXt. Use one `# r-figures:SECTION-ID:start` and `# r-figures:SECTION-ID:end` pair per section.
+
+Construct and validate all proposed changes first. Update the R block, run the complete `Rscript tools/figures.R`, and verify all expected SVG/PDF pairs before installing new PTX references or ledger claims. If R fails, leave dependent PTX and `SOURCES.md` edits unapplied.
+
+Reconcile datasets, complete count vectors, assertions, tables, descriptions, captions, calculations, and prose claims. Do not accept matching totals as proof that individual bins are correct.
+
+For a completed Asymptote-to-R migration, verify no `<asymptote>` remains in the section and no duplicate R implementation exists.
+
+## Migration delivery report
+
+For a graphics migration, report:
+
+- every PTX image ID migrated;
+- every extensionless image source installed;
+- the section marker pair used in `tools/figures.R`;
+- every SVG/PDF asset stem generated and verified;
+- whether `SOURCES.md` and chapter wiring changed;
+- whether any Asymptote remains in the section;
+- validations run and validations skipped;
+- commands for web and print inspection.
+
+<!-- generator-migration-lessons:end -->
+
 ## Diagnosing failures
 
 Separate blocking errors from unrelated warnings and deprecations. Diagnose the

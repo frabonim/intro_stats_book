@@ -246,6 +246,83 @@ even when plotting fails.
 
 The script must verify expected SVG and PDF files exist and are nonempty.
 
+<!-- graphics-migration-lessons:start -->
+
+### 11.1 Canonical paths and section markers
+
+R-generated statistical figures belong in `assets/R-generated/`. A PreTeXt image references an asset as `R-generated/NAME`, without a filename extension. The R pipeline must generate both `assets/R-generated/NAME.svg` and `assets/R-generated/NAME.pdf` from the same data and plotting function.
+
+Do not introduce alternate R-figure directories such as `assets/generated/`, `source/assets/generated/`, or `assets/external/`. Existing non-R assets are unaffected by this rule.
+
+Every section-owned block in `tools/figures.R` uses exactly one marker pair:
+
+    # r-figures:SECTION-ID:start
+    ...
+    # r-figures:SECTION-ID:end
+
+Use the PreTeXt section ID for `SECTION-ID`. On rerun, replace the complete marked block; never append a second implementation for the same section. Batch-number markers may still be used in files whose ownership is genuinely batch-based, but R graphics ownership is section-based.
+
+### 11.2 Stable anchors and targeted edits
+
+Prefer paired ownership markers. When migrating unmarked legacy code, locate it with stable semantic anchors such as an `xml:id`, variable assignment, plotting-function name, render call, section ID, or chapter include. Do not depend on line numbers, indentation, whitespace, decorative comments, or an exact number of hyphens.
+
+Every anchor expected to be unique must match exactly once. If it is absent or duplicated, stop before modifying dependent files and report the anchor and match count. After locating unmarked legacy R code, wrap it in the standard section marker pair so later runs do not repeat heuristic discovery.
+
+Modify existing shared files with targeted Python string or XML operations. Do not rewrite an entire existing PTX, R, chapter, or ledger file merely to change one block. Preserve newline style, surrounding comments, whitespace, and unrelated content where practical. XML parsing is required for validation, but serializing an entire PTX tree is not required and should be avoided unless a canonical full rewrite is intentional.
+
+### 11.3 Graphics transaction order
+
+A generator that adds or changes R figures must use this transaction order:
+
+1. Read all affected files and construct the complete proposed text state in memory.
+2. Validate anchors, marker pairs, XML, IDs, references, and declared asset names before writing.
+3. Install or replace the section-owned block in `tools/figures.R` atomically.
+4. Run the complete `Rscript tools/figures.R` pipeline.
+5. Verify every expected SVG and PDF exists and is nonempty, and parse each SVG as XML.
+6. Only after successful asset generation, update PTX image references, chapter wiring, and `SOURCES.md` atomically.
+7. Parse the final PTX and repeat the relevant repository checks.
+
+If R generation fails, do not install new PTX references to assets that were not successfully generated. A failure may leave a valid R-block update in place, but must leave the prior PTX figure source and ledger state intact.
+
+### 11.4 Data reconciliation and assertions
+
+A statistical figure must agree with every representation of its data and conclusions:
+
+- the authoritative or reconstructed dataset;
+- computed frequencies and bin counts;
+- assertions in `tools/figures.R`;
+- PreTeXt tables;
+- captions and image descriptions;
+- worked calculations;
+- percentages, totals, and aggregate claims in the prose;
+- corresponding provenance notes in `SOURCES.md`.
+
+When authoritative observation-level data are available, derive frequencies from those data instead of preserving stale transcribed vectors. Assert the complete expected count vector as well as the important aggregate claims used in the lesson. Totals alone are insufficient because offsetting bin errors can preserve a total.
+
+If an assertion reveals stale authored material, reconcile all affected representations in the same generator. Record the correction and authority used in `SOURCES.md`.
+
+### 11.5 Whole-pipeline failure behavior
+
+`tools/figures.R` is a sequential production pipeline. One failed package check, assertion, device operation, or path operation can prevent every later figure from being generated. Diagnose the first direct R error; do not treat missing later assets as independent failures.
+
+A generator must run the complete `tools/figures.R`, not only an isolated new block. This verifies that shared helpers and all earlier assertions still permit a clean production run.
+
+### 11.6 Migration completeness
+
+When a section is fully migrated from Asymptote to R, verify all of the following:
+
+- no `<asymptote>` element remains in that section;
+- every migrated `<image>` has the expected extensionless `R-generated/NAME` source;
+- every source resolves to matching SVG and PDF assets under `assets/R-generated/`;
+- the old implementation was removed rather than retained in parallel;
+- no duplicate R block was introduced;
+- captions, descriptions, IDs, widths, and surrounding content were preserved unless the batch intentionally revises them;
+- the SVG and PDF are inspected in the built web and print outputs.
+
+Remove embedded Asymptote source from a migrated PTX image. Delete only obsolete source-controlled assets that are uniquely owned by that image and explicitly identified by the generator. Do not broadly delete PreTeXt build directories, generated caches, or assets outside the generator's ownership.
+
+<!-- graphics-migration-lessons:end -->
+
 ## 12. Figure accessibility
 
 Every `<image>` requires a meaningful `<description>` stating:
