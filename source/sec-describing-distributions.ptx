@@ -38,50 +38,12 @@
       <caption>Ages of Academy Award winners for Best Actress,
       <m>1970</m><ndash/><m>2001</m>, in bins of width <m>5</m>
       years.</caption>
-      <image width="80%" xml:id="image-oscar-ages">
+      <image width="80%" xml:id="image-oscar-ages" source="R-generated/oscar-ages">
         <description>A histogram of the ages of 32 Best Actress winners. Bars
         rise sharply from age 20 to a peak of 9 winners in the bin from 30 to
         35, then fall away to the right. After age 50 the graph is empty
         except for three isolated bars of height one near ages 61, 74, and 80.
         The distribution is clearly skewed to the right.</description>
-        <asymptote>
-unitsize(0.145cm, 0.36cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {20,25,30,35,40,45,50,55,60,65,70,75,80};
-real
-[] C = { 1, 5, 9, 6, 5, 3, 0, 0, 1, 0, 1, 0, 1};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  if (C
-[i] &gt; 0) {
-    filldraw((L
-[i],0)--(L
-[i]+5,0)--(L
-[i]+5,C
-[i])--(L
-[i],C
-[i])--cycle,
-             paleblue, black+0.4bp);
-  }
-}
-
-draw((20,0)--(88,0), black+0.6bp);
-for (real t = 20; t &lt;= 85; t += 5) {
-  draw((t,0)--(t,-0.25), black+0.4bp);
-  label(format("%g", t), (t,-0.35), S);
-}
-
-draw((20,0)--(20,10), black+0.6bp);
-for (real s = 0; s &lt;= 10; s += 2) {
-  draw((20,s)--(19.1,s), black+0.4bp);
-  label(format("%g", s), (18.6,s), W);
-}
-
-label("Age at time of award (years)", (54,-1.7));
-label(rotate(90)*"Number of winners", (12.5,5));
-        </asymptote>
       </image>
     </figure>
 

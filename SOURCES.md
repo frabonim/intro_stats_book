@@ -52,6 +52,8 @@ shows three histograms but never publishes the underlying scores.
 Constructed a dataset consistent with every stated feature, including
 the five students in the 70s and the described shape under each binning.
 
+**Graphics migration.** The three exam-score histograms are generated from the reconstructed 21-value dataset in `tools/figures.R` as SVG and PDF assets under `assets/R-generated`. Counts are computed with left-closed bins `[a,b)` and asserted against the published vectors: 6/9/6, 2/4/4/5/4/2, and 3/4/6/4/3/1.
+
 ### Histograms (3 of 4)
 
 **"56% (18 of 32) of the winners are under the age of 35."** Actual count
@@ -65,6 +67,8 @@ dataset.
 **Outlier interval misstated.** Source lists outliers in 60–65, 70–75,
 75–80. Under the left-closed convention the book itself teaches, age 80
 belongs to **80–85**. Corrected.
+
+**Graphics migration.** The Best Actress age histogram is generated from the 32 published ages in `tools/figures.R` as SVG and PDF assets under `assets/R-generated`. The script uses left-closed five-year bins `[a,b)` and asserts the histogram counts and the numerical claims used in the text.
 
 ### Histograms (4 of 4)
 

@@ -43,46 +43,11 @@
     <figure xml:id="fig-bins-wide">
       <caption>Bin width <m>20</m>, first bin starting at <m>40</m>. The
       distribution looks symmetric with a single central peak.</caption>
-      <image width="70%" xml:id="image-bins-wide">
+      <image width="70%" xml:id="image-bins-wide" source="R-generated/exam-bins-wide">
         <description>A histogram of 21 exam scores using bins of width 20
         starting at 40. There are three bars: 6 students from 40 to 60, 9
         students from 60 to 80, and 6 students from 80 to 100. The picture is
         perfectly symmetric with a peak in the middle.</description>
-        <asymptote>
-unitsize(0.092cm, 0.40cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {40,60,80};
-real
-[] C = { 6, 9, 6};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  filldraw((L
-[i],0)--(L
-[i]+20,0)--(L
-[i]+20,C
-[i])--(L
-[i],C
-[i])--cycle,
-           paleblue, black+0.4bp);
-}
-
-draw((40,0)--(103,0), black+0.6bp);
-for (real t = 40; t &lt;= 100; t += 20) {
-  draw((t,0)--(t,-0.25), black+0.4bp);
-  label(format("%g", t), (t,-0.35), S);
-}
-
-draw((40,0)--(40,10), black+0.6bp);
-for (real s = 0; s &lt;= 10; s += 2) {
-  draw((40,s)--(38.8,s), black+0.4bp);
-  label(format("%g", s), (38.2,s), W);
-}
-
-label("Exam score", (71,-1.5));
-label(rotate(90)*"Count", (31,5));
-        </asymptote>
       </image>
     </figure>
 
@@ -90,47 +55,10 @@ label(rotate(90)*"Count", (31,5));
       <caption>Bin width <m>10</m>, first bin still starting at <m>40</m>.
       Now it appears that most students scored between <m>70</m> and
       <m>80</m>.</caption>
-      <image width="70%" xml:id="image-bins-medium">
+      <image width="70%" xml:id="image-bins-medium" source="R-generated/exam-bins-medium">
         <description>A histogram of the same 21 exam scores using bins of
         width 10 starting at 40. The six bars have heights 2, 4, 4, 5, 4, and
         2. The tallest bar covers scores from 70 to 80.</description>
-        <asymptote>
-unitsize(0.092cm, 0.40cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {40,50,60,70,80,90};
-real
-[] C = { 2, 4, 4, 5, 4, 2};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  filldraw((L
-[i],0)--(L
-[i]+10,0)--(L
-[i]+10,C
-[i])--(L
-[i],C
-[i])--cycle,
-           palegreen, black+0.4bp);
-}
-
-filldraw((70,0)--(80,0)--(80,5)--(70,5)--cycle, orange+white, black+0.6bp);
-
-draw((40,0)--(103,0), black+0.6bp);
-for (real t = 40; t &lt;= 100; t += 10) {
-  draw((t,0)--(t,-0.25), black+0.4bp);
-  label(format("%g", t), (t,-0.35), S);
-}
-
-draw((40,0)--(40,10), black+0.6bp);
-for (real s = 0; s &lt;= 10; s += 2) {
-  draw((40,s)--(38.8,s), black+0.4bp);
-  label(format("%g", s), (38.2,s), W);
-}
-
-label("Exam score", (71,-1.5));
-label(rotate(90)*"Count", (31,5));
-        </asymptote>
       </image>
     </figure>
 
@@ -138,47 +66,12 @@ label(rotate(90)*"Count", (31,5));
       <caption>Bin width still <m>10</m>, but the first bin now starts at
       <m>45</m>. The distribution now looks slightly skewed to the right, and
       typical scores appear to fall between <m>65</m> and <m>75</m>.</caption>
-      <image width="70%" xml:id="image-bins-shifted">
+      <image width="70%" xml:id="image-bins-shifted" source="R-generated/exam-bins-shifted">
         <description>A histogram of the same 21 exam scores using bins of
         width 10 starting at 45 instead of 40. The six bars have heights 3, 4,
         6, 4, 3, and 1. The tallest bar now covers scores from 65 to 75, and a
         short bar at the far right gives the distribution a slight rightward
         tail.</description>
-        <asymptote>
-unitsize(0.092cm, 0.40cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {45,55,65,75,85,95};
-real
-[] C = { 3, 4, 6, 4, 3, 1};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  filldraw((L
-[i],0)--(L
-[i]+10,0)--(L
-[i]+10,C
-[i])--(L
-[i],C
-[i])--cycle,
-           palered, black+0.4bp);
-}
-
-draw((40,0)--(108,0), black+0.6bp);
-for (real t = 45; t &lt;= 105; t += 10) {
-  draw((t,0)--(t,-0.25), black+0.4bp);
-  label(format("%g", t), (t,-0.35), S);
-}
-
-draw((40,0)--(40,10), black+0.6bp);
-for (real s = 0; s &lt;= 10; s += 2) {
-  draw((40,s)--(38.8,s), black+0.4bp);
-  label(format("%g", s), (38.2,s), W);
-}
-
-label("Exam score", (74,-1.5));
-label(rotate(90)*"Count", (31,5));
-        </asymptote>
       </image>
     </figure>
 

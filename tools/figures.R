@@ -419,4 +419,121 @@ plot_wrist <- function() {
 render_book_figure("wrist", plot_wrist, width = 7.5, height = 4.0)
 # r-figures:sec-shape-center-spread:end
 
+# r-figures:sec-histogram-bins:start
+# ---- ch-data-display / sec-histogram-bins -----------------
+# Reconstructed exam scores documented in SOURCES.md. All histograms use the
+# same observations and left-closed bins [a,b), matching the book convention.
+exam_scores_bins <- c(
+  46, 48, 52, 55, 57, 58, 63, 66, 68, 69, 70,
+  71, 72, 77, 78, 82, 84, 85, 88, 93, 96
+)
+stopifnot(length(exam_scores_bins) == 21L)
+
+histogram_counts <- function(values, breaks) {
+  hist(values, breaks = breaks, right = FALSE, include.lowest = TRUE,
+       plot = FALSE)$counts
+}
+
+wide_breaks <- seq(40, 100, by = 20)
+medium_breaks <- seq(40, 100, by = 10)
+shifted_breaks <- seq(45, 105, by = 10)
+
+wide_counts <- histogram_counts(exam_scores_bins, wide_breaks)
+medium_counts <- histogram_counts(exam_scores_bins, medium_breaks)
+shifted_counts <- histogram_counts(exam_scores_bins, shifted_breaks)
+
+stopifnot(
+  identical(wide_counts, c(6L, 9L, 6L)),
+  identical(medium_counts, c(2L, 4L, 4L, 5L, 4L, 2L)),
+  identical(shifted_counts, c(3L, 4L, 6L, 4L, 3L, 1L)),
+  sum(wide_counts) == 21L,
+  sum(medium_counts) == 21L,
+  sum(shifted_counts) == 21L
+)
+
+plot_exam_histogram <- function(breaks, counts, fills) {
+  book_par()
+  plot(NA, xlim = c(40, max(breaks) + 3), ylim = c(0, 10), axes = FALSE,
+       xlab = "Exam score", ylab = "Count")
+  rect(head(breaks, -1), 0, tail(breaks, -1), counts,
+       col = fills, border = book_colors$ink)
+  axis(1, at = breaks)
+  axis(2, at = seq(0, 10, by = 2))
+}
+
+plot_exam_bins_wide <- function() {
+  plot_exam_histogram(
+    wide_breaks, wide_counts,
+    rep(book_colors$gray, length(wide_counts))
+  )
+}
+render_book_figure(
+  "exam-bins-wide", plot_exam_bins_wide,
+  width = 7.0, height = 4.0
+)
+
+plot_exam_bins_medium <- function() {
+  fills <- rep("#CFE5D5", length(medium_counts))
+  fills[4] <- "#E7A33E"
+  plot_exam_histogram(medium_breaks, medium_counts, fills)
+}
+render_book_figure(
+  "exam-bins-medium", plot_exam_bins_medium,
+  width = 7.0, height = 4.0
+)
+
+plot_exam_bins_shifted <- function() {
+  plot_exam_histogram(
+    shifted_breaks, shifted_counts,
+    rep("#E8C9C9", length(shifted_counts))
+  )
+}
+render_book_figure(
+  "exam-bins-shifted", plot_exam_bins_shifted,
+  width = 7.0, height = 4.0
+)
+# r-figures:sec-histogram-bins:end
+
+# r-figures:sec-describing-distributions:start
+# ---- ch-data-display / sec-describing-distributions -------
+# Best Actress winner ages, 1970--2001, as published in the section.
+oscar_ages <- c(
+  34, 34, 26, 37, 42, 41, 35, 31, 41, 33, 30, 74, 33, 49, 38, 61,
+  21, 41, 26, 80, 42, 29, 33, 35, 45, 49, 39, 34, 26, 25, 33, 35
+)
+oscar_breaks <- seq(20, 85, by = 5)
+oscar_counts <- hist(
+  oscar_ages, breaks = oscar_breaks, right = FALSE,
+  include.lowest = TRUE, plot = FALSE
+)$counts
+
+stopifnot(
+  length(oscar_ages) == 32L,
+  sum(oscar_ages < 50) == 29L,
+  sum(oscar_ages <= 35) == 18L,
+  identical(
+    oscar_counts,
+    c(1L, 5L, 9L, 6L, 5L, 3L, 0L, 0L, 1L, 0L, 1L, 0L, 1L)
+  )
+)
+
+plot_oscar_ages <- function() {
+  book_par()
+  plot(
+    NA, xlim = c(20, 88), ylim = c(0, 10), axes = FALSE,
+    xlab = "Age at time of award (years)", ylab = "Number of winners"
+  )
+  rect(
+    head(oscar_breaks, -1), 0, tail(oscar_breaks, -1), oscar_counts,
+    col = book_colors$gray, border = book_colors$ink
+  )
+  axis(1, at = oscar_breaks)
+  axis(2, at = seq(0, 10, by = 2))
+}
+render_book_figure(
+  "oscar-ages", plot_oscar_ages,
+  width = 7.5, height = 4.2
+)
+# r-figures:sec-describing-distributions:end
+
 message("All statistical figures generated successfully in ", OUT)

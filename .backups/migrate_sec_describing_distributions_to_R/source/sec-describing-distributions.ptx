@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-describing-distributions">
+  <title>Describing a Distribution</title>
+
+  <objectives>
+    <ul>
+      <li><p>Describe the shape of a distribution as skewed, symmetric, or uniform.</p></li>
+      <li><p>Identify the approximate center and spread of a distribution from a histogram.</p></li>
+      <li><p>Recognize outliers as values falling outside the overall pattern.</p></li>
+      <li><p>Write a paragraph summarizing a distribution, supported by percentages.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>Reading a histogram is a skill; writing down what you read is a
+    separate one. This section builds a routine for turning a graph into a
+    paragraph. The routine has four parts, always in the same order: shape,
+    center, spread, and outliers.</p>
+  </introduction>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-oscar-data">
+    <title>A worked example: ages of Oscar winners</title>
+
+    <p>Here are the ages of the actresses who won the Academy Award for Best
+    Actress each year from <m>1970</m> through <m>2001</m><mdash/>thirty-two
+    winners in all.</p>
+
+    <p><m>34</m>, <m>34</m>, <m>26</m>, <m>37</m>, <m>42</m>, <m>41</m>,
+    <m>35</m>, <m>31</m>, <m>41</m>, <m>33</m>, <m>30</m>, <m>74</m>,
+    <m>33</m>, <m>49</m>, <m>38</m>, <m>61</m>, <m>21</m>, <m>41</m>,
+    <m>26</m>, <m>80</m>, <m>42</m>, <m>29</m>, <m>33</m>, <m>35</m>,
+    <m>45</m>, <m>49</m>, <m>39</m>, <m>34</m>, <m>26</m>, <m>25</m>,
+    <m>33</m>, <m>35</m></p>
+
+    <figure xml:id="fig-oscar-ages">
+      <caption>Ages of Academy Award winners for Best Actress,
+      <m>1970</m><ndash/><m>2001</m>, in bins of width <m>5</m>
+      years.</caption>
+      <image width="80%" xml:id="image-oscar-ages">
+        <description>A histogram of the ages of 32 Best Actress winners. Bars
+        rise sharply from age 20 to a peak of 9 winners in the bin from 30 to
+        35, then fall away to the right. After age 50 the graph is empty
+        except for three isolated bars of height one near ages 61, 74, and 80.
+        The distribution is clearly skewed to the right.</description>
+        <asymptote>
+unitsize(0.145cm, 0.36cm);
+defaultpen(fontsize(8pt));
+
+real
+[] L = {20,25,30,35,40,45,50,55,60,65,70,75,80};
+real
+[] C = { 1, 5, 9, 6, 5, 3, 0, 0, 1, 0, 1, 0, 1};
+
+for (int i = 0; i &lt; L.length; ++i) {
+  if (C
+[i] &gt; 0) {
+    filldraw((L
+[i],0)--(L
+[i]+5,0)--(L
+[i]+5,C
+[i])--(L
+[i],C
+[i])--cycle,
+             paleblue, black+0.4bp);
+  }
+}
+
+draw((20,0)--(88,0), black+0.6bp);
+for (real t = 20; t &lt;= 85; t += 5) {
+  draw((t,0)--(t,-0.25), black+0.4bp);
+  label(format("%g", t), (t,-0.35), S);
+}
+
+draw((20,0)--(20,10), black+0.6bp);
+for (real s = 0; s &lt;= 10; s += 2) {
+  draw((20,s)--(19.1,s), black+0.4bp);
+  label(format("%g", s), (18.6,s), W);
+}
+
+label("Age at time of award (years)", (54,-1.7));
+label(rotate(90)*"Number of winners", (12.5,5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>Now work through the four parts in order.</p>
+
+    <p><em>Shape.</em> The distribution of ages appears skewed to the right.
+    Most winners are young: <m>91\%</m> (<m>29</m> of <m>32</m>) were under
+    <m>50</m>, and <m>56\%</m> (<m>18</m> of <m>32</m>) were <m>35</m> or
+    younger. The long thin tail stretching toward <m>80</m> is what makes the
+    distribution right-skewed.</p>
+
+    <p><em>Center.</em> The distribution appears centered between <m>30</m>
+    and <m>35</m> years. That single bin holds <m>28\%</m> (<m>9</m> of
+    <m>32</m>) of the winners, more than any other.</p>
+
+    <p><em>Spread.</em> The ages run from about <m>20</m> to about
+    <m>80</m>, so the overall range is approximately <m>60</m> years. There is
+    a great deal of variability in the ages of Best Actress winners.</p>
+
+    <p><em>Outliers.</em> Winners older than <m>60</m> are unusual. There are
+    three such values, one each in the intervals
+    <m>60</m><ndash/><m>65</m>, <m>70</m><ndash/><m>75</m>, and
+    <m>80</m><ndash/><m>85</m>. Each is separated from the main body of the
+    data by at least one empty bin.</p>
+
+    <!-- READING CHECK 1 -->
+    <exercise xml:id="check-skew-direction">
+      <statement>
+        <p>Why is the distribution in <xref ref="fig-oscar-ages"/> described
+        as skewed to the <em>right</em> rather than to the left?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The long, thin tail of the distribution extends toward the
+            higher values on the right.</p>
+          </statement>
+          <feedback>
+            <p>Correct. Skew is named for the direction of the tail, not the
+            direction of the bulk of the data.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Most of the data is piled up on the left side of the
+            graph.</p>
+          </statement>
+          <feedback>
+            <p>That is a true observation, and it does accompany right skew,
+            but it is not the definition. Skew is named for the tail.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The tallest bar is to the right of the center of the
+            graph.</p>
+          </statement>
+          <feedback>
+            <p>The tallest bar is at <m>30</m> to <m>35</m>, well to the left
+            of the midpoint of the axis.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The values increase from left to right along the axis.</p>
+          </statement>
+          <feedback>
+            <p>That is true of every histogram and has nothing to do with
+            skew.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 2 -->
+    <exercise xml:id="check-outlier-meaning">
+      <statement>
+        <p>In this data set, the winner aged <m>80</m> is identified as an
+        outlier. What does that mean?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Her age falls well outside the overall pattern of the rest of
+            the data.</p>
+          </statement>
+          <feedback>
+            <p>Correct. An outlier is a value that stands apart from the
+            pattern, separated from the main body of the distribution.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Her age was recorded incorrectly and should be removed.</p>
+          </statement>
+          <feedback>
+            <p>An outlier may be a recording error, but it may also be a
+            perfectly real and interesting value. Jessica Tandy really did win
+            at <m>80</m>. Never delete a value just because it is
+            unusual.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>She is the oldest person in the data set.</p>
+          </statement>
+          <feedback>
+            <p>She is, but being the maximum does not by itself make a value
+            an outlier. The <m>49</m>-year-old winners are near the top of the
+            main group and are not outliers.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Her age is more than twice the mean age.</p>
+          </statement>
+          <feedback>
+            <p>No such rule defines an outlier. The judgment is about whether
+            the value sits outside the overall pattern.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ================================================== -->
+  <subsection xml:id="subsec-writing-summary">
+    <title>Turning observations into a paragraph</title>
+
+    <p>Four separate observations are not yet a description. The next step is
+    to assemble them into prose that someone who has not seen the graph could
+    follow.</p>
+
+    <p>Here is a plain-language version:</p>
+
+    <blockquote>
+      <p>Between <m>1970</m> and <m>2001</m>, the Oscar for Best Actress was
+      awarded most often to young actresses: <m>56\%</m> (<m>18</m> of
+      <m>32</m>) of the winners were <m>35</m> or younger, with <m>28\%</m>
+      (<m>9</m> of <m>32</m>) between <m>30</m> and <m>35</m> years of age.
+      Winners ranged in age from about <m>20</m> to about <m>80</m>, but only
+      <m>3</m> of the <m>32</m> were over <m>60</m>.</p>
+    </blockquote>
+
+    <p>And here is the same description using the formal vocabulary of this
+    chapter:</p>
+
+    <blockquote>
+      <p>Between <m>1970</m> and <m>2001</m>, the Oscar for Best Actress was
+      awarded most often to young actresses. The distribution of ages is
+      skewed to the right: <m>56\%</m> (<m>18</m> of <m>32</m>) of the winners
+      were <m>35</m> or younger, with the center of the distribution between
+      <m>30</m> and <m>35</m> years of age. With winners ranging in age from
+      about <m>20</m> to about <m>80</m>, the overall range of the
+      distribution is about <m>60</m>. But much of this variability is due to
+      three outliers who were older than <m>60</m> when they won.</p>
+    </blockquote>
+
+    <p>Both paragraphs are good. Notice what they have in common: every claim
+    about the shape is backed by a number, and every number is attached to a
+    unit and a group. <q>Skewed to the right</q> on its own is an assertion.
+    <q>Skewed to the right: <m>56\%</m> of winners were <m>35</m> or
+    younger</q> is evidence.</p>
+
+    <assemblage xml:id="asm-describe-checklist">
+      <title>Describing a distribution</title>
+      <p><em>Shape.</em> Skewed left, skewed right, symmetric with a central
+      peak, or roughly uniform. Not every distribution fits one of these
+      neatly<mdash/>say so when it does not.</p>
+      <p><em>Center.</em> A typical value, or the interval where the data
+      clusters.</p>
+      <p><em>Spread.</em> How much the values vary. The overall range
+      (largest minus smallest) is one measure; a typical range covering most
+      of the data is another.</p>
+      <p><em>Outliers.</em> Any values falling outside the overall pattern.</p>
+      <p>Then write it as prose, supporting each claim with a percentage.</p>
+    </assemblage>
+
+    <!-- READING CHECK 3 -->
+    <exercise xml:id="check-percent-support">
+      <statement>
+        <p>Which of these is the strongest description of the Oscar age
+        distribution?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p><q>The distribution is skewed right; <m>29</m> of the
+            <m>32</m> winners (<m>91\%</m>) were under <m>50</m>, with three
+            older outliers at <m>61</m>, <m>74</m>, and <m>80</m>.</q></p>
+          </statement>
+          <feedback>
+            <p>Correct. It names the shape, supports it with a percentage, and
+            identifies the outliers specifically.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><q>The distribution is skewed right.</q></p>
+          </statement>
+          <feedback>
+            <p>True but unsupported. A reader has no way to judge how
+            pronounced the skew is.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><q>The bars are <m>1</m>, <m>5</m>, <m>9</m>, <m>6</m>,
+            <m>5</m>, <m>3</m>, <m>0</m>, <m>0</m>, <m>1</m>, <m>0</m>,
+            <m>1</m>, <m>0</m>, <m>1</m>.</q></p>
+          </statement>
+          <feedback>
+            <p>This reports the graph without describing it. A description
+            tells the reader what the pattern <em>means</em>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><q>Young actresses win more Oscars because Hollywood
+            discriminates against older women.</q></p>
+          </statement>
+          <feedback>
+            <p>This leaps from description to causal explanation. The data
+            shows the pattern; it does not establish why the pattern
+            exists.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <!-- READING CHECK 4: short answer, recorded -->
+    <exercise xml:id="check-write-description">
+      <statement>
+        <p>Suppose a histogram of the amount students spent on textbooks this
+        semester is roughly symmetric, centered near <m>\$300</m>, with values
+        ranging from <m>\$50</m> to <m>\$550</m> and no gaps or isolated
+        bars.</p>
+        <p>Write a two- or three-sentence description of this distribution
+        using the shape-center-spread-outliers routine.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Something like: <q>The distribution of textbook spending is roughly
+        symmetric with a single central peak. Spending is centered near
+        <m>\$300</m>, and values range from about <m>\$50</m> to about
+        <m>\$550</m>, an overall range of roughly <m>\$500</m>. There are no
+        outliers<mdash/>no student's spending falls outside the overall
+        pattern.</q></p>
+        <p>Saying explicitly that there are no outliers is worth doing. A
+        reader cannot tell the difference between <q>I checked and found
+        none</q> and <q>I forgot to look</q> unless you say so.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+
+  <!-- ================================================== -->
+  <conclusion>
+    <title>Summary</title>
+    <p>To describe the distribution of a quantitative variable, report the
+    overall pattern<mdash/>shape, center, and spread<mdash/>and any deviations
+    from that pattern, meaning outliers.</p>
+    <p>Shape may be skewed left, skewed right, symmetric with a central peak,
+    or uniform, and some distributions fit none of these. Center is a typical
+    value representing the group. Spread describes how the data varies; the
+    overall range is one measure. Outliers are values falling outside the
+    overall pattern.</p>
+    <p>Assemble these observations into a paragraph, and support each claim
+    about shape with a percentage. A description without numbers is an
+    opinion.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Academy Award data from the Academy of
+    Motion Picture Arts and Sciences.</p>
+  </conclusion>
+</section>
