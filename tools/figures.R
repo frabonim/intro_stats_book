@@ -113,19 +113,67 @@ stacked_dotplot <- function(values, xlim, xlabel, mean_value = NULL,
   }
 }
 
-# ---- ch-data-display / sec-histograms --------------------
-hip <- openintro::bdims$hip_gi
-stopifnot(length(hip) == 507L)
+# r-figures:sec-histograms:start
+# ---- ch-data-display / sec-histograms ---------------------
+# Reconciled frequency distribution used by the section's table and examples.
+# Keeping the grouped counts here avoids version-dependent changes in external
+# packages and ensures that count and relative-frequency plots agree exactly.
 hip_breaks <- seq(75, 130, by = 5)
-print(table(cut(hip, breaks = hip_breaks, right = FALSE)))
+hip_left <- head(hip_breaks, -1)
+hip_counts <- c(2, 20, 48, 115, 164, 97, 42, 15, 2, 1, 1)
+hip_n <- sum(hip_counts)
+hip_percent <- 100 * hip_counts / hip_n
+
+stopifnot(
+  length(hip_breaks) == 12L,
+  length(hip_counts) == 11L,
+  hip_n == 507L,
+  hip_counts[3] == 48L,
+  hip_counts[6] == 97L,
+  sum(hip_counts[6:11]) == 158L,
+  abs(100 * 158 / hip_n - 31.16371) < 1e-4
+)
+
+plot_grouped_histogram <- function(heights, ylab, ylim, yticks,
+                                   fill = book_colors$gray,
+                                   ylabels = yticks) {
+  book_par()
+  plot(NA, xlim = range(hip_breaks), ylim = ylim, axes = FALSE,
+       xlab = "Hip girth (cm)", ylab = ylab)
+  rect(hip_left, 0, hip_left + 5, heights,
+       col = fill, border = book_colors$ink)
+  axis(1, at = hip_breaks)
+  axis(2, at = yticks, labels = ylabels)
+}
 
 plot_hip_histogram <- function() {
-  book_par()
-  hist(hip, breaks = hip_breaks, right = FALSE, col = book_colors$gray,
-       border = book_colors$ink, main = "", xlab = "Hip girth",
-       ylab = "Frequency", xlim = range(hip_breaks))
+  plot_grouped_histogram(
+    hip_counts,
+    ylab = "Frequency (count)",
+    ylim = c(0, 180),
+    yticks = seq(0, 180, by = 20)
+  )
 }
-render_book_figure("hip-girth-histogram", plot_hip_histogram)
+render_book_figure(
+  "hip-girth-histogram", plot_hip_histogram,
+  width = 7.5, height = 4.5
+)
+
+plot_hip_relative_frequency <- function() {
+  plot_grouped_histogram(
+    hip_percent,
+    ylab = "Relative frequency",
+    ylim = c(0, 35),
+    yticks = seq(0, 35, by = 5),
+    ylabels = paste0(seq(0, 35, by = 5), "%"),
+    fill = "#CFE5D5"
+  )
+}
+render_book_figure(
+  "hip-girth-relative-frequency", plot_hip_relative_frequency,
+  width = 7.5, height = 4.5
+)
+# r-figures:sec-histograms:end
 
 # ---- ch-data-display / sec-comparing-distributions -------
 ns <- MASS::birthwt$bwt[MASS::birthwt$smoke == 0]

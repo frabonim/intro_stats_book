@@ -48,51 +48,13 @@
     <figure xml:id="fig-hip-histogram">
       <caption>Hip girth measurements for <m>507</m> adults who exercise
       regularly, with a bin width of <m>5</m> cm.</caption>
-      <image width="85%" xml:id="image-hip-histogram">
+      <image width="85%" xml:id="image-hip-histogram" source="R-generated/hip-girth-histogram">
         <description>A histogram of hip girth for 507 adults. The horizontal
         axis runs from 75 to 130 centimeters in bins of width 5. Bar heights
         rise from 2 at the left to a peak of 164 in the bin from 95 to 100
         centimeters, then fall off to the right, reaching 1 in the final bin.
         The distribution is roughly bell-shaped with a slightly longer tail on
         the right.</description>
-        <asymptote>
-unitsize(0.155cm, 0.034cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {75,80,85,90,95,100,105,110,115,120,125};
-real
-[] C = { 2, 20, 48,115,164, 97, 42, 15,  2,  1,  1};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  if (C
-[i] &gt; 0) {
-    filldraw((L
-[i],0)--(L
-[i]+5,0)--(L
-[i]+5,C
-[i])--(L
-[i],C
-[i])--cycle,
-             paleblue, black+0.4bp);
-  }
-}
-
-draw((75,0)--(132,0), black+0.6bp);
-for (real t = 75; t &lt;= 130; t += 5) {
-  draw((t,0)--(t,-4), black+0.4bp);
-  label(format("%g", t), (t,-5), S);
-}
-
-draw((75,0)--(75,180), black+0.6bp);
-for (real s = 0; s &lt;= 180; s += 20) {
-  draw((75,s)--(74,s), black+0.4bp);
-  label(format("%g", s), (73.5,s), W);
-}
-
-label("Hip girth (cm)", (103.5,-16));
-label(rotate(90)*"Frequency (count)", (65.5,90));
-        </asymptote>
       </image>
     </figure>
 
@@ -435,46 +397,11 @@ label(rotate(90)*"Frequency (count)", (65.5,90));
       <caption>The same data as <xref ref="fig-hip-histogram"/>, with the
       vertical axis showing relative frequency instead of count. The shape is
       identical.</caption>
-      <image width="85%" xml:id="image-hip-relative">
+      <image width="85%" xml:id="image-hip-relative" source="R-generated/hip-girth-relative-frequency">
         <description>A relative frequency histogram of hip girth for the same
         507 adults. The bars have exactly the same shape as the frequency
         histogram, but the vertical axis now runs from 0 to 35 percent instead
         of 0 to 180 individuals, with the tallest bar at about 32 percent.</description>
-        <asymptote>
-unitsize(0.155cm, 0.175cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {75,80,85,90,95,100,105,110,115,120,125};
-real
-[] P = {0.4,3.9,9.5,22.7,32.3,19.1,8.3,3.0,0.4,0.2,0.2};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  filldraw((L
-[i],0)--(L
-[i]+5,0)--(L
-[i]+5,P
-[i])--(L
-[i],P
-[i])--cycle,
-           palegreen, black+0.4bp);
-}
-
-draw((75,0)--(132,0), black+0.6bp);
-for (real t = 75; t &lt;= 130; t += 5) {
-  draw((t,0)--(t,-0.8), black+0.4bp);
-  label(format("%g", t), (t,-1.0), S);
-}
-
-draw((75,0)--(75,35), black+0.6bp);
-for (real s = 0; s &lt;= 35; s += 5) {
-  draw((75,s)--(74,s), black+0.4bp);
-  label(format("%g", s) + "\%", (73.5,s), W);
-}
-
-label("Hip girth (cm)", (103.5,-3.1));
-label(rotate(90)*"Relative frequency", (64.5,17.5));
-        </asymptote>
       </image>
     </figure>
 
