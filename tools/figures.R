@@ -253,6 +253,7 @@ render_book_figure(
 )
 # r-figures:sec-mean-median:end
 
+# r-figures:sec-choosing-center:start
 # ---- ch-data-display / sec-choosing-center ---------------
 # Reconstructed data; see SOURCES.md.
 hw26 <- c(0, 80, 81, 82, 82, 83, 83, rep(84, 6), 85, 85,
@@ -302,7 +303,7 @@ plot_income <- function() {
   text(income_median, 370, "median", col = book_colors$blue, pos = 2)
 }
 render_book_figure("income", plot_income, width = 7, height = 4.2)
-
+# r-figures:sec-choosing-center:end
 # r-figures:sec-dotplots:start
 # ---- ch-data-display / sec-dotplots -----------------------
 # Cereal protein data from Consumer Reports, as recorded in the section source.

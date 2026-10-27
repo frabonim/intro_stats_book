@@ -41,7 +41,7 @@
     <figure xml:id="fig-outlier-scores">
       <caption>Twenty-six homework scores, one of which is an
       outlier at 0.</caption>
-      <image xml:id="image-outlier-scores" width="90%">
+      <image xml:id="image-outlier-scores" width="90%" source="R-generated/outlier-scores">
         <description>
           A dotplot of 26 homework scores. Twenty-five dots form
           a single tight mound between 80 and 90, tallest at 84
@@ -52,44 +52,6 @@
           while the mean of 81.8 is pulled to the left of the
           mound, toward the lone low score.
         </description>
-        <asymptote>
-size(15cm,5cm,IgnoreAspect);
-
-pair[] pts = {
-  (0,0.4),
-  (80,0.4),
-  (81,0.4),
-  (82,0.4),(82,0.8),
-  (83,0.4),(83,0.8),
-  (84,0.4),(84,0.8),(84,1.2),
-  (84,1.6),(84,2.0),(84,2.4),
-  (85,0.4),(85,0.8),
-  (86,0.4),(86,0.8),(86,1.2),
-  (87,0.4),(87,0.8),(87,1.2),
-  (88,0.4),(88,0.8),(88,1.2),
-  (89,0.4),
-  (90,0.4)
-};
-
-draw((-3,0)--(95,0), black);
-
-for (int t = 0; t &lt;= 90; t += 10) {
-  draw((t,0)--(t,-0.25));
-  label(string(t), (t,-0.3), S);
-}
-
-for (int i = 0; i &lt; pts.length; ++i) {
-  dot(pts[i], black);
-}
-
-draw((84.5,-0.15)--(84.5,3.2), blue+dashed);
-label("median 84.5", (84.5,3.2), NE, blue);
-
-draw((81.8,-0.15)--(81.8,3.2), red+dashed);
-label("mean 81.8", (81.8,3.2), NW, red);
-
-label("Homework score", (45,-1.0));
-        </asymptote>
       </image>
     </figure>
 
@@ -333,7 +295,7 @@ label("Homework score", (45,-1.0));
       <caption>Personal income, United States census sample,
       2000. Fifteen people in every thousand earned more than
       $100,000 and are not shown.</caption>
-      <image xml:id="image-income" width="85%">
+      <image xml:id="image-income" width="85%" source="R-generated/income">
         <description>
           A histogram of personal income with bars ten thousand
           dollars wide. The tallest bar is the first, covering
@@ -348,27 +310,6 @@ label("Homework score", (45,-1.0));
           the right of it, into the much shorter third bar,
           by the small number of very high incomes.
         </description>
-        <asymptote>
-size(13cm,6cm,IgnoreAspect);
-real[] h = {340,232,168,100,55,35,20,15,10,10};
-real bw = 10;
-for(int i = 0; i &lt; h.length; ++i){
-  real x0 = i*bw;
-  filldraw((x0,0)--(x0+bw,0)--(x0+bw,h[i])--(x0,h[i])--cycle,
-           lightgray, black);
-}
-draw((0,0)--(108,0), black);
-for(int t = 0; t &lt;= 100; t += 20){
-  draw((t,0)--(t,-10));
-  label(string(t), (t,-12), S);
-}
-draw((16.9,0)--(16.9,390), blue+dashed);
-label("median", (16.9,390), N, blue);
-draw((24,0)--(24,320), red+dashed);
-label("mean", (24,320), NE, red);
-label("Income (thousands of dollars)", (54,-42));
-label(rotate(90)*"People per 1,000", (-9,180));
-        </asymptote>
       </image>
     </figure>
 
