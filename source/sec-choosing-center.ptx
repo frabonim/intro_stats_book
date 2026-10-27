@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-choosing-center">
+  <title>Choosing a Measure of Center</title>
+
+  <objectives xml:id="objectives-choosing-center">
+    <ul>
+      <li>
+        <p>Explain why the median is resistant to outliers and
+        the mean is not.</p>
+      </li>
+      <li>
+        <p>Predict how skewness pulls the mean away from the
+        median.</p>
+      </li>
+      <li>
+        <p>Choose the mean or the median to summarize a
+        distribution, based on its shape.</p>
+      </li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>
+      We now have two numbers competing for the title of center,
+      and nothing yet tells us which to report. The answer is
+      not a matter of taste. It depends on the shape of the
+      distribution and on whether outliers are present, which
+      means it depends on having looked at the data first.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-outliers-and-resistance">
+    <title>What an outlier does to each measure</title>
+
+    <p>
+      A student has 26 homework scores. Twenty-five of them fall
+      between 80 and 90, which is solid B work. One assignment
+      was never turned in and recorded as 0.
+    </p>
+
+    <figure xml:id="fig-outlier-scores">
+      <caption>Twenty-six homework scores, one of which is an
+      outlier at 0.</caption>
+      <image xml:id="image-outlier-scores" width="90%">
+        <description>
+          A dotplot of 26 homework scores. Twenty-five dots form
+          a single tight mound between 80 and 90, tallest at 84
+          where six dots stack up, tapering to one dot each at
+          80, 81, 89, and 90. Far to the left, separated by a
+          gap of eighty points with nothing in it, sits a single
+          dot at 0. The median of 84.5 falls inside the mound,
+          while the mean of 81.8 is pulled to the left of the
+          mound, toward the lone low score.
+        </description>
+        <asymptote>
+size(15cm,5cm,IgnoreAspect);
+
+pair[] pts = {
+  (0,0.4),
+  (80,0.4),
+  (81,0.4),
+  (82,0.4),(82,0.8),
+  (83,0.4),(83,0.8),
+  (84,0.4),(84,0.8),(84,1.2),
+  (84,1.6),(84,2.0),(84,2.4),
+  (85,0.4),(85,0.8),
+  (86,0.4),(86,0.8),(86,1.2),
+  (87,0.4),(87,0.8),(87,1.2),
+  (88,0.4),(88,0.8),(88,1.2),
+  (89,0.4),
+  (90,0.4)
+};
+
+draw((-3,0)--(95,0), black);
+
+for (int t = 0; t &lt;= 90; t += 10) {
+  draw((t,0)--(t,-0.25));
+  label(string(t), (t,-0.3), S);
+}
+
+for (int i = 0; i &lt; pts.length; ++i) {
+  dot(pts[i], black);
+}
+
+draw((84.5,-0.15)--(84.5,3.2), blue+dashed);
+label("median 84.5", (84.5,3.2), NE, blue);
+
+draw((81.8,-0.15)--(81.8,3.2), red+dashed);
+label("mean 81.8", (81.8,3.2), NW, red);
+
+label("Homework score", (45,-1.0));
+        </asymptote>
+      </image>
+    </figure>
+
+    <example xml:id="ex-zero-score">
+      <title>One zero, two answers</title>
+      <statement>
+        <p>
+          For the 26 scores in
+          <xref ref="fig-outlier-scores"/>, the median is 84.5
+          and the mean is 81.8. Which better summarizes this
+          student's homework performance?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The median. Throw out the 0 and recompute: the median
+          of the remaining 25 scores is 85, barely different
+          from 84.5, while their mean is 85.1, more than three
+          points above 81.8. The single missing assignment moves
+          the mean six times as far as it moves the median.
+        </p>
+        <p>
+          The reason is structural. The median depends only on
+          <em>order</em>, and changing the lowest score from 0
+          to 50 or to 79 would not change which value sits in
+          the middle position. The mean adds every score into a
+          total, so every score, however extreme, gets a vote
+          proportional to its size. At 81.8 the mean suggests
+          this student is a shaky B, which misrepresents
+          twenty-five assignments of consistent work.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      A measure of center that is barely moved by extreme values
+      is called <term>resistant</term>. The median is resistant;
+      the mean is not.
+    </p>
+
+    <p>
+      How much damage one outlier does depends on how much
+      company it has. Suppose the teacher assigned only 10
+      homeworks and the student's scores were 0, 80, 82, 84, 85,
+      85, 86, 87, 88, 88. The median is still 85, but the mean
+      drops to <m>765/10 = 76.5</m>, out of the B range and into
+      the C range. The same zero, spread across fewer
+      assignments, pulls much harder.
+    </p>
+
+    <exercise xml:id="check-outlier-correction">
+      <statement>
+        <p>
+          Suppose the missing assignment in
+          <xref ref="fig-outlier-scores"/> is found and the 0 is
+          corrected to an 85. What happens to the mean and the
+          median?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The mean rises by more than three points; the
+            median rises by half a point.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The mean goes from 81.8 to 85.1, while
+              the median moves only from 84.5 to 85. Replacing
+              an extreme value changes the total a great deal
+              and the middle position hardly at all.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Both rise by about three points.</p>
+          </statement>
+          <feedback>
+            <p>
+              This treats the two measures as interchangeable.
+              The median is resistant: the corrected score
+              simply moves from the bottom of the ordered list
+              into the middle of it, shifting the middle
+              position by one place.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The median rises by more than three points; the
+            mean barely moves.</p>
+          </statement>
+          <feedback>
+            <p>
+              This reverses the roles. The mean is the sensitive
+              one, because every value enters the total; see
+              <xref ref="ex-zero-score"/>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Neither changes, because only one value out of 26
+            was altered.</p>
+          </statement>
+          <feedback>
+            <p>
+              A single value can matter enormously when it is
+              far from the rest. That is the whole point of an
+              outlier.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-sample-size-effect">
+      <statement>
+        <p>
+          A score of 0 is added to a set of homework scores that
+          otherwise average about 85. In which case does the
+          zero pull the mean down the most?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>When there are few other scores, such as 9.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. With nine other scores the mean falls to
+              about 76.5; with twenty-five others it falls only
+              to about 81.8. The lost points are divided among
+              fewer assignments, so each one absorbs more of the
+              damage.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>When there are many other scores, such as 100.</p>
+          </statement>
+          <feedback>
+            <p>
+              This has it backward. A large <m>n</m> dilutes an
+              outlier: dividing the same 85 lost points among
+              101 assignments moves the mean less than one
+              point.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The effect is the same regardless of how many
+            scores there are.</p>
+          </statement>
+          <feedback>
+            <p>
+              The size of the effect is the lost points divided
+              by <m>n</m>, so <m>n</m> controls it directly.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The zero has no effect on the mean in either
+            case, only on the median.</p>
+          </statement>
+          <feedback>
+            <p>
+              This has the two measures exactly backward. The
+              zero enters the total, so it always affects the
+              mean; the median is the one it may leave
+              untouched.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-median-outlier-removal">
+      <statement>
+        <p>
+          True or false: removing an outlier from a data set
+          always changes the median.
+        </p>
+        <choices>
+          <choice correct="no">
+            <statement><p>True</p></statement>
+            <feedback>
+              <p>
+                False. Removing a value does shift the middle
+                position by half a step, but the value sitting
+                there may not change. In 0, 85, 85, 85, 85 the
+                median is 85, and dropping the 0 leaves the
+                median at 85. Even when the median does move, it
+                moves to a neighboring value, never a long
+                distance, which is what resistance means.
+              </p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement><p>False</p></statement>
+            <feedback>
+              <p>
+                False, correctly identified. The middle position
+                shifts when a value is removed, but the number
+                occupying it may be identical, and at most it
+                moves to an adjacent value. Compare the mean,
+                which must change whenever the removed value
+                differs from the mean.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </statement>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-skewed-distributions">
+    <title>Skewness pulls the mean</title>
+
+    <p>
+      Outliers are not the only thing that separates the two
+      measures. A long tail does it too, even when no single
+      value stands out as unusual.
+    </p>
+
+    <p>
+      <xref ref="fig-income"/> shows the personal incomes of a
+      large sample of individuals from United States census
+      data for the year 2000. The distribution is strongly
+      skewed to the right, which is typical of income data
+      everywhere: most people cluster at the low end and a thin
+      tail stretches far to the right.
+    </p>
+
+    <figure xml:id="fig-income">
+      <caption>Personal income, United States census sample,
+      2000. Fifteen people in every thousand earned more than
+      $100,000 and are not shown.</caption>
+      <image xml:id="image-income" width="85%">
+        <description>
+          A histogram of personal income with bars ten thousand
+          dollars wide. The tallest bar is the first, covering
+          incomes under ten thousand dollars, and each bar after
+          it is shorter than the one before, so the distribution
+          falls away steadily to the right with a long thin
+          tail. The bars above fifty thousand dollars are only a
+          few percent as tall as the first. The median of about
+          sixteen thousand nine hundred dollars sits inside the
+          second bar, near the bulk of the data, while the mean
+          of about twenty-four thousand dollars is dragged to
+          the right of it, into the much shorter third bar,
+          by the small number of very high incomes.
+        </description>
+        <asymptote>
+size(13cm,6cm,IgnoreAspect);
+real[] h = {340,232,168,100,55,35,20,15,10,10};
+real bw = 10;
+for(int i = 0; i &lt; h.length; ++i){
+  real x0 = i*bw;
+  filldraw((x0,0)--(x0+bw,0)--(x0+bw,h[i])--(x0,h[i])--cycle,
+           lightgray, black);
+}
+draw((0,0)--(108,0), black);
+for(int t = 0; t &lt;= 100; t += 20){
+  draw((t,0)--(t,-10));
+  label(string(t), (t,-12), S);
+}
+draw((16.9,0)--(16.9,390), blue+dashed);
+label("median", (16.9,390), N, blue);
+draw((24,0)--(24,320), red+dashed);
+label("mean", (24,320), NE, red);
+label("Income (thousands of dollars)", (54,-42));
+label(rotate(90)*"People per 1,000", (-9,180));
+        </asymptote>
+      </image>
+    </figure>
+
+    <example xml:id="ex-skewed-income">
+      <title>Which number is the typical income?</title>
+      <statement>
+        <p>
+          For this sample the mean income is
+          $24,000 and the median income is
+          $16,900. Which figure better represents a
+          typical person in the sample?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The median. More than half the sample earns under
+          $20,000, so a reported average of
+          $24,000 is above what most of these people
+          make. The relatively few large incomes in the right
+          tail enter the total at full size and drag the mean
+          upward, while the median only registers them as
+          <q>more values above the middle,</q> which they would
+          be at any size.
+        </p>
+        <p>
+          This is why income is almost always reported as a
+          median. A headline average income can rise while most
+          individual incomes fall, simply because the top of the
+          distribution pulled away.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      The pattern generalizes. In a right-skewed distribution
+      the mean is usually greater than the median; in a
+      left-skewed distribution the mean is usually less than the
+      median; in a roughly symmetric distribution the two land
+      close together. A useful way to remember it: the mean
+      chases the tail.
+    </p>
+
+    <exercise xml:id="check-skew-mean-median">
+      <statement>
+        <p>
+          A distribution of house prices is strongly skewed to
+          the right. What should you expect of its mean and
+          median?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The mean is larger than the median.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The expensive houses in the right tail
+              inflate the total, and therefore the mean, while
+              the median only counts them as values above the
+              middle.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The median is larger than the mean.</p>
+          </statement>
+          <feedback>
+            <p>
+              That is the left-skewed pattern. A tail stretching
+              to the right pulls the mean to the right, above
+              the median.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>They are equal, since both measure center.</p>
+          </statement>
+          <feedback>
+            <p>
+              They are close only when the distribution is
+              roughly symmetric. The whole reason to compare
+              them is that skewness separates them.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The mean is larger, and the median is therefore
+            not a valid summary.</p>
+          </statement>
+          <feedback>
+            <p>
+              The first half is right but the conclusion is
+              backward. Under skewness the median is the
+              <em>more</em> trustworthy summary, which is why
+              home prices are reported as medians.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-choosing">
+    <title>Guidelines for choosing</title>
+
+    <assemblage xml:id="asm-choosing-center">
+      <title>Choosing a measure of center</title>
+      <p>
+        Use the <term>mean</term> only when the distribution is
+        reasonably symmetric with a single central peak and no
+        outliers.
+      </p>
+      <p>
+        Use the <term>median</term> in every other case
+        <mdash/> whenever the distribution is skewed or
+        outliers are present.
+      </p>
+      <p>
+        Always plot the data first. Shape is not visible in a
+        list of numbers, and you cannot choose between these
+        two measures until you have seen it.
+      </p>
+    </assemblage>
+
+    <p>
+      That last instruction is the one students skip, and it is
+      the one that matters most. The mean and the median can be
+      computed from any list of numbers without ever looking at
+      the distribution, and both will return a perfectly
+      respectable answer for data that has two separate peaks,
+      or a value recorded as <m>-99</m> for <q>missing.</q> The
+      graph is what tells you whether the number you just
+      computed means anything.
+    </p>
+
+    <exercise xml:id="check-choose-measure">
+      <statement>
+        <p>
+          You are summarizing the annual salaries of the 40
+          employees of a small company. Thirty-nine earn between
+          $45,000 and $80,000; the founder earns
+          $900,000. Which summary should you report, and
+          why?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The median, because the founder's salary is an
+            outlier that would inflate the mean.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The founder alone adds roughly
+              $20,000 to the mean salary, describing a
+              company no employee works for. The median stays
+              inside the range where thirty-nine of them
+              actually are.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The mean, because it uses all 40 salaries and the
+            median ignores most of them.</p>
+          </statement>
+          <feedback>
+            <p>
+              Using every value is exactly the problem here. The
+              median does account for all 40 observations
+              <mdash/> it needs the full ordered list to find
+              the middle <mdash/> but it refuses to let one
+              extreme value dominate.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The mean, after deleting the founder's salary as
+            a data-entry error.</p>
+          </statement>
+          <feedback>
+            <p>
+              Nothing suggests an error; the salary is real.
+              Values are deleted only when they are known to be
+              wrong, and <q>inconvenient</q> is not the same as
+              <q>wrong.</q>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Either one, since with 40 employees a single
+            salary cannot matter much.</p>
+          </statement>
+          <feedback>
+            <p>
+              A value more than ten times the typical salary
+              matters at any realistic <m>n</m>. Here it shifts
+              the mean by about $20,000.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-home-prices">
+      <statement>
+        <p>
+          A news report states that the average home price in a
+          neighborhood is $650,000 while the median home
+          price is $310,000. In two or three sentences,
+          say what this gap tells you about the shape of the
+          distribution and which figure you would quote to
+          someone house-hunting there.
+        </p>
+        <response/>
+      </statement>
+      <solution>
+        <p>
+          A mean more than double the median says the
+          distribution is strongly skewed to the right: a small
+          number of very expensive homes inflates the total
+          while leaving the middle of the ordered list alone.
+          Half the homes in the neighborhood sell for under
+          $310,000, so the median is what a buyer should
+          be told; the $650,000 average describes a
+          house that is far from typical.
+        </p>
+        <p>
+          An adequate answer identifies right skew and picks the
+          median. A strong answer explains the mechanism
+          <mdash/> that the high prices enter the mean at full
+          value but register with the median only as values
+          above the middle <mdash/> and states what the median
+          guarantees, namely that half the homes fall on each
+          side of it.
+        </p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-choosing-center">
+    <p>
+      The mean and the median answer to different masters. The
+      mean adds every value into a total, so an outlier or a
+      long tail drags it; the median depends only on position in
+      the ordered list, so extreme values barely move it. A
+      measure with that stability is called resistant, and the
+      median is resistant while the mean is not.
+    </p>
+    <p>
+      Report the mean for distributions that are reasonably
+      symmetric with a single peak and no outliers. Report the
+      median otherwise. When the two are far apart, that gap is
+      itself information: it signals skewness or an extreme
+      value, and the direction of the gap tells you which way
+      the tail runs.
+    </p>
+    <p>
+      None of this can be decided from a list of numbers. Plot
+      the data first, every time.
+    </p>
+    <p>
+      Adapted from <em>Concepts in Statistics</em>
+      (SUNY / Lumen Learning), CC BY 4.0. Income distribution
+      based on United States census data for 2000 as reported in
+      the source; the underlying counts are reconstructed to
+      reproduce the published mean and median.
+    </p>
+  </conclusion>
+</section>

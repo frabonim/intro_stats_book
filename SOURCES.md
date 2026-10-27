@@ -17,14 +17,9 @@ Excluded by policy: all **StatTutor** and **Assignment** pages.
 | | Histograms (2 of 4) | `sec-histogram-bins` | done |
 | | Histograms (3 of 4) | `sec-describing-distributions` | done |
 | | Histograms (4 of 4) | `sec-comparing-distributions` | done |
+| | Mean and Median (1 of 2) | `sec-mean-median` | done |
+| | Mean and Median (2 of 2) | `sec-choosing-center` | done |
 
-OpenStax *Introductory Statistics* (separate source):
-
-| Lumen page | PreTeXt section | Status |
-|---|---|---|
-| Introduction to the Normal Distribution | `sec-intro-normal` | done |
-| The Standard Normal Distribution | `sec-standard-normal` | done |
-| Using the Normal Distribution | `sec-using-normal` | done |
 
 ---
 
@@ -96,6 +91,49 @@ a probability, not a percentile. Correct: `invNorm(0.16, 5.85, 0.24)`
 5.99 cm.
 
 ---
+
+<!-- batch:05 -->
+### Mean and Median (1 of 2)
+`/chapter/mean-and-median-1-of-2` → `sec-mean-median`
+
+Three dead "Learn By Doing" widgets replaced with native
+reading checks.
+
+*Added, not in source:* the even-`n` median (source only ever
+shows odd `n`); the caution that repeated values break the
+"as much data below as above" claim, which the source states
+without qualification; an ordering error check.
+
+### Mean and Median (2 of 2)
+`/chapter/mean-and-median-2-of-2` → `sec-choosing-center`
+
+**Mean of 81.8 is not attainable from 26 integer scores.**
+No integer total divides by 26 to exactly 81.8; the source
+reports a rounded value and never publishes the data.
+Reconstructed 26 scores totaling 2127 — mean 81.81, median
+exactly 84.5, one score of 0, remaining 25 spanning 80–90 as
+described. Removing the 0 gives mean 85.08, median 85, which
+is the contrast the source asserts but does not compute.
+
+**Ten-score illustration unspecified.** Source says a zero
+among 10 scores moves the mean "into the C grade range" but
+gives no data. Reconstructed as 0, 80, 82, 84, 85, 85, 86,
+87, 88, 88: mean 76.5, median 85.
+
+**Income data not published.** Source gives only mean
+$24,000 and median $16,900 for a 2000 census sample.
+Reconstructed a frequency table per 1,000 people
+(340, 232, 168, 100, 55, 35, 20, 15, 10, 10 across $10k bins,
+plus 15 above $100k averaging $165k) reproducing the median
+exactly and the mean to $23,980.
+
+Dead PhET-style simulation at the end of the page replaced
+with native reading checks.
+
+*Added, not in source:* the term **resistant**, which the
+source describes at length but never names; the skew-direction
+rule (mean > median under right skew); the salary-with-founder
+decision exercise.
 
 ## Datasets
 

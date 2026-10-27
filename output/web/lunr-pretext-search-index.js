@@ -928,6 +928,303 @@ var ptx_lunr_docs = [
   "body": "  You can read the exact overall range of a data set from its histogram.    False. A histogram tells you only which bin the smallest and largest values fall into. In we can say the lightest baby weighed somewhere between and grams, but not exactly how much. A dotplot shows the actual values, so the range can be computed exactly.   "
 },
 {
+  "id": "sec-mean-median",
+  "level": "1",
+  "url": "sec-mean-median.html",
+  "type": "Section",
+  "number": "1.8",
+  "title": "Mean and Median",
+  "body": " Mean and Median     Calculate the mean of a quantitative data set and interpret it as a fair share.    Explain why the mean is the balancing point of a distribution.    Locate the median of a data set with an odd or an even number of values.      So far we have described the center of a distribution by pointing at it. We looked at a dotplot or a histogram, found where the values piled up, and called that a typical value. That is a real skill, but it is not a number, and two people looking at the same picture can point at two different places.  This section replaces the pointing with arithmetic. There are two standard measures of center, the mean and the median , and they answer slightly different questions. For some distributions they land in almost the same place. For others they are far apart, and which one you report changes the story the data tells. Here we learn to compute both and to say what each one actually measures.    The mean  The mean is the ordinary average. Add the data values, then divide by how many there are. We write it and say x-bar .   The symbol is an instruction to add up whatever follows it, so means the sum of all the data values. The letter is the number of data values.   Calculating a mean   Find the mean of three quiz scores: 70, 85, and 82.    There are three scores, so .   The mean quiz score is 79.      A data set contains the values 6, 7, 11, and 16. What is the mean?     10   Correct. The values sum to 40 and there are four of them, so .     9   That is the median, the value halfway between 7 and 11. The mean uses the sizes of the values, not just their order.     13.3   This divides 40 by 3. Divide by , the number of data values, which is 4 here. A common slip is to count the plus signs instead of the values.     40   That is , the total. The mean divides that total by .        The mean as a fair share  Beth's nine homework scores are 70, 80, 80, 80, 85, 86, 90, 90, and 95. Her scores vary, but the mean gives one number for her typical performance.   Here is a useful way to read that 84. Suppose we took all 756 of Beth's points and redistributed them evenly across the nine assignments. Each assignment would receive exactly 84 points, because . The mean is the score she would have earned on every assignment if she had earned the same score on all of them. For this reason the mean is called the fair share measure of center.  Notice what the mean does not do. Beth never actually scored an 84 on anything. The mean tells us nothing about any individual assignment and nothing about how much her scores bounced around.   Beth's nine homework scores, with the mean and the median marked.   A dotplot of nine homework scores running from 70 to 95. There is a single dot at 70, well to the left of everything else, then a stack of three dots at 80, one dot each at 85 and 86, a stack of two dots at 90, and one dot at 95. The bulk of the scores sit between 80 and 90. A dashed line at 84 marks the mean and a dashed line at 85 marks the median; the two fall almost on top of each other, near the middle of the main cluster, with the low score of 70 pulling the mean slightly below the median.       A student has 10 homework scores with a mean of 84. How many homework points does the student have in total?     840   Correct. Since , the total is . This is the fair-share idea run backward.     84   That is the mean itself, the share each assignment would receive. The total is that share multiplied by the number of assignments.     8.4   This divides by a second time. The mean has already been divided once; recovering the total requires multiplying.      It cannot be found without the individual scores.    The individual scores are not recoverable, but the total is. The mean and determine exactly, even though many different data sets produce the same total.        The mean as a balancing point  There is a second way to see the mean, and it explains why the mean behaves the way it does later in the course. Measure the distance from each data value to the mean, counting distances below the mean as negative and distances above as positive. These signed distances are called deviations .   Deviations from the mean of 84    Score  Deviation   70  80  80  80  85  86  90  90   95   Total    The deviations below the mean total and the deviations above the mean total . They cancel exactly. Picture the dotplot as a plank with a weight at each data value: the plank balances at 84 and nowhere else. The mean is the only measure of center with this property, and it is the reason a single extreme value can drag the mean a long way, a point we take up in .    In a data set, the deviations of the values that fall below the mean add up to . What do the deviations of the values above the mean add up to?       Correct. All deviations together sum to zero, so the positive deviations must exactly offset the negative ones. This holds for every data set.       This repeats the sign of the deviations below the mean. Values above the mean produce positive deviations.       Zero is the total of all the deviations, not the total of the ones above the mean. See .      It depends on how many values are above the mean.    The count does not matter. One value far above the mean can balance many values slightly below it, but the totals still cancel.        True or false: the mean of a data set must be equal to one of the values in the data set.    True   False. Beth's mean is 84 and she never scored an 84 on any assignment. The mean is a summary of the whole group, not a report of any one observation, and it need not be a possible value at all a mean household size of 2.6 people is perfectly ordinary.     False   False, correctly identified. Beth's mean of 84 does not appear anywhere in her list of scores. The mean describes the group, and it can land on a value no individual could have.         The median  The median is the middle of the data once the values are written in order from smallest to largest. It splits the ordered list in half: roughly as many values fall below it as above it.   Median with an odd number of values   Find the median of Beth's homework scores: 70, 80, 80, 80, 85, 86, 90, 90, 95.    The scores are already in order and there are nine of them, so the middle one is the fifth. Counting in from either end gives 85. Four scores lie below it and four lie above it, so the median is 85.    With an odd number of values there is a single value in the middle. With an even number there are two, and the median is the number halfway between them.   Median with an even number of values   Beth's next eight scores are 72, 80, 84, 86, 88, 90, 92, 95. Find the median.    There are eight values, so the two middle ones are the fourth and fifth: 86 and 88. The median is their average.   The median is 87, which is not one of her scores. Like the mean, the median need not be a value in the data set.    One caution about the phrase as much data below as above. When values repeat, the split is not always exact. In the data set 4, 7, 7, 7, 9 the median is 7, yet only one value lies strictly below it. The median is best understood as the value in the middle position of the ordered list, which is exactly why it cares only about order.    Find the median of 12, 15, 18, 20, 21, 25.     19   Correct. With six values the two middle ones are 18 and 20, and .     18   This is the lower of the two middle values. With an even count, neither middle value is the median by itself; average them.     20   This is the upper of the two middle values. Averaging 18 and 20 gives the median.     18.5   This is the mean, . The two are close here, but the median is found from position in the ordered list, not from a total.        A classmate finds the median of 9, 3, 14, 5, 8 by taking the third number written down and reports 14. What went wrong?      The values were not put in order first; the median is 8.    Correct. Ordered, the data is 3, 5, 8, 9, 14, and the third value is 8. The median is the middle of the ordered list, never the middle of the list as recorded.      Nothing; 14 is the median of these five values.    14 is the largest value, not the middle one. Sorting first gives 3, 5, 8, 9, 14, with 8 in the middle.      With five values the median must be the average of two numbers.    Averaging two middle values is the procedure for an even count. Five values have a single middle position, the third.      The median should have been found by adding the values and dividing by 5.    That computes the mean, which here is 7.8. The median is a position in the ordered list.        Beth's mean homework score is 84 and her median is 85. In two or three sentences, explain what these two numbers do not tell Beth about her homework performance.     Neither number says anything about an individual assignment: Beth never earned an 84, and knowing the center does not reveal that one score was as low as 70 while another was 95. Neither number describes variability, so two students with wildly different consistency could post the same mean and median. They also say nothing about shape or about trend over time, so an upward climb and a downward slide can look identical.  An adequate answer says the center does not describe individual values. A strong answer names a second missing feature spread, shape, or order in time and explains why that matters, for instance that Beth cannot tell from 84 alone whether she is improving or whether one disaster is dragging her down.      The mean is the average: add the values and divide by , so . It is the fair share each observation would receive if the total were divided evenly, and it is the balancing point of the distribution, the one location where the deviations above and below cancel to zero.  The median is the middle of the ordered data. With an odd number of values it is the single middle value; with an even number it is the average of the two middle values. Because it depends only on position, the median ignores how far away the extreme values sit a fact that turns out to matter a great deal.  Neither measure describes an individual observation, and neither describes spread. Both can equal a value that no one in the data set actually has.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0.   "
+},
+{
+  "id": "objectives-mean-median",
+  "level": "2",
+  "url": "sec-mean-median.html#objectives-mean-median",
+  "type": "Objectives",
+  "number": "1.8",
+  "title": "",
+  "body": "   Calculate the mean of a quantitative data set and interpret it as a fair share.    Explain why the mean is the balancing point of a distribution.    Locate the median of a data set with an odd or an even number of values.    "
+},
+{
+  "id": "sec-mean-median-3-2",
+  "level": "2",
+  "url": "sec-mean-median.html#sec-mean-median-3-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mean median "
+},
+{
+  "id": "ex-quiz-mean",
+  "level": "2",
+  "url": "sec-mean-median.html#ex-quiz-mean",
+  "type": "Example",
+  "number": "1.8.1",
+  "title": "Calculating a mean.",
+  "body": " Calculating a mean   Find the mean of three quiz scores: 70, 85, and 82.    There are three scores, so .   The mean quiz score is 79.   "
+},
+{
+  "id": "check-mean-compute",
+  "level": "2",
+  "url": "sec-mean-median.html#check-mean-compute",
+  "type": "Checkpoint",
+  "number": "1.8.2",
+  "title": "",
+  "body": "  A data set contains the values 6, 7, 11, and 16. What is the mean?     10   Correct. The values sum to 40 and there are four of them, so .     9   That is the median, the value halfway between 7 and 11. The mean uses the sizes of the values, not just their order.     13.3   This divides 40 by 3. Divide by , the number of data values, which is 4 here. A common slip is to count the plus signs instead of the values.     40   That is , the total. The mean divides that total by .     "
+},
+{
+  "id": "subsec-fair-share-4",
+  "level": "2",
+  "url": "sec-mean-median.html#subsec-fair-share-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "fair share "
+},
+{
+  "id": "fig-beth-scores",
+  "level": "2",
+  "url": "sec-mean-median.html#fig-beth-scores",
+  "type": "Figure",
+  "number": "1.8.3",
+  "title": "",
+  "body": " Beth's nine homework scores, with the mean and the median marked.   A dotplot of nine homework scores running from 70 to 95. There is a single dot at 70, well to the left of everything else, then a stack of three dots at 80, one dot each at 85 and 86, a stack of two dots at 90, and one dot at 95. The bulk of the scores sit between 80 and 90. A dashed line at 84 marks the mean and a dashed line at 85 marks the median; the two fall almost on top of each other, near the middle of the main cluster, with the low score of 70 pulling the mean slightly below the median.    "
+},
+{
+  "id": "check-fair-share",
+  "level": "2",
+  "url": "sec-mean-median.html#check-fair-share",
+  "type": "Checkpoint",
+  "number": "1.8.4",
+  "title": "",
+  "body": "  A student has 10 homework scores with a mean of 84. How many homework points does the student have in total?     840   Correct. Since , the total is . This is the fair-share idea run backward.     84   That is the mean itself, the share each assignment would receive. The total is that share multiplied by the number of assignments.     8.4   This divides by a second time. The mean has already been divided once; recovering the total requires multiplying.      It cannot be found without the individual scores.    The individual scores are not recoverable, but the total is. The mean and determine exactly, even though many different data sets produce the same total.     "
+},
+{
+  "id": "subsec-balancing-point-2",
+  "level": "2",
+  "url": "sec-mean-median.html#subsec-balancing-point-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "deviations "
+},
+{
+  "id": "table-deviations",
+  "level": "2",
+  "url": "sec-mean-median.html#table-deviations",
+  "type": "Table",
+  "number": "1.8.5",
+  "title": "Deviations from the mean of 84",
+  "body": " Deviations from the mean of 84    Score  Deviation   70  80  80  80  85  86  90  90   95   Total   "
+},
+{
+  "id": "check-balance-deviation",
+  "level": "2",
+  "url": "sec-mean-median.html#check-balance-deviation",
+  "type": "Checkpoint",
+  "number": "1.8.6",
+  "title": "",
+  "body": "  In a data set, the deviations of the values that fall below the mean add up to . What do the deviations of the values above the mean add up to?       Correct. All deviations together sum to zero, so the positive deviations must exactly offset the negative ones. This holds for every data set.       This repeats the sign of the deviations below the mean. Values above the mean produce positive deviations.       Zero is the total of all the deviations, not the total of the ones above the mean. See .      It depends on how many values are above the mean.    The count does not matter. One value far above the mean can balance many values slightly below it, but the totals still cancel.     "
+},
+{
+  "id": "check-mean-not-a-value",
+  "level": "2",
+  "url": "sec-mean-median.html#check-mean-not-a-value",
+  "type": "Checkpoint",
+  "number": "1.8.7",
+  "title": "",
+  "body": "  True or false: the mean of a data set must be equal to one of the values in the data set.    True   False. Beth's mean is 84 and she never scored an 84 on any assignment. The mean is a summary of the whole group, not a report of any one observation, and it need not be a possible value at all a mean household size of 2.6 people is perfectly ordinary.     False   False, correctly identified. Beth's mean of 84 does not appear anywhere in her list of scores. The mean describes the group, and it can land on a value no individual could have.      "
+},
+{
+  "id": "subsec-the-median-2",
+  "level": "2",
+  "url": "sec-mean-median.html#subsec-the-median-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "median "
+},
+{
+  "id": "ex-median-odd",
+  "level": "2",
+  "url": "sec-mean-median.html#ex-median-odd",
+  "type": "Example",
+  "number": "1.8.8",
+  "title": "Median with an odd number of values.",
+  "body": " Median with an odd number of values   Find the median of Beth's homework scores: 70, 80, 80, 80, 85, 86, 90, 90, 95.    The scores are already in order and there are nine of them, so the middle one is the fifth. Counting in from either end gives 85. Four scores lie below it and four lie above it, so the median is 85.   "
+},
+{
+  "id": "ex-median-even",
+  "level": "2",
+  "url": "sec-mean-median.html#ex-median-even",
+  "type": "Example",
+  "number": "1.8.9",
+  "title": "Median with an even number of values.",
+  "body": " Median with an even number of values   Beth's next eight scores are 72, 80, 84, 86, 88, 90, 92, 95. Find the median.    There are eight values, so the two middle ones are the fourth and fifth: 86 and 88. The median is their average.   The median is 87, which is not one of her scores. Like the mean, the median need not be a value in the data set.   "
+},
+{
+  "id": "check-median-even",
+  "level": "2",
+  "url": "sec-mean-median.html#check-median-even",
+  "type": "Checkpoint",
+  "number": "1.8.10",
+  "title": "",
+  "body": "  Find the median of 12, 15, 18, 20, 21, 25.     19   Correct. With six values the two middle ones are 18 and 20, and .     18   This is the lower of the two middle values. With an even count, neither middle value is the median by itself; average them.     20   This is the upper of the two middle values. Averaging 18 and 20 gives the median.     18.5   This is the mean, . The two are close here, but the median is found from position in the ordered list, not from a total.     "
+},
+{
+  "id": "check-median-order",
+  "level": "2",
+  "url": "sec-mean-median.html#check-median-order",
+  "type": "Checkpoint",
+  "number": "1.8.11",
+  "title": "",
+  "body": "  A classmate finds the median of 9, 3, 14, 5, 8 by taking the third number written down and reports 14. What went wrong?      The values were not put in order first; the median is 8.    Correct. Ordered, the data is 3, 5, 8, 9, 14, and the third value is 8. The median is the middle of the ordered list, never the middle of the list as recorded.      Nothing; 14 is the median of these five values.    14 is the largest value, not the middle one. Sorting first gives 3, 5, 8, 9, 14, with 8 in the middle.      With five values the median must be the average of two numbers.    Averaging two middle values is the procedure for an even count. Five values have a single middle position, the third.      The median should have been found by adding the values and dividing by 5.    That computes the mean, which here is 7.8. The median is a position in the ordered list.     "
+},
+{
+  "id": "check-center-limits",
+  "level": "2",
+  "url": "sec-mean-median.html#check-center-limits",
+  "type": "Checkpoint",
+  "number": "1.8.12",
+  "title": "",
+  "body": "  Beth's mean homework score is 84 and her median is 85. In two or three sentences, explain what these two numbers do not tell Beth about her homework performance.     Neither number says anything about an individual assignment: Beth never earned an 84, and knowing the center does not reveal that one score was as low as 70 while another was 95. Neither number describes variability, so two students with wildly different consistency could post the same mean and median. They also say nothing about shape or about trend over time, so an upward climb and a downward slide can look identical.  An adequate answer says the center does not describe individual values. A strong answer names a second missing feature spread, shape, or order in time and explains why that matters, for instance that Beth cannot tell from 84 alone whether she is improving or whether one disaster is dragging her down.   "
+},
+{
+  "id": "sec-choosing-center",
+  "level": "1",
+  "url": "sec-choosing-center.html",
+  "type": "Section",
+  "number": "1.9",
+  "title": "Choosing a Measure of Center",
+  "body": " Choosing a Measure of Center     Explain why the median is resistant to outliers and the mean is not.    Predict how skewness pulls the mean away from the median.    Choose the mean or the median to summarize a distribution, based on its shape.      We now have two numbers competing for the title of center, and nothing yet tells us which to report. The answer is not a matter of taste. It depends on the shape of the distribution and on whether outliers are present, which means it depends on having looked at the data first.    What an outlier does to each measure  A student has 26 homework scores. Twenty-five of them fall between 80 and 90, which is solid B work. One assignment was never turned in and recorded as 0.   Twenty-six homework scores, one of which is an outlier at 0.   A dotplot of 26 homework scores. Twenty-five dots form a single tight mound between 80 and 90, tallest at 84 where six dots stack up, tapering to one dot each at 80, 81, 89, and 90. Far to the left, separated by a gap of eighty points with nothing in it, sits a single dot at 0. The median of 84.5 falls inside the mound, while the mean of 81.8 is pulled to the left of the mound, toward the lone low score.      One zero, two answers   For the 26 scores in , the median is 84.5 and the mean is 81.8. Which better summarizes this student's homework performance?    The median. Throw out the 0 and recompute: the median of the remaining 25 scores is 85, barely different from 84.5, while their mean is 85.1, more than three points above 81.8. The single missing assignment moves the mean six times as far as it moves the median.  The reason is structural. The median depends only on order , and changing the lowest score from 0 to 50 or to 79 would not change which value sits in the middle position. The mean adds every score into a total, so every score, however extreme, gets a vote proportional to its size. At 81.8 the mean suggests this student is a shaky B, which misrepresents twenty-five assignments of consistent work.    A measure of center that is barely moved by extreme values is called resistant . The median is resistant; the mean is not.  How much damage one outlier does depends on how much company it has. Suppose the teacher assigned only 10 homeworks and the student's scores were 0, 80, 82, 84, 85, 85, 86, 87, 88, 88. The median is still 85, but the mean drops to , out of the B range and into the C range. The same zero, spread across fewer assignments, pulls much harder.    Suppose the missing assignment in is found and the 0 is corrected to an 85. What happens to the mean and the median?      The mean rises by more than three points; the median rises by half a point.    Correct. The mean goes from 81.8 to 85.1, while the median moves only from 84.5 to 85. Replacing an extreme value changes the total a great deal and the middle position hardly at all.      Both rise by about three points.    This treats the two measures as interchangeable. The median is resistant: the corrected score simply moves from the bottom of the ordered list into the middle of it, shifting the middle position by one place.      The median rises by more than three points; the mean barely moves.    This reverses the roles. The mean is the sensitive one, because every value enters the total; see .      Neither changes, because only one value out of 26 was altered.    A single value can matter enormously when it is far from the rest. That is the whole point of an outlier.        A score of 0 is added to a set of homework scores that otherwise average about 85. In which case does the zero pull the mean down the most?      When there are few other scores, such as 9.    Correct. With nine other scores the mean falls to about 76.5; with twenty-five others it falls only to about 81.8. The lost points are divided among fewer assignments, so each one absorbs more of the damage.      When there are many other scores, such as 100.    This has it backward. A large dilutes an outlier: dividing the same 85 lost points among 101 assignments moves the mean less than one point.      The effect is the same regardless of how many scores there are.    The size of the effect is the lost points divided by , so controls it directly.      The zero has no effect on the mean in either case, only on the median.    This has the two measures exactly backward. The zero enters the total, so it always affects the mean; the median is the one it may leave untouched.        True or false: removing an outlier from a data set always changes the median.    True   False. Removing a value does shift the middle position by half a step, but the value sitting there may not change. In 0, 85, 85, 85, 85 the median is 85, and dropping the 0 leaves the median at 85. Even when the median does move, it moves to a neighboring value, never a long distance, which is what resistance means.     False   False, correctly identified. The middle position shifts when a value is removed, but the number occupying it may be identical, and at most it moves to an adjacent value. Compare the mean, which must change whenever the removed value differs from the mean.         Skewness pulls the mean  Outliers are not the only thing that separates the two measures. A long tail does it too, even when no single value stands out as unusual.   shows the personal incomes of a large sample of individuals from United States census data for the year 2000. The distribution is strongly skewed to the right, which is typical of income data everywhere: most people cluster at the low end and a thin tail stretches far to the right.   Personal income, United States census sample, 2000. Fifteen people in every thousand earned more than $100,000 and are not shown.   A histogram of personal income with bars ten thousand dollars wide. The tallest bar is the first, covering incomes under ten thousand dollars, and each bar after it is shorter than the one before, so the distribution falls away steadily to the right with a long thin tail. The bars above fifty thousand dollars are only a few percent as tall as the first. The median of about sixteen thousand nine hundred dollars sits inside the second bar, near the bulk of the data, while the mean of about twenty-four thousand dollars is dragged to the right of it, into the much shorter third bar, by the small number of very high incomes.      Which number is the typical income?   For this sample the mean income is $24,000 and the median income is $16,900. Which figure better represents a typical person in the sample?    The median. More than half the sample earns under $20,000, so a reported average of $24,000 is above what most of these people make. The relatively few large incomes in the right tail enter the total at full size and drag the mean upward, while the median only registers them as more values above the middle, which they would be at any size.  This is why income is almost always reported as a median. A headline average income can rise while most individual incomes fall, simply because the top of the distribution pulled away.    The pattern generalizes. In a right-skewed distribution the mean is usually greater than the median; in a left-skewed distribution the mean is usually less than the median; in a roughly symmetric distribution the two land close together. A useful way to remember it: the mean chases the tail.    A distribution of house prices is strongly skewed to the right. What should you expect of its mean and median?      The mean is larger than the median.    Correct. The expensive houses in the right tail inflate the total, and therefore the mean, while the median only counts them as values above the middle.      The median is larger than the mean.    That is the left-skewed pattern. A tail stretching to the right pulls the mean to the right, above the median.      They are equal, since both measure center.    They are close only when the distribution is roughly symmetric. The whole reason to compare them is that skewness separates them.      The mean is larger, and the median is therefore not a valid summary.    The first half is right but the conclusion is backward. Under skewness the median is the more trustworthy summary, which is why home prices are reported as medians.        Guidelines for choosing   Choosing a measure of center  Use the mean only when the distribution is reasonably symmetric with a single central peak and no outliers.  Use the median in every other case whenever the distribution is skewed or outliers are present.  Always plot the data first. Shape is not visible in a list of numbers, and you cannot choose between these two measures until you have seen it.   That last instruction is the one students skip, and it is the one that matters most. The mean and the median can be computed from any list of numbers without ever looking at the distribution, and both will return a perfectly respectable answer for data that has two separate peaks, or a value recorded as for missing. The graph is what tells you whether the number you just computed means anything.    You are summarizing the annual salaries of the 40 employees of a small company. Thirty-nine earn between $45,000 and $80,000; the founder earns $900,000. Which summary should you report, and why?      The median, because the founder's salary is an outlier that would inflate the mean.    Correct. The founder alone adds roughly $20,000 to the mean salary, describing a company no employee works for. The median stays inside the range where thirty-nine of them actually are.      The mean, because it uses all 40 salaries and the median ignores most of them.    Using every value is exactly the problem here. The median does account for all 40 observations it needs the full ordered list to find the middle but it refuses to let one extreme value dominate.      The mean, after deleting the founder's salary as a data-entry error.    Nothing suggests an error; the salary is real. Values are deleted only when they are known to be wrong, and inconvenient is not the same as wrong.       Either one, since with 40 employees a single salary cannot matter much.    A value more than ten times the typical salary matters at any realistic . Here it shifts the mean by about $20,000.        A news report states that the average home price in a neighborhood is $650,000 while the median home price is $310,000. In two or three sentences, say what this gap tells you about the shape of the distribution and which figure you would quote to someone house-hunting there.     A mean more than double the median says the distribution is strongly skewed to the right: a small number of very expensive homes inflates the total while leaving the middle of the ordered list alone. Half the homes in the neighborhood sell for under $310,000, so the median is what a buyer should be told; the $650,000 average describes a house that is far from typical.  An adequate answer identifies right skew and picks the median. A strong answer explains the mechanism that the high prices enter the mean at full value but register with the median only as values above the middle and states what the median guarantees, namely that half the homes fall on each side of it.      The mean and the median answer to different masters. The mean adds every value into a total, so an outlier or a long tail drags it; the median depends only on position in the ordered list, so extreme values barely move it. A measure with that stability is called resistant, and the median is resistant while the mean is not.  Report the mean for distributions that are reasonably symmetric with a single peak and no outliers. Report the median otherwise. When the two are far apart, that gap is itself information: it signals skewness or an extreme value, and the direction of the gap tells you which way the tail runs.  None of this can be decided from a list of numbers. Plot the data first, every time.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0. Income distribution based on United States census data for 2000 as reported in the source; the underlying counts are reconstructed to reproduce the published mean and median.   "
+},
+{
+  "id": "objectives-choosing-center",
+  "level": "2",
+  "url": "sec-choosing-center.html#objectives-choosing-center",
+  "type": "Objectives",
+  "number": "1.9",
+  "title": "",
+  "body": "   Explain why the median is resistant to outliers and the mean is not.    Predict how skewness pulls the mean away from the median.    Choose the mean or the median to summarize a distribution, based on its shape.    "
+},
+{
+  "id": "fig-outlier-scores",
+  "level": "2",
+  "url": "sec-choosing-center.html#fig-outlier-scores",
+  "type": "Figure",
+  "number": "1.9.1",
+  "title": "",
+  "body": " Twenty-six homework scores, one of which is an outlier at 0.   A dotplot of 26 homework scores. Twenty-five dots form a single tight mound between 80 and 90, tallest at 84 where six dots stack up, tapering to one dot each at 80, 81, 89, and 90. Far to the left, separated by a gap of eighty points with nothing in it, sits a single dot at 0. The median of 84.5 falls inside the mound, while the mean of 81.8 is pulled to the left of the mound, toward the lone low score.    "
+},
+{
+  "id": "ex-zero-score",
+  "level": "2",
+  "url": "sec-choosing-center.html#ex-zero-score",
+  "type": "Example",
+  "number": "1.9.2",
+  "title": "One zero, two answers.",
+  "body": " One zero, two answers   For the 26 scores in , the median is 84.5 and the mean is 81.8. Which better summarizes this student's homework performance?    The median. Throw out the 0 and recompute: the median of the remaining 25 scores is 85, barely different from 84.5, while their mean is 85.1, more than three points above 81.8. The single missing assignment moves the mean six times as far as it moves the median.  The reason is structural. The median depends only on order , and changing the lowest score from 0 to 50 or to 79 would not change which value sits in the middle position. The mean adds every score into a total, so every score, however extreme, gets a vote proportional to its size. At 81.8 the mean suggests this student is a shaky B, which misrepresents twenty-five assignments of consistent work.   "
+},
+{
+  "id": "subsec-outliers-and-resistance-5",
+  "level": "2",
+  "url": "sec-choosing-center.html#subsec-outliers-and-resistance-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "resistant "
+},
+{
+  "id": "check-outlier-correction",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-outlier-correction",
+  "type": "Checkpoint",
+  "number": "1.9.3",
+  "title": "",
+  "body": "  Suppose the missing assignment in is found and the 0 is corrected to an 85. What happens to the mean and the median?      The mean rises by more than three points; the median rises by half a point.    Correct. The mean goes from 81.8 to 85.1, while the median moves only from 84.5 to 85. Replacing an extreme value changes the total a great deal and the middle position hardly at all.      Both rise by about three points.    This treats the two measures as interchangeable. The median is resistant: the corrected score simply moves from the bottom of the ordered list into the middle of it, shifting the middle position by one place.      The median rises by more than three points; the mean barely moves.    This reverses the roles. The mean is the sensitive one, because every value enters the total; see .      Neither changes, because only one value out of 26 was altered.    A single value can matter enormously when it is far from the rest. That is the whole point of an outlier.     "
+},
+{
+  "id": "check-sample-size-effect",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-sample-size-effect",
+  "type": "Checkpoint",
+  "number": "1.9.4",
+  "title": "",
+  "body": "  A score of 0 is added to a set of homework scores that otherwise average about 85. In which case does the zero pull the mean down the most?      When there are few other scores, such as 9.    Correct. With nine other scores the mean falls to about 76.5; with twenty-five others it falls only to about 81.8. The lost points are divided among fewer assignments, so each one absorbs more of the damage.      When there are many other scores, such as 100.    This has it backward. A large dilutes an outlier: dividing the same 85 lost points among 101 assignments moves the mean less than one point.      The effect is the same regardless of how many scores there are.    The size of the effect is the lost points divided by , so controls it directly.      The zero has no effect on the mean in either case, only on the median.    This has the two measures exactly backward. The zero enters the total, so it always affects the mean; the median is the one it may leave untouched.     "
+},
+{
+  "id": "check-median-outlier-removal",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-median-outlier-removal",
+  "type": "Checkpoint",
+  "number": "1.9.5",
+  "title": "",
+  "body": "  True or false: removing an outlier from a data set always changes the median.    True   False. Removing a value does shift the middle position by half a step, but the value sitting there may not change. In 0, 85, 85, 85, 85 the median is 85, and dropping the 0 leaves the median at 85. Even when the median does move, it moves to a neighboring value, never a long distance, which is what resistance means.     False   False, correctly identified. The middle position shifts when a value is removed, but the number occupying it may be identical, and at most it moves to an adjacent value. Compare the mean, which must change whenever the removed value differs from the mean.      "
+},
+{
+  "id": "fig-income",
+  "level": "2",
+  "url": "sec-choosing-center.html#fig-income",
+  "type": "Figure",
+  "number": "1.9.6",
+  "title": "",
+  "body": " Personal income, United States census sample, 2000. Fifteen people in every thousand earned more than $100,000 and are not shown.   A histogram of personal income with bars ten thousand dollars wide. The tallest bar is the first, covering incomes under ten thousand dollars, and each bar after it is shorter than the one before, so the distribution falls away steadily to the right with a long thin tail. The bars above fifty thousand dollars are only a few percent as tall as the first. The median of about sixteen thousand nine hundred dollars sits inside the second bar, near the bulk of the data, while the mean of about twenty-four thousand dollars is dragged to the right of it, into the much shorter third bar, by the small number of very high incomes.    "
+},
+{
+  "id": "ex-skewed-income",
+  "level": "2",
+  "url": "sec-choosing-center.html#ex-skewed-income",
+  "type": "Example",
+  "number": "1.9.7",
+  "title": "Which number is the typical income?",
+  "body": " Which number is the typical income?   For this sample the mean income is $24,000 and the median income is $16,900. Which figure better represents a typical person in the sample?    The median. More than half the sample earns under $20,000, so a reported average of $24,000 is above what most of these people make. The relatively few large incomes in the right tail enter the total at full size and drag the mean upward, while the median only registers them as more values above the middle, which they would be at any size.  This is why income is almost always reported as a median. A headline average income can rise while most individual incomes fall, simply because the top of the distribution pulled away.   "
+},
+{
+  "id": "check-skew-mean-median",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-skew-mean-median",
+  "type": "Checkpoint",
+  "number": "1.9.8",
+  "title": "",
+  "body": "  A distribution of house prices is strongly skewed to the right. What should you expect of its mean and median?      The mean is larger than the median.    Correct. The expensive houses in the right tail inflate the total, and therefore the mean, while the median only counts them as values above the middle.      The median is larger than the mean.    That is the left-skewed pattern. A tail stretching to the right pulls the mean to the right, above the median.      They are equal, since both measure center.    They are close only when the distribution is roughly symmetric. The whole reason to compare them is that skewness separates them.      The mean is larger, and the median is therefore not a valid summary.    The first half is right but the conclusion is backward. Under skewness the median is the more trustworthy summary, which is why home prices are reported as medians.     "
+},
+{
+  "id": "asm-choosing-center-2",
+  "level": "2",
+  "url": "sec-choosing-center.html#asm-choosing-center-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "mean "
+},
+{
+  "id": "asm-choosing-center-3",
+  "level": "2",
+  "url": "sec-choosing-center.html#asm-choosing-center-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "median "
+},
+{
+  "id": "check-choose-measure",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-choose-measure",
+  "type": "Checkpoint",
+  "number": "1.9.9",
+  "title": "",
+  "body": "  You are summarizing the annual salaries of the 40 employees of a small company. Thirty-nine earn between $45,000 and $80,000; the founder earns $900,000. Which summary should you report, and why?      The median, because the founder's salary is an outlier that would inflate the mean.    Correct. The founder alone adds roughly $20,000 to the mean salary, describing a company no employee works for. The median stays inside the range where thirty-nine of them actually are.      The mean, because it uses all 40 salaries and the median ignores most of them.    Using every value is exactly the problem here. The median does account for all 40 observations it needs the full ordered list to find the middle but it refuses to let one extreme value dominate.      The mean, after deleting the founder's salary as a data-entry error.    Nothing suggests an error; the salary is real. Values are deleted only when they are known to be wrong, and inconvenient is not the same as wrong.       Either one, since with 40 employees a single salary cannot matter much.    A value more than ten times the typical salary matters at any realistic . Here it shifts the mean by about $20,000.     "
+},
+{
+  "id": "check-home-prices",
+  "level": "2",
+  "url": "sec-choosing-center.html#check-home-prices",
+  "type": "Checkpoint",
+  "number": "1.9.10",
+  "title": "",
+  "body": "  A news report states that the average home price in a neighborhood is $650,000 while the median home price is $310,000. In two or three sentences, say what this gap tells you about the shape of the distribution and which figure you would quote to someone house-hunting there.     A mean more than double the median says the distribution is strongly skewed to the right: a small number of very expensive homes inflates the total while leaving the middle of the ordered list alone. Half the homes in the neighborhood sell for under $310,000, so the median is what a buyer should be told; the $650,000 average describes a house that is far from typical.  An adequate answer identifies right skew and picks the median. A strong answer explains the mechanism that the high prices enter the mean at full value but register with the median only as values above the middle and states what the median guarantees, namely that half the homes fall on each side of it.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

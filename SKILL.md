@@ -1,6 +1,6 @@
 ---
 name: OER to PreTeXt Conversion
-description: Convert open-license textbook pages (Lumen, OpenStax, LibreTexts) into PreTeXt sections with interactive reading checks, delivered as a single git patch file that adds sections, rewires chapters, and updates the project's source ledger.
+description: Convert open-license textbook pages (Lumen, OpenStax, LibreTexts) into PreTeXt sections with interactive reading checks, delivered as a single runnable Python batch script that also updates the project's source ledger.
 ---
 
 # OER to PreTeXt Conversion
@@ -13,101 +13,60 @@ interactive textbook, typically hosted on Runestone Academy.
 1. **Fetch the actual pages.** Never work from titles or memory. If a URL
    404s or returns site boilerplate, search for the real slug and refetch.
 2. **Fetch the project's `CONVENTIONS.md` and `SOURCES.md`** from the
-   repository. They are normative and override anything here.
-3. **Fetch every existing file the patch will modify** — the chapter
-   wrapper, `SOURCES.md`, any section being edited. Context lines in a
-   diff must match the target byte for byte, so they have to come from
-   the live file, not from memory or from an earlier turn in the
-   conversation.
+   repository if one exists. They are normative and override anything here.
+3. **Fetch the chapter file** you will be modifying, so include ordering
+   and existing `xml:id` values are known rather than guessed.
 
-If the repository cannot be read, say so and ask the user to push before
-proceeding. Do not guess at context lines.
+## Deliverable: one script, not many code blocks
 
-## Deliverable: one git patch
+Output a single Python file that writes all the `.ptx` files, rewrites the
+chapter wrapper, writes any companion R file, **and appends the source
+ledger entries to `SOURCES.md`**. The user pastes once and runs once.
 
-Output a single unified diff covering the whole batch — new section
-files, the chapter wrapper rewiring, the companion R file, the
-`SOURCES.md` ledger entry, and any deletions. The user saves one file and
-applies it once.
+Requirements:
 
-Deliver it inside a fenced block marked `diff`, and name it
-`tools/patches/batch-NN.patch`.
-
-Apply instructions to give with every patch:
-
-```
-git apply --recount --check tools/patches/batch-NN.patch   # dry run
-git apply --recount         tools/patches/batch-NN.patch   # apply
-```
-
-## Patch mechanics
-
-These details are not negotiable; a malformed patch fails to apply.
-
-- **Always instruct the user to pass `--recount`.** Hunk headers written
-  by hand carry unreliable line counts. `--recount` makes git derive them
-  from the hunk body instead, which removes the largest source of
-  failure.
-- **Omit `index` lines.** Do not fabricate blob hashes. `git apply` does
-  not need them.
-- **New files** take this form:
-
-  ```
-  diff --git a/source/sec-name.ptx b/source/sec-name.ptx
-  new file mode 100644
-  --- /dev/null
-  +++ b/source/sec-name.ptx
-  @@ -0,0 +1,1 @@
-  +<?xml version="1.0" encoding="UTF-8"?>
-  ```
-
-- **Deleted files** use `deleted file mode 100644`, `--- a/path`,
-  `+++ /dev/null`, and a body of `-` lines.
-- **Every line of file content gets a `+` prefix**, including blank
-  lines, which become a bare `+`.
-- **Never emit trailing whitespace** on a `+` line. `git apply` treats it
-  as an error by default.
-- **One `diff --git` stanza per file**, in a sensible order: new files,
-  then modifications, then deletions.
-- **Keep content lines under about 72 columns.** This is already the
-  house style for PreTeXt prose, and it matters here because a line long
-  enough to wrap in a chat window arrives as a broken diff.
-- For edits to existing files, quote **three lines of unchanged
-  context** above and below each change, taken verbatim from the fetched
-  file.
-
-Tell the user to save the patch exactly — download it, or
-`pbpaste > tools/patches/batch-NN.patch` — and never to retype it.
-
-Committing is left to the user. Mention `git am` only if they ask for
-automatic commit creation; plain `git apply` is more forgiving.
-
-## When a patch fails to apply
-
-Give this escalation in the response, once, briefly:
-
-1. `git apply --recount --3way <patch>` — falls back to a merge, which
-   usually succeeds when only surrounding context has drifted.
-2. If that leaves conflicts, resolve them like any merge conflict.
-3. If it fails outright, the working copy has diverged from what was
-   fetched. Ask the user to push, then regenerate the patch against
-   current state.
+- Every `.ptx` body is an `r"""..."""` **raw string**. Without the `r`,
+  `\frac` becomes a formfeed and `\bar` a backspace, silently corrupting
+  every formula.
+- **Keep Python scaffolding lines under ~55 characters.** Long lines wrap
+  in chat UIs and the wrap arrives as a real newline, producing syntax
+  errors. Line length inside the XML strings is harmless.
+- Use `pathlib.Path.cwd()`, never `__file__` — the user may pipe the
+  script to the interpreter.
+- Validate before writing: abort if any body contains control characters
+  or is missing its XML declaration.
+- Skip existing files unless `--force`; back up any file being rewritten.
+- Print each file written with its byte count, then the resulting section
+  order and the next command to run.
 
 ## Updating the source ledger
 
-The patch includes a hunk against `SOURCES.md`. Re-application is
-naturally prevented — the context will no longer match — so no guard
-logic is needed, but still open each block with a marker comment such as
-`<!-- batch:03 -->` so a human can scan the file.
+The script appends its conversion record to `SOURCES.md` automatically.
+This must be **idempotent** — re-running, including with `--force`, must
+not duplicate entries.
 
-Anchor the insertion **before** a stable trailing section such as
-`## Datasets` when one exists, so the file stays organized as it grows.
-Also update the conversion-status table, matching its existing columns.
+Pattern:
+
+- Give the batch a unique marker comment, e.g. `<!-- batch:03 -->`,
+  placed as the first line of the block it writes.
+- Before writing, read `SOURCES.md` and check for that marker. If present,
+  print `ledger entry already recorded` and skip; if `--force` is passed,
+  replace the existing block in place rather than appending.
+- Insert the block **before** a stable trailing section such as
+  `## Datasets` when one exists, so the file stays organized as it grows.
+  Fall back to appending at the end if no anchor is found.
+- If `SOURCES.md` does not exist, create it with a minimal header rather
+  than failing.
+- Also update the conversion-status table when the project keeps one,
+  matching its existing column layout.
 
 The ledger block records, for each converted page: the source slug, the
 resulting `xml:id`, every repair made with the erroneous text and the
 correction, every dataset reconstruction, and anything marked
 *added, not in source*.
+
+Still print the ledger block to the console as it is written, so the user
+can see what was recorded without opening the file.
 
 ## Section structure
 
@@ -166,12 +125,12 @@ the axes. This is an accessibility requirement.
 Supply an R equivalent for every figure in a companion file, so the
 underlying data is reproducible. Where the source omits its data,
 reconstruct a dataset that reproduces every published anchor value and
-say so in the ledger.
+say so explicitly in the ledger.
 
 ## Source fidelity
 
 OER pages contain arithmetic and data errors. Fix them, and record every
-fix in the `SOURCES.md` hunk.
+fix in the ledger block the script writes.
 
 Recurring error classes worth checking:
 
@@ -190,26 +149,19 @@ reading checks covering the same idea.
 Adding material the source omits is encouraged where students stumble.
 Mark such additions as "added, not in source."
 
-## Edits to existing content
+## Flag, do not perform, destructive edits
 
-A patch can modify and delete files, so cleanup work is shippable rather
-than merely described. Two rules:
-
-- **Describe any destructive change in prose before the patch**, naming
-  the file and what is being removed, so the user can decline it.
-- **Keep destructive hunks separable.** Put removals in their own
-  `diff --git` stanza so the user can drop that stanza and still apply
-  the rest.
-
-Never modify a file that was not fetched in this turn.
+When new content overlaps or supersedes something already in the
+repository, say so explicitly and propose the edit. Do not silently
+rewrite files outside the batch. The chapter wrapper and `SOURCES.md`
+are the only existing files the script may modify.
 
 ## Response shape
 
 1. One or two sentences on anything notable found while fetching
-2. Any edit to existing content, flagged in prose
-3. The patch, in a `diff` fence
-4. The two apply commands
-5. One specific thing to watch on the first build
+2. The batch script
+3. Any outstanding conflicts with existing content, flagged
+4. One specific thing to watch on the first build
 
-Ledger entries do not need to be reproduced in the response — the patch
-writes them.
+The source-ledger entries no longer need to be reproduced in the
+response — the script writes them.

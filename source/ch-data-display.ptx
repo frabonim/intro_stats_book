@@ -51,5 +51,7 @@
   <xi:include href="./sec-histogram-bins.ptx"/>
   <xi:include href="./sec-describing-distributions.ptx"/>
   <xi:include href="./sec-comparing-distributions.ptx"/>
+  <xi:include href="./sec-mean-median.ptx"/>
+  <xi:include href="./sec-choosing-center.ptx"/>
 
 </chapter>
