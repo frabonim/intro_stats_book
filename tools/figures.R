@@ -283,4 +283,92 @@ render_book_figure(
 )
 # r-figures:sec-dotplots:end
 
+# r-figures:sec-shape-center-spread:start
+# ---- ch-data-display / sec-shape-center-spread ------------
+# Frequency data transcribed from the section's original diagrams.
+
+adult_sugar_values <- c(0:12, 14)
+adult_sugar_counts <- c(4, 3, 4, 6, 4, 3, 3, 2, 1, 1, 2, 1, 1, 1)
+adult_sugar <- rep(adult_sugar_values, adult_sugar_counts)
+stopifnot(length(adult_sugar) == 36L, range(adult_sugar) == c(0, 14))
+
+plot_sugar_adult <- function() {
+  stacked_dotplot(
+    adult_sugar, xlim = c(-0.6, 15.6),
+    xlabel = "Sugar (g per serving), adult cereals", tick_by = 1
+  )
+}
+render_book_figure("sugar-adult", plot_sugar_adult, width = 7.5, height = 4.0)
+
+children_sugar_values <- c(1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+children_sugar_counts <- c(1, 1, 1, 1, 1, 1, 2, 2, 2, 4, 3, 1, 1)
+children_sugar <- rep(children_sugar_values, children_sugar_counts)
+stopifnot(length(children_sugar) == 21L, range(children_sugar) == c(1, 15))
+
+plot_sugar_children <- function() {
+  stacked_dotplot(
+    children_sugar, xlim = c(-0.6, 15.6),
+    xlabel = "Sugar (g per serving), children's cereals", tick_by = 1
+  )
+}
+render_book_figure("sugar-children", plot_sugar_children, width = 7.5, height = 4.0)
+
+children_calorie_values <- seq(90, 150, by = 10)
+children_calorie_counts <- c(1, 4, 8, 4, 2, 1, 1)
+children_calories <- rep(children_calorie_values, children_calorie_counts)
+stopifnot(length(children_calories) == 21L,
+          range(children_calories) == c(90, 150))
+
+plot_calories_children <- function() {
+  stacked_dotplot(
+    children_calories, xlim = c(85, 156),
+    xlabel = "Calories per serving", tick_by = 10
+  )
+}
+render_book_figure("calories-children", plot_calories_children,
+                   width = 7.0, height = 4.0)
+
+last_digit_counts <- c(5, 4, 5, 5, 4, 5, 5, 4, 5, 5)
+last_digits <- rep(0:9, last_digit_counts)
+stopifnot(length(last_digits) == 47L)
+
+plot_last_digit <- function() {
+  stacked_dotplot(
+    last_digits, xlim = c(-0.6, 9.6),
+    xlabel = "Last digit of telephone number", tick_by = 1
+  )
+}
+render_book_figure("last-digit", plot_last_digit, width = 7.0, height = 3.8)
+
+# Wrist data reproduce the original authored frequency diagram. The low endpoint
+# is gold; the two isolated high values are red and use triangles as a redundant
+# non-color cue. The main mound uses dark blue circles.
+wrist_main_values <- seq(14.0, 18.0, by = 0.5)
+wrist_main_counts <- c(2, 4, 6, 7, 6, 5, 4, 2, 1)
+wrist_main <- rep(wrist_main_values, wrist_main_counts)
+wrist_low <- 13.5
+wrist_outliers <- c(19.5, 20.0)
+stopifnot(length(wrist_main) + length(wrist_low) + length(wrist_outliers) == 40L)
+
+plot_wrist <- function() {
+  book_par()
+  plot(NA, xlim = c(13.1, 20.5), ylim = c(-0.65, 8.2), axes = FALSE,
+       xlab = "Wrist girth (cm)", ylab = "")
+  axis(1, at = 14:20)
+  abline(h = 0, col = book_colors$ink, lwd = 1)
+
+  tab <- table(wrist_main)
+  xs <- as.numeric(names(tab))
+  for (j in seq_along(xs)) {
+    points(rep(xs[j], tab[j]), seq_len(tab[j]), pch = 21,
+           bg = book_colors$blue, col = book_colors$ink, cex = 0.9)
+  }
+  points(wrist_low, 1, pch = 21, bg = "#D39B17",
+         col = book_colors$ink, cex = 1.0)
+  points(wrist_outliers, c(1, 1), pch = 24, bg = book_colors$red,
+         col = book_colors$ink, cex = 1.05)
+}
+render_book_figure("wrist", plot_wrist, width = 7.5, height = 4.0)
+# r-figures:sec-shape-center-spread:end
+
 message("All statistical figures generated successfully in ", OUT)

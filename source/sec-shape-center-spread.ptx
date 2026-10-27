@@ -50,33 +50,13 @@
       <caption>Grams of sugar per serving in <m>36</m> adult
       cereals. The distribution is skewed to the
       right.</caption>
-      <image width="78%" xml:id="image-sugar-adult">
+      <image width="78%" xml:id="image-sugar-adult" source="R-generated/sugar-adult">
         <description>A dotplot of sugar content in 36 adult
         cereals, with the horizontal axis running from 0 to 15
         grams. Tall stacks sit at the low end, peaking at 6
         cereals above 3 grams, and the stacks shrink steadily as
         sugar increases, trailing off to single dots near 12 and
         14 grams. The tail extends to the right.</description>
-        <asymptote>
-unitsize(0.50cm, 0.33cm);
-defaultpen(fontsize(7.5pt));
-
-real[] V = {0,1,2,3,4,5,6,7,8,9,10,11,12,14};
-int[]  N = {4,3,4,6,4,3,3,2,1,1, 2, 1, 1, 1};
-
-for (int i = 0; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5bp)+heavyblue);
-  }
-}
-
-draw((-0.6,0)--(15.6,0), black+0.6bp);
-for (real t = 0; t &lt;= 15; t += 1) {
-  draw((t,0)--(t,-0.40), black+0.4bp);
-  label(format("%g", t), (t,-0.70), S);
-}
-label("Sugar (g per serving), adult cereals", (7.5,-2.3));
-        </asymptote>
       </image>
     </figure>
 
@@ -89,7 +69,7 @@ label("Sugar (g per serving), adult cereals", (7.5,-2.3));
       children's cereals, on the same scale as
       <xref ref="fig-sugar-adult"/>. This distribution is skewed
       to the left.</caption>
-      <image width="78%" xml:id="image-sugar-children">
+      <image width="78%" xml:id="image-sugar-children" source="R-generated/sugar-children">
         <description>A dotplot of sugar content in 21 children's
         cereals, drawn on the same horizontal scale as the adult
         cereal dotplot. The data clusters at the high end, with
@@ -97,27 +77,6 @@ label("Sugar (g per serving), adult cereals", (7.5,-2.3));
         cereals at 13 grams. Single dots trail down toward the
         low end at 7, 6, 5, 3, and 1 gram. The tail extends to
         the left.</description>
-        <asymptote>
-unitsize(0.50cm, 0.33cm);
-defaultpen(fontsize(7.5pt));
-
-real[] V = {1,3,5,6,7,8,9,10,11,12,13,14,15};
-int[]  N = {1,1,1,1,1,1,2, 2, 2, 4, 3, 1, 1};
-
-for (int i = 0; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5bp)+heavyred);
-  }
-}
-
-draw((-0.6,0)--(15.6,0), black+0.6bp);
-for (real t = 0; t &lt;= 15; t += 1) {
-  draw((t,0)--(t,-0.40), black+0.4bp);
-  label(format("%g", t), (t,-0.70), S);
-}
-label("Sugar (g per serving), children's cereals",
-      (7.5,-2.3));
-        </asymptote>
       </image>
     </figure>
 
@@ -130,33 +89,13 @@ label("Sugar (g per serving), children's cereals",
       <caption>Calories per serving in <m>21</m> children's
       cereals. This distribution is roughly symmetric with a
       central peak.</caption>
-      <image width="70%" xml:id="image-calories-children">
+      <image width="70%" xml:id="image-calories-children" source="R-generated/calories-children">
         <description>A dotplot of calories per serving for 21
         children's cereals. The horizontal axis runs from 90 to
         150 calories in steps of 10. The stacks are 1, 4, 8, 4,
         2, 1, and 1, giving a single clear peak at 110 calories
         with the counts falling away at a similar rate on both
         sides.</description>
-        <asymptote>
-unitsize(0.085cm, 0.30cm);
-defaultpen(fontsize(7.5pt));
-
-real[] V = {90,100,110,120,130,140,150};
-int[]  N = { 1,  4,  8,  4,  2,  1,  1};
-
-for (int i = 0; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5bp)+heavygreen);
-  }
-}
-
-draw((85,0)--(156,0), black+0.6bp);
-for (real t = 90; t &lt;= 150; t += 10) {
-  draw((t,0)--(t,-0.45), black+0.4bp);
-  label(format("%g", t), (t,-0.80), S);
-}
-label("Calories per serving", (120,-2.6));
-        </asymptote>
       </image>
     </figure>
 
@@ -167,32 +106,12 @@ label("Calories per serving", (120,-2.6));
     <figure xml:id="fig-last-digit">
       <caption>The last digit of <m>47</m> students' telephone
       numbers. The distribution is roughly uniform.</caption>
-      <image width="68%" xml:id="image-last-digit">
+      <image width="68%" xml:id="image-last-digit" source="R-generated/last-digit">
         <description>A dotplot of the final digit of 47
         telephone numbers, with the horizontal axis showing the
         digits 0 through 9. Every stack is either 4 or 5 dots
         tall, so the dots form a nearly flat rectangular block
         with no peak and no tail.</description>
-        <asymptote>
-unitsize(0.72cm, 0.30cm);
-defaultpen(fontsize(7.5pt));
-
-real[] V = {0,1,2,3,4,5,6,7,8,9};
-int[]  N = {5,4,5,5,4,5,5,4,5,5};
-
-for (int i = 0; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5bp)+purple);
-  }
-}
-
-draw((-0.6,0)--(9.6,0), black+0.6bp);
-for (real t = 0; t &lt;= 9; t += 1) {
-  draw((t,0)--(t,-0.45), black+0.4bp);
-  label(format("%g", t), (t,-0.80), S);
-}
-label("Last digit of telephone number", (4.5,-2.6));
-        </asymptote>
       </image>
     </figure>
 
@@ -544,7 +463,7 @@ label("Last digit of telephone number", (4.5,-2.6));
       Two observations at the right, marked in red, fall outside
       the overall pattern. The smallest observation, marked in
       gold, does not.</caption>
-      <image width="78%" xml:id="image-wrist">
+      <image width="78%" xml:id="image-wrist" source="R-generated/wrist">
         <description>A dotplot of wrist girth for 40 adults,
         with the horizontal axis running from about 13.5 to 20
         centimeters. The dots form a single mound peaking at
@@ -555,31 +474,6 @@ label("Last digit of telephone number", (4.5,-2.6));
         between. The smallest value, a gold dot at 13.5
         centimeters, sits directly adjacent to the rest of the
         data with no gap.</description>
-        <asymptote>
-unitsize(1.05cm, 0.30cm);
-defaultpen(fontsize(7.5pt));
-
-real[] V = {13.5,14.0,14.5,15.0,15.5,
-            16.0,16.5,17.0,17.5,18.0};
-int[]  N = {   1,   2,   4,   6,   7,
-               6,   5,   4,   2,   1};
-
-for (int i = 1; i &lt; V.length; ++i) {
-  for (int j = 1; j &lt;= N[i]; ++j) {
-    dot((V[i], j), linewidth(5bp)+heavyblue);
-  }
-}
-dot((13.5,1), linewidth(5.5bp)+orange);
-dot((19.5,1), linewidth(5.5bp)+red);
-dot((20.0,1), linewidth(5.5bp)+red);
-
-draw((13.1,0)--(20.5,0), black+0.6bp);
-for (real t = 14; t &lt;= 20; t += 1) {
-  draw((t,0)--(t,-0.45), black+0.4bp);
-  label(format("%g", t), (t,-0.80), S);
-}
-label("Wrist girth (cm)", (16.8,-2.5));
-        </asymptote>
       </image>
     </figure>
 

@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-shape-center-spread">
+  <title>Shape, Center, Spread, and Outliers</title>
+
+  <objectives>
+    <ul>
+      <li><p>Describe the shape of a distribution as
+      right-skewed, left-skewed, symmetric with a central peak,
+      or uniform.</p></li>
+      <li><p>Identify a typical value as an informal measure of
+      center.</p></li>
+      <li><p>Distinguish the overall range from a typical
+      range.</p></li>
+      <li><p>Identify outliers as observations falling outside
+      the overall pattern.</p></li>
+      <li><p>Write a paragraph comparing two
+      distributions.</p></li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>A dotplot shows a pattern. Describing that pattern
+    reliably takes vocabulary, and the vocabulary is always the
+    same four items: <em>shape</em>, <em>center</em>,
+    <em>spread</em>, and any <em>outliers</em><mdash/>the
+    exceptions to the pattern.</p>
+
+    <p>This section introduces all four informally. Precise
+    definitions of center and spread come later in the chapter;
+    for now the goal is to look at a distribution and say
+    something true and useful about it.</p>
+  </introduction>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-shape">
+    <title>Shape</title>
+
+    <p>To describe the shape of a distribution, imagine
+    sketching an outline around the dots to emphasize the
+    general trend, then ignore the small bumps. Four shapes are
+    common enough to have names.</p>
+
+    <p>A distribution is <term>skewed to the right</term> when
+    the data clusters on the left with a tail tapering off to
+    the right: a lot of data at lower values, smaller amounts at
+    higher values.</p>
+
+    <figure xml:id="fig-sugar-adult">
+      <caption>Grams of sugar per serving in <m>36</m> adult
+      cereals. The distribution is skewed to the
+      right.</caption>
+      <image width="78%" xml:id="image-sugar-adult">
+        <description>A dotplot of sugar content in 36 adult
+        cereals, with the horizontal axis running from 0 to 15
+        grams. Tall stacks sit at the low end, peaking at 6
+        cereals above 3 grams, and the stacks shrink steadily as
+        sugar increases, trailing off to single dots near 12 and
+        14 grams. The tail extends to the right.</description>
+        <asymptote>
+unitsize(0.50cm, 0.33cm);
+defaultpen(fontsize(7.5pt));
+
+real[] V = {0,1,2,3,4,5,6,7,8,9,10,11,12,14};
+int[]  N = {4,3,4,6,4,3,3,2,1,1, 2, 1, 1, 1};
+
+for (int i = 0; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5bp)+heavyblue);
+  }
+}
+
+draw((-0.6,0)--(15.6,0), black+0.6bp);
+for (real t = 0; t &lt;= 15; t += 1) {
+  draw((t,0)--(t,-0.40), black+0.4bp);
+  label(format("%g", t), (t,-0.70), S);
+}
+label("Sugar (g per serving), adult cereals", (7.5,-2.3));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>A distribution is <term>skewed to the left</term> when
+    the data clusters on the right with a tail tapering off to
+    the left.</p>
+
+    <figure xml:id="fig-sugar-children">
+      <caption>Grams of sugar per serving in <m>21</m>
+      children's cereals, on the same scale as
+      <xref ref="fig-sugar-adult"/>. This distribution is skewed
+      to the left.</caption>
+      <image width="78%" xml:id="image-sugar-children">
+        <description>A dotplot of sugar content in 21 children's
+        cereals, drawn on the same horizontal scale as the adult
+        cereal dotplot. The data clusters at the high end, with
+        the tallest stack of 4 cereals above 12 grams and three
+        cereals at 13 grams. Single dots trail down toward the
+        low end at 7, 6, 5, 3, and 1 gram. The tail extends to
+        the left.</description>
+        <asymptote>
+unitsize(0.50cm, 0.33cm);
+defaultpen(fontsize(7.5pt));
+
+real[] V = {1,3,5,6,7,8,9,10,11,12,13,14,15};
+int[]  N = {1,1,1,1,1,1,2, 2, 2, 4, 3, 1, 1};
+
+for (int i = 0; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5bp)+heavyred);
+  }
+}
+
+draw((-0.6,0)--(15.6,0), black+0.6bp);
+for (real t = 0; t &lt;= 15; t += 1) {
+  draw((t,0)--(t,-0.40), black+0.4bp);
+  label(format("%g", t), (t,-0.70), S);
+}
+label("Sugar (g per serving), children's cereals",
+      (7.5,-2.3));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>A distribution is <term>symmetric with a central
+    peak</term>, also called <term>bell-shaped</term>, when
+    there is a single high point with tails falling away at
+    about the same rate in both directions.</p>
+
+    <figure xml:id="fig-calories-children">
+      <caption>Calories per serving in <m>21</m> children's
+      cereals. This distribution is roughly symmetric with a
+      central peak.</caption>
+      <image width="70%" xml:id="image-calories-children">
+        <description>A dotplot of calories per serving for 21
+        children's cereals. The horizontal axis runs from 90 to
+        150 calories in steps of 10. The stacks are 1, 4, 8, 4,
+        2, 1, and 1, giving a single clear peak at 110 calories
+        with the counts falling away at a similar rate on both
+        sides.</description>
+        <asymptote>
+unitsize(0.085cm, 0.30cm);
+defaultpen(fontsize(7.5pt));
+
+real[] V = {90,100,110,120,130,140,150};
+int[]  N = { 1,  4,  8,  4,  2,  1,  1};
+
+for (int i = 0; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5bp)+heavygreen);
+  }
+}
+
+draw((85,0)--(156,0), black+0.6bp);
+for (real t = 90; t &lt;= 150; t += 10) {
+  draw((t,0)--(t,-0.45), black+0.4bp);
+  label(format("%g", t), (t,-0.80), S);
+}
+label("Calories per serving", (120,-2.6));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>A distribution is <term>uniform</term> when the dots form
+    a roughly rectangular shape: about the same amount of data
+    at every value.</p>
+
+    <figure xml:id="fig-last-digit">
+      <caption>The last digit of <m>47</m> students' telephone
+      numbers. The distribution is roughly uniform.</caption>
+      <image width="68%" xml:id="image-last-digit">
+        <description>A dotplot of the final digit of 47
+        telephone numbers, with the horizontal axis showing the
+        digits 0 through 9. Every stack is either 4 or 5 dots
+        tall, so the dots form a nearly flat rectangular block
+        with no peak and no tail.</description>
+        <asymptote>
+unitsize(0.72cm, 0.30cm);
+defaultpen(fontsize(7.5pt));
+
+real[] V = {0,1,2,3,4,5,6,7,8,9};
+int[]  N = {5,4,5,5,4,5,5,4,5,5};
+
+for (int i = 0; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5bp)+purple);
+  }
+}
+
+draw((-0.6,0)--(9.6,0), black+0.6bp);
+for (real t = 0; t &lt;= 9; t += 1) {
+  draw((t,0)--(t,-0.45), black+0.4bp);
+  label(format("%g", t), (t,-0.80), S);
+}
+label("Last digit of telephone number", (4.5,-2.6));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>Not every distribution fits one of these four names, and
+    forcing a label onto a shape that does not have one is worse
+    than describing it plainly. A distribution with two separate
+    peaks, for instance, often means two different groups have
+    been mixed together<mdash/>which is more interesting than
+    any of the four names.</p>
+
+    <exercise xml:id="check-skew-name">
+      <statement>
+        <p>Why is <xref ref="fig-sugar-children"/> described as
+        skewed to the <em>left</em>, when most of its dots are
+        on the right?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Skew is named for the direction of the tail, and
+            this tail stretches toward the lower values.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The cluster is on the right; the thin
+            tail trailing down to <m>1</m> gram is on the left,
+            and the tail is what names the skew.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Because the distribution was drawn on the same
+            scale as the adult cereals.</p>
+          </statement>
+          <feedback>
+            <p>The matched scale makes comparison fair, but it
+            does not determine the shape.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Because children's cereals have more sugar than
+            adult cereals.</p>
+          </statement>
+          <feedback>
+            <p>That is true and is a statement about center, not
+            shape. A distribution can be left-skewed anywhere on
+            the axis.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Because the tallest stack is left of the middle
+            of the axis.</p>
+          </statement>
+          <feedback>
+            <p>The tallest stack is at <m>12</m> grams, which is
+            well to the right.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-uniform">
+      <statement>
+        <p>What makes <xref ref="fig-last-digit"/> a uniform
+        distribution?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Every value occurs about equally often, so the
+            dots form a roughly rectangular block.</p>
+          </statement>
+          <feedback>
+            <p>Correct. With no peak and no tail, there is no
+            value that counts as typical and none that counts as
+            unusual.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>All the values are whole numbers.</p>
+          </statement>
+          <feedback>
+            <p>Whole-number values appear in the protein and
+            sugar dotplots too, and those are not uniform.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The values run from <m>0</m> to <m>9</m> with no
+            gaps.</p>
+          </statement>
+          <feedback>
+            <p>Having no gaps is not enough<mdash/>a bell-shaped
+            distribution can also have no gaps. Uniform means
+            the stacks are all about the same
+            <em>height</em>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>There are exactly <m>47</m> observations.</p>
+          </statement>
+          <feedback>
+            <p>Sample size has nothing to do with shape.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-center-spread">
+    <title>Center and spread</title>
+
+    <p>Shape alone is not a description. We also want to say
+    where the data sits and how much it varies.</p>
+
+    <p>For <term>center</term>, identify a <em>typical
+    value</em>: a single value of the variable chosen to
+    represent the whole group. For now, reading off the most
+    common value is enough. Precise methods come later in this
+    chapter.</p>
+
+    <p>For <term>spread</term><mdash/>also called
+    <term>variability</term><mdash/>we use two
+    descriptions.</p>
+
+    <assemblage xml:id="asm-two-ranges">
+      <title>Two kinds of range</title>
+      <p>The <term>overall range</term> is the distance from the
+      smallest value to the largest:</p>
+      <p><m>\text{range} = \text{largest} - \text{smallest}</m></p>
+      <p>A <term>typical range</term> is an interval covering
+      the bulk of the data, found by looking at where the dots
+      clump. It deliberately ignores the extremes.</p>
+      <p>Both are useful, and they answer different questions.
+      The overall range tells you what is possible; the typical
+      range tells you what is ordinary.</p>
+    </assemblage>
+
+    <p>The difference matters because a single extreme
+    observation can inflate the overall range enormously while
+    telling you nothing about what is usual. We will see exactly
+    that in the cereal comparison below.</p>
+
+    <exercise xml:id="check-overall-range">
+      <statement>
+        <p>Using <xref ref="fig-sugar-children"/>, what is the
+        overall range of sugar content in children's
+        cereals?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>14</m> grams</p></statement>
+          <feedback>
+            <p>Correct: the largest value is <m>15</m> grams and
+            the smallest is <m>1</m> gram, and
+            <m>15 - 1 = 14</m>.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>15</m> grams</p></statement>
+          <feedback>
+            <p>That is the largest value, not the range. The
+            range is a difference.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>From <m>9</m> to <m>13</m>
+          grams</p></statement>
+          <feedback>
+            <p>That is a reasonable <em>typical</em> range, but
+            the overall range uses the extremes.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>12</m> grams</p></statement>
+          <feedback>
+            <p><m>12</m> is the most common value<mdash/>a
+            measure of center, not spread.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-typical-vs-overall">
+      <statement correct="yes">
+        <p>Two distributions can have the same overall range
+        while differing substantially in where their values are
+        concentrated.</p>
+      </statement>
+      <feedback>
+        <p>True, and the two cereal dotplots are exactly such a
+        pair. Both span <m>14</m> grams, yet adult cereals
+        cluster near <m>0</m> to <m>6</m> grams and children's
+        cereals near <m>9</m> to <m>13</m>. Reporting only the
+        overall range would make the two groups look
+        identical.</p>
+      </feedback>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-comparing-cereals">
+    <title>Putting it together: comparing two groups</title>
+
+    <example xml:id="ex-cereal-sugar">
+      <title>Sugar in adult and children's cereals</title>
+      <statement>
+        <p>Use shape, center, and spread to compare
+        <xref ref="fig-sugar-adult"/> with
+        <xref ref="fig-sugar-children"/>.</p>
+      </statement>
+      <solution>
+        <p><em>Compare the shapes.</em> Sugar content in adult
+        cereals is skewed to the right: many adult cereals have
+        less than <m>8</m> grams of sugar per serving, with a
+        smaller number containing high amounts. Sugar in
+        children's cereals is skewed to the left: many have more
+        than <m>8</m> grams, with a smaller number at low
+        amounts.</p>
+        <p>There is nothing special about the number <m>8</m>.
+        It is a convenient reference point for describing the
+        opposite trends.</p>
+
+        <p><em>Compare the centers.</em> A typical adult cereal
+        has <m>3</m> grams of sugar per serving. A typical
+        children's cereal has <m>12</m> grams.</p>
+
+        <p><em>Compare the spreads.</em> Adult cereals run from
+        <m>0</m> to <m>14</m> grams, children's cereals from
+        <m>1</m> to <m>15</m>. Both have an overall range of
+        <m>14</m> grams, since <m>14 - 0 = 14</m> and
+        <m>15 - 1 = 14</m>.</p>
+        <p>The typical ranges tell a different story. Typical
+        adult cereals have between <m>0</m> and <m>6</m> grams
+        of sugar per serving; typical children's cereals have
+        between <m>9</m> and <m>13</m>.</p>
+      </solution>
+    </example>
+
+    <p>Now tie the observations into a single paragraph. Here is
+    a plain-language version:</p>
+
+    <blockquote>
+      <p>In this sample, children's cereals have more sugar per
+      serving than adult cereals. A typical children's cereal
+      has <m>12</m> grams of sugar in a serving. It is not
+      uncommon for children's cereals to have <m>9</m> to
+      <m>13</m> grams, but it is unusual for one to have less
+      than <m>8</m> grams. A typical adult cereal has <m>3</m>
+      grams of sugar. It is not uncommon for adult cereals to
+      have <m>0</m> to <m>6</m> grams. Larger amounts are less
+      common.</p>
+    </blockquote>
+
+    <p>And the same comparison in the formal vocabulary of this
+    section:</p>
+
+    <blockquote>
+      <p>In this sample, children's cereals have more sugar per
+      serving than adult cereals. The distribution of sugar in
+      children's cereals is skewed left with an overall range of
+      <m>14</m> grams; typical children's cereals have <m>9</m>
+      to <m>13</m> grams per serving, with <m>12</m> grams the
+      most common amount. The distribution of sugar in adult
+      cereals is skewed right with the same overall range of
+      <m>14</m> grams; typical adult cereals have <m>0</m> to
+      <m>6</m> grams, with <m>3</m> grams the most common
+      amount.</p>
+    </blockquote>
+
+    <p>Both paragraphs lead with the comparison rather than
+    describing one group fully and then the other. That is
+    deliberate: a reader should not have to do the comparing
+    themselves.</p>
+
+    <exercise xml:id="check-reference-point">
+      <statement>
+        <p>The comparison uses <m>8</m> grams as a dividing
+        line. What is the status of that number?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>It is a convenient reference point chosen to
+            describe the opposite trends, with no special
+            meaning.</p>
+          </statement>
+          <feedback>
+            <p>Correct, and the text says so explicitly.
+            Choosing a round number near where the two
+            distributions cross makes the contrast easy to
+            state.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It is the nutritional threshold above which a
+            cereal is considered high in sugar.</p>
+          </statement>
+          <feedback>
+            <p>No such definition is being used here. Compare
+            this with the genuine medical benchmarks you will
+            meet later, such as the <m>2500</m>-gram definition
+            of low birth weight.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It is the average sugar content across both
+            groups combined.</p>
+          </statement>
+          <feedback>
+            <p>No average was computed. It is simply a
+            convenient round number.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It is the midpoint of the overall range.</p>
+          </statement>
+          <feedback>
+            <p>The ranges run <m>0</m> to <m>14</m> and
+            <m>1</m> to <m>15</m>, whose midpoints are <m>7</m>
+            and <m>8</m>. The choice was a convenience, not a
+            calculation.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <subsection xml:id="subsec-outliers">
+    <title>Outliers</title>
+
+    <p><term>Outliers</term> are observations that fall outside
+    the overall pattern of the distribution. A precise rule for
+    identifying them comes later in this chapter. For now, use
+    judgment: look for values that are exceptions to the general
+    trend, usually separated from the rest of the data by a
+    visible gap.</p>
+
+    <figure xml:id="fig-wrist">
+      <caption>Wrist girth in centimeters for <m>40</m> adults.
+      Two observations at the right, marked in red, fall outside
+      the overall pattern. The smallest observation, marked in
+      gold, does not.</caption>
+      <image width="78%" xml:id="image-wrist">
+        <description>A dotplot of wrist girth for 40 adults,
+        with the horizontal axis running from about 13.5 to 20
+        centimeters. The dots form a single mound peaking at
+        15.5 centimeters and tapering off smoothly in both
+        directions, ending at 18 centimeters. Two isolated red
+        dots sit at 19.5 and 20 centimeters, separated from the
+        mound by a gap of more than a centimeter with nothing in
+        between. The smallest value, a gold dot at 13.5
+        centimeters, sits directly adjacent to the rest of the
+        data with no gap.</description>
+        <asymptote>
+unitsize(1.05cm, 0.30cm);
+defaultpen(fontsize(7.5pt));
+
+real[] V = {13.5,14.0,14.5,15.0,15.5,
+            16.0,16.5,17.0,17.5,18.0};
+int[]  N = {   1,   2,   4,   6,   7,
+               6,   5,   4,   2,   1};
+
+for (int i = 1; i &lt; V.length; ++i) {
+  for (int j = 1; j &lt;= N[i]; ++j) {
+    dot((V[i], j), linewidth(5bp)+heavyblue);
+  }
+}
+dot((13.5,1), linewidth(5.5bp)+orange);
+dot((19.5,1), linewidth(5.5bp)+red);
+dot((20.0,1), linewidth(5.5bp)+red);
+
+draw((13.1,0)--(20.5,0), black+0.6bp);
+for (real t = 14; t &lt;= 20; t += 1) {
+  draw((t,0)--(t,-0.45), black+0.4bp);
+  label(format("%g", t), (t,-0.80), S);
+}
+label("Wrist girth (cm)", (16.8,-2.5));
+        </asymptote>
+      </image>
+    </figure>
+
+    <p>The two values at the right are separated from the main
+    body of the data by a gap of more than a centimeter. They
+    are plausible candidates for outliers.</p>
+
+    <p>The smallest observation is a different matter. It is the
+    minimum, but it sits immediately adjacent to the next value
+    with no gap<mdash/>it is the end of the pattern, not an
+    exception to it. Being the largest or smallest value in a
+    data set does not by itself make an observation an
+    outlier.</p>
+
+    <exercise xml:id="check-not-outlier">
+      <statement>
+        <p>Why is the smallest wrist measurement in
+        <xref ref="fig-wrist"/> <em>not</em> considered an
+        outlier?</p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>It is adjacent to the rest of the data,
+            continuing the pattern rather than standing apart
+            from it.</p>
+          </statement>
+          <feedback>
+            <p>Correct. The dots taper off smoothly to that
+            value with no gap, so it is simply where the
+            distribution ends.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Outliers can only occur at the high end of a
+            distribution.</p>
+          </statement>
+          <feedback>
+            <p>Outliers can occur at either end. A low value
+            separated from the pattern by a gap would
+            qualify.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>There is only one such observation, and outliers
+            come in pairs.</p>
+          </statement>
+          <feedback>
+            <p>A single observation can certainly be an outlier.
+            What matters is its separation from the
+            pattern.</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It is within the overall range of the data.</p>
+          </statement>
+          <feedback>
+            <p>Every observation is within the overall range by
+            definition, including the two red ones.</p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-write-description-dotplot">
+      <statement>
+        <p>Using <xref ref="fig-calories-children"/>, write a
+        two- or three-sentence description of the distribution
+        of calories in children's cereals. Cover shape, center,
+        spread, and whether there are any outliers.</p>
+        <response/>
+      </statement>
+      <solution>
+        <p>Something like: <q>The distribution of calories in
+        children's cereals is roughly symmetric with a central
+        peak at <m>110</m> calories per serving, which is also a
+        reasonable typical value. Calories range from <m>90</m>
+        to <m>150</m>, an overall range of <m>60</m> calories,
+        with most cereals falling between <m>100</m> and
+        <m>120</m>. There are no outliers: the counts taper off
+        gradually on both sides with no isolated values.</q></p>
+        <p>Stating explicitly that there are no outliers is
+        worth doing<mdash/>a reader cannot otherwise tell
+        whether you looked. Note also that this distribution has
+        a slightly longer right tail than left, so <q>roughly
+        symmetric</q> is more honest than <q>symmetric.</q>
+        Hedging accurately is better than overstating.</p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <!-- ========================================================= -->
+  <conclusion>
+    <title>Summary</title>
+    <p>To describe the distribution of a quantitative variable,
+    report the overall pattern<mdash/>shape, center, and
+    spread<mdash/>together with any deviations from that
+    pattern, which are the outliers.</p>
+    <p>Shape may be skewed right, skewed left, symmetric with a
+    central peak, or uniform; some distributions fit none of
+    these. Center is a typical value representing the group.
+    Spread may be reported as an overall range, largest minus
+    smallest, or as a typical range covering the bulk of the
+    data. Outliers are observations falling outside the overall
+    pattern, and being the largest or smallest value is not
+    enough to qualify.</p>
+    <p>When comparing two groups, lead with the comparison and
+    support every claim with specific values.</p>
+    <p>Adapted from <pubtitle>Concepts in Statistics</pubtitle>
+    (SUNY / Lumen Learning), CC BY 4.0. Cereal nutrition data
+    from Consumer Reports; wrist measurements from the body
+    dimensions data of Heinz, Peterson, Johnson, and Kerk
+    (2003).</p>
+  </conclusion>
+</section>
