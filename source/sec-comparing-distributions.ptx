@@ -47,8 +47,8 @@
         <row><cell><m>1500</m> to <m>2000</m></cell><cell><m>8</m></cell><cell><m>6</m></cell></row>
         <row><cell><m>2000</m> to <m>2500</m></cell><cell><m>18</m></cell><cell><m>22</m></cell></row>
         <row><cell><m>2500</m> to <m>3000</m></cell><cell><m>22</m></cell><cell><m>16</m></cell></row>
-        <row><cell><m>3000</m> to <m>3500</m></cell><cell><m>29</m></cell><cell><m>15</m></cell></row>
-        <row><cell><m>3500</m> to <m>4000</m></cell><cell><m>27</m></cell><cell><m>12</m></cell></row>
+        <row><cell><m>3000</m> to <m>3500</m></cell><cell><m>28</m></cell><cell><m>17</m></cell></row>
+        <row><cell><m>3500</m> to <m>4000</m></cell><cell><m>28</m></cell><cell><m>10</m></cell></row>
         <row><cell><m>4000</m> to <m>4500</m></cell><cell><m>6</m></cell><cell><m>1</m></cell></row>
         <row><cell><m>4500</m> to <m>5000</m></cell><cell><m>2</m></cell><cell><m>0</m></cell></row>
         <row bottom="medium">
@@ -66,51 +66,12 @@
     <figure xml:id="fig-nonsmokers">
       <caption>Birth weights of babies born to the <m>115</m> mothers who did
       not smoke during pregnancy.</caption>
-      <image width="85%" xml:id="image-nonsmokers">
+      <image width="85%" xml:id="image-nonsmokers" source="R-generated/birthweight-nonsmokers">
         <description>A histogram of birth weights for babies of nonsmoking
-        mothers. Bars rise gradually from zero at 500 grams to a peak of 29 in
-        the bin from 3000 to 3500 grams, with a nearly equal bar of 27 next to
-        it, then drop off quickly. The distribution leans slightly to the
+        mothers. Bars rise gradually from zero at 500 grams to a shared peak of 28 in
+        each of the bins from 3000 to 3500 grams and from 3500 to 4000 grams,
+        then drop off quickly. The distribution leans slightly to the
         left, with a thin tail toward the low weights.</description>
-        <asymptote>
-unitsize(0.0017cm, 0.115cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {500,1000,1500,2000,2500,3000,3500,4000,4500};
-real
-[] C = {  0,   3,   8,  18,  22,  29,  27,   6,   2};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  if (C
-[i] &gt; 0) {
-    filldraw((L
-[i],0)--(L
-[i]+500,0)--(L
-[i]+500,C
-[i])--(L
-[i],C
-[i])--cycle,
-             paleblue, black+0.4bp);
-  }
-}
-
-draw((500,0)--(5250,0), black+0.6bp);
-for (real t = 500; t &lt;= 5000; t += 500) {
-  draw((t,0)--(t,-0.8), black+0.4bp);
-  label(format("%g", t), (t,-1.1), S);
-}
-
-draw((500,0)--(500,32), black+0.6bp);
-for (real s = 0; s &lt;= 30; s += 5) {
-  draw((500,s)--(420,s), black+0.4bp);
-  label(format("%g", s), (380,s), W);
-}
-
-label("Birth weight (grams)", (2750,-4.2));
-label(rotate(90)*"Number of babies", (-420,16));
-label("Nonsmokers ($n = 115$)", (4100,29));
-        </asymptote>
       </image>
     </figure>
 
@@ -118,51 +79,12 @@ label("Nonsmokers ($n = 115$)", (4100,29));
       <caption>Birth weights of babies born to the <m>74</m> mothers who
       smoked during pregnancy. The horizontal scale, the bin width, and the
       vertical scale all match <xref ref="fig-nonsmokers"/>.</caption>
-      <image width="85%" xml:id="image-smokers">
+      <image width="85%" xml:id="image-smokers" source="R-generated/birthweight-smokers">
         <description>A histogram of birth weights for babies of smoking
         mothers, drawn on exactly the same axes as the previous figure. The
         peak of 22 occurs in the bin from 2000 to 2500 grams, noticeably
         further left than the nonsmokers' peak, and the bars fall away toward
         the heavier weights with almost nothing above 4000 grams.</description>
-        <asymptote>
-unitsize(0.0017cm, 0.115cm);
-defaultpen(fontsize(8pt));
-
-real
-[] L = {500,1000,1500,2000,2500,3000,3500,4000,4500};
-real
-[] C = {  1,   1,   6,  22,  16,  15,  12,   1,   0};
-
-for (int i = 0; i &lt; L.length; ++i) {
-  if (C
-[i] &gt; 0) {
-    filldraw((L
-[i],0)--(L
-[i]+500,0)--(L
-[i]+500,C
-[i])--(L
-[i],C
-[i])--cycle,
-             palered, black+0.4bp);
-  }
-}
-
-draw((500,0)--(5250,0), black+0.6bp);
-for (real t = 500; t &lt;= 5000; t += 500) {
-  draw((t,0)--(t,-0.8), black+0.4bp);
-  label(format("%g", t), (t,-1.1), S);
-}
-
-draw((500,0)--(500,32), black+0.6bp);
-for (real s = 0; s &lt;= 30; s += 5) {
-  draw((500,s)--(420,s), black+0.4bp);
-  label(format("%g", s), (380,s), W);
-}
-
-label("Birth weight (grams)", (2750,-4.2));
-label(rotate(90)*"Number of babies", (-420,16));
-label("Smokers ($n = 74$)", (4100,29));
-        </asymptote>
       </image>
     </figure>
 

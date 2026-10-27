@@ -76,10 +76,13 @@ belongs to **80–85**. Corrected.
 "16 + 22 = 38, 38/74 = 51%." Summary paragraph: "40 of 74, 54%." The
 first is correct; 38/74 = 51.4%. Corrected.
 
-**Two smoker bins unspecified.** Source pins down seven of nine bins;
-3000–3500 and 3500–4000 never appear. Reconstructed as 15 and 12 to
-total 74 while preserving the stated slight right skew. Authoritative
-data is `MASS::birthwt`.
+**Birth-weight bin counts reconciled to the authoritative data.** The
+left-closed 500-gram histograms are computed directly from
+`MASS::birthwt`. The complete nonsmoker vector is 0/3/8/18/22/28/28/6/2
+and the smoker vector is 1/1/6/22/16/17/10/1/0. These preserve the
+published aggregate comparisons: low birth weight counts 29 versus 30,
+3000–4000 gram nonsmoker count 56, 2000–3000 gram smoker count 38, and
+macrosomia counts 8 versus 1.
 
 ### Using the Normal Distribution
 

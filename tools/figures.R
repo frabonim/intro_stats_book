@@ -194,8 +194,8 @@ smoker_counts <- birthweight_counts(birthweight_smokers)
 stopifnot(
   length(birthweight_nonsmokers) == 115L,
   length(birthweight_smokers) == 74L,
-  identical(nonsmoker_counts, c(0L, 3L, 8L, 18L, 22L, 29L, 27L, 6L, 2L)),
-  identical(smoker_counts, c(1L, 1L, 6L, 22L, 16L, 15L, 12L, 1L, 0L)),
+  identical(nonsmoker_counts, c(0L, 3L, 8L, 18L, 22L, 28L, 28L, 6L, 2L)),
+  identical(smoker_counts, c(1L, 1L, 6L, 22L, 16L, 17L, 10L, 1L, 0L)),
   sum(nonsmoker_counts[1:4]) == 29L,
   sum(smoker_counts[1:4]) == 30L,
   sum(nonsmoker_counts[8:9]) == 8L,
