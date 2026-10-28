@@ -1801,6 +1801,213 @@ var ptx_lunr_docs = [
   "body": "  Two classes take the same exam. Class A has mean 74 and ADM 4; class B has mean 74 and ADM 15. In two or three sentences, describe the difference between these classes, and state what the two ADMs do not tell you.     The two classes performed the same on average, but class B is far less consistent: a typical student in class A scored about 4 points from 74, roughly between 70 and 78, while a typical student in class B scored about 15 points away, roughly between 59 and 89. The ADMs say nothing about shape, so class B could be uniformly scattered or could consist of two separate groups, one strong and one struggling. They also say nothing about any individual score, and nothing about whether a single extreme result is responsible for class B's larger value.  An adequate answer states that both classes have the same center but that class B is more variable, and uses the ADM to describe a typical distance. A strong answer also builds the typical range for each class from mean and ADM, and names at least one feature the ADM cannot reveal shape, individual values, or the influence of a single extreme observation.   "
 },
 {
+  "id": "sec-standard-deviation",
+  "level": "1",
+  "url": "sec-standard-deviation.html",
+  "type": "Section",
+  "number": "1.14",
+  "title": "The Standard Deviation",
+  "body": " The Standard Deviation     Calculate the standard deviation of a small data set.    Explain how squaring the deviations differs from taking their absolute values.    Identify each symbol in the formula for the standard deviation.    Use an interval one standard deviation on each side of the mean to describe a typical range of values.    Compare the variability of two distributions using their standard deviations.    Explain why the mean and the standard deviation carry independent information about a distribution.      In we rescued the average of the deviations by taking absolute values first. That repair works, and the number it produces is honest: the ADM really is the average distance from the mean. Yet almost no statistician reports it.  What they report instead is the standard deviation , which comes from making a different repair to the same problem. Everything else about the construction is identical. We will build it on the same seven numbers, so that the only thing that changes is the one step in the middle.    Squaring instead of taking absolute values  Recall the problem. The deviations add to zero for every data set, so averaging them directly is useless. We need some way to strip off the signs before adding.  Absolute value is one way. Squaring is another: a square is never negative either. Returning to the sample 2, 2, 4, 5, 6, 7, 9 with mean 5, whose deviations we tabulated in , we now square each one instead of taking its absolute value.   Squaring the deviations rather than taking absolute values    Value      2 3 9  2 3 9  4 1 1  5 0 0  6 1 1  7 2 4   9 4 16   Total 14 40    The two repairs are not interchangeable. Taking absolute values treats every unit of distance alike: moving a value one unit farther from the mean adds exactly 1 to the total, wherever it starts. Squaring does not. The value 9 sits four units from the mean, twice as far as the 7 sits at two units, but it contributes 16 to the total against the 7's 4 four times as much, not twice.   How much each value contributes to the total of 40. The single value farthest from the mean supplies 16 of it.   A bar chart with one bar for each of the seven data values 2, 2, 4, 5, 6, 7, and 9, where the height of each bar is that value's squared deviation from the mean of 5. The bars are 9, 9, 1, 0, 1, 4, and 16. The bar above the value 5 has height zero. The bar above 9 is shaded differently and is by far the tallest at 16, taller than the two bars of height 9 above the 2s. The heights total 40, so the single value 9 accounts for nearly two fifths of the total by itself.    This is a feature, not an accident. Squaring makes the measure pay disproportionate attention to values far from the center, which is often exactly where the interesting behavior of a distribution lies. It also makes the resulting quantity far easier to work with algebraically than an absolute value, which is the deeper reason statistics was built on it. The cost is that the measure is sensitive to extreme values a point we return to below.    Why does squaring the deviations solve the same problem that taking absolute values solved?      A square is never negative, so the deviations no longer cancel when added.    Correct. The cancellation came entirely from the signs. Any operation that removes them without discarding the distances will do, and squaring is one such operation.      Squaring makes all the deviations equal to each other.    It does not. In this sample the squared deviations are 9, 9, 1, 0, 1, 4, and 16, which are far from equal. Squaring removes the signs while preserving, and in fact exaggerating, the differences in size.      Squaring converts the deviations back into the original data values.    A squared deviation is not a data value. Squaring the deviation of the 9, which is , gives 16, which has nothing to do with the number 9.      Squaring guarantees the total will be smaller than the total of the absolute values.    The opposite happened here: the absolute deviations total 14 and the squared deviations total 40. Squaring usually inflates the total, because most deviations larger than 1 grow when squared.        A data set has mean 30. One of its values is 36. What does this value contribute to the total of the squared deviations?     36   Correct. The deviation is , and . That the answer coincides with the data value here is a coincidence of the numbers chosen.     6   That is the deviation itself, which is what this value would contribute to the ADM calculation. The standard deviation squares it first.     1296   This squares the data value rather than its deviation. Compute the deviation first, then square.     900   This squares the mean. The quantity being squared is the distance from the mean, not the mean itself.        From the total to the standard deviation  We have a total of 40. Two steps remain, and each repairs a problem the previous step created.  First, average. For the ADM we divided by . Here we divide by , which for our seven values means dividing by 6:   The divisor rather than is a small correction. A sample tends to sit slightly closer to its own mean than to the mean of the population it came from, so dividing by would systematically understate the spread. Shrinking the divisor by one compensates. For large samples the adjustment barely matters; for small ones it matters a great deal. This quantity has its own name, the variance , written .  Second, undo the squaring. The variance is in squared units if the data were pounds, the variance is in square pounds, which describes nothing anyone can picture. Taking the square root returns us to the units of the data:   This is the standard deviation of the sample, written . Assembling the three steps gives the formula:   Reading it from the inside out: is a deviation from the mean; squaring it removes the sign; adds the squares over all the data; dividing by averages them; and the square root returns the result to the original units. Here is the number of observations and is the sample mean.  Three properties follow directly from the construction, and they mirror the ones we noted for the ADM. The standard deviation carries the same units as the data. It can never be negative, since it is a square root of a sum of squares. And it equals zero exactly when every value is identical, which is the only way for every squared deviation to vanish.   Computing a standard deviation   Four quiz scores are 6, 7, 11, and 16. Find the standard deviation, and compare it with the ADM of 3.5 computed for these same scores in .    The mean is , so the deviations are , , , and . Squaring gives 16, 9, 1, and 36, which total 62. With we divide by 3:   The standard deviation of 4.55 is noticeably larger than the ADM of 3.5 on identical data. The score of 16 is responsible: it sits 6 points from the mean, and squaring turns that into 36, more than half of the total of 62. The ADM counts it as just 6 of 14.      A sample of 10 values has squared deviations totaling 90. What is the standard deviation?     About 3.16   Correct. Divide by to get a variance of 10, then take the square root: .     10   That is the variance, . One step remains: take the square root, so the answer returns to the units of the data.     3   This divides by rather than by . The smaller divisor is deliberate, and it makes the standard deviation slightly larger.     9   This is , the divisor itself rather than the result of dividing by it.        The weights of a sample of packages are measured in pounds and have a standard deviation of 4. Which statement is correct?      The standard deviation is 4 pounds, and the variance is 16 square pounds.    Correct. The square root at the end of the calculation is what returns the standard deviation to the units of the data. The variance, , remains in squared units, which is why it is rarely reported on its own.      Both the standard deviation and the variance are measured in pounds.    The variance is an average of squared deviations, so its units are squared too. Only after the square root do we return to pounds.      The standard deviation has no units, since it is a measure of spread rather than a measurement.    It does have units. A standard deviation of 4 pounds and one of 4 ounces describe very different distributions, which is precisely why the units must be stated.      The standard deviation could be negative if most packages weigh less than the mean.    It could not. Every squared deviation is zero or positive, so their sum is too, and a square root of a nonnegative number is never negative.        A typical range of values about the mean  The standard deviation is read the same way the ADM was. Mark the mean, then mark one standard deviation on each side of it. For our sample that band runs from to .   The interval one standard deviation on each side of the mean. Compare its width with the ADM band in .   The dotplot of 2, 2, 4, 5, 6, 7, 9 with a shaded horizontal band running from about 2.42 to about 7.58, centered on the dashed mean line at 5. The values 4, 5, 6, and 7 fall inside the band, while the two dots at 2 and the dot at 9 lie outside it. The band is wider on each side than the average deviation band from 3 to 7 shown earlier, but it happens to contain the same four values.    Interpret it exactly as before: a typical observation sits about 2.58 units from the mean, and most of the data lie within that distance of the center. On a graph, the practical skill is the same one as for the ADM. Find the mean by eye, then judge how wide an interval around it is needed to capture the bulk of the data; half that width estimates the standard deviation.  Notice what this comparison shows. The ADM of this sample is 2 and the standard deviation is 2.58, so the SD band is wider. Both bands happen to catch the same four of the seven values here, but the standard deviation reports a larger typical distance, because squaring gave the 9 and the two 2s more influence than averaging their raw distances did. On almost any data set the standard deviation comes out at least as large as the ADM, and the gap widens as the distribution grows more extreme in its tails.    A sample has mean 100 and standard deviation 12. Which interval is the typical range of values about the mean?     From 88 to 112   Correct. The band extends one standard deviation on each side of the mean: and .     From 0 to 12   This treats the standard deviation as a range of data values. It is a distance, and the band is built by stepping that distance outward from the mean.     From 100 to 112   This steps only to the right. The typical range is centered at the mean and extends in both directions.     From 76 to 124   This steps two standard deviations each way. That is a useful interval, and one we will meet later, but it is not the typical range described here.        Comparing two groups  The standard deviation earns its keep in comparisons. A school weighed the backpacks of 25 younger students and 25 older students. and show the results, drawn with identical bin widths and identical axes so the two can be compared directly.   Backpack weights for 25 younger students, with the mean and the standard deviation band marked.   A histogram of backpack weights for 25 younger students, with bars two pounds wide on an axis running from 0 to 32 pounds. The bars are 5 students for 2 to 4 pounds, 6 for 4 to 6, 8 for 6 to 8, and 6 for 8 to 10. Every other bin is empty, so the whole distribution occupies a single tight mound between 2 and 10 pounds at the far left of the axis. A dashed vertical line marks the mean at 5.8 pounds, and a shaded band about 2.1 pounds wide on each side covers roughly 3.7 to 7.9 pounds, containing 14 of the 25 weights.     Backpack weights for 25 older students, on the same axes.   A histogram of backpack weights for 25 older students, on the same axis from 0 to 32 pounds with the same two-pound bars. The bars are 3, 2, 2, 3, 2, 3, 2, 3, 2, and 1 across the bins running from 4 up to 24 pounds, a broad and nearly flat spread with no clear peak. The bins from 24 to 30 pounds are empty, and then a bar of 2 students appears for 30 to 32 pounds, separated from the rest by a gap of eight pounds. A dashed vertical line marks the mean at 14.2 pounds, and a shaded band about 7.2 pounds wide on each side covers roughly 7.0 to 21.4 pounds, containing 18 of the 25 weights. Both the overall spread and the shaded band are far wider than for the younger students.     Describing the two groups   Compare the backpack weights of the two groups using the mean and the standard deviation.    The younger students carry a mean of 5.8 pounds with a standard deviation of 2.1 pounds. The older students carry a mean of 14.2 pounds with a standard deviation of 7.2 pounds.  The centers differ: the older students carry about two and a half times as much weight on average. But the two groups differ in a second way that the means alone do not reveal. The younger group is highly consistent. Its typical range runs from about 3.7 to about 7.9 pounds, a band only 4.2 pounds wide, and every weight in the group falls between 2 and 9 pounds. Knowing a younger student's backpack weight is almost predictable from the mean alone.  The older group is not. Its typical range runs from about 7.0 to about 21.4 pounds, a band more than three times as wide, and the histogram is nearly flat from 4 to 24 pounds with no clear peak. Two students carry 30 and 31 pounds, separated from everyone else by an eight-pound gap. For this group the mean of 14.2 is a poor prediction of any individual weight.  The lesson is that the two groups differ in center and in consistency, and it takes both numbers to say so.    Those two heavy packs are also a warning. Like the mean, and for the same structural reason, the standard deviation is not resistant : every observation enters the calculation, and squaring means a distant one enters with enormous weight. We have already seen how severe this can be. In a student had 26 homework scores, 25 of them clustered in the 80s and one recorded as 0. That single score raises the standard deviation from 5.8 to 17.6 it triples it. One observation out of twenty-six does that, because a deviation of about 82 becomes about 6,700 once squared.    Suppose a third group of students has a mean backpack weight of 14.2 pounds, the same as the older group, but a standard deviation of 2.0 pounds. What does this tell you?      This group carries about as much weight on average, but much more consistently.    Correct. The equal means say the centers agree; the much smaller standard deviation says the weights huddle close to that center instead of sprawling from 4 to 31 pounds.      This group carries less weight overall.    The means are equal, so the groups carry the same weight on average. The standard deviation describes consistency, not amount.      This group must contain fewer students.    Sample size does not determine the standard deviation. A group of any size can be consistent or scattered.      A mistake has been made, since two groups with the same mean must have the same standard deviation.    They need not. The mean locates the center and the standard deviation measures spread about it; the next subsection is built entirely on separating the two.        Mean and standard deviation measure different things  The backpack groups differed in both center and spread at once, which makes it easy to blur the two. Stripping away the difference in center shows that the standard deviation carries information the mean cannot.  Data sets C and D below have the same mean of 50 and, as it happens, the same median of 50 as well. They are not remotely the same distribution.   Data set C: mean 50, standard deviation about 3.5.   A dotplot of twelve values on an axis running from 20 to 80. The values run from 44 to 56 and are packed closely together around the middle of the axis, with two dots stacked at 50. A dashed vertical line marks the mean at 50, and a narrow shaded band about 3.5 units wide on each side covers roughly 46.5 to 53.5, containing 8 of the 12 values. Most of the axis is empty.     Data set D: the same mean of 50, but a standard deviation of about 15.8.   A dotplot of twelve values on the same axis from 20 to 80. The values run from 25 to 75, spaced evenly five units apart across almost the whole axis, with two dots stacked at 50. A dashed vertical line marks the mean at 50, in the same place as for data set C, and a wide shaded band about 15.8 units wide on each side covers roughly 34.2 to 65.8, also containing 8 of the 12 values. The band is more than four times as wide as the one for data set C.    The two dashed lines sit in exactly the same place. Every summary of center we have built would report these distributions as identical. Yet a typical value in C sits 3.5 units from the center, while a typical value in D sits 15.8 units away more than four times as far.  Both bands happen to capture 8 of the 12 values, which is worth dwelling on. The fraction of data inside the band is similar; what differs is how wide the band must be to capture it. That width is the whole content of the standard deviation. Reporting a mean without a measure of spread tells a reader where the distribution sits and nothing whatsoever about how tightly it sits there.    Two samples have the same mean. What can you conclude about their standard deviations?      Nothing. The standard deviations may be equal, or either one may be larger.    Correct. The mean locates the center and says nothing about spread about it. Data sets C and D share a mean and a median while differing in standard deviation by a factor of more than four.      The standard deviations must also be equal.    Data sets C and D are a direct counterexample: identical means of 50, standard deviations of about 3.5 and about 15.8.      The sample with more values must have the larger standard deviation.    Sample size does not drive the standard deviation. A large sample of nearly identical values has a small one; a tiny sample of wildly different values has a large one.      Both standard deviations must be smaller than the mean.    No such relationship holds. A distribution with a small mean and a few very large values can easily have a standard deviation exceeding its mean.        Two machines fill bottles labeled 500 milliliters. Machine A delivers a mean of 500 ml with a standard deviation of 2 ml; machine B delivers a mean of 500 ml with a standard deviation of 20 ml. In two or three sentences, explain which machine you would rather use and why, using the typical range of values for each. Then state one thing these two standard deviations do not tell you.     Machine A is clearly preferable. Both machines are correct on average, so neither systematically overfills or underfills, but a typical bottle from machine A falls between 498 and 502 ml, while a typical bottle from machine B falls between 480 and 520 ml. A customer buying a single bottle from machine B could easily receive four percent less than the label promises, and the equal means offer no protection against that, because overfilled and underfilled bottles cancel in the average.  The standard deviations say nothing about the shape of either distribution, so machine B's errors could be spread smoothly or could come from occasional wild misfills among otherwise accurate bottles. They also say nothing about any individual bottle, and nothing about whether a few extreme results are inflating machine B's value, since the standard deviation is not resistant.  An adequate answer chooses machine A, notes that the means are equal, and builds at least one typical range from a mean and a standard deviation. A strong answer also names something the standard deviation cannot reveal shape, individual values, or the influence of a few extreme observations.      The standard deviation is built exactly like the average deviation from the mean, with one step changed: the deviations are squared rather than made positive by absolute value. Squaring gives values far from the mean disproportionate weight, which is both the measure's chief strength and the source of its sensitivity to extremes.  Three steps complete the calculation. Add the squared deviations; divide by to obtain the variance ; take the square root to return to the units of the data. In symbols, . The standard deviation carries the same units as the data, is never negative, and equals zero exactly when every value is identical.  Marking one standard deviation on each side of the mean gives a typical range of values, read exactly as the ADM band was. The standard deviation of a data set is generally somewhat larger than its ADM, and the gap grows as the tails of the distribution grow more extreme.  The mean and the standard deviation answer independent questions. Two distributions can share a mean, and even a median, while differing in standard deviation by a factor of four or more. Reporting a center without a spread describes only half of a distribution.  Like the mean, the standard deviation is not resistant. A single distant observation can multiply it several times over, which raises the question of when to report it at all the subject of the next section.  Adapted from Concepts in Statistics (SUNY \/ Lumen Learning), CC BY 4.0. The backpack weights and the two same-mean data sets are reconstructed to reproduce the means and standard deviations published in the source; the underlying observations are not supplied there.   "
+},
+{
+  "id": "objectives-standard-deviation",
+  "level": "2",
+  "url": "sec-standard-deviation.html#objectives-standard-deviation",
+  "type": "Objectives",
+  "number": "1.14",
+  "title": "",
+  "body": "   Calculate the standard deviation of a small data set.    Explain how squaring the deviations differs from taking their absolute values.    Identify each symbol in the formula for the standard deviation.    Use an interval one standard deviation on each side of the mean to describe a typical range of values.    Compare the variability of two distributions using their standard deviations.    Explain why the mean and the standard deviation carry independent information about a distribution.    "
+},
+{
+  "id": "sec-standard-deviation-3-2",
+  "level": "2",
+  "url": "sec-standard-deviation.html#sec-standard-deviation-3-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard deviation "
+},
+{
+  "id": "table-sd-squared-deviations",
+  "level": "2",
+  "url": "sec-standard-deviation.html#table-sd-squared-deviations",
+  "type": "Table",
+  "number": "1.14.1",
+  "title": "Squaring the deviations rather than taking absolute values",
+  "body": " Squaring the deviations rather than taking absolute values    Value      2 3 9  2 3 9  4 1 1  5 0 0  6 1 1  7 2 4   9 4 16   Total 14 40   "
+},
+{
+  "id": "fig-sd-squares",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-sd-squares",
+  "type": "Figure",
+  "number": "1.14.2",
+  "title": "",
+  "body": " How much each value contributes to the total of 40. The single value farthest from the mean supplies 16 of it.   A bar chart with one bar for each of the seven data values 2, 2, 4, 5, 6, 7, and 9, where the height of each bar is that value's squared deviation from the mean of 5. The bars are 9, 9, 1, 0, 1, 4, and 16. The bar above the value 5 has height zero. The bar above 9 is shaded differently and is by far the tallest at 16, taller than the two bars of height 9 above the 2s. The heights total 40, so the single value 9 accounts for nearly two fifths of the total by itself.   "
+},
+{
+  "id": "check-sd-why-square",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-why-square",
+  "type": "Checkpoint",
+  "number": "1.14.3",
+  "title": "",
+  "body": "  Why does squaring the deviations solve the same problem that taking absolute values solved?      A square is never negative, so the deviations no longer cancel when added.    Correct. The cancellation came entirely from the signs. Any operation that removes them without discarding the distances will do, and squaring is one such operation.      Squaring makes all the deviations equal to each other.    It does not. In this sample the squared deviations are 9, 9, 1, 0, 1, 4, and 16, which are far from equal. Squaring removes the signs while preserving, and in fact exaggerating, the differences in size.      Squaring converts the deviations back into the original data values.    A squared deviation is not a data value. Squaring the deviation of the 9, which is , gives 16, which has nothing to do with the number 9.      Squaring guarantees the total will be smaller than the total of the absolute values.    The opposite happened here: the absolute deviations total 14 and the squared deviations total 40. Squaring usually inflates the total, because most deviations larger than 1 grow when squared.     "
+},
+{
+  "id": "check-sd-squared-deviation",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-squared-deviation",
+  "type": "Checkpoint",
+  "number": "1.14.4",
+  "title": "",
+  "body": "  A data set has mean 30. One of its values is 36. What does this value contribute to the total of the squared deviations?     36   Correct. The deviation is , and . That the answer coincides with the data value here is a coincidence of the numbers chosen.     6   That is the deviation itself, which is what this value would contribute to the ADM calculation. The standard deviation squares it first.     1296   This squares the data value rather than its deviation. Compute the deviation first, then square.     900   This squares the mean. The quantity being squared is the distance from the mean, not the mean itself.     "
+},
+{
+  "id": "subsec-sd-formula-5",
+  "level": "2",
+  "url": "sec-standard-deviation.html#subsec-sd-formula-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "variance "
+},
+{
+  "id": "subsec-sd-formula-8",
+  "level": "2",
+  "url": "sec-standard-deviation.html#subsec-sd-formula-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard deviation "
+},
+{
+  "id": "ex-sd-quiz",
+  "level": "2",
+  "url": "sec-standard-deviation.html#ex-sd-quiz",
+  "type": "Example",
+  "number": "1.14.5",
+  "title": "Computing a standard deviation.",
+  "body": " Computing a standard deviation   Four quiz scores are 6, 7, 11, and 16. Find the standard deviation, and compare it with the ADM of 3.5 computed for these same scores in .    The mean is , so the deviations are , , , and . Squaring gives 16, 9, 1, and 36, which total 62. With we divide by 3:   The standard deviation of 4.55 is noticeably larger than the ADM of 3.5 on identical data. The score of 16 is responsible: it sits 6 points from the mean, and squaring turns that into 36, more than half of the total of 62. The ADM counts it as just 6 of 14.   "
+},
+{
+  "id": "check-sd-compute",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-compute",
+  "type": "Checkpoint",
+  "number": "1.14.6",
+  "title": "",
+  "body": "  A sample of 10 values has squared deviations totaling 90. What is the standard deviation?     About 3.16   Correct. Divide by to get a variance of 10, then take the square root: .     10   That is the variance, . One step remains: take the square root, so the answer returns to the units of the data.     3   This divides by rather than by . The smaller divisor is deliberate, and it makes the standard deviation slightly larger.     9   This is , the divisor itself rather than the result of dividing by it.     "
+},
+{
+  "id": "check-sd-units",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-units",
+  "type": "Checkpoint",
+  "number": "1.14.7",
+  "title": "",
+  "body": "  The weights of a sample of packages are measured in pounds and have a standard deviation of 4. Which statement is correct?      The standard deviation is 4 pounds, and the variance is 16 square pounds.    Correct. The square root at the end of the calculation is what returns the standard deviation to the units of the data. The variance, , remains in squared units, which is why it is rarely reported on its own.      Both the standard deviation and the variance are measured in pounds.    The variance is an average of squared deviations, so its units are squared too. Only after the square root do we return to pounds.      The standard deviation has no units, since it is a measure of spread rather than a measurement.    It does have units. A standard deviation of 4 pounds and one of 4 ounces describe very different distributions, which is precisely why the units must be stated.      The standard deviation could be negative if most packages weigh less than the mean.    It could not. Every squared deviation is zero or positive, so their sum is too, and a square root of a nonnegative number is never negative.     "
+},
+{
+  "id": "fig-sd-band",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-sd-band",
+  "type": "Figure",
+  "number": "1.14.8",
+  "title": "",
+  "body": " The interval one standard deviation on each side of the mean. Compare its width with the ADM band in .   The dotplot of 2, 2, 4, 5, 6, 7, 9 with a shaded horizontal band running from about 2.42 to about 7.58, centered on the dashed mean line at 5. The values 4, 5, 6, and 7 fall inside the band, while the two dots at 2 and the dot at 9 lie outside it. The band is wider on each side than the average deviation band from 3 to 7 shown earlier, but it happens to contain the same four values.   "
+},
+{
+  "id": "check-sd-band-meaning",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-band-meaning",
+  "type": "Checkpoint",
+  "number": "1.14.9",
+  "title": "",
+  "body": "  A sample has mean 100 and standard deviation 12. Which interval is the typical range of values about the mean?     From 88 to 112   Correct. The band extends one standard deviation on each side of the mean: and .     From 0 to 12   This treats the standard deviation as a range of data values. It is a distance, and the band is built by stepping that distance outward from the mean.     From 100 to 112   This steps only to the right. The typical range is centered at the mean and extends in both directions.     From 76 to 124   This steps two standard deviations each way. That is a useful interval, and one we will meet later, but it is not the typical range described here.     "
+},
+{
+  "id": "fig-backpack-younger",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-backpack-younger",
+  "type": "Figure",
+  "number": "1.14.10",
+  "title": "",
+  "body": " Backpack weights for 25 younger students, with the mean and the standard deviation band marked.   A histogram of backpack weights for 25 younger students, with bars two pounds wide on an axis running from 0 to 32 pounds. The bars are 5 students for 2 to 4 pounds, 6 for 4 to 6, 8 for 6 to 8, and 6 for 8 to 10. Every other bin is empty, so the whole distribution occupies a single tight mound between 2 and 10 pounds at the far left of the axis. A dashed vertical line marks the mean at 5.8 pounds, and a shaded band about 2.1 pounds wide on each side covers roughly 3.7 to 7.9 pounds, containing 14 of the 25 weights.   "
+},
+{
+  "id": "fig-backpack-older",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-backpack-older",
+  "type": "Figure",
+  "number": "1.14.11",
+  "title": "",
+  "body": " Backpack weights for 25 older students, on the same axes.   A histogram of backpack weights for 25 older students, on the same axis from 0 to 32 pounds with the same two-pound bars. The bars are 3, 2, 2, 3, 2, 3, 2, 3, 2, and 1 across the bins running from 4 up to 24 pounds, a broad and nearly flat spread with no clear peak. The bins from 24 to 30 pounds are empty, and then a bar of 2 students appears for 30 to 32 pounds, separated from the rest by a gap of eight pounds. A dashed vertical line marks the mean at 14.2 pounds, and a shaded band about 7.2 pounds wide on each side covers roughly 7.0 to 21.4 pounds, containing 18 of the 25 weights. Both the overall spread and the shaded band are far wider than for the younger students.   "
+},
+{
+  "id": "ex-backpack-comparison",
+  "level": "2",
+  "url": "sec-standard-deviation.html#ex-backpack-comparison",
+  "type": "Example",
+  "number": "1.14.12",
+  "title": "Describing the two groups.",
+  "body": " Describing the two groups   Compare the backpack weights of the two groups using the mean and the standard deviation.    The younger students carry a mean of 5.8 pounds with a standard deviation of 2.1 pounds. The older students carry a mean of 14.2 pounds with a standard deviation of 7.2 pounds.  The centers differ: the older students carry about two and a half times as much weight on average. But the two groups differ in a second way that the means alone do not reveal. The younger group is highly consistent. Its typical range runs from about 3.7 to about 7.9 pounds, a band only 4.2 pounds wide, and every weight in the group falls between 2 and 9 pounds. Knowing a younger student's backpack weight is almost predictable from the mean alone.  The older group is not. Its typical range runs from about 7.0 to about 21.4 pounds, a band more than three times as wide, and the histogram is nearly flat from 4 to 24 pounds with no clear peak. Two students carry 30 and 31 pounds, separated from everyone else by an eight-pound gap. For this group the mean of 14.2 is a poor prediction of any individual weight.  The lesson is that the two groups differ in center and in consistency, and it takes both numbers to say so.   "
+},
+{
+  "id": "subsec-comparing-with-sd-6",
+  "level": "2",
+  "url": "sec-standard-deviation.html#subsec-comparing-with-sd-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "resistant "
+},
+{
+  "id": "check-sd-backpack",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-backpack",
+  "type": "Checkpoint",
+  "number": "1.14.13",
+  "title": "",
+  "body": "  Suppose a third group of students has a mean backpack weight of 14.2 pounds, the same as the older group, but a standard deviation of 2.0 pounds. What does this tell you?      This group carries about as much weight on average, but much more consistently.    Correct. The equal means say the centers agree; the much smaller standard deviation says the weights huddle close to that center instead of sprawling from 4 to 31 pounds.      This group carries less weight overall.    The means are equal, so the groups carry the same weight on average. The standard deviation describes consistency, not amount.      This group must contain fewer students.    Sample size does not determine the standard deviation. A group of any size can be consistent or scattered.      A mistake has been made, since two groups with the same mean must have the same standard deviation.    They need not. The mean locates the center and the standard deviation measures spread about it; the next subsection is built entirely on separating the two.     "
+},
+{
+  "id": "fig-sd-tight",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-sd-tight",
+  "type": "Figure",
+  "number": "1.14.14",
+  "title": "",
+  "body": " Data set C: mean 50, standard deviation about 3.5.   A dotplot of twelve values on an axis running from 20 to 80. The values run from 44 to 56 and are packed closely together around the middle of the axis, with two dots stacked at 50. A dashed vertical line marks the mean at 50, and a narrow shaded band about 3.5 units wide on each side covers roughly 46.5 to 53.5, containing 8 of the 12 values. Most of the axis is empty.   "
+},
+{
+  "id": "fig-sd-spread",
+  "level": "2",
+  "url": "sec-standard-deviation.html#fig-sd-spread",
+  "type": "Figure",
+  "number": "1.14.15",
+  "title": "",
+  "body": " Data set D: the same mean of 50, but a standard deviation of about 15.8.   A dotplot of twelve values on the same axis from 20 to 80. The values run from 25 to 75, spaced evenly five units apart across almost the whole axis, with two dots stacked at 50. A dashed vertical line marks the mean at 50, in the same place as for data set C, and a wide shaded band about 15.8 units wide on each side covers roughly 34.2 to 65.8, also containing 8 of the 12 values. The band is more than four times as wide as the one for data set C.   "
+},
+{
+  "id": "check-sd-same-mean",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-same-mean",
+  "type": "Checkpoint",
+  "number": "1.14.16",
+  "title": "",
+  "body": "  Two samples have the same mean. What can you conclude about their standard deviations?      Nothing. The standard deviations may be equal, or either one may be larger.    Correct. The mean locates the center and says nothing about spread about it. Data sets C and D share a mean and a median while differing in standard deviation by a factor of more than four.      The standard deviations must also be equal.    Data sets C and D are a direct counterexample: identical means of 50, standard deviations of about 3.5 and about 15.8.      The sample with more values must have the larger standard deviation.    Sample size does not drive the standard deviation. A large sample of nearly identical values has a small one; a tiny sample of wildly different values has a large one.      Both standard deviations must be smaller than the mean.    No such relationship holds. A distribution with a small mean and a few very large values can easily have a standard deviation exceeding its mean.     "
+},
+{
+  "id": "check-sd-interpret",
+  "level": "2",
+  "url": "sec-standard-deviation.html#check-sd-interpret",
+  "type": "Checkpoint",
+  "number": "1.14.17",
+  "title": "",
+  "body": "  Two machines fill bottles labeled 500 milliliters. Machine A delivers a mean of 500 ml with a standard deviation of 2 ml; machine B delivers a mean of 500 ml with a standard deviation of 20 ml. In two or three sentences, explain which machine you would rather use and why, using the typical range of values for each. Then state one thing these two standard deviations do not tell you.     Machine A is clearly preferable. Both machines are correct on average, so neither systematically overfills or underfills, but a typical bottle from machine A falls between 498 and 502 ml, while a typical bottle from machine B falls between 480 and 520 ml. A customer buying a single bottle from machine B could easily receive four percent less than the label promises, and the equal means offer no protection against that, because overfilled and underfilled bottles cancel in the average.  The standard deviations say nothing about the shape of either distribution, so machine B's errors could be spread smoothly or could come from occasional wild misfills among otherwise accurate bottles. They also say nothing about any individual bottle, and nothing about whether a few extreme results are inflating machine B's value, since the standard deviation is not resistant.  An adequate answer chooses machine A, notes that the means are equal, and builds at least one typical range from a mean and a standard deviation. A strong answer also names something the standard deviation cannot reveal shape, individual values, or the influence of a few extreme observations.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

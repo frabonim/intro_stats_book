@@ -20,6 +20,8 @@ Excluded by policy: all **StatTutor** and **Assignment** pages.
 | | Mean and Median (1 of 2) | `sec-mean-median` | done |
 | | Mean and Median (2 of 2) | `sec-choosing-center` | done |
 | | Standard Deviation (1 of 4) | `sec-average-deviation` | done |
+| | Standard Deviation (2 of 4) | `sec-standard-deviation` | done |
+| | Standard Deviation (3 of 4) | `sec-standard-deviation` | done (merged) |
 | | Interquartile Range and Boxplots (1 of 3) | `sec-quartiles-iqr` | done |
 | | Interquartile Range and Boxplots (2 of 3) | `sec-boxplots` | done |
 | | Interquartile Range and Boxplots (3 of 3) | `sec-comparing-boxplots` | done |
@@ -238,6 +240,75 @@ identical; the pairing rule that the IQR belongs with the median while
 the ADM belongs with the mean, which the source demonstrates but never
 states; and the same-mean-different-ADM short response.
 <!-- section:sec-average-deviation:end -->
+
+<!-- section:sec-standard-deviation:start -->
+### Standard Deviation (2 of 4) and (3 of 4)
+`/chapter/standard-deviation-2-of-4` and `/chapter/standard-deviation-3-of-4`
+→ `sec-standard-deviation`
+
+**Two source pages merged into one section.** Page 2 is roughly 600
+words: a single worked computation and the formula. Page 3 is one
+extended comparison example that consumes that computation. Neither
+reaches the length floor alone, and splitting them would mean padding
+page 2. Merged as `subsec-from-adm-to-sd` plus `subsec-sd-formula`
+(page 2) and `subsec-comparing-with-sd` (page 3), with
+`subsec-sd-band` and `subsec-mean-and-sd-independent` carrying material
+both pages assume.
+
+**Backpack weight data not published.** The source reports a mean of
+5.8 pounds with SD 2.1 for the younger group and a mean of 14.2 with
+SD 7.2 for the older group, describes the older distribution as broad
+and nearly flat, and notes two unusually heavy packs. It publishes no
+observations and does not state the group sizes. Reconstructed as 25
+and 25 so the two histograms can share a vertical scale honestly.
+
+    younger: 2, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 6, 6, 6,
+             7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9
+    older:   4, 5, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14,
+             15, 16, 17, 18, 18, 19, 20, 21, 22, 30, 31
+
+Both means are exact (145/25 and 355/25). The standard deviations come
+out 2.062 and 7.205, which round to the published 2.1 and 7.2. The
+older group is flat across 4 to 24 pounds with the two heavy packs at
+30 and 31, separated by an eight-pound gap. Both bin-count vectors and
+both band counts (14 of 25 and 18 of 25) are asserted in
+`tools/figures.R`, because the figure descriptions state them.
+
+Histograms use two-pound bins on a shared 0-to-32 axis with a shared
+vertical scale. Five-pound bins would have compressed the younger group
+into two bars and destroyed the comparison the section is built on.
+
+**Same-mean data sets not published.** The source makes the
+mean-and-spread-are-independent point in prose only. Constructed
+C = 44, 46, 47, 48, 49, 50, 50, 51, 52, 53, 54, 56 and
+D = 25, 30, 35, 40, 45, 50, 50, 55, 60, 65, 70, 75. Both have mean and
+median exactly 50; variances are exactly 12 and 250, giving standard
+deviations of 3.46 and 15.81. Both bands capture exactly 8 of 12
+values, which the section uses to separate *how wide* the band is from
+*how much* it holds.
+
+**Teaching sample carried over.** The seven values 2, 2, 4, 5, 6, 7, 9
+are the source's own and are reused from `sec-average-deviation` so the
+only thing that changes between the two sections is the one step in the
+middle. Squared deviations total 40, variance 40/6, s = 2.582 (reported
+as 2.58) against an ADM of exactly 2. The SD band [2.42, 7.58] and the
+ADM band [3, 7] both hold four of the seven values; both counts are
+asserted. The quiz scores 6, 7, 11, 16 are likewise reused, giving
+s = 4.55 against an ADM of 3.5.
+
+**Resistance claim guarded.** The section states that the homework
+outlier in `sec-choosing-center` raises the standard deviation from 5.8
+to 17.6. The R block asserts both values against `hw26` so the prose
+cannot drift from the data.
+
+*Added, not in source:* the notation `s`, which the source never
+introduces; the term *variance* and the observation that it is in
+squared units; the explanation of why the divisor is `n - 1`; that
+`s = 0` exactly when every value is identical; the explicit statement
+that `s` is generally at least as large as the ADM; the link back to
+*resistant* from `sec-choosing-center`; and the bottle-filling short
+response.
+<!-- section:sec-standard-deviation:end -->
 
 ## Datasets
 

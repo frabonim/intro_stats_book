@@ -953,4 +953,249 @@ render_book_figure("spread-set-b", plot_spread_set_b,
                    width = 7.0, height = 3.2)
 # r-figures:sec-average-deviation:end
 
+# r-figures:sec-standard-deviation:start
+# ---- ch-data-display / sec-standard-deviation -------------------------
+sd_cool_band <- "#DCE7F2"
+sd_warm_band <- "#E8DCCB"
+sd_bar_fill  <- "#C9CFD6"
+
+# This section quotes the homework standard deviations in prose, so guard
+# them here rather than letting the two drift apart silently.
+stopifnot(
+  exists("average_deviation"),
+  exists("hw26"),
+  abs(round(sd(hw26), 1) - 17.6) < 1e-9,
+  abs(round(sd(hw26[hw26 > 0]), 1) - 5.8) < 1e-9
+)
+
+sd_frame <- function(values, xlim, xlabel, ticks, headroom = 1.6) {
+  book_par()
+  top <- max(table(values))
+  plot(NA, xlim = xlim, ylim = c(-0.7, top + headroom), axes = FALSE,
+       xlab = xlabel, ylab = "")
+  axis(1, at = ticks)
+  invisible(top)
+}
+
+sd_dots <- function(values, cex = 0.9) {
+  tab <- table(values)
+  xs <- as.numeric(names(tab))
+  for (j in seq_along(xs)) {
+    points(rep(xs[j], tab[j]), seq_len(tab[j]), pch = 21,
+           bg = book_colors$ink, col = book_colors$ink, cex = cex)
+  }
+  invisible(max(tab))
+}
+
+# -- the running teaching sample, carried over from sec-average-deviation
+sd_sample <- c(2, 2, 4, 5, 6, 7, 9)
+sd_sample_mean <- mean(sd_sample)
+sd_sample_sq <- (sd_sample - sd_sample_mean)^2
+sd_sample_ss <- sum(sd_sample_sq)
+sd_sample_var <- sd_sample_ss / (length(sd_sample) - 1)
+sd_sample_sd <- sqrt(sd_sample_var)
+
+stopifnot(
+  length(sd_sample) == 7L,
+  sd_sample_mean == 5,
+  all(sd_sample_sq == c(9, 9, 1, 0, 1, 4, 16)),
+  sd_sample_ss == 40,
+  abs(sd_sample_var - 40 / 6) < 1e-12,
+  abs(sd_sample_sd - sd(sd_sample)) < 1e-12,
+  abs(round(sd_sample_sd, 2) - 2.58) < 1e-9,
+  # The ADM of this sample is exactly 2, so squaring really does enlarge
+  # the reported spread.  Both numbers appear in the prose.
+  average_deviation(sd_sample) == 2,
+  sd_sample_sd > average_deviation(sd_sample),
+  # The band [2.42, 7.58] holds 4, 5, 6, 7: four of the seven values, the
+  # same four the narrower ADM band [3, 7] holds.  The prose says so.
+  sum(abs(sd_sample - sd_sample_mean) <= sd_sample_sd) == 4L,
+  sum(abs(sd_sample - sd_sample_mean) <= average_deviation(sd_sample)) == 4L
+)
+
+# The quiz scores reused from the ADM example, so the two measures can be
+# compared on identical data.  ADM 3.5 there, s = 4.55 here.
+sd_quiz <- c(6, 7, 11, 16)
+stopifnot(
+  mean(sd_quiz) == 10,
+  sum((sd_quiz - mean(sd_quiz))^2) == 62,
+  abs(round(sd(sd_quiz), 2) - 4.55) < 1e-9,
+  average_deviation(sd_quiz) == 3.5
+)
+
+message("sd_sample: mean=", sd_sample_mean,
+        " SS=", sd_sample_ss,
+        " var=", round(sd_sample_var, 4),
+        " s=", round(sd_sample_sd, 4),
+        " ADM=", average_deviation(sd_sample))
+
+plot_sd_squares <- function() {
+  book_par()
+  n <- length(sd_sample)
+  plot(NA, xlim = c(0.4, n + 0.6), ylim = c(0, 19), axes = FALSE,
+       xlab = "Data value", ylab = "Squared deviation")
+  for (i in seq_len(n)) {
+    fill <- if (sd_sample_sq[i] == max(sd_sample_sq)) "#E8C9C9" else sd_bar_fill
+    rect(i - 0.34, 0, i + 0.34, sd_sample_sq[i],
+         col = fill, border = book_colors$ink)
+    text(i, sd_sample_sq[i] + 1.0, sd_sample_sq[i],
+         col = book_colors$ink, cex = 0.8)
+  }
+  axis(1, at = seq_len(n), labels = sd_sample)
+  axis(2, at = seq(0, 16, by = 4))
+  text(0.4, 18.6, paste0("total = ", sd_sample_ss),
+       col = book_colors$ink, cex = 0.85, adj = 0, xpd = NA)
+}
+render_book_figure("sd-squares", plot_sd_squares, width = 6.5, height = 3.6)
+
+plot_sd_band <- function() {
+  top <- sd_frame(sd_sample, c(1, 10), "Data value", 1:10, headroom = 2.0)
+  rect(sd_sample_mean - sd_sample_sd, -0.12,
+       sd_sample_mean + sd_sample_sd, top + 0.55,
+       col = sd_cool_band, border = NA)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = sd_sample_mean, col = book_colors$blue, lty = 2, lwd = 1.5)
+  sd_dots(sd_sample)
+  text(sd_sample_mean - sd_sample_sd, top + 0.95,
+       sprintf("%.2f", sd_sample_mean - sd_sample_sd),
+       col = book_colors$ink, cex = 0.8, xpd = NA)
+  text(sd_sample_mean + sd_sample_sd, top + 0.95,
+       sprintf("%.2f", sd_sample_mean + sd_sample_sd),
+       col = book_colors$ink, cex = 0.8, xpd = NA)
+  text(sd_sample_mean, top + 1.7,
+       sprintf("mean 5, s = %.2f", sd_sample_sd),
+       col = book_colors$blue, cex = 0.9, xpd = NA)
+}
+render_book_figure("sd-band", plot_sd_band, width = 6.5, height = 3.5)
+
+# -- backpack weights, two groups; reconstructed, see SOURCES.md --------
+backpack_younger <- c(
+  2, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 6, 6, 6,
+  7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9
+)
+backpack_older <- c(
+  4, 5, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14,
+  15, 16, 17, 18, 18, 19, 20, 21, 22, 30, 31
+)
+
+backpack_breaks <- seq(0, 32, by = 2)
+backpack_counts <- function(values) {
+  hist(values, breaks = backpack_breaks, right = FALSE,
+       include.lowest = TRUE, plot = FALSE)$counts
+}
+younger_counts <- backpack_counts(backpack_younger)
+older_counts <- backpack_counts(backpack_older)
+
+stopifnot(
+  length(backpack_younger) == 25L,
+  length(backpack_older) == 25L,
+  !is.unsorted(backpack_younger),
+  !is.unsorted(backpack_older),
+  sum(backpack_younger) == 145,
+  sum(backpack_older) == 355,
+  abs(mean(backpack_younger) - 5.8) < 1e-9,
+  abs(mean(backpack_older) - 14.2) < 1e-9,
+  # Published standard deviations are 2.1 and 7.2; the reconstruction
+  # gives 2.06 and 7.21, which round to those values.
+  abs(round(sd(backpack_younger), 1) - 2.1) < 1e-9,
+  abs(round(sd(backpack_older), 1) - 7.2) < 1e-9,
+  # Bin counts, asserted because the figure descriptions state them.
+  identical(younger_counts,
+            c(0L, 5L, 6L, 8L, 6L, 0L, 0L, 0L,
+              0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L)),
+  identical(older_counts,
+            c(0L, 0L, 3L, 2L, 2L, 3L, 2L, 3L,
+              2L, 3L, 2L, 1L, 0L, 0L, 0L, 2L)),
+  sum(younger_counts) == 25L,
+  sum(older_counts) == 25L,
+  # Band contents, also stated in the descriptions and the prose.
+  sum(abs(backpack_younger - mean(backpack_younger))
+      <= sd(backpack_younger)) == 14L,
+  sum(abs(backpack_older - mean(backpack_older))
+      <= sd(backpack_older)) == 18L,
+  # The two heavy packs sit clear of the rest of the older group.
+  max(backpack_older[backpack_older < 25]) == 22,
+  min(backpack_older[backpack_older > 25]) == 30
+)
+
+message("Backpacks younger: mean=", mean(backpack_younger),
+        " s=", round(sd(backpack_younger), 3))
+message("Backpacks older:   mean=", mean(backpack_older),
+        " s=", round(sd(backpack_older), 3))
+
+backpack_hist <- function(values, fill, label) {
+  book_par()
+  counts <- backpack_counts(values)
+  m <- mean(values)
+  s <- sd(values)
+  plot(NA, xlim = c(0, 32), ylim = c(0, 9.6), axes = FALSE,
+       xlab = "Backpack weight (pounds)", ylab = "Number of students")
+  rect(m - s, 0, m + s, 9.0, col = fill, border = NA)
+  rect(backpack_breaks[-length(backpack_breaks)], 0,
+       backpack_breaks[-1], counts,
+       col = sd_bar_fill, border = book_colors$ink)
+  abline(v = m, col = book_colors$blue, lty = 2, lwd = 1.5)
+  axis(1, at = seq(0, 32, by = 4))
+  axis(2, at = seq(0, 9, by = 3))
+  text(0, 10.3, sprintf("%s: mean %.1f lb, s = %.1f lb", label, m, s),
+       col = book_colors$ink, cex = 0.85, adj = 0, xpd = NA)
+}
+
+plot_backpack_younger <- function() {
+  backpack_hist(backpack_younger, sd_cool_band, "Younger students (n = 25)")
+}
+render_book_figure("backpack-younger", plot_backpack_younger,
+                   width = 7.0, height = 3.6)
+
+plot_backpack_older <- function() {
+  backpack_hist(backpack_older, sd_warm_band, "Older students (n = 25)")
+}
+render_book_figure("backpack-older", plot_backpack_older,
+                   width = 7.0, height = 3.6)
+
+# -- same mean, different standard deviation ----------------------------
+sd_tight <- c(44, 46, 47, 48, 49, 50, 50, 51, 52, 53, 54, 56)
+sd_spread <- c(25, 30, 35, 40, 45, 50, 50, 55, 60, 65, 70, 75)
+
+stopifnot(
+  length(sd_tight) == 12L,
+  length(sd_spread) == 12L,
+  mean(sd_tight) == 50,
+  mean(sd_spread) == 50,
+  median(sd_tight) == 50,
+  median(sd_spread) == 50,
+  # Variances are exactly 12 and 250, so s is sqrt(12) and sqrt(250).
+  abs(var(sd_tight) - 12) < 1e-12,
+  abs(var(sd_spread) - 250) < 1e-12,
+  abs(round(sd(sd_tight), 1) - 3.5) < 1e-9,
+  abs(round(sd(sd_spread), 1) - 15.8) < 1e-9,
+  # Both bands capture 8 of 12, despite being wildly different widths.
+  sum(abs(sd_tight - 50) <= sd(sd_tight)) == 8L,
+  sum(abs(sd_spread - 50) <= sd(sd_spread)) == 8L
+)
+
+plot_same_mean <- function(values, fill, label) {
+  top <- sd_frame(values, c(20, 80), "Data value",
+                  seq(20, 80, by = 10), headroom = 2.0)
+  m <- mean(values)
+  s <- sd(values)
+  rect(m - s, -0.12, m + s, top + 0.55, col = fill, border = NA)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = m, col = book_colors$blue, lty = 2, lwd = 1.5)
+  sd_dots(values, cex = 0.95)
+  text(20, top + 1.7, sprintf("%s: mean 50, s = %.1f", label, s),
+       col = book_colors$ink, cex = 0.85, adj = 0, xpd = NA)
+}
+
+plot_sd_tight <- function() {
+  plot_same_mean(sd_tight, sd_cool_band, "Data set C")
+}
+render_book_figure("sd-tight", plot_sd_tight, width = 7.0, height = 3.0)
+
+plot_sd_spread <- function() {
+  plot_same_mean(sd_spread, sd_warm_band, "Data set D")
+}
+render_book_figure("sd-spread", plot_sd_spread, width = 7.0, height = 3.0)
+# r-figures:sec-standard-deviation:end
+
 message("All statistical figures generated successfully in ", OUT)
