@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-average-deviation">
+  <title>Measuring Spread About the Mean</title>
+
+  <objectives xml:id="objectives-average-deviation">
+    <ul>
+      <li>
+        <p>Calculate the deviations of a data set from its mean.</p>
+      </li>
+      <li>
+        <p>Explain why the deviations from the mean always add to
+        zero.</p>
+      </li>
+      <li>
+        <p>Calculate the average deviation from the mean and interpret
+        it as a typical distance.</p>
+      </li>
+      <li>
+        <p>Use an interval one average deviation on each side of the
+        mean to describe a typical range of values.</p>
+      </li>
+      <li>
+        <p>Compare the variability of two distributions using range,
+        interquartile range, and average deviation.</p>
+      </li>
+    </ul>
+  </objectives>
+
+  <introduction>
+    <p>
+      We now have two complete descriptions of a distribution that do
+      not talk to each other. In <xref ref="sec-quartiles-iqr"/> we
+      paired the median with the interquartile range: a center based on
+      position, and a spread measured about that center. In
+      <xref ref="sec-mean-median"/> we built the mean, a center based on
+      arithmetic. The mean has no partner yet.
+    </p>
+    <p>
+      This section supplies one. The question it answers is simple to
+      ask and surprisingly awkward to answer: <em>how far from the mean
+      is a typical observation?</em> The first honest attempt fails
+      outright, for a reason worth understanding, and the repair we make
+      to rescue it produces a usable measure of spread <mdash/> and
+      prepares the ground for the measure statisticians actually use.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-deviations-from-the-mean">
+    <title>Deviations from the mean</title>
+
+    <p>
+      Consider the sample data set 2, 2, 4, 5, 6, 7, 9. Its mean is
+    </p>
+
+    <md>
+      <mrow>\bar{x} = \frac{2 + 2 + 4 + 5 + 6 + 7 + 9}{7}
+        = \frac{35}{7} = 5.</mrow>
+    </md>
+
+    <figure xml:id="fig-adm-dotplot">
+      <caption>The sample data set, with the mean marked at 5.</caption>
+      <image xml:id="image-adm-dotplot" source="R-generated/adm-dotplot"
+             width="80%">
+        <description>
+          A dotplot of seven values on a horizontal axis running from 1
+          to 10. Two dots are stacked at 2, and single dots sit at 4, 5,
+          6, 7, and 9. A dashed vertical line at 5 marks the mean. Some
+          values sit almost on the line while others, in particular the
+          two 2s and the 9, sit several units away from it, so the data
+          are not all equally far from the mean.
+        </description>
+      </image>
+    </figure>
+
+    <p>
+      Some of these values sit close to the mean and some sit well away
+      from it. To describe how far the data are from the mean, we start
+      by measuring each distance separately. The <term>deviation</term>
+      of a value from the mean is the difference <m>x - \bar{x}</m>. A
+      negative deviation places the value to the left of the mean; a
+      positive deviation places it to the right.
+    </p>
+
+    <table xml:id="table-adm-deviations">
+      <title>Deviations from the mean of 5</title>
+      <tabular halign="center">
+        <row header="yes" bottom="minor">
+          <cell>Value <m>x</m></cell>
+          <cell>Deviation <m>x - \bar{x}</m></cell>
+        </row>
+        <row><cell>2</cell><cell><m>-3</m></cell></row>
+        <row><cell>2</cell><cell><m>-3</m></cell></row>
+        <row><cell>4</cell><cell><m>-1</m></cell></row>
+        <row><cell>5</cell><cell><m>0</m></cell></row>
+        <row><cell>6</cell><cell><m>+1</m></cell></row>
+        <row><cell>7</cell><cell><m>+2</m></cell></row>
+        <row bottom="minor"><cell>9</cell><cell><m>+4</m></cell></row>
+        <row><cell>Total</cell><cell><m>0</m></cell></row>
+      </tabular>
+    </table>
+
+    <figure xml:id="fig-adm-deviations">
+      <caption>Each deviation drawn as a distance from the mean. Solid
+      segments run left to values below the mean; dashed segments run
+      right to values above it.</caption>
+      <image xml:id="image-adm-deviations"
+             source="R-generated/adm-deviations" width="80%">
+        <description>
+          The same dotplot of 2, 2, 4, 5, 6, 7, 9 with a dashed vertical
+          line at the mean of 5. A horizontal segment joins each dot to
+          that line and is labeled with its signed deviation. The
+          segments reaching left to 2, 2, and 4 are solid and labeled
+          negative 3, negative 3, and negative 1. The segments reaching
+          right to 6, 7, and 9 are dashed and labeled positive 1,
+          positive 2, and positive 4. The value 5 sits on the line and
+          has no segment. The three negative labels total negative 7 and
+          the three positive labels total positive 7.
+        </description>
+      </image>
+    </figure>
+
+    <p>
+      Now the obvious move is to average the deviations. It does not
+      work. The negative deviations total <m>-7</m> and the positive
+      deviations total <m>+7</m>, so the sum is zero and so is the
+      average. This is not bad luck with this particular data set. As we
+      saw in <xref ref="sec-mean-median"/> when we described the mean as
+      a balancing point, the deviations from the mean cancel exactly for
+      <em>every</em> data set. An average of zero would tell us that
+      every distribution has no spread at all, which is plainly false.
+    </p>
+
+    <exercise xml:id="check-adm-deviation-value">
+      <statement>
+        <p>
+          A data set has mean 12. What is the deviation of the value 7
+          from the mean?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>-5</m></p></statement>
+          <feedback>
+            <p>
+              Correct. The deviation is
+              <m>x - \bar{x} = 7 - 12 = -5</m>. The sign records that 7
+              lies five units to the left of the mean.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>+5</m></p></statement>
+          <feedback>
+            <p>
+              The size is right but the sign is backward. A deviation is
+              the value minus the mean, so a value below the mean
+              produces a negative deviation. We will drop the signs
+              shortly, but not yet.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>19</m></p></statement>
+          <feedback>
+            <p>
+              This adds the value to the mean. A deviation is a
+              difference, because it is meant to measure a distance.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>12</m></p></statement>
+          <feedback>
+            <p>
+              This is the mean itself. The deviation describes where one
+              observation sits relative to the mean, not where the mean
+              sits.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-adm-sum-zero">
+      <statement>
+        <p>
+          Why can we not measure spread by averaging the deviations from
+          the mean?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>The deviations always add to zero, so their average is
+            always zero.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The mean is the balancing point of the
+              distribution, so the negative deviations always offset the
+              positive ones exactly. The average would be zero for a
+              tightly clustered data set and for a wildly scattered one
+              alike.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The deviations are usually too small to be useful.</p>
+          </statement>
+          <feedback>
+            <p>
+              Size is not the problem. Individual deviations can be
+              enormous; the difficulty is that they cancel when added.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The deviations cannot be calculated unless the data are
+            in order.</p>
+          </statement>
+          <feedback>
+            <p>
+              Ordering matters for the median and the quartiles. A
+              deviation is a subtraction and can be computed for the
+              values in any arrangement.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Averaging requires dividing by <m>n - 1</m>, not
+            <m>n</m>.</p>
+          </statement>
+          <feedback>
+            <p>
+              That divisor will appear in the next section, and it does
+              not rescue this calculation. Dividing zero by anything
+              still leaves zero.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-average-deviation">
+    <title>The average deviation from the mean</title>
+
+    <p>
+      We wanted distances, and distances are never negative. The
+      cancellation happened only because we kept the signs. So we drop
+      them: take the absolute value of each deviation, and average
+      those.
+    </p>
+
+    <md>
+      <mrow>\frac{|{-3}| + |{-3}| + |{-1}| + |0| + |1| + |2| + |4|}{7}
+        = \frac{3 + 3 + 1 + 0 + 1 + 2 + 4}{7}
+        = \frac{14}{7} = 2.</mrow>
+    </md>
+
+    <p>
+      This number is the <term>average deviation from the mean</term>,
+      abbreviated <term>ADM</term>. In symbols,
+    </p>
+
+    <md>
+      <mrow>\text{ADM} = \frac{\sum |x - \bar{x}|}{n}.</mrow>
+    </md>
+
+    <p>
+      Read it literally: an ADM of 2 says that the values of this data
+      set sit, on average, 2 units away from the mean. Notice that the
+      ADM carries the same units as the data. If these were dollars, the
+      ADM would be $2; if they were grams, 2 grams. Notice also that the
+      ADM can never be negative, and that it equals zero exactly when
+      every value is identical <mdash/> the only case in which no
+      observation is any distance from the mean at all.
+    </p>
+
+    <example xml:id="ex-adm-quiz">
+      <title>Calculating an ADM</title>
+      <statement>
+        <p>
+          Four quiz scores are 6, 7, 11, and 16. Find the average
+          deviation from the mean.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First the mean:
+          <m>\bar{x} = (6 + 7 + 11 + 16)/4 = 40/4 = 10</m>.
+        </p>
+        <p>
+          The deviations are <m>-4</m>, <m>-3</m>, <m>+1</m>, and
+          <m>+6</m>, which add to zero as they must. Their absolute
+          values are 4, 3, 1, and 6, so
+        </p>
+        <md>
+          <mrow>\text{ADM} = \frac{4 + 3 + 1 + 6}{4}
+            = \frac{14}{4} = 3.5.</mrow>
+        </md>
+        <p>
+          A typical quiz score sits about 3.5 points from the mean of
+          10.
+        </p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-adm-compute">
+      <statement>
+        <p>
+          A data set has mean 20, and the absolute deviations of its
+          five values from the mean are 0, 2, 3, 7, and 8. What is the
+          ADM?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p>4</p></statement>
+          <feedback>
+            <p>
+              Correct. The absolute deviations total 20, and
+              <m>20/5 = 4</m>. A typical value sits 4 units from the
+              mean.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>20</p></statement>
+          <feedback>
+            <p>
+              That is the total of the absolute deviations, and also,
+              coincidentally, the mean. The ADM divides that total by
+              <m>n</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>5</p></statement>
+          <feedback>
+            <p>
+              This divides by 4 rather than by 5. Every value
+              contributes a distance, including the one whose distance
+              is 0, so divide by the full count.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>0</p></statement>
+          <feedback>
+            <p>
+              Zero is what we get from averaging the <em>signed</em>
+              deviations. Taking absolute values first is exactly what
+              prevents the cancellation.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-adm-negative">
+      <statement>
+        <p>
+          True or false: a data set with a great deal of variability can
+          have a negative ADM.
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement><p>True</p></statement>
+          <feedback>
+            <p>
+              The ADM averages absolute values, and an absolute value is
+              never negative, so the ADM is never negative no matter how
+              scattered the data are. The smallest value it can take is
+              0, which happens only when every observation equals the
+              mean.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p>False</p></statement>
+          <feedback>
+            <p>
+              Correct. Every term in the sum is an absolute value, so
+              the ADM is always zero or positive. A large ADM signals a
+              lot of variability; a negative one is impossible.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-adm-typical-range">
+    <title>A typical range of values about the mean</title>
+
+    <p>
+      The IQR gave us more than a number: the interval from <m>Q_1</m>
+      to <m>Q_3</m> located the middle half of the data. The ADM does
+      something similar for the mean. Mark the mean, then mark one ADM
+      below it and one ADM above it. For our sample that interval runs
+      from <m>5 - 2 = 3</m> to <m>5 + 2 = 7</m>.
+    </p>
+
+    <figure xml:id="fig-adm-band">
+      <caption>The interval one ADM on each side of the mean, from 3
+      to 7.</caption>
+      <image xml:id="image-adm-band" source="R-generated/adm-band"
+             width="80%">
+        <description>
+          The dotplot of 2, 2, 4, 5, 6, 7, 9 with a shaded horizontal
+          band stretching from 3 to 7, centered on the dashed mean line
+          at 5. The values 4, 5, and 6 fall strictly inside the band and
+          7 sits on its right edge, while the two dots at 2 and the dot
+          at 9 lie outside it. Four of the seven values therefore sit
+          within one average deviation of the mean, so the band captures
+          a majority of the data.
+        </description>
+      </image>
+    </figure>
+
+    <p>
+      This interval is centered at the mean, and its width is set by how
+      scattered the data are. Three of the seven values lie strictly
+      inside it and a fourth sits on its right endpoint, so the band
+      captures the bulk of the distribution. We call it a typical range
+      of values about the mean, in the same spirit as the typical range
+      from <m>Q_1</m> to <m>Q_3</m>.
+    </p>
+
+    <p>
+      The band is also what makes the ADM readable off a graph. Given a
+      dotplot or a histogram, locate the mean by eye, then ask how wide
+      an interval around it would be needed to catch most of the data.
+      Half that width is a serviceable estimate of the ADM. A
+      distribution whose values huddle near the mean has a narrow band
+      and a small ADM; one whose values sprawl has a wide band and a
+      large ADM.
+    </p>
+
+    <exercise xml:id="check-adm-band-meaning">
+      <statement>
+        <p>
+          A data set has mean 40 and ADM 6. Which statement best
+          describes the interval from 34 to 46?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>It is a typical range of values, extending one average
+            deviation on each side of the mean.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The interval is centered at the mean and its
+              half-width is the ADM, so it captures the values sitting a
+              typical distance from the center.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It contains exactly half the observations.</p>
+          </statement>
+          <feedback>
+            <p>
+              That guarantee belongs to the interval from <m>Q_1</m> to
+              <m>Q_3</m>. The ADM band usually holds more than half the
+              data, but the exact fraction depends on the distribution.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It contains every observation in the data set.</p>
+          </statement>
+          <feedback>
+            <p>
+              Values farther than one ADM from the mean must exist
+              whenever the data are not all identical <mdash/> otherwise
+              the average distance could not be as large as 6.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It runs from the minimum to the maximum.</p>
+          </statement>
+          <feedback>
+            <p>
+              That interval is the range, and it is built from the two
+              most extreme observations rather than from the mean and a
+              typical distance.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-comparing-spread-measures">
+    <title>Three ways to measure variability</title>
+
+    <p>
+      We now have three numerical measures of spread: the range, the
+      IQR, and the ADM. They answer different questions, and the
+      clearest way to see the difference is to put all three to work on
+      the same comparison.
+    </p>
+
+    <p>
+      <xref ref="fig-potassium-children"/> and
+      <xref ref="fig-potassium-adult"/> show the potassium content of 76
+      breakfast cereals, split into those marketed to children and those
+      marketed to adults. Both plots use the same horizontal scale, so
+      distances may be compared directly.
+    </p>
+
+    <figure xml:id="fig-potassium-children">
+      <caption>Potassium content of 30 children's cereals, with the mean
+      and the ADM band marked. These are not the same cereals sampled in
+      earlier sections.</caption>
+      <image xml:id="image-potassium-children"
+             source="R-generated/potassium-children" width="90%">
+        <description>
+          A dotplot of potassium content for 30 children's cereals on an
+          axis running from 0 to 340 milligrams per serving. The values
+          run from 20 to 110 milligrams and are concentrated between 20
+          and 65, with a thin scatter of four cereals between 85 and
+          110. A dashed vertical line marks the mean near 54 milligrams,
+          and a shaded band about 22 milligrams wide on each side of it
+          covers roughly 32 to 76 milligrams. Compared with the adult
+          cereals plotted on the same scale, these values occupy only
+          the left portion of the axis.
+        </description>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-potassium-adult">
+      <caption>Potassium content of 46 adult cereals, on the same
+      scale.</caption>
+      <image xml:id="image-potassium-adult"
+             source="R-generated/potassium-adult" width="90%">
+        <description>
+          A dotplot of potassium content for 46 adult cereals on the
+          same axis from 0 to 340 milligrams per serving. The values run
+          from 15 to 330 milligrams, with the bulk between 85 and 160
+          and a long thin tail reaching to the right through 200, 250,
+          and 330. A dashed vertical line marks the mean near 134
+          milligrams, and a shaded band about 55 milligrams wide on each
+          side of it covers roughly 79 to 189 milligrams. Both the
+          overall spread and the shaded band are far wider than for the
+          children's cereals.
+        </description>
+      </image>
+    </figure>
+
+    <example xml:id="ex-potassium-spread">
+      <title>Measuring variability in three ways</title>
+      <statement>
+        <p>
+          Which group of cereals is more variable in potassium content?
+          Answer using the range, the IQR, and the ADM.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          All three measures agree that the adult cereals are more
+          variable, but each one measures something different.
+        </p>
+        <table xml:id="table-potassium-spread">
+          <title>Three measures of spread, in milligrams per
+          serving</title>
+          <tabular halign="center">
+            <row header="yes" bottom="minor">
+              <cell>Measure</cell>
+              <cell>Children's</cell>
+              <cell>Adult</cell>
+            </row>
+            <row>
+              <cell>Range</cell>
+              <cell><m>110 - 20 = 90</m></cell>
+              <cell><m>330 - 15 = 315</m></cell>
+            </row>
+            <row>
+              <cell><m>Q_1</m>, <m>Q_3</m></cell>
+              <cell>35, 65</cell>
+              <cell>80, 160</cell>
+            </row>
+            <row>
+              <cell>IQR</cell>
+              <cell><m>65 - 35 = 30</m></cell>
+              <cell><m>160 - 80 = 80</m></cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>about 54</cell>
+              <cell>about 134</cell>
+            </row>
+            <row>
+              <cell>ADM</cell>
+              <cell>about 22</cell>
+              <cell>about 55</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          The <em>range</em> compares the two extremes and nothing else:
+          the adult cereals span 315 milligrams against 90. The
+          <em>IQR</em> compares the middle halves and pairs with the
+          median: 80 milligrams against 30. The <em>ADM</em> compares
+          average distances from the mean and pairs with the mean: a
+          typical adult cereal sits about 55 milligrams from its group
+          mean, while a typical children's cereal sits about 22
+          milligrams from its own. An adult cereal is roughly two and a
+          half times as unpredictable as a children's cereal by
+          whichever yardstick we choose.
+        </p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-adm-vs-iqr">
+      <statement>
+        <p>
+          Which pairing of a center with a measure of spread is the
+          natural one?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Median with IQR, and mean with ADM.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. The IQR is built from quartiles, which are
+              positions in the ordered data, exactly as the median is.
+              The ADM is built from distances to the mean. Each spread
+              measure is defined relative to its own center.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Median with ADM, and mean with IQR.</p>
+          </statement>
+          <feedback>
+            <p>
+              This swaps them. The ADM measures distance from the mean
+              specifically, and the quartiles that produce the IQR
+              surround the median.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Either center with either spread, since all four describe
+            the same distribution.</p>
+          </statement>
+          <feedback>
+            <p>
+              They do describe the same distribution, but a measure of
+              spread is meaningful only about the center it is defined
+              from. Reporting an ADM alongside a median invites the
+              reader to combine two numbers that are not about the same
+              point.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>Mean with range, and median with ADM.</p>
+          </statement>
+          <feedback>
+            <p>
+              The range is not tied to any center at all; it uses only
+              the two extreme values. And the ADM is computed from the
+              mean, not the median.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+
+  <subsection xml:id="subsec-range-and-adm-disagree">
+    <title>When range and ADM disagree</title>
+
+    <p>
+      The cereal comparison was comfortable because all three measures
+      pointed the same way. They need not. The range and the ADM can
+      give opposite answers to the question <q>which data set is more
+      variable?</q>, and the reason is worth seeing.
+    </p>
+
+    <figure xml:id="fig-spread-set-a">
+      <caption>Data set A: a small range, but the data sit far from the
+      mean.</caption>
+      <image xml:id="image-spread-set-a"
+             source="R-generated/spread-set-a" width="85%">
+        <description>
+          A dotplot of ten values on an axis from 0 to 200. Four dots
+          are stacked at 0, single dots sit at 45 and 55, and four dots
+          are stacked at 100. The distribution is U-shaped, with the
+          data piled at the two ends and almost nothing in the middle. A
+          dashed line marks the mean at 50, and a shaded band 41 units
+          wide on each side runs from 9 to 91, containing only the two
+          middle values. The overall range is 100.
+        </description>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-spread-set-b">
+      <caption>Data set B: a large range, but the data cluster tightly
+      at the mean.</caption>
+      <image xml:id="image-spread-set-b"
+             source="R-generated/spread-set-b" width="85%">
+        <description>
+          A dotplot of ten values on the same axis from 0 to 200. Eight
+          values cluster tightly between 92 and 108, with a single
+          isolated value at 0 and another at 200. A dashed line marks
+          the mean at 100, and a shaded band 23 units wide on each side
+          runs from 77 to 123, containing all eight of the clustered
+          values. The overall range is 200, twice that of data set A,
+          yet almost all the data lie close to the mean.
+        </description>
+      </image>
+    </figure>
+
+    <example xml:id="ex-range-adm-conflict">
+      <title>Comparing range and ADM</title>
+      <statement>
+        <p>
+          Data set A has range 100 and ADM 41. Data set B has range 200
+          and ADM 23. Which data set has more variability?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The answer depends on what we mean by variability, which is
+          precisely the point.
+        </p>
+        <p>
+          By the <em>range</em>, data set B wins: its values span 200
+          units against A's 100. But the range is built from two
+          observations, and in B those two are a lone 0 and a lone 200.
+          The other eight values huddle between 92 and 108.
+        </p>
+        <p>
+          By the <em>ADM</em>, data set A wins, and by a wide margin: 41
+          against 23. Almost every value in A sits about 50 units from
+          the mean, because the data are piled at the two ends with
+          nothing in between. Almost every value in B sits within a
+          handful of units of the mean. A typical observation in A
+          really is much farther from its center than a typical
+          observation in B.
+        </p>
+        <p>
+          The range reports how far apart the two extremes are. The ADM
+          reports how far a typical value is from the center. When the
+          extremes are unrepresentative, those two questions have
+          different answers.
+        </p>
+      </solution>
+    </example>
+
+    <exercise xml:id="check-adm-range-conflict">
+      <statement>
+        <p>
+          A data set has a large range but a small ADM. What does this
+          combination most likely indicate?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>Most values cluster near the mean, with one or two far
+            from it.</p>
+          </statement>
+          <feedback>
+            <p>
+              Correct. A couple of distant values stretch the range
+              without pulling up the average distance much, because the
+              average is taken over every observation and most of them
+              are close in.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The values are evenly spread from the minimum to the
+            maximum.</p>
+          </statement>
+          <feedback>
+            <p>
+              An even spread across a wide range would place many values
+              far from the center, which produces a large ADM, not a
+              small one.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>The data are piled at the two ends with a gap in the
+            middle.</p>
+          </statement>
+          <feedback>
+            <p>
+              That shape produces a large ADM, since nearly every value
+              sits far from the center. It is data set A in
+              <xref ref="ex-range-adm-conflict"/>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>A calculation error has been made, since the range and
+            the ADM must agree.</p>
+          </statement>
+          <feedback>
+            <p>
+              They are free to disagree. They summarize different
+              features, which is why reporting only one of them can
+              mislead.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-adm-interpret">
+      <statement>
+        <p>
+          Two classes take the same exam. Class A has mean 74 and ADM 4;
+          class B has mean 74 and ADM 15. In two or three sentences,
+          describe the difference between these classes, and state what
+          the two ADMs do <em>not</em> tell you.
+        </p>
+        <response/>
+      </statement>
+      <solution>
+        <p>
+          The two classes performed the same on average, but class B is
+          far less consistent: a typical student in class A scored about
+          4 points from 74, roughly between 70 and 78, while a typical
+          student in class B scored about 15 points away, roughly
+          between 59 and 89. The ADMs say nothing about shape, so class
+          B could be uniformly scattered or could consist of two
+          separate groups, one strong and one struggling. They also say
+          nothing about any individual score, and nothing about whether
+          a single extreme result is responsible for class B's larger
+          value.
+        </p>
+        <p>
+          An adequate answer states that both classes have the same
+          center but that class B is more variable, and uses the ADM to
+          describe a typical distance. A strong answer also builds the
+          typical range for each class from mean and ADM, and names at
+          least one feature the ADM cannot reveal <mdash/> shape,
+          individual values, or the influence of a single extreme
+          observation.
+        </p>
+      </solution>
+    </exercise>
+  </subsection>
+
+  <conclusion xml:id="summary-average-deviation">
+    <p>
+      The deviation of a value from the mean is <m>x - \bar{x}</m>.
+      Deviations cannot simply be averaged, because they add to zero for
+      every data set. Taking absolute values first removes the
+      cancellation and produces the average deviation from the mean,
+      <m>\text{ADM} = \sum |x - \bar{x}| \, / \, n</m>, which measures
+      how far a typical observation sits from the mean and carries the
+      same units as the data.
+    </p>
+    <p>
+      Marking one ADM on each side of the mean produces a typical range
+      of values about the mean, the counterpart of the interval from
+      <m>Q_1</m> to <m>Q_3</m>. The ADM pairs with the mean just as the
+      IQR pairs with the median, and reading the width of that band off
+      a graph gives a usable estimate of the ADM without any arithmetic.
+    </p>
+    <p>
+      Range, IQR, and ADM measure different things and can disagree. The
+      range depends on two observations, the IQR on the middle half, and
+      the ADM on the distance of every observation from the center. A
+      large range with a small ADM is the signature of a tight cluster
+      with a stray value or two.
+    </p>
+    <p>
+      In practice the ADM itself is rarely reported. Its importance is
+      that the measure statisticians do use, the standard deviation,
+      behaves almost exactly like it <mdash/> which is the subject of
+      the next section.
+    </p>
+    <p>
+      Adapted from <em>Concepts in Statistics</em> (SUNY / Lumen
+      Learning), CC BY 4.0. The cereal potassium values and the two
+      contrasting data sets are reconstructed to reproduce the ranges,
+      quartiles, and average deviations published in the source; the
+      underlying observations are not supplied there.
+    </p>
+  </conclusion>
+</section>

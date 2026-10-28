@@ -33,9 +33,9 @@
     <title>What an outlier does to each measure</title>
 
     <p>
-      A student has 26 homework scores. Twenty-five of them fall
-      between 80 and 90, which is solid B work. One assignment
-      was never turned in and recorded as 0.
+      A student has 26 homework scores. Twenty-five of them run
+      from 72 to 95 and cluster in the middle 80s, which is solid B
+      work. One assignment was never turned in and recorded as 0.
     </p>
 
     <figure xml:id="fig-outlier-scores">
@@ -43,14 +43,15 @@
       outlier at 0.</caption>
       <image xml:id="image-outlier-scores" width="90%" source="R-generated/outlier-scores">
         <description>
-          A dotplot of 26 homework scores. Twenty-five dots form
-          a single tight mound between 80 and 90, tallest at 84
-          where six dots stack up, tapering to one dot each at
-          80, 81, 89, and 90. Far to the left, separated by a
-          gap of eighty points with nothing in it, sits a single
-          dot at 0. The median of 84.5 falls inside the mound,
-          while the mean of 81.8 is pulled to the left of the
-          mound, toward the lone low score.
+          A dotplot of 26 homework scores. Twenty-five dots form a
+          single mound running from 72 to 95, tallest at 84 where
+          three dots stack up, with most of the scores falling
+          between 80 and 92. Far to the left, separated by a gap of
+          more than seventy points with nothing in it, sits a single
+          dot at 0. A dashed line marks the mean at 81.8, which the
+          lone zero has dragged to the left of the mound, while a
+          dotted line marks the median at 84.5, which still sits
+          inside it.
         </description>
       </image>
     </figure>
@@ -71,7 +72,7 @@
           of the remaining 25 scores is 85, barely different
           from 84.5, while their mean is 85.1, more than three
           points above 81.8. The single missing assignment moves
-          the mean six times as far as it moves the median.
+          the mean more than six times as far as it moves the median.
         </p>
         <p>
           The reason is structural. The median depends only on
@@ -81,7 +82,7 @@
           total, so every score, however extreme, gets a vote
           proportional to its size. At 81.8 the mean suggests
           this student is a shaky B, which misrepresents
-          twenty-five assignments of consistent work.
+          twenty-five assignments of solid B work.
         </p>
       </solution>
     </example>

@@ -253,13 +253,46 @@ render_book_figure(
 )
 # r-figures:sec-mean-median:end
 
-# r-figures:sec-choosing-center:start
-# ---- ch-data-display / sec-choosing-center ---------------
-# Reconstructed data; see SOURCES.md.
-hw26 <- c(0, 80, 81, 82, 82, 83, 83, rep(84, 6), 85, 85,
-          86, 86, 86, 87, 87, 87, 88, 88, 88, 89, 90)
-stopifnot(length(hw26) == 26L, sum(hw26) == 2127,
-          median(hw26) == 84.5)
+# Reconstructed homework data; see SOURCES.md.  These 26 integer scores
+# reproduce every value the source publishes for this student across all
+# four Standard Deviation pages:
+#   mean 81.8, median 84.5, Q1 82, Q3 89, IQR 7, sample SD 17.6.
+# Quartiles use fivenum(), the hinge convention used elsewhere in this book
+# and verified against the published Best Actress five-number summary.
+hw26 <- c(0, 72, 74, 77, 80, 81, 82, 82, 83, 83, 84, 84, 84,
+          85, 85, 86, 87, 87, 88, 89, 90, 91, 92, 92, 94, 95)
+
+stopifnot(
+  length(hw26) == 26L,
+  !is.unsorted(hw26),
+  sum(hw26 == 0) == 1L,
+  sum(hw26) == 2127,
+  min(hw26[hw26 > 0]) == 72,
+  max(hw26) == 95,
+  abs(mean(hw26) - 81.80769) < 1e-5,
+  abs(round(mean(hw26), 1) - 81.8) < 1e-9,
+  median(hw26) == 84.5,
+  unname(fivenum(hw26))[2] == 82,
+  unname(fivenum(hw26))[4] == 89,
+  unname(fivenum(hw26))[4] - unname(fivenum(hw26))[2] == 7,
+  abs(round(sd(hw26), 1) - 17.6) < 1e-9,
+  # Dropping the outlier: the contrast the source asserts but never computes.
+  abs(round(mean(hw26[hw26 > 0]), 1) - 85.1) < 1e-9,
+  median(hw26[hw26 > 0]) == 85,
+  abs(round(sd(hw26[hw26 > 0]), 1) - 5.8) < 1e-9,
+  # Correcting the 0 to an 85: the scenario in check-outlier-correction.
+  abs(round(mean(c(hw26[hw26 > 0], 85)), 1) - 85.1) < 1e-9,
+  median(c(hw26[hw26 > 0], 85)) == 85
+)
+
+message("hw26: mean=", round(mean(hw26), 3),
+        " median=", median(hw26),
+        " Q1=", unname(fivenum(hw26))[2],
+        " Q3=", unname(fivenum(hw26))[4],
+        " sd=", round(sd(hw26), 3))
+message("hw26 without the zero: mean=", round(mean(hw26[hw26 > 0]), 2),
+        " median=", median(hw26[hw26 > 0]),
+        " sd=", round(sd(hw26[hw26 > 0]), 2))
 message("Homework mean=", mean(hw26), ", median=", median(hw26))
 message("Without zero: mean=", mean(hw26[-1]),
         ", median=", median(hw26[-1]))
@@ -706,5 +739,218 @@ plot_oscar_side_by_side <- function() {
 render_book_figure("oscar-side-by-side-boxplots", plot_oscar_side_by_side,
                    width = 7.5, height = 3.7)
 # r-figures:sec-comparing-boxplots:end
+
+# r-figures:sec-average-deviation:start
+# ---- ch-data-display / sec-average-deviation --------------------------
+average_deviation <- function(x) mean(abs(x - mean(x)))
+
+adm_green <- "#2E7D4F"
+adm_band_fill <- "#DCE7F2"
+
+adm_frame <- function(values, xlim, xlabel, ticks, headroom = 1.5) {
+  book_par()
+  top <- max(table(values))
+  plot(NA, xlim = xlim, ylim = c(-0.7, top + headroom), axes = FALSE,
+       xlab = xlabel, ylab = "")
+  axis(1, at = ticks)
+  invisible(top)
+}
+
+adm_dots <- function(values, cex = 0.9) {
+  tab <- table(values)
+  xs <- as.numeric(names(tab))
+  for (j in seq_along(xs)) {
+    points(rep(xs[j], tab[j]), seq_len(tab[j]), pch = 21,
+           bg = book_colors$ink, col = book_colors$ink, cex = cex)
+  }
+  invisible(max(tab))
+}
+
+# -- teaching sample, used for every worked calculation in the section --
+adm_sample <- c(2, 2, 4, 5, 6, 7, 9)
+adm_sample_mean <- mean(adm_sample)
+adm_sample_adm <- average_deviation(adm_sample)
+stopifnot(
+  length(adm_sample) == 7L,
+  adm_sample_mean == 5,
+  sum(adm_sample - adm_sample_mean) == 0,
+  sum(abs(adm_sample - adm_sample_mean)) == 14,
+  adm_sample_adm == 2,
+  # The band [3, 7] holds 4, 5, 6, 7: four of the seven values, with 7 on
+  # the right endpoint.  The section prose and the figure description both
+  # state four, so this assertion guards against them drifting.
+  sum(adm_sample >= 3 & adm_sample <= 7) == 4L,
+  sum(adm_sample > 3 & adm_sample < 7) == 3L
+)
+
+plot_adm_dotplot <- function() {
+  top <- adm_frame(adm_sample, c(1, 10), "Data value", 1:10)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = adm_sample_mean, col = book_colors$blue, lty = 2, lwd = 1.5)
+  adm_dots(adm_sample)
+  text(adm_sample_mean, top + 1.15, "mean 5",
+       col = book_colors$blue, cex = 0.9, xpd = NA)
+}
+render_book_figure("adm-dotplot", plot_adm_dotplot, width = 6.5, height = 3.2)
+
+plot_adm_deviations <- function() {
+  top <- adm_frame(adm_sample, c(1, 10), "Data value", 1:10, headroom = 1.8)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = adm_sample_mean, col = book_colors$blue, lty = 2, lwd = 1.5)
+  tab <- table(adm_sample)
+  xs <- as.numeric(names(tab))
+  for (j in seq_along(xs)) {
+    d <- xs[j] - adm_sample_mean
+    for (i in seq_len(tab[j])) {
+      if (d != 0) {
+        segments(adm_sample_mean, i, xs[j], i,
+                 col = if (d < 0) book_colors$red else adm_green,
+                 lty = if (d < 0) 1 else 5, lwd = 1.8)
+        text((adm_sample_mean + xs[j]) / 2, i + 0.3,
+             sprintf("%+d", as.integer(d)),
+             col = if (d < 0) book_colors$red else adm_green, cex = 0.75)
+      }
+      points(xs[j], i, pch = 21, bg = book_colors$ink,
+             col = book_colors$ink, cex = 0.9)
+    }
+  }
+  text(adm_sample_mean, top + 1.45, "mean 5",
+       col = book_colors$blue, cex = 0.9, xpd = NA)
+}
+render_book_figure("adm-deviations", plot_adm_deviations,
+                   width = 6.5, height = 3.5)
+
+plot_adm_band <- function() {
+  top <- adm_frame(adm_sample, c(1, 10), "Data value", 1:10, headroom = 1.9)
+  rect(adm_sample_mean - adm_sample_adm, -0.12,
+       adm_sample_mean + adm_sample_adm, top + 0.55,
+       col = adm_band_fill, border = NA)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = adm_sample_mean, col = book_colors$blue, lty = 2, lwd = 1.5)
+  adm_dots(adm_sample)
+  text(adm_sample_mean - adm_sample_adm, top + 0.95, "3",
+       col = book_colors$ink, cex = 0.85, xpd = NA)
+  text(adm_sample_mean + adm_sample_adm, top + 0.95, "7",
+       col = book_colors$ink, cex = 0.85, xpd = NA)
+  text(adm_sample_mean, top + 1.6, "mean 5, ADM 2",
+       col = book_colors$blue, cex = 0.9, xpd = NA)
+}
+render_book_figure("adm-band", plot_adm_band, width = 6.5, height = 3.5)
+
+# -- cereal potassium, 76 cereals; reconstructed, see SOURCES.md --------
+potassium_children <- c(
+  20, 20, 20, 25, 25, 30, 30, 35, 35, 35, 38, 40, 42, 45, 48,
+  50, 55, 58, 60, 62, 64, 65, 65, 70, 85, 95, 100, 100, 105, 110
+)
+potassium_adult <- c(
+  15, 25, 35, 45, 55, 60, 65, 70, 72, 75, 78, 80,
+  85, 90, 95, 100, 100, 105, 110, 110, 115, 120, 120, 125,
+  130, 130, 135, 140, 140, 145, 150, 150, 155, 155, 160,
+  170, 180, 190, 200, 210, 230, 250, 270, 285, 300, 330
+)
+potassium_children_hinges <- unname(fivenum(potassium_children))
+potassium_adult_hinges <- unname(fivenum(potassium_adult))
+
+stopifnot(
+  length(potassium_children) == 30L,
+  length(potassium_adult) == 46L,
+  length(potassium_children) + length(potassium_adult) == 76L,
+  !is.unsorted(potassium_children),
+  !is.unsorted(potassium_adult),
+  diff(range(potassium_children)) == 90,
+  diff(range(potassium_adult)) == 315,
+  potassium_children_hinges[2] == 35,
+  potassium_children_hinges[4] == 65,
+  potassium_adult_hinges[2] == 80,
+  potassium_adult_hinges[4] == 160,
+  median(potassium_children) == 49,
+  median(potassium_adult) == 122.5,
+  round(mean(potassium_children)) == 54,
+  round(mean(potassium_adult)) == 134,
+  # Published ADMs are 22 and 55; the reconstruction gives 22.16 and 55.17.
+  abs(average_deviation(potassium_children) - 22) < 0.5,
+  abs(average_deviation(potassium_adult) - 55) < 0.5
+)
+
+message("Potassium children: mean=", round(mean(potassium_children), 2),
+        " ADM=", round(average_deviation(potassium_children), 2),
+        " Q1=", potassium_children_hinges[2],
+        " Q3=", potassium_children_hinges[4])
+message("Potassium adult:    mean=", round(mean(potassium_adult), 2),
+        " ADM=", round(average_deviation(potassium_adult), 2),
+        " Q1=", potassium_adult_hinges[2],
+        " Q3=", potassium_adult_hinges[4])
+
+plot_potassium_group <- function(values, label, fill) {
+  top <- adm_frame(values, c(0, 345), "Potassium (mg per serving)",
+                   seq(0, 340, by = 40), headroom = 2.1)
+  m <- mean(values)
+  a <- average_deviation(values)
+  rect(m - a, -0.12, m + a, top + 0.55, col = fill, border = NA)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = m, col = book_colors$blue, lty = 2, lwd = 1.5)
+  adm_dots(values, cex = 0.8)
+  text(0, top + 1.75,
+       sprintf("%s: mean %.0f, ADM %.0f", label, m, a),
+       col = book_colors$ink, cex = 0.85, adj = 0, xpd = NA)
+}
+
+plot_potassium_children <- function() {
+  plot_potassium_group(potassium_children, "Children's cereals (n = 30)",
+                       adm_band_fill)
+}
+render_book_figure("potassium-children", plot_potassium_children,
+                   width = 7.5, height = 3.4)
+
+plot_potassium_adult <- function() {
+  plot_potassium_group(potassium_adult, "Adult cereals (n = 46)", "#E8DCCB")
+}
+render_book_figure("potassium-adult", plot_potassium_adult,
+                   width = 7.5, height = 3.4)
+
+# -- two sets in which overall range and ADM disagree -------------------
+spread_set_a <- c(0, 0, 0, 0, 45, 55, 100, 100, 100, 100)
+spread_set_b <- c(0, 92, 95, 98, 100, 100, 102, 105, 108, 200)
+stopifnot(
+  length(spread_set_a) == 10L,
+  length(spread_set_b) == 10L,
+  mean(spread_set_a) == 50,
+  mean(spread_set_b) == 100,
+  diff(range(spread_set_a)) == 100,
+  diff(range(spread_set_b)) == 200,
+  average_deviation(spread_set_a) == 41,
+  average_deviation(spread_set_b) == 23,
+  # Band contents, asserted because the figure descriptions state them.
+  sum(abs(spread_set_a - 50) <= 41) == 2L,
+  sum(abs(spread_set_b - 100) <= 23) == 8L
+)
+
+plot_spread_set <- function(values, label, fill) {
+  top <- adm_frame(values, c(-12, 212), "Data value",
+                   seq(0, 200, by = 25), headroom = 2.1)
+  m <- mean(values)
+  a <- average_deviation(values)
+  rect(m - a, -0.12, m + a, top + 0.55, col = fill, border = NA)
+  abline(h = 0, col = book_colors$ink)
+  abline(v = m, col = book_colors$blue, lty = 2, lwd = 1.5)
+  adm_dots(values, cex = 0.95)
+  text(-12, top + 1.75,
+       sprintf("%s: mean %.0f, range %.0f, ADM %.0f",
+               label, m, diff(range(values)), a),
+       col = book_colors$ink, cex = 0.85, adj = 0, xpd = NA)
+}
+
+plot_spread_set_a <- function() {
+  plot_spread_set(spread_set_a, "Data set A", adm_band_fill)
+}
+render_book_figure("spread-set-a", plot_spread_set_a,
+                   width = 7.0, height = 3.2)
+
+plot_spread_set_b <- function() {
+  plot_spread_set(spread_set_b, "Data set B", "#E8C9C9")
+}
+render_book_figure("spread-set-b", plot_spread_set_b,
+                   width = 7.0, height = 3.2)
+# r-figures:sec-average-deviation:end
 
 message("All statistical figures generated successfully in ", OUT)

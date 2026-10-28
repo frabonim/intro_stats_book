@@ -19,6 +19,7 @@ Excluded by policy: all **StatTutor** and **Assignment** pages.
 | | Histograms (4 of 4) | `sec-comparing-distributions` | done |
 | | Mean and Median (1 of 2) | `sec-mean-median` | done |
 | | Mean and Median (2 of 2) | `sec-choosing-center` | done |
+| | Standard Deviation (1 of 4) | `sec-average-deviation` | done |
 | | Interquartile Range and Boxplots (1 of 3) | `sec-quartiles-iqr` | done |
 | | Interquartile Range and Boxplots (2 of 3) | `sec-boxplots` | done |
 | | Interquartile Range and Boxplots (3 of 3) | `sec-comparing-boxplots` | done |
@@ -117,13 +118,35 @@ without qualification; an ordering error check.
 ### Mean and Median (2 of 2)
 `/chapter/mean-and-median-2-of-2` → `sec-choosing-center`
 
-**Mean of 81.8 is not attainable from 26 integer scores.**
-No integer total divides by 26 to exactly 81.8; the source
-reports a rounded value and never publishes the data.
-Reconstructed 26 scores totaling 2127 — mean 81.81, median
-exactly 84.5, one score of 0, remaining 25 spanning 80–90 as
-described. Removing the 0 gives mean 85.08, median 85, which
-is the contrast the source asserts but does not compute.
+**Homework scores reconstructed to satisfy all four source pages.**
+The source never publishes these 26 scores and reports only rounded
+summaries. Standard Deviation (4 of 4) supplies further anchors for the
+same student: Q1 82, Q3 89, IQR 7, and SD 17.6. An SD of 17.6 is
+arithmetically impossible if the twenty-five non-zero scores all lie
+between 80 and 90, so the earlier reconstruction was replaced rather
+than extended.
+
+Current dataset (26 integers, total 2127):
+
+    0, 72, 74, 77, 80, 81, 82, 82, 83, 83, 84, 84, 84,
+    85, 85, 86, 87, 87, 88, 89, 90, 91, 92, 92, 94, 95
+
+It reproduces every published value: mean 81.808 (reported as 81.8),
+median 84.5, Q1 82, Q3 89, IQR 7, and sample standard deviation 17.616
+(reported as 17.6). Quartiles use `fivenum()`, the hinge convention
+verified against the published Best Actress five-number summary used in
+`sec-boxplots`; R's default `quantile(type = 7)` does not reproduce that
+summary. Removing the 0 gives mean 85.08, median 85, SD 5.77 - the
+contrast the source asserts but does not compute. Correcting the 0 to an
+85 gives mean 85.08 and median 85, as `check-outlier-correction` states.
+The zero moves the mean 3.27 points but the median only 0.5, a ratio of
+just over six to one.
+
+Dependent material reconciled in the same pass: the prose claim that the
+twenty-five non-zero scores lie between 80 and 90 (they now run 72 to
+95), the `image-outlier-scores` description, and the assertions in
+`tools/figures.R`. The figure itself was migrated off embedded Asymptote,
+which had the old scores hardcoded in the diagram source.
 
 **Ten-score illustration unspecified.** Source says a zero
 among 10 scores moves the mean "into the C grade range" but
@@ -171,6 +194,50 @@ The source publishes the Best Actress summary and the Best Actor summary `31, 37
 
 **Graphics.** The three sections use six R-generated figures. `tools/figures.R` generates matching SVG/PDF assets under `assets/R-generated/` using section-owned marker blocks and asserts all published numerical anchors. Broken Learn By Doing widgets are replaced with native PreTeXt reading checks.
 <!-- batch:iqr-boxplots:end -->
+
+<!-- section:sec-average-deviation:start -->
+### Standard Deviation (1 of 4)
+`/chapter/standard-deviation-1-of-4` → `sec-average-deviation`
+
+**Cereal potassium data not published.** The source shows two dotplots
+of potassium content for 76 cereals and reports, for children's cereals,
+range 90 (20 to 110), Q1 35, Q3 65, IQR 30, ADM 22; and for adult
+cereals, range 315 (15 to 330), Q1 80, Q3 160, IQR 80, ADM 55. It
+publishes no observations and does not state the group sizes.
+Reconstructed 30 children's and 46 adult values summing to 76. Those
+group sizes were chosen so both hinge positions land on single
+observations under `fivenum()`. The reconstruction reproduces both
+ranges, all four quartiles, and both IQRs exactly; the average
+deviations come out at 22.16 and 55.17, which round to the published 22
+and 55. Asserted in `tools/figures.R` with a tolerance of 0.5 on the
+ADMs and exact equality everywhere else.
+
+These are *not* the cereals used in `sec-dotplots` or
+`sec-shape-center-spread`, which describe samples of 21 and 36. The
+caption on `fig-potassium-children` says so explicitly.
+
+**Contrast data sets not published.** The source gives only range 100
+with ADM 41 for set a, and range 200 with ADM 23 for set b.
+Reconstructed as A = 0, 0, 0, 0, 45, 55, 100, 100, 100, 100 (mean 50,
+range 100, ADM exactly 41) and B = 0, 92, 95, 98, 100, 100, 102, 105,
+108, 200 (mean 100, range 200, ADM exactly 23). Both ADMs are asserted
+with exact equality.
+
+**Teaching sample.** The seven values 2, 2, 4, 5, 6, 7, 9 are the
+source's own. Mean 5, absolute deviations totaling 14, ADM exactly 2.
+The band from 3 to 7 contains four of the seven values, with 7 on the
+right endpoint; the prose, the figure description, and an assertion in
+`tools/figures.R` all state four.
+
+Three dead "Learn By Doing" widgets and one dead interactive simulation
+replaced with native reading checks.
+
+*Added, not in source:* that the ADM carries the same units as the data;
+that it is never negative and equals zero exactly when every value is
+identical; the pairing rule that the IQR belongs with the median while
+the ADM belongs with the mean, which the source demonstrates but never
+states; and the same-mean-different-ADM short response.
+<!-- section:sec-average-deviation:end -->
 
 ## Datasets
 
